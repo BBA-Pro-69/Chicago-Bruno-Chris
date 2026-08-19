@@ -213,6 +213,17 @@ tailwind.config = {
   border-left:3px solid;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease;
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .ag-chip:hover{transform:translateY(-1px);box-shadow:0 6px 16px -8px rgba(0,43,73,.4)}
+.ag-spg{position:sticky;left:0;z-index:6;background:#fff;border-right:1px solid #e2e8f0;
+  border-bottom:1px solid #e2e8f0;font:800 .52rem/1 'Inter',sans-serif;color:#94a3b8;
+  text-transform:uppercase;letter-spacing:.1em;display:flex;align-items:center;justify-content:center;text-align:center;padding:.3rem}
+.ag-spans{position:relative;border-bottom:1px solid #e2e8f0;border-left:1px solid #eef2f6;background:#fcfdfe}
+.ag-span{position:absolute;height:1.35rem;border:0;border-radius:999px;padding:0 .6rem;cursor:pointer;
+  display:flex;align-items:center;gap:.4rem;white-space:nowrap;overflow:hidden;
+  font:700 .6rem/1 'Inter',sans-serif;box-shadow:0 1px 2px rgba(0,43,73,.18);
+  transition:transform .18s ease,box-shadow .18s ease,opacity .25s ease,filter .25s ease}
+.ag-span:hover{transform:translateY(-1px);box-shadow:0 8px 18px -8px rgba(0,43,73,.55);z-index:3}
+.ag-span:focus-visible{outline:2px solid #002B49;outline-offset:2px}
+.ag-span.dim{opacity:.13;filter:grayscale(1);pointer-events:none}
 .ag-gutter{position:sticky;left:0;z-index:5;background:#fff;border-right:1px solid #e2e8f0}
 .ag-hourlab{position:absolute;right:.4rem;transform:translateY(-.42rem);
   font:600 .6rem/1 'Inter',sans-serif;color:#b6c2d1;letter-spacing:.03em}
@@ -258,7 +269,7 @@ tailwind.config = {
 .ag-row.dim{display:none}
 .ag-rowbar{border-radius:3px;align-self:stretch;min-height:1.1rem}
 @media (prefers-reduced-motion:reduce){
-  .ag-ev,.ag-chip,.ag-row,.ag-filter,.ag-seg button,.ag-detail{transition:none;animation:none}
+  .ag-ev,.ag-chip,.ag-row,.ag-span,.ag-filter,.ag-seg button,.ag-detail{transition:none;animation:none}
 }
 </style>
 </head>
@@ -605,7 +616,7 @@ tailwind.config = {
         <div>
           <h5 class="font-bold text-chicago-blue mb-3 text-sm uppercase tracking-wider">Dans le sac cabine</h5>
           <ul class="text-sm text-slate-300 space-y-2">
-            <li><i class="fa-solid fa-passport w-5"></i> Passeports, ESTA imprimé, adresse complète du Sonesta (demandée à l'immigration).</li>
+            <li><i class="fa-solid fa-passport w-5"></i> Passeports et <strong class="text-emerald-700">ESTA obtenus ✓</strong>. Adresse à déclarer à l&rsquo;immigration&nbsp;: <strong>201 East Walton Place, Chicago IL 60611</strong>.</li>
             <li><i class="fa-solid fa-pills w-5"></i> Médicaments, lunettes, chargeurs, batterie externe : les batteries au lithium sont <strong>interdites en soute</strong>.</li>
             <li><i class="fa-solid fa-shirt w-5"></i> Un change et une trousse minimale : avec deux escales, une valise peut arriver un jour plus tard.</li>
             <li><i class="fa-solid fa-plug w-5"></i> Adaptateur de prise américain, et une gourde vide à remplir après les contrôles.</li>
@@ -657,35 +668,103 @@ tailwind.config = {
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
       <h2 class="text-sm font-bold text-chicago-red uppercase tracking-widest mb-3">Hébergements réservés</h2>
-      <h3 class="text-4xl font-serif font-bold text-chicago-dark">Nos deux camps de base</h3>
+      <h3 class="text-4xl font-serif font-bold text-chicago-dark">Nos trois camps de base</h3>
     </div>
-    <div class="grid md:grid-cols-2 gap-10">
-      <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 card-hover">
-        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/597391146.jpg?k=9e38474b6db8dd3e16e7ff6bab914efe054c59d1de15bbf16176b9b5c44227cb&o=" class="w-full h-64 object-cover" alt="Sonesta ES Suites Chicago Downtown">
-        <div class="p-7">
-          <span class="text-xs font-bold uppercase tracking-widest text-chicago-blue">5 → 8 septembre · 3 nuits</span>
-          <h4 class="text-2xl font-serif font-bold text-chicago-dark mt-2 mb-3">Sonesta ES Suites — Downtown / Magnificent Mile</h4>
-          <p class="text-slate-600 mb-6">En plein cœur de la ville, à deux pas de la Michigan Avenue et du Riverwalk. Le point de chute idéal pour les journées « découverte » du samedi au lundi.</p>
-          <a href="https://www.booking.com/hotel/us/sonesta-es-suites-chicago-downtown-magnificient-mile.fr.html" target="_blank" rel="noopener"
-             class="inline-flex items-center px-5 py-3 bg-chicago-dark text-white rounded-lg font-medium hover:bg-chicago-blue transition">
-            <i class="fa-solid fa-bed mr-2"></i> Voir la fiche Booking
-          </a>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- SONESTA -->
+      <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 card-hover flex flex-col">
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/597391146.jpg?k=9e38474b6db8dd3e16e7ff6bab914efe054c59d1de15bbf16176b9b5c44227cb&amp;o=" class="w-full h-52 object-cover" alt="Sonesta ES Suites Chicago Downtown">
+        <div class="p-6 flex flex-col flex-1">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xs font-bold uppercase tracking-widest text-chicago-blue">5 &rarr; 8 sept.</span>
+            <span class="text-[.62rem] font-bold uppercase tracking-wider bg-slate-100 text-slate-500 px-2 py-0.5 rounded">3 nuits</span>
+          </div>
+          <h4 class="text-xl font-serif font-bold text-chicago-dark mb-2 leading-snug">Sonesta ES Suites<br>Magnificent Mile</h4>
+          <p class="text-sm text-slate-600 mb-4 flex-1">En plein c&oelig;ur de la ville, &agrave; deux pas de Michigan Avenue et du Riverwalk. Le camp de base des trois journ&eacute;es &laquo;&nbsp;d&eacute;couverte&nbsp;&raquo;, du samedi au lundi.</p>
+          <ul class="text-xs text-slate-500 space-y-1.5 mb-5 border-t border-slate-100 pt-4">
+            <li><i class="fa-solid fa-location-dot w-4 text-chicago-blue"></i> 201 East Walton Place, Streeterville, Chicago IL 60611</li>
+            <li><i class="fa-solid fa-phone w-4 text-chicago-blue"></i> +1 312 943 9800</li>
+          </ul>
+          <div class="flex flex-wrap gap-2">
+            <a href="https://www.booking.com/hotel/us/sonesta-es-suites-chicago-downtown-magnificient-mile.fr.html" target="_blank" rel="noopener" class="inline-flex items-center px-4 py-2.5 rounded-lg text-xs font-semibold transition bg-chicago-dark text-white hover:bg-chicago-blue"><i class="fa-solid fa-bed mr-2"></i>Booking</a>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=201+East+Walton+Place+Chicago+IL+60611" target="_blank" rel="noopener" class="inline-flex items-center px-4 py-2.5 rounded-lg text-xs font-semibold transition border-2 border-slate-300 text-chicago-dark hover:border-chicago-dark"><i class="fa-solid fa-map-location-dot mr-2"></i>Plan</a>
+          </div>
         </div>
       </div>
-      <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 card-hover">
-        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/548382640.jpg?k=c38cfaa48afc3e6c8149e912c968bbab607b505fe9be3efd544f0e1e7c80f795&o=" class="w-full h-64 object-cover" alt="Hyatt Regency O'Hare">
-        <div class="p-7">
-          <span class="text-xs font-bold uppercase tracking-widest text-chicago-blue">8 → 13 septembre · 5 nuits</span>
-          <h4 class="text-2xl font-serif font-bold text-chicago-dark mt-2 mb-3">Hyatt Regency O'Hare (Rosemont)</h4>
-          <p class="text-slate-600 mb-6">Collé à l'aéroport, au salon professionnel… et surtout à <strong>5 minutes à pied du Fashion Outlets of Chicago</strong>. Zéro transport nécessaire pour le shopping.</p>
-          <a href="https://www.booking.com/hotel/us/hyatt-regency-o-hare.fr.html" target="_blank" rel="noopener"
-             class="inline-flex items-center px-5 py-3 bg-chicago-dark text-white rounded-lg font-medium hover:bg-chicago-blue transition">
-            <i class="fa-solid fa-bed mr-2"></i> Voir la fiche Booking
-          </a>
+
+      <!-- LOEWS -->
+      <div class="bg-white rounded-3xl overflow-hidden shadow-sm border-2 border-indigo-200 card-hover flex flex-col">
+        <div class="h-52 relative flex flex-col items-center justify-center text-center px-6"
+             style="background:linear-gradient(135deg,#312e81 0%,#4338ca 55%,#0e7490 100%)">
+          <span class="absolute top-4 right-4 text-[.6rem] font-bold uppercase tracking-widest bg-white/95 text-indigo-800 px-2.5 py-1 rounded-full"><i class="fa-solid fa-briefcase mr-1"></i>H&ocirc;tel du salon</span>
+          <i class="fa-solid fa-hotel text-white/90 text-4xl mb-3"></i>
+          <p class="text-white font-serif text-2xl font-bold leading-tight">Loews Chicago O&rsquo;Hare</p>
+          <p class="text-white/70 text-xs mt-2 uppercase tracking-widest">Esker All Access 2026</p>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xs font-bold uppercase tracking-widest text-indigo-700">8 &rarr; 11 sept.</span>
+            <span class="text-[.62rem] font-bold uppercase tracking-wider bg-slate-100 text-slate-500 px-2 py-0.5 rounded">3 nuits</span>
+          </div>
+          <h4 class="text-xl font-serif font-bold text-chicago-dark mb-2 leading-snug">LOEWS<br>Chicago O&rsquo;Hare</h4>
+          <p class="text-sm text-slate-600 mb-4 flex-1">Le salon se tient dans cet h&ocirc;tel m&ecirc;me. Trois nuits sur place, aucun trajet le matin, et la possibilit&eacute; de remonter en chambre entre deux sessions. Le confort d&eacute;cisif d&rsquo;un salon de trois jours.</p>
+          <ul class="text-xs text-slate-500 space-y-1.5 mb-5 border-t border-slate-100 pt-4">
+            <li><i class="fa-solid fa-location-dot w-4 text-indigo-600"></i> 5300 N River Road, Rosemont IL 60018</li>
+            <li><i class="fa-solid fa-calendar-check w-4 text-indigo-600"></i> Salon du 8 au 10, chambre jusqu&rsquo;au 11</li>
+          </ul>
+          <div class="flex flex-wrap gap-2">
+            <a href="https://www.loewshotels.com/chicago-ohare-hotel" target="_blank" rel="noopener" class="inline-flex items-center px-4 py-2.5 rounded-lg text-xs font-semibold transition bg-chicago-dark text-white hover:bg-chicago-blue"><i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>Site</a>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Loews+Chicago+O%27Hare+Hotel+5300+N+River+Rd+Rosemont+IL+60018" target="_blank" rel="noopener" class="inline-flex items-center px-4 py-2.5 rounded-lg text-xs font-semibold transition border-2 border-slate-300 text-chicago-dark hover:border-chicago-dark"><i class="fa-solid fa-map-location-dot mr-2"></i>Plan</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- HYATT -->
+      <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 card-hover flex flex-col">
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/548382640.jpg?k=c38cfaa48afc3e6c8149e912c968bbab607b505fe9be3efd544f0e1e7c80f795&amp;o=" class="w-full h-52 object-cover" alt="Hyatt Regency O'Hare">
+        <div class="p-6 flex flex-col flex-1">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xs font-bold uppercase tracking-widest text-chicago-blue">11 &rarr; 13 sept.</span>
+            <span class="text-[.62rem] font-bold uppercase tracking-wider bg-slate-100 text-slate-500 px-2 py-0.5 rounded">2 nuits</span>
+          </div>
+          <h4 class="text-xl font-serif font-bold text-chicago-dark mb-2 leading-snug">Hyatt Regency<br>O&rsquo;Hare (Rosemont)</h4>
+          <p class="text-sm text-slate-600 mb-4 flex-1">Le week-end shopping et le d&eacute;part. &Agrave; <strong>5 minutes &agrave; pied du Fashion Outlets</strong> et &agrave; 5 minutes de l&rsquo;a&eacute;roport avec navette gratuite&nbsp;: id&eacute;al pour un vol du dimanche apr&egrave;s-midi.</p>
+          <ul class="text-xs text-slate-500 space-y-1.5 mb-5 border-t border-slate-100 pt-4">
+            <li><i class="fa-solid fa-location-dot w-4 text-chicago-blue"></i> 9300 Bryn Mawr Avenue, Rosemont IL 60018</li>
+            <li><i class="fa-solid fa-phone w-4 text-chicago-blue"></i> +1 847 696 1234</li>
+          </ul>
+          <div class="flex flex-wrap gap-2">
+            <a href="https://www.booking.com/hotel/us/hyatt-regency-o-hare.fr.html" target="_blank" rel="noopener" class="inline-flex items-center px-4 py-2.5 rounded-lg text-xs font-semibold transition bg-chicago-dark text-white hover:bg-chicago-blue"><i class="fa-solid fa-bed mr-2"></i>Booking</a>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=9300+Bryn+Mawr+Avenue+Rosemont+IL+60018" target="_blank" rel="noopener" class="inline-flex items-center px-4 py-2.5 rounded-lg text-xs font-semibold transition border-2 border-slate-300 text-chicago-dark hover:border-chicago-dark"><i class="fa-solid fa-map-location-dot mr-2"></i>Plan</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+
+    <!-- ENCHAINEMENT DES NUITS -->
+    <div class="mt-10 bg-white rounded-2xl border border-slate-200 p-6">
+      <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4"><i class="fa-solid fa-route mr-2"></i>L&rsquo;encha&icirc;nement des huit nuits</p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <div class="flex-1 rounded-xl p-4 bg-chicago-sand border-l-4 border-chicago-blue">
+          <p class="text-[.65rem] font-bold uppercase tracking-wider text-slate-500">Sam 5 &rarr; mar 8</p>
+          <p class="font-semibold text-sm text-chicago-dark mt-1">Downtown &middot; Sonesta</p>
+          <p class="text-xs text-slate-500 mt-1">Le Chicago touristique, tout &agrave; pied.</p>
+        </div>
+        <div class="flex-1 rounded-xl p-4 bg-indigo-50 border-l-4 border-indigo-500">
+          <p class="text-[.65rem] font-bold uppercase tracking-wider text-indigo-600">Mar 8 &rarr; ven 11</p>
+          <p class="font-semibold text-sm text-chicago-dark mt-1">Rosemont &middot; Loews</p>
+          <p class="text-xs text-slate-500 mt-1">Sur le lieu m&ecirc;me du salon, du 8 au 10.</p>
+        </div>
+        <div class="flex-1 rounded-xl p-4 bg-chicago-sand border-l-4 border-chicago-red">
+          <p class="text-[.65rem] font-bold uppercase tracking-wider text-slate-500">Ven 11 &rarr; dim 13</p>
+          <p class="font-semibold text-sm text-chicago-dark mt-1">Rosemont &middot; Hyatt</p>
+          <p class="text-xs text-slate-500 mt-1">Outlets, puis d&eacute;part de O&rsquo;Hare.</p>
+        </div>
+      </div>
+      <p class="text-xs text-slate-500 mt-4"><i class="fa-solid fa-circle-info mr-1.5 text-chicago-blue"></i>Deux changements d&rsquo;h&ocirc;tel&nbsp;: <strong>mardi 8 au matin</strong> (Downtown &rarr; Rosemont) et <strong>vendredi 11 au matin</strong> (Loews &rarr; Hyatt, quelques minutes de trajet).</p>
+    </div>
+  
 </section>
 
 <div class="sep h-12 md:h-16" style="background:#F5F1EA"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,0 L720,78 L1440,0 L1440,100 L0,100 Z" fill="#f8fafc"></path></svg></div>
@@ -754,10 +833,6 @@ tailwind.config = {
       <!-- DIM 6 -->
       <div class="flex flex-col lg:flex-row-reverse items-center gap-14">
         <div class="w-full lg:w-1/2 space-y-5">
-          <div class="ratio yt cursor-pointer group" data-yt="Kb5EwlTYcAs" data-title="Chicago Greeter : visites gratuites par des habitants">
-            <img src="https://img.youtube.com/vi/Kb5EwlTYcAs/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/Kb5EwlTYcAs/hqdefault.jpg'" class="object-cover" alt="Chicago Greeter">
-            <div class="flex items-center justify-center bg-black/40 group-hover:bg-black/25 transition"><i class="fa-brands fa-youtube text-6xl text-white/90 yt-play"></i></div>
-          </div>
           <div class="ratio yt cursor-pointer group" data-yt="hLQvkiCdBmE" data-title="Croisière architecture à bord du First Lady">
             <img src="https://img.youtube.com/vi/hLQvkiCdBmE/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/hLQvkiCdBmE/hqdefault.jpg'" class="object-cover" alt="Croisière architecture First Lady">
             <div class="flex items-center justify-center bg-black/40 group-hover:bg-black/25 transition"><i class="fa-brands fa-youtube text-6xl text-white/90 yt-play"></i></div>
@@ -765,8 +840,8 @@ tailwind.config = {
         </div>
         <div class="w-full lg:w-1/2">
           <span class="text-chicago-blue font-bold tracking-widest uppercase text-sm">Dimanche 6 septembre</span>
-          <h3 class="text-3xl font-serif font-bold text-chicago-dark mt-2 mb-6">Un local qui raconte, puis la rivière</h3>
-          <p class="text-lg text-slate-600 mb-5"><strong>Matin — Chicago Greeter.</strong> Un habitant bénévole, passionné de sa ville, nous emmène 2 à 4 heures dans les rues, prend le « L » avec nous et raconte le Chicago du quotidien. <strong>C'est gratuit</strong>, sur mesure, et il faut s'inscrire <strong>au moins 3 à 4 semaines avant</strong> (on peut demander un guide francophone, sans garantie).</p>
+          <h3 class="text-3xl font-serif font-bold text-chicago-dark mt-2 mb-6">La ville depuis la rivière</h3>
+          <p class="text-lg text-slate-600 mb-5"><strong>Matinée libre.</strong> Aucun rendez-vous&nbsp;: on descend le <strong>Riverwalk</strong> à pied depuis le Michigan Avenue Bridge, là même où embarque la croisière de l&rsquo;après-midi. Bonne façon de repérer le quai sans stress et de laisser le décalage horaire s&rsquo;estomper.</p>
           <p class="text-lg text-slate-600 mb-5"><strong>Fin d'après-midi — Croisière architecture <span class="text-emerald-700 font-semibold">(réservée)</span>.</strong> L'incontournable absolu : 90 minutes sur les trois bras de la rivière, commentées par un guide formé par le <em>Chicago Architecture Center</em>, à bord du <em>First Lady</em>.</p>
 
           <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-5">
@@ -783,7 +858,6 @@ tailwind.config = {
             <p class="text-sm text-slate-700"><strong>Arriver 20 à 30 minutes avant</strong> : les places ne sont pas attribuées et sur cette croisière, la place compte plus que tout. Viser le pont supérieur, côté extérieur. Le 6 septembre, le soleil se couche vers <strong>19h15</strong> : la seconde moitié de la balade se fera en lumière dorée, avec les façades de verre du Loop qui s'embrasent. Emporter l'appareil photo et une petite laine.</p>
           </div>
           <div class="flex flex-wrap gap-3">
-            <a href="https://chicagogreeter.com/" target="_blank" rel="noopener" class="px-6 py-3 bg-chicago-dark text-white rounded-lg font-medium hover:bg-chicago-blue transition"><i class="fa-solid fa-user-group mr-2"></i> S'inscrire — Chicago Greeter</a>
             <a href="https://www.architecture.org/city-tours/river-cruise" target="_blank" rel="noopener" class="px-6 py-3 border-2 border-slate-300 text-chicago-dark rounded-lg font-medium hover:border-chicago-dark transition"><i class="fa-solid fa-ticket mr-2"></i> Réserver la croisière (Christophe)</a>
             <a href="https://www.google.com/maps/search/?api=1&query=Chicago+Architecture+Center+River+Cruise+dock+Michigan+Avenue+Bridge" target="_blank" rel="noopener" class="px-6 py-3 border-2 border-slate-300 text-chicago-dark rounded-lg font-medium hover:border-chicago-dark transition"><i class="fa-solid fa-diamond-turn-right mr-2"></i> Le quai sur la carte</a>
           </div>
@@ -793,6 +867,10 @@ tailwind.config = {
       <!-- LUN 7 -->
       <div class="flex flex-col lg:flex-row items-center gap-14">
         <div class="w-full lg:w-1/2">
+          <div class="ratio yt cursor-pointer group mb-5" data-yt="Kb5EwlTYcAs" data-title="Chicago Greeter : visites gratuites par des habitants">
+            <img src="https://img.youtube.com/vi/Kb5EwlTYcAs/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/Kb5EwlTYcAs/hqdefault.jpg'" class="object-cover" alt="Chicago Greeter">
+            <div class="flex items-center justify-center bg-black/40 group-hover:bg-black/25 transition"><i class="fa-brands fa-youtube text-6xl text-white/90 yt-play"></i></div>
+          </div>
           <div class="ratio yt cursor-pointer group" data-yt="5UhB3H-tvik" data-title="LondonHouse Rooftop, la vue en 4K">
             <img src="https://img.youtube.com/vi/5UhB3H-tvik/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/5UhB3H-tvik/hqdefault.jpg'" class="object-cover" alt="LondonHouse rooftop">
             <div class="flex items-center justify-center bg-black/40 group-hover:bg-black/25 transition"><i class="fa-brands fa-youtube text-7xl text-white/90 yt-play"></i></div>
@@ -810,8 +888,20 @@ tailwind.config = {
         </div>
         <div class="w-full lg:w-1/2">
           <span class="text-chicago-blue font-bold tracking-widest uppercase text-sm">Lundi 7 septembre</span>
-          <h3 class="text-3xl font-serif font-bold text-chicago-dark mt-2 mb-6">Balades, hauteur gratuite &amp; gangsters</h3>
-          <p class="text-lg text-slate-600 mb-5"><strong>Journée :</strong> Millennium Park et le « Bean », le Loop et ses halls Art déco, les vélos Divvy le long du lakefront, et un vrai détour par un quartier vivant (Wicker Park, Fulton Market ou Pilsen) pour sortir du décor à touristes.</p>
+          <h3 class="text-3xl font-serif font-bold text-chicago-dark mt-2 mb-6">Le Greeter, la hauteur gratuite &amp; les gangsters</h3>
+          <p class="text-lg text-slate-600 mb-5"><strong>10h00 &ndash; 12h00 &mdash; Chicago Greeter <span class="text-emerald-700 font-semibold">(confirm&eacute;)</span>.</strong> Un habitant b&eacute;n&eacute;vole nous emm&egrave;ne deux heures dans les rues, prend le &laquo;&nbsp;L&nbsp;&raquo; avec nous et raconte le Chicago du quotidien. C&rsquo;est gratuit, et c&rsquo;est exactement le format recherch&eacute;&nbsp;: quelqu&rsquo;un qui raconte, pas une vitrine de mus&eacute;e.</p>
+
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-5">
+            <h4 class="font-bold text-chicago-dark mb-3 text-sm uppercase tracking-wider"><i class="fa-solid fa-user-group mr-2 text-chicago-red"></i>Rendez-vous confirm&eacute; &mdash; Chicago Greeter</h4>
+            <ul class="text-sm text-slate-700 space-y-1.5">
+              <li><strong>Horaire :</strong> lundi 7 septembre, 10h00 &rarr; 12h00</li>
+              <li><strong>Lieu :</strong> Chicago Cultural Center, <strong>77 E. Randolph St.</strong> &mdash; entr&eacute;e Randolph Street, au bureau d&rsquo;accueil</li>
+              <li><strong>Notre greeter :</strong> Jeff DeToro</li>
+              <li><strong>Tarif :</strong> gratuit &mdash; le pourboire n&rsquo;est ni attendu ni accept&eacute;</li>
+            </ul>
+            <p class="text-xs text-slate-500 mt-3"><i class="fa-solid fa-shoe-prints mr-1.5 text-chicago-blue"></i>Chaussures confortables, une bouteille d&rsquo;eau, et de quoi noter les adresses qu&rsquo;il donnera. Le Cultural Center est &agrave; une vingtaine de minutes &agrave; pied du Sonesta, ou deux arr&ecirc;ts de bus sur Michigan Avenue.</p>
+          </div>
+          <p class="text-lg text-slate-600 mb-5"><strong>Le reste de la journée :</strong> Millennium Park et le « Bean », le Loop et ses halls Art déco, les vélos Divvy le long du lakefront, et un vrai détour par un quartier vivant (Wicker Park, Fulton Market ou Pilsen) pour sortir du décor à touristes.</p>
           <p class="text-lg text-slate-600 mb-5"><strong>Fin d'après-midi — la hauteur, version maligne :</strong> plutôt que payer le Skydeck ou le 360, on monte au <strong>LH Rooftop du LondonHouse</strong> (vue plein axe sur la rivière et le Wrigley Building) ou chez <strong>Cindy's</strong> au Chicago Athletic Association, face à Millennium Park. Le prix d'un cocktail remplace le prix du billet, et la vue est meilleure.</p>
 
           <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-5">
@@ -821,6 +911,7 @@ tailwind.config = {
           </div>
           <p class="text-lg text-slate-600 mb-7"><strong>Option soirée :</strong> un <em>Mob Tour</em> sur les traces d'Al Capone et de la Prohibition — théâtral, drôle, en anglais.</p>
           <div class="flex flex-wrap gap-3">
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Chicago+Cultural+Center+77+E+Randolph+St+Chicago" target="_blank" rel="noopener" class="px-6 py-3 border-2 border-slate-300 text-chicago-dark rounded-lg font-medium hover:border-chicago-dark transition"><i class="fa-solid fa-map-location-dot mr-2"></i> Rendez-vous du Greeter</a>
             <a href="https://londonhousechicago.com/rooftop/" target="_blank" rel="noopener" class="px-6 py-3 bg-chicago-dark text-white rounded-lg font-medium hover:bg-chicago-blue transition"><i class="fa-solid fa-martini-glass-citrus mr-2"></i> LH Rooftop</a>
             <a href="https://www.exploretock.com/lhrooftop" target="_blank" rel="noopener" class="px-6 py-3 border-2 border-slate-300 text-chicago-dark rounded-lg font-medium hover:border-chicago-dark transition"><i class="fa-regular fa-calendar-check mr-2"></i> Réserver LH</a>
             <a href="https://www.cindysrooftop.com/" target="_blank" rel="noopener" class="px-6 py-3 border-2 border-slate-300 text-chicago-dark rounded-lg font-medium hover:border-chicago-dark transition"><i class="fa-solid fa-city mr-2"></i> Cindy's Rooftop</a>
@@ -845,7 +936,8 @@ tailwind.config = {
       <h3 class="text-4xl md:text-5xl font-serif font-bold text-chicago-dark">L&rsquo;agenda, d&rsquo;un seul coup d&rsquo;&oelig;il</h3>
     </div>
     <p class="text-center text-slate-500 max-w-2xl mx-auto mb-10 text-sm leading-relaxed">
-      Onze jours, 85 rendez-vous. Les journ&eacute;es en colonnes, les heures en lignes.
+      Onze jours, 87 rendez-vous, trois h&ocirc;tels. Les journ&eacute;es en colonnes, les heures en lignes,
+      et en haut les s&eacute;jours qui courent sur plusieurs jours.
       Cliquez sur n&rsquo;importe quel bloc pour en voir le d&eacute;tail, l&rsquo;adresse et les points d&rsquo;attention.
     </p>
 
@@ -872,6 +964,7 @@ tailwind.config = {
       <div class="ag-scroll" id="agScroll"></div>
       <p class="text-[.7rem] text-slate-400 mt-2.5 flex flex-wrap gap-x-4 gap-y-1">
         <span><i class="fa-solid fa-arrows-left-right mr-1.5"></i>Faites d&eacute;filer horizontalement pour parcourir les onze jours</span>
+        <span><i class="fa-solid fa-bed mr-1.5"></i>La bande &laquo;&nbsp;S&eacute;jours&nbsp;&raquo; en haut indique l&rsquo;h&ocirc;tel de chaque nuit</span>
         <span><i class="fa-solid fa-star mr-1.5"></i>Les temps forts sont &eacute;toil&eacute;s</span>
         <span><i class="fa-solid fa-globe mr-1.5"></i>Heures locales : Chicago du 5 au 13, Paris les 4 et 14</span>
       </p>
@@ -887,8 +980,8 @@ tailwind.config = {
       </div>
       <div class="bg-chicago-sand rounded-2xl p-5">
         <p class="text-xs uppercase tracking-wider text-slate-500 font-bold mb-1">&Agrave; r&eacute;server encore</p>
-        <p class="text-lg font-bold text-chicago-dark">Greeter &middot; gangsters &middot; Cindy&rsquo;s</p>
-        <p class="text-xs text-slate-500 mt-1">Le Greeter 7 &agrave; 10 jours avant, Cindy&rsquo;s pile 14 jours avant, soit vers le 24 ao&ucirc;t.</p>
+        <p class="text-lg font-bold text-chicago-dark">Gangster tour &middot; Cindy&rsquo;s</p>
+        <p class="text-xs text-slate-500 mt-1">Le Greeter et les ESTA sont faits. Cindy&rsquo;s ne se r&eacute;serve que 14 jours avant&nbsp;: c&rsquo;est maintenant.</p>
       </div>
       <div class="bg-chicago-sand rounded-2xl p-5">
         <p class="text-xs uppercase tracking-wider text-slate-500 font-bold mb-1">Le point de tension</p>
@@ -908,7 +1001,7 @@ tailwind.config = {
     <div class="flex items-center justify-center gap-4 mb-8 text-chicago-blue text-2xl">
       <i class="fa-solid fa-suitcase-rolling"></i><i class="fa-solid fa-arrow-right-long text-lg"></i><i class="fa-solid fa-hotel"></i><i class="fa-solid fa-arrow-right-long text-lg"></i><i class="fa-solid fa-briefcase"></i>
     </div>
-    <p class="text-lg text-slate-300 leading-relaxed mb-4">Mardi matin, on quitte le centre-ville pour le <strong class="text-white">Hyatt Regency O'Hare</strong>. Bruno enchaîne ensuite sur <strong class="text-white">Esker All Access 2026</strong>, du mardi 14h00 au jeudi 16h15, au Loews voisin.</p>
+    <p class="text-lg text-slate-300 leading-relaxed mb-4">Mardi matin, on quitte le centre-ville pour le <strong class="text-white">Loews Chicago O’Hare</strong>, l’hôtel où se tient le salon. Bruno enchaîne ensuite sur <strong class="text-white">Esker All Access 2026</strong>, du mardi 14h00 au jeudi 16h15, au Loews voisin.</p>
     <p class="text-lg text-slate-300 leading-relaxed mb-8">Christophe et son épouse reprennent l'avion le <strong class="text-white">jeudi 10 au soir</strong> : mercredi soir est donc le dernier créneau possible pour un dîner tous ensemble — sachant que la soirée Esker <em>Amped Up After Hours</em> court jusqu'à 23h00.</p>
     <a href="#esker" class="inline-flex items-center px-6 py-3 bg-white text-chicago-dark rounded-lg font-semibold hover:bg-chicago-blue hover:text-white transition"><i class="fa-regular fa-calendar-days mr-2"></i>Voir l'agenda complet du salon</a>
   </div>
@@ -933,7 +1026,7 @@ tailwind.config = {
         <p class="text-xs uppercase tracking-wider text-slate-500 font-bold mb-1">Lieu</p>
         <p class="font-bold text-chicago-dark leading-tight">Loews Chicago O'Hare</p>
         <p class="text-xs text-slate-500 mt-1">5300 N River Rd, Rosemont IL 60018</p>
-        <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Hyatt+Regency+O%27Hare+Chicago&amp;destination=Loews+Chicago+O%27Hare+Hotel%2C+5300+N+River+Rd%2C+Rosemont%2C+IL+60018&amp;travelmode=walking" target="_blank" rel="noopener" class="text-xs font-semibold text-chicago-blue hover:underline mt-2 inline-block">Depuis le Hyatt <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Loews+Chicago+O%27Hare+Hotel+5300+N+River+Rd+Rosemont+IL+60018" target="_blank" rel="noopener" class="text-chicago-blue text-xs font-semibold mt-2 inline-block hover:underline">Voir le plan <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a>
       </div>
       <div class="bg-chicago-sand rounded-2xl p-5">
         <p class="text-xs uppercase tracking-wider text-slate-500 font-bold mb-1">Badge</p>
@@ -958,8 +1051,8 @@ tailwind.config = {
 
     <div class="mt-12 grid gap-6" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
       <div class="border-l-4 border-chicago-red bg-chicago-sand p-5 rounded-r-xl">
-        <h4 class="font-bold text-chicago-dark mb-2"><i class="fa-solid fa-triangle-exclamation mr-2 text-chicago-red"></i>Attention au lieu</h4>
-        <p class="text-sm text-slate-700">Le salon se tient au <strong>Loews</strong>, alors que la chambre est au <strong>Hyatt Regency O'Hare</strong>. Les deux sont à Rosemont, à une dizaine de minutes à pied, mais ce ne sont pas les mêmes bâtiments. À vérifier le mardi avant la première session de 14h00.</p>
+        <h4 class="font-bold text-chicago-dark mb-2"><i class="fa-solid fa-circle-check mr-2 text-emerald-600"></i>Le salon est dans l&rsquo;h&ocirc;tel</h4>
+        <p class="text-sm text-slate-700">Du <strong>8 au 11 septembre</strong>, la chambre est au <strong>Loews Chicago O&rsquo;Hare</strong>, l&agrave; m&ecirc;me o&ugrave; se tient Esker All Access. Aucun trajet le matin, aucune marge &agrave; pr&eacute;voir, et la possibilit&eacute; de remonter souffler entre deux sessions. Le d&eacute;m&eacute;nagement vers le <strong>Hyatt Regency O&rsquo;Hare</strong> n&rsquo;intervient que le <strong>vendredi 11</strong>, une fois le salon termin&eacute;.</p>
       </div>
       <div class="border-l-4 border-chicago-blue bg-slate-50 p-5 rounded-r-xl">
         <h4 class="font-bold text-chicago-dark mb-2"><i class="fa-solid fa-clock mr-2 text-chicago-blue"></i>Ce que ça implique pour Névine</h4>
@@ -1152,8 +1245,8 @@ tailwind.config = {
     <div class="grid md:grid-cols-3 gap-7">
       <div class="bg-white p-7 rounded-2xl border border-slate-200 card-hover">
         <i class="fa-solid fa-passport text-chicago-blue text-2xl mb-4"></i>
-        <h4 class="font-bold text-chicago-dark mb-2">ESTA &amp; nom sur le billet</h4>
-        <p class="text-slate-600 text-sm">L'ESTA est obligatoire (à faire au moins 72 h avant). Le nom sur le billet et sur l'ESTA doit correspondre <strong>exactement</strong> à la bande optique du passeport, en bas de page — donc le nom de naissance, sans mention « épouse ».</p>
+        <h4 class="font-bold text-chicago-dark mb-2"><i class="fa-solid fa-circle-check mr-2 text-emerald-600"></i>ESTA &amp; nom sur le billet</h4>
+        <p class="text-slate-600 text-sm"><strong class="text-emerald-700">ESTA obtenus pour les deux voyageurs ✓</strong> Le nom sur le billet et sur l'ESTA doit correspondre <strong>exactement</strong> à la bande optique du passeport, en bas de page — donc le nom de naissance, sans mention « épouse ».</p>
         <a href="https://esta.cbp.dhs.gov/" target="_blank" rel="noopener" class="text-chicago-blue text-sm font-semibold mt-3 inline-block hover:underline">Site officiel ESTA <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-xs"></i></a>
       </div>
       <div class="bg-white p-7 rounded-2xl border border-slate-200 card-hover">
@@ -1181,12 +1274,12 @@ tailwind.config = {
         <i class="fa-solid fa-calendar-check text-chicago-blue text-2xl mb-4"></i>
         <h4 class="font-bold text-chicago-dark mb-2">État des réservations</h4>
         <ul class="text-slate-600 text-sm space-y-1.5">
-          <li><i class="fa-solid fa-circle-check text-emerald-600 mr-2"></i>Vols Air France &amp; les deux hôtels</li>
+          <li><i class="fa-solid fa-circle-check text-emerald-600 mr-2"></i>Vols Air France &amp; les trois hôtels</li>
           <li><i class="fa-solid fa-circle-check text-emerald-600 mr-2"></i>Tall Ship Windy — feu d'artifice du 5</li>
           <li><i class="fa-solid fa-circle-check text-emerald-600 mr-2"></i>Croisière architecture du 6 à 17h30</li>
-          <li><i class="fa-regular fa-circle text-amber-500 mr-2"></i>Chicago Greeter — à demander 3 à 4 semaines avant</li>
+          <li><i class="fa-solid fa-circle-check text-emerald-600 mr-2"></i>Chicago Greeter — lundi 7 à 10h00, avec Jeff DeToro</li>
           <li><i class="fa-regular fa-circle text-amber-500 mr-2"></i>Table au rooftop au coucher du soleil</li>
-          <li><i class="fa-regular fa-circle text-amber-500 mr-2"></i>ESTA pour les quatre voyageurs</li>
+          <li><i class="fa-solid fa-circle-check text-emerald-600 mr-2"></i>ESTA obtenus pour Bruno &amp; Névine</li>
         </ul>
       </div>
     </div>
@@ -1424,9 +1517,27 @@ tailwind.config = {
 <script>
 /* ================= AGENDA GLOBAL : rendu dynamique ================= */
 (function(){
-  var DAYS = [{"k": "ven4", "dow": "Ven", "num": "04", "tag": "Christophe arrive", "tz": "Paris", "we": false, "esker": false}, {"k": "sam5", "dow": "Sam", "num": "05", "tag": "Arrivée + feu d’artifice", "tz": "Chicago", "we": true, "esker": false}, {"k": "dim6", "dow": "Dim", "num": "06", "tag": "Greeter + croisière", "tz": "Chicago", "we": true, "esker": false}, {"k": "lun7", "dow": "Lun", "num": "07", "tag": "Loop, gangsters, rooftop", "tz": "Chicago", "we": false, "esker": false}, {"k": "mar8", "dow": "Mar", "num": "08", "tag": "Changement d’hôtel + salon", "tz": "Chicago", "we": false, "esker": true}, {"k": "mer9", "dow": "Mer", "num": "09", "tag": "Grosse journée salon", "tz": "Chicago", "we": false, "esker": true}, {"k": "jeu10", "dow": "Jeu", "num": "10", "tag": "Fin du salon 16h15", "tz": "Chicago", "we": false, "esker": true}, {"k": "ven11", "dow": "Ven", "num": "11", "tag": "Outlets Rosemont", "tz": "Chicago", "we": false, "esker": false}, {"k": "sam12", "dow": "Sam", "num": "12", "tag": "Outlets Aurora", "tz": "Chicago", "we": true, "esker": false}, {"k": "dim13", "dow": "Dim", "num": "13", "tag": "Retour, décollage 17h10", "tz": "Chicago", "we": true, "esker": false}, {"k": "lun14", "dow": "Lun", "num": "14", "tag": "CDG puis Lyon", "tz": "Paris", "we": false, "esker": false}];
+  var DAYS = [{"k": "ven4", "dow": "Ven", "num": "04", "tag": "Christophe arrive", "tz": "Paris", "we": false, "esker": false}, {"k": "sam5", "dow": "Sam", "num": "05", "tag": "Arrivée + feu d’artifice", "tz": "Chicago", "we": true, "esker": false}, {"k": "dim6", "dow": "Dim", "num": "06", "tag": "Croisière architecture", "tz": "Chicago", "we": true, "esker": false}, {"k": "lun7", "dow": "Lun", "num": "07", "tag": "Greeter, gangsters, rooftop", "tz": "Chicago", "we": false, "esker": false}, {"k": "mar8", "dow": "Mar", "num": "08", "tag": "Loews : salon sur place", "tz": "Chicago", "we": false, "esker": true}, {"k": "mer9", "dow": "Mer", "num": "09", "tag": "Grosse journée salon", "tz": "Chicago", "we": false, "esker": true}, {"k": "jeu10", "dow": "Jeu", "num": "10", "tag": "Fin du salon 16h15", "tz": "Chicago", "we": false, "esker": true}, {"k": "ven11", "dow": "Ven", "num": "11", "tag": "Outlets + 3e hôtel", "tz": "Chicago", "we": false, "esker": false}, {"k": "sam12", "dow": "Sam", "num": "12", "tag": "Outlets Aurora", "tz": "Chicago", "we": true, "esker": false}, {"k": "dim13", "dow": "Dim", "num": "13", "tag": "Retour, décollage 17h10", "tz": "Chicago", "we": true, "esker": false}, {"k": "lun14", "dow": "Lun", "num": "14", "tag": "CDG puis Lyon", "tz": "Paris", "we": false, "esker": false}];
   var CATS = [{"k": "voyage", "label": "Transport & hôtels", "color": "#0e7490"}, {"k": "tourisme", "label": "Visites & découvertes", "color": "#C60C30"}, {"k": "esker", "label": "Salon Esker", "color": "#4338ca"}, {"k": "shopping", "label": "Shopping", "color": "#b45309"}, {"k": "repas", "label": "Repas & soirées", "color": "#15803d"}, {"k": "libre", "label": "Temps libre & logistique", "color": "#64748b"}];
-  var EV   = [{"d": "ven4", "allday": true, "t": "✈ Christophe & sa femme : Lyon → Chicago", "cat": "voyage", "note": "Horaires non encore communiqués. Une fiche détaillée sera ajoutée dès réception des billets.", "resa": "", "who": "Christophe"}, {"d": "ven4", "allday": true, "t": "Veille de départ : valises, ESTA, impression des billets", "cat": "libre", "note": "Vérifier que le nom sur le billet de Névine correspond exactement à la bande optique du passeport.", "resa": "", "who": ""}, {"d": "sam5", "allday": true, "t": "✈ Lyon 09:55 → Amsterdam → Chicago 14:15", "cat": "voyage", "note": "AF8320 (opéré KLM) LYS 09:55 → AMS 11:35, fin d’enregistrement 09:15. Escale 1 h 10. AF3159 (opéré KLM) AMS 12:45 → ORD 14:15, fin d’enregistrement 12:05. Environ 12 h 20 de trajet porte à porte. Les horaires ci-dessous reprennent à l’atterrissage, en heure de Chicago.", "resa": "ok", "who": ""}, {"d": "sam5", "s": "14:15", "e": "15:45", "t": "Atterrissage O’Hare, immigration & bagages", "cat": "voyage", "loc": "ORD Terminal 5", "note": "Compter 45 min à 1 h 30 au contrôle CBP selon l’affluence. Terminal 5, puis navette ATS si besoin.", "resa": "", "star": false, "who": ""}, {"d": "sam5", "s": "15:45", "e": "16:45", "t": "Transfert vers Downtown", "cat": "voyage", "loc": "Blue Line ou taxi", "note": "Blue Line jusqu’à Grand/State : ~45 min pour 5 $. Taxi ou VTC : 40 à 55 $ selon le trafic.", "resa": "", "star": false, "who": ""}, {"d": "sam5", "s": "16:45", "e": "17:30", "t": "Check-in Sonesta ES Suites", "cat": "voyage", "loc": "Magnificent Mile", "note": "", "resa": "ok", "star": false, "who": ""}, {"d": "sam5", "s": "17:30", "e": "19:00", "t": "Première respiration — Magnificent Mile & Riverwalk", "cat": "tourisme", "loc": "", "note": "Balade lente, sans objectif. Le but est de tenir éveillé jusqu’au soir et de caler le rythme.", "resa": "", "star": false, "who": ""}, {"d": "sam5", "s": "19:00", "e": "19:45", "t": "Dîner tôt — impératif", "cat": "repas", "loc": "", "note": "Le bateau part à l’heure, il n’y a aucun rattrapage possible. Ne pas se lancer dans un restaurant avec attente.", "resa": "", "star": false, "who": ""}, {"d": "sam5", "s": "20:00", "e": "20:45", "t": "Sur le quai — Navy Pier South Dock", "cat": "tourisme", "loc": "600 E Grand Avenue", "note": "Arriver 45 min avant un samedi soir. Repérer les quatre mâts, près du Shakespeare Theater et du Billy Goat Tavern.", "resa": "", "star": false, "who": ""}, {"d": "sam5", "s": "20:45", "e": "22:15", "t": "Croisière feu d’artifice — Tall Ship Windy", "cat": "tourisme", "loc": "Navy Pier South Dock", "note": "Le dernier feu d’artifice de la saison 2026, vu depuis le pont d’un quatre-mâts. Prévoir un coupe-vent : à 21 h sur le lac, il fait nettement plus frais qu’en ville.", "resa": "ok", "star": true, "who": ""}, {"d": "sam5", "s": "22:15", "e": "23:00", "t": "Retour à l’hôtel — ne pas prolonger", "cat": "libre", "loc": "", "note": "7 heures de décalage. Dormir tôt le premier soir fait gagner deux jours d’acclimatation.", "resa": "", "star": false, "who": ""}, {"d": "dim6", "s": "09:00", "e": "10:00", "t": "Petit-déjeuner tranquille", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "dim6", "s": "10:00", "e": "12:30", "t": "Chicago Greeter — un habitant raconte sa ville", "cat": "tourisme", "loc": "", "note": "Gratuit, sur inscription 7 à 10 jours à l’avance. 2 à 4 h de balade avec un bénévole passionné, sur les thèmes de votre choix. Exactement le format que tu cherches : quelqu’un qui raconte, pas un musée.", "resa": "todo", "star": true, "who": ""}, {"d": "dim6", "s": "12:30", "e": "13:45", "t": "Déjeuner", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "dim6", "s": "14:00", "e": "16:30", "t": "Millennium Park, Cloud Gate & Riverwalk", "cat": "tourisme", "loc": "", "note": "", "resa": "idea", "star": false, "who": ""}, {"d": "dim6", "s": "17:00", "e": "17:30", "t": "Rejoindre le quai — Michigan Avenue Bridge", "cat": "tourisme", "loc": "Angle sud-est, niveau Wacker Drive", "note": "Riverside Gardens, et surtout PAS Navy Pier. Placement libre : arriver 20 à 30 min avant pour avoir le pont supérieur côté extérieur.", "resa": "", "star": false, "who": ""}, {"d": "dim6", "s": "17:30", "e": "19:00", "t": "Croisière architecture — First Lady", "cat": "tourisme", "loc": "Chicago Architecture Center", "note": "90 minutes sur les trois bras de la rivière, commentées par un guide formé par le Chicago Architecture Center. Le soleil se couche vers 19h15 : la seconde moitié se fera en lumière dorée.", "resa": "ok", "star": true, "who": ""}, {"d": "dim6", "s": "19:30", "e": "21:00", "t": "Dîner dans le Loop", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "dim6", "s": "21:00", "e": "22:30", "t": "Optionnel — un premier rooftop", "cat": "tourisme", "loc": "", "note": "Cindy’s Rooftop se réserve 14 jours à l’avance seulement : poser la réservation vers le 24 août.", "resa": "idea", "star": false, "who": ""}, {"d": "lun7", "s": "09:30", "e": "12:00", "t": "Balade architecture dans le Loop", "cat": "tourisme", "loc": "", "note": "Le Chicago que tu aimes : la ville comme livre d’architecture, à pied et le nez en l’air.", "resa": "", "star": true, "who": ""}, {"d": "lun7", "s": "12:00", "e": "13:00", "t": "Déjeuner", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "lun7", "s": "13:30", "e": "15:30", "t": "Gangster tour — le Chicago d’Al Capone", "cat": "tourisme", "loc": "", "note": "Van ou bus commenté, guide conteur. Réservation conseillée quelques jours avant.", "resa": "todo", "star": true, "who": ""}, {"d": "lun7", "s": "16:00", "e": "17:00", "t": "Retour hôtel, pause", "cat": "libre", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "lun7", "s": "17:00", "e": "19:00", "t": "LH Rooftop — LondonHouse, 22e étage", "cat": "tourisme", "loc": "", "note": "La plus belle vue sur le coude de la rivière, gratuite hors consommation. Attention : la terrasse extérieure ne se réserve pas, premier arrivé premier servi, 30 min à 1 h d’attente. Arriver AVANT 17h30. Tenue smart casual exigée après 18h00.", "resa": "idea", "star": true, "who": ""}, {"d": "lun7", "s": "19:30", "e": "21:00", "t": "Deep dish ou Italian beef — le plat obligatoire", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "mar8", "allday": true, "t": "Névine — installation et repérage de Rosemont", "cat": "libre", "note": "", "resa": "", "who": "Névine"}, {"d": "mar8", "s": "09:00", "e": "10:00", "t": "Check-out Sonesta", "cat": "voyage", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "mar8", "s": "10:00", "e": "11:00", "t": "Transfert Downtown → Rosemont", "cat": "voyage", "loc": "", "note": "Blue Line jusqu’à Rosemont, environ 45 min.", "resa": "", "star": false, "who": ""}, {"d": "mar8", "s": "11:00", "e": "12:00", "t": "Check-in Hyatt Regency O’Hare", "cat": "voyage", "loc": "", "note": "", "resa": "ok", "star": false, "who": ""}, {"d": "mar8", "s": "12:00", "e": "13:30", "t": "Déjeuner à Rosemont", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "mar8", "s": "13:30", "e": "14:00", "t": "Rejoindre le Loews à pied", "cat": "esker", "loc": "5300 N River Rd", "note": "Le salon se tient au Loews Chicago O’Hare, PAS au Hyatt où tu dors. Environ 10 minutes à pied.", "resa": "", "star": false, "who": ""}, {"d": "mar8", "s": "14:00", "e": "17:00", "t": "Partner Connect 2026", "cat": "esker", "loc": "Guggenheim 1", "note": "Emmanuel Olivier, Ari Widl et l’équipe partenaires.", "resa": "", "star": true, "who": ""}, {"d": "mar8", "s": "17:00", "e": "18:30", "t": "Welcome Happy Hour & Innovation Hub", "cat": "esker", "loc": "Louvre Ballroom", "note": "", "resa": "", "star": true, "who": ""}, {"d": "mar8", "s": "18:30", "e": "22:00", "t": "Open Evening — dîner avec Christophe", "cat": "repas", "loc": "", "note": "C’est LE créneau à saisir pour dîner tous ensemble : mercredi soir est bloqué jusqu’à 23 h par la soirée officielle du salon, et Christophe repart jeudi soir.", "resa": "", "star": true, "who": ""}, {"d": "mer9", "allday": true, "t": "Névine — journée libre à Downtown", "cat": "libre", "note": "Bruno est au salon de 7 h à 23 h. Prévoir de quoi occuper la journée et la soirée.", "resa": "", "who": "Névine"}, {"d": "mer9", "s": "07:00", "e": "08:00", "t": "Breakfast & networking", "cat": "esker", "loc": "Avedon Ballroom", "note": "", "resa": "", "star": false, "who": ""}, {"d": "mer9", "s": "08:30", "e": "10:30", "t": "Keynote d’ouverture", "cat": "esker", "loc": "Cassatt Ballroom", "note": "Emmanuel Olivier, Eric Bussy et les dirigeants Esker.", "resa": "", "star": true, "who": ""}, {"d": "mer9", "s": "10:30", "e": "11:00", "t": "Pause networking", "cat": "esker", "loc": "Louve Ballroom", "note": "", "resa": "", "star": false, "who": ""}, {"d": "mer9", "s": "11:00", "e": "12:00", "t": "What’s New in Esker Source-to-Pay : AI Innovation", "cat": "esker", "loc": "Guggenheim 1", "note": "", "resa": "", "star": true, "who": ""}, {"d": "mer9", "s": "12:00", "e": "13:30", "t": "Lunch & Innovation Hub", "cat": "esker", "loc": "Avedon Ballroom", "note": "", "resa": "", "star": false, "who": ""}, {"d": "mer9", "s": "13:30", "e": "14:15", "t": "S2P Success Metrics : Benchmarking", "cat": "esker", "loc": "Guggenheim 1", "note": "", "resa": "", "star": true, "who": ""}, {"d": "mer9", "s": "14:15", "e": "14:45", "t": "Pause", "cat": "esker", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "mer9", "s": "14:45", "e": "15:30", "t": "SIM : What It Is, How It Works & Why It Matters", "cat": "esker", "loc": "Guggenheim 1", "note": "", "resa": "", "star": true, "who": ""}, {"d": "mer9", "s": "15:30", "e": "16:00", "t": "Pause", "cat": "esker", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "mer9", "s": "16:00", "e": "16:45", "t": "Connected & Efficient : la suite S2P", "cat": "esker", "loc": "Guggenheim 1", "note": "", "resa": "", "star": true, "who": ""}, {"d": "mer9", "s": "17:00", "e": "18:00", "t": "Sponsor Appreciation Happy Hour", "cat": "esker", "loc": "", "note": "", "resa": "", "star": true, "who": ""}, {"d": "mer9", "s": "19:00", "e": "23:00", "t": "Evening Event — Amped Up After Hours", "cat": "esker", "loc": "", "note": "Soirée officielle du salon, jusqu’à 23 h. À annoncer à Névine en amont.", "resa": "", "star": true, "who": ""}, {"d": "jeu10", "allday": true, "t": "Névine — deuxième journée libre", "cat": "libre", "note": "", "resa": "", "who": "Névine"}, {"d": "jeu10", "allday": true, "t": "✈ Christophe & sa femme repartent (vol du soir)", "cat": "voyage", "note": "Dernière occasion de se voir : le déjeuner du jeudi ou une pause café pendant le salon.", "resa": "", "who": "Christophe"}, {"d": "jeu10", "s": "07:30", "e": "08:30", "t": "Breakfast & networking", "cat": "esker", "loc": "Avedon Ballroom", "note": "", "resa": "", "star": false, "who": ""}, {"d": "jeu10", "s": "08:30", "e": "10:00", "t": "Keynote", "cat": "esker", "loc": "Cassatt Ballroom", "note": "Patrick Reymann, Jean-Jacques Bérard.", "resa": "", "star": true, "who": ""}, {"d": "jeu10", "s": "10:00", "e": "10:30", "t": "Pause", "cat": "esker", "loc": "Louve Ballroom", "note": "", "resa": "", "star": false, "who": ""}, {"d": "jeu10", "s": "10:30", "e": "11:15", "t": "Own Your Solution : tirer le maximum de son compte Esker", "cat": "esker", "loc": "Teylers Room", "note": "", "resa": "", "star": true, "who": ""}, {"d": "jeu10", "s": "11:15", "e": "12:00", "t": "Small Beginnings, Big Results", "cat": "esker", "loc": "Guggenheim 1", "note": "", "resa": "", "star": true, "who": ""}, {"d": "jeu10", "s": "12:00", "e": "13:30", "t": "Lunch", "cat": "esker", "loc": "Avedon Ballroom", "note": "", "resa": "", "star": false, "who": ""}, {"d": "jeu10", "s": "13:30", "e": "14:15", "t": "Global E-Invoicing Compliance", "cat": "esker", "loc": "Guggenheim 1", "note": "", "resa": "", "star": true, "who": ""}, {"d": "jeu10", "s": "14:15", "e": "15:00", "t": "Change Management : la clé du succès durable", "cat": "esker", "loc": "Guggenheim 1", "note": "", "resa": "", "star": true, "who": ""}, {"d": "jeu10", "s": "15:00", "e": "15:30", "t": "Pause", "cat": "esker", "loc": "Louve Ballroom", "note": "", "resa": "", "star": false, "who": ""}, {"d": "jeu10", "s": "15:30", "e": "16:15", "t": "Stopping Fraud Before It Starts", "cat": "esker", "loc": "Guggenheim 1", "note": "", "resa": "", "star": true, "who": ""}, {"d": "jeu10", "s": "16:15", "e": "16:30", "t": "Clôture du salon", "cat": "esker", "loc": "", "note": "Fin officielle de Esker All Access 2026.", "resa": "", "star": false, "who": ""}, {"d": "jeu10", "s": "19:00", "e": "21:00", "t": "Dîner en tête à tête", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "ven11", "s": "09:30", "e": "10:00", "t": "Trajet vers Fashion Outlets of Chicago", "cat": "shopping", "loc": "", "note": "10 minutes depuis le Hyatt. Navette gratuite depuis plusieurs hôtels de Rosemont, sinon VTC à moins de 10 $.", "resa": "", "star": false, "who": ""}, {"d": "ven11", "s": "10:00", "e": "13:00", "t": "Fashion Outlets of Chicago", "cat": "shopping", "loc": "Rosemont", "note": "130 boutiques sous un même toit et climatisées. Levi’s, Coach, Michael Kors, Polo Ralph Lauren. Premier réflexe : passer au comptoir d’accueil chercher le Visitor Savings Pass.", "resa": "", "star": true, "who": ""}, {"d": "ven11", "s": "13:00", "e": "14:00", "t": "Déjeuner sur place", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "ven11", "s": "14:00", "e": "16:30", "t": "Suite du shopping", "cat": "shopping", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "ven11", "s": "17:00", "e": "18:00", "t": "Retour hôtel, tri des achats", "cat": "libre", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "ven11", "s": "19:30", "e": "21:00", "t": "Dîner à Rosemont", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "sam12", "s": "09:30", "e": "10:45", "t": "Route vers Aurora", "cat": "shopping", "loc": "", "note": "Environ 1 h depuis Rosemont, en voiture de location ou en Metra puis navette.", "resa": "", "star": false, "who": ""}, {"d": "sam12", "s": "11:00", "e": "16:00", "t": "Chicago Premium Outlets — Aurora", "cat": "shopping", "loc": "Aurora", "note": "170 boutiques en plein air. Sélection Ralph Lauren et Coach plus large qu’à Rosemont, mais 1 h de trajet et aucun abri : à décider selon la météo du jour.", "resa": "", "star": true, "who": ""}, {"d": "sam12", "s": "13:00", "e": "13:45", "t": "Déjeuner sur place", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "sam12", "s": "16:00", "e": "17:15", "t": "Retour vers Rosemont", "cat": "shopping", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "sam12", "s": "19:30", "e": "21:30", "t": "Dernier dîner américain", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "sam12", "s": "21:30", "e": "23:00", "t": "Valises et pesée des bagages", "cat": "libre", "loc": "", "note": "23 kg par personne en soute. Les outlets ont une fâcheuse tendance à faire dépasser la limite.", "resa": "", "star": false, "who": ""}, {"d": "dim13", "allday": true, "t": "✈ Chicago 17:10 → Paris CDG 08:15 (lundi matin)", "cat": "voyage", "note": "AF0137, Air France. Fin d’enregistrement à 16:10.", "resa": "ok", "who": ""}, {"d": "dim13", "s": "09:00", "e": "11:00", "t": "Matinée libre, dernières emplettes", "cat": "libre", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "dim13", "s": "11:00", "e": "11:30", "t": "Check-out Hyatt", "cat": "voyage", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "dim13", "s": "11:30", "e": "13:00", "t": "Déjeuner près de l’hôtel", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "dim13", "s": "13:00", "e": "13:30", "t": "Navette hôtel → O’Hare", "cat": "voyage", "loc": "", "note": "Le Hyatt Regency O’Hare est à 5 minutes de l’aéroport, navette gratuite et fréquente.", "resa": "", "star": false, "who": ""}, {"d": "dim13", "s": "13:30", "e": "16:10", "t": "Enregistrement, bagages & sécurité", "cat": "voyage", "loc": "", "note": "Fin d’enregistrement à 16:10 précises. Prévoir large : O’Hare un dimanche soir en fin d’été, c’est dense.", "resa": "", "star": false, "who": ""}, {"d": "dim13", "s": "16:10", "e": "17:10", "t": "Embarquement", "cat": "voyage", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "dim13", "s": "17:10", "e": "24:00", "t": "AF0137 — vol de nuit vers Paris", "cat": "voyage", "loc": "", "note": "Décollage 17:10 heure de Chicago, atterrissage 08:15 à CDG le lundi matin. Environ 8 h de vol. Dormir dès le repas servi.", "resa": "ok", "star": false, "who": ""}, {"d": "lun14", "allday": true, "t": "✈ CDG 08:15 — correspondance 2E → 2F — Lyon 10:30", "cat": "voyage", "note": "AF7364 opéré par HOP, fin d’enregistrement 08:40. Le changement de terminal 2E vers 2F avec 1 h 05 d’escale est le seul vrai point de tension du retour.", "resa": "ok", "who": ""}, {"d": "lun14", "s": "08:15", "e": "09:20", "t": "Atterrissage CDG 2E & transfert vers 2F", "cat": "voyage", "loc": "", "note": "Liaison piétonne ou navette entre les terminaux. Avec 1 h 05 d’escale seulement, sortir de l’avion sans traîner et suivre les panneaux 2F dès la passerelle.", "resa": "", "star": false, "who": ""}, {"d": "lun14", "s": "09:20", "e": "10:30", "t": "AF7364 — Paris CDG → Lyon", "cat": "voyage", "loc": "", "note": "", "resa": "ok", "star": false, "who": ""}, {"d": "lun14", "s": "10:30", "e": "11:00", "t": "Arrivée Lyon T1, récupération des bagages", "cat": "voyage", "loc": "", "note": "Et voilà. Neuf jours plus tard.", "resa": "", "star": false, "who": ""}];
+  var EV   = [{"d": "ven4", "allday": true, "t": "✈ Christophe & sa femme : Lyon → Chicago", "cat": "voyage", "note": "Horaires non encore communiqués. Une fiche détaillée sera ajoutée dès réception des billets.", "resa": "", "who": "Christophe"}, {"d": "ven4", "allday": true, "t": "Veille de départ : valises et cartes d’embarquement", "cat": "libre", "note": "ESTA obtenus pour les deux voyageurs. Reste à vérifier que le nom sur le billet de Névine correspond exactement à la bande optique du passeport.", "resa": "", "who": ""}, {"d": "sam5", "allday": true, "t": "✈ Lyon 09:55 → Amsterdam → Chicago 14:15", "cat": "voyage", "note": "AF8320 (opéré KLM) LYS 09:55 → AMS 11:35, fin d’enregistrement 09:15. Escale 1 h 10. AF3159 (opéré KLM) AMS 12:45 → ORD 14:15, fin d’enregistrement 12:05. Environ 12 h 20 de trajet porte à porte. Les horaires ci-dessous reprennent à l’atterrissage, en heure de Chicago.", "resa": "ok", "who": ""}, {"d": "sam5", "s": "14:15", "e": "15:45", "t": "Atterrissage O’Hare, immigration & bagages", "cat": "voyage", "loc": "ORD Terminal 5", "note": "Compter 45 min à 1 h 30 au contrôle CBP selon l’affluence. Terminal 5, puis navette ATS si besoin.", "resa": "", "star": false, "who": ""}, {"d": "sam5", "s": "15:45", "e": "16:45", "t": "Transfert vers Downtown", "cat": "voyage", "loc": "Blue Line ou taxi", "note": "Blue Line jusqu’à Grand/State : ~45 min pour 5 $. Taxi ou VTC : 40 à 55 $ selon le trafic.", "resa": "", "star": false, "who": ""}, {"d": "sam5", "s": "16:45", "e": "17:30", "t": "Check-in Sonesta ES Suites", "cat": "voyage", "loc": "201 East Walton Place, Streeterville", "note": "C’est cette adresse que réclame le formulaire d’immigration à l’arrivée. Réception : +1 312 943 9800.", "resa": "ok", "star": false, "who": ""}, {"d": "sam5", "s": "17:30", "e": "19:00", "t": "Première respiration — Magnificent Mile & Riverwalk", "cat": "tourisme", "loc": "", "note": "Balade lente, sans objectif. Le but est de tenir éveillé jusqu’au soir et de caler le rythme.", "resa": "", "star": false, "who": ""}, {"d": "sam5", "s": "19:00", "e": "19:45", "t": "Dîner tôt — impératif", "cat": "repas", "loc": "", "note": "Le bateau part à l’heure, il n’y a aucun rattrapage possible. Ne pas se lancer dans un restaurant avec attente.", "resa": "", "star": false, "who": ""}, {"d": "sam5", "s": "20:00", "e": "20:45", "t": "Sur le quai — Navy Pier South Dock", "cat": "tourisme", "loc": "600 E Grand Avenue", "note": "Arriver 45 min avant un samedi soir. Repérer les quatre mâts, près du Shakespeare Theater et du Billy Goat Tavern.", "resa": "", "star": false, "who": ""}, {"d": "sam5", "s": "20:45", "e": "22:15", "t": "Croisière feu d’artifice — Tall Ship Windy", "cat": "tourisme", "loc": "Navy Pier South Dock", "note": "Le dernier feu d’artifice de la saison 2026, vu depuis le pont d’un quatre-mâts. Prévoir un coupe-vent : à 21 h sur le lac, il fait nettement plus frais qu’en ville.", "resa": "ok", "star": true, "who": ""}, {"d": "sam5", "s": "22:15", "e": "23:00", "t": "Retour à l’hôtel — ne pas prolonger", "cat": "libre", "loc": "", "note": "7 heures de décalage. Dormir tôt le premier soir fait gagner deux jours d’acclimatation.", "resa": "", "star": false, "who": ""}, {"d": "dim6", "s": "09:00", "e": "10:00", "t": "Petit-déjeuner tranquille", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "dim6", "s": "10:00", "e": "12:30", "t": "Matinée libre — Riverwalk et le Loop à pied", "cat": "tourisme", "loc": "", "note": "Premier vrai contact avec la ville, sans contrainte d’horaire. Le Riverwalk part du Michigan Avenue Bridge, là même où embarque la croisière de l’après-midi : bonne occasion de repérer le quai.", "resa": "idea", "star": false, "who": ""}, {"d": "dim6", "s": "12:30", "e": "13:45", "t": "Déjeuner", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "dim6", "s": "14:00", "e": "16:30", "t": "Millennium Park, Cloud Gate & Riverwalk", "cat": "tourisme", "loc": "", "note": "", "resa": "idea", "star": false, "who": ""}, {"d": "dim6", "s": "17:00", "e": "17:30", "t": "Rejoindre le quai — Michigan Avenue Bridge", "cat": "tourisme", "loc": "Angle sud-est, niveau Wacker Drive", "note": "Riverside Gardens, et surtout PAS Navy Pier. Placement libre : arriver 20 à 30 min avant pour avoir le pont supérieur côté extérieur.", "resa": "", "star": false, "who": ""}, {"d": "dim6", "s": "17:30", "e": "19:00", "t": "Croisière architecture — First Lady", "cat": "tourisme", "loc": "Chicago Architecture Center", "note": "90 minutes sur les trois bras de la rivière, commentées par un guide formé par le Chicago Architecture Center. Le soleil se couche vers 19h15 : la seconde moitié se fera en lumière dorée.", "resa": "ok", "star": true, "who": ""}, {"d": "dim6", "s": "19:30", "e": "21:00", "t": "Dîner dans le Loop", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "dim6", "s": "21:00", "e": "22:30", "t": "Optionnel — un premier rooftop", "cat": "tourisme", "loc": "", "note": "Cindy’s Rooftop se réserve 14 jours à l’avance seulement : poser la réservation vers le 24 août.", "resa": "idea", "star": false, "who": ""}, {"d": "lun7", "s": "09:00", "e": "09:45", "t": "Petit-déjeuner et trajet vers le Cultural Center", "cat": "repas", "loc": "", "note": "Le Chicago Cultural Center est à une vingtaine de minutes à pied du Sonesta, ou deux arrêts de bus sur Michigan Avenue.", "resa": "", "star": false, "who": ""}, {"d": "lun7", "s": "10:00", "e": "12:00", "t": "Chicago Greeter avec Jeff DeToro", "cat": "tourisme", "loc": "Chicago Cultural Center, 77 E. Randolph St.", "note": "Rendez-vous au bureau d’accueil, entrée Randolph Street. Deux heures à pied avec un habitant bénévole, gratuit : le Chicago du quotidien raconté par quelqu’un qui y vit. Chaussures confortables et une bouteille d’eau.", "resa": "ok", "star": true, "who": ""}, {"d": "lun7", "s": "12:15", "e": "13:15", "t": "Déjeuner", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "lun7", "s": "13:30", "e": "15:30", "t": "Gangster tour — le Chicago d’Al Capone", "cat": "tourisme", "loc": "", "note": "Van ou bus commenté, guide conteur. Réservation conseillée quelques jours avant.", "resa": "todo", "star": true, "who": ""}, {"d": "lun7", "s": "16:00", "e": "17:00", "t": "Retour hôtel, pause", "cat": "libre", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "lun7", "s": "17:00", "e": "19:00", "t": "LH Rooftop — LondonHouse, 22e étage", "cat": "tourisme", "loc": "", "note": "La plus belle vue sur le coude de la rivière, gratuite hors consommation. Attention : la terrasse extérieure ne se réserve pas, premier arrivé premier servi, 30 min à 1 h d’attente. Arriver AVANT 17h30. Tenue smart casual exigée après 18h00.", "resa": "idea", "star": true, "who": ""}, {"d": "lun7", "s": "19:30", "e": "21:00", "t": "Deep dish ou Italian beef — le plat obligatoire", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "mar8", "allday": true, "t": "Névine — installation et repérage de Rosemont", "cat": "libre", "note": "", "resa": "", "who": "Névine"}, {"d": "mar8", "s": "09:00", "e": "10:00", "t": "Check-out Sonesta", "cat": "voyage", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "mar8", "s": "10:00", "e": "11:00", "t": "Transfert Downtown → Rosemont", "cat": "voyage", "loc": "", "note": "Blue Line jusqu’à Rosemont, environ 45 min.", "resa": "", "star": false, "who": ""}, {"d": "mar8", "s": "11:00", "e": "12:00", "t": "Check-in Loews Chicago O’Hare", "cat": "voyage", "loc": "5300 N River Rd, Rosemont", "note": "L’hôtel du salon. Tu y dors du 8 au 11 : plus un mètre à traverser entre la chambre et les keynotes.", "resa": "ok", "star": false, "who": ""}, {"d": "mar8", "s": "12:00", "e": "13:30", "t": "Déjeuner à Rosemont", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "mar8", "s": "13:30", "e": "14:00", "t": "Retrait du badge et premier tour de l’Innovation Hub", "cat": "esker", "loc": "", "note": "Rien à traverser : le salon se tient dans l’hôtel. Badge à retirer avant le Partner Connect de 14 h.", "resa": "", "star": false, "who": ""}, {"d": "mar8", "s": "14:00", "e": "17:00", "t": "Partner Connect 2026", "cat": "esker", "loc": "Guggenheim 1", "note": "Emmanuel Olivier, Ari Widl et l’équipe partenaires.", "resa": "", "star": true, "who": ""}, {"d": "mar8", "s": "17:00", "e": "18:30", "t": "Welcome Happy Hour & Innovation Hub", "cat": "esker", "loc": "Louvre Ballroom", "note": "", "resa": "", "star": true, "who": ""}, {"d": "mar8", "s": "18:30", "e": "22:00", "t": "Open Evening — dîner avec Christophe", "cat": "repas", "loc": "", "note": "C’est LE créneau à saisir pour dîner tous ensemble : mercredi soir est bloqué jusqu’à 23 h par la soirée officielle du salon, et Christophe repart jeudi soir.", "resa": "", "star": true, "who": ""}, {"d": "mer9", "allday": true, "t": "Névine — journée libre à Downtown", "cat": "libre", "note": "Bruno est au salon de 7 h à 23 h. Prévoir de quoi occuper la journée et la soirée.", "resa": "", "who": "Névine"}, {"d": "mer9", "s": "07:00", "e": "08:00", "t": "Breakfast & networking", "cat": "esker", "loc": "Avedon Ballroom", "note": "", "resa": "", "star": false, "who": ""}, {"d": "mer9", "s": "08:30", "e": "10:30", "t": "Keynote d’ouverture", "cat": "esker", "loc": "Cassatt Ballroom", "note": "Emmanuel Olivier, Eric Bussy et les dirigeants Esker.", "resa": "", "star": true, "who": ""}, {"d": "mer9", "s": "10:30", "e": "11:00", "t": "Pause networking", "cat": "esker", "loc": "Louve Ballroom", "note": "", "resa": "", "star": false, "who": ""}, {"d": "mer9", "s": "11:00", "e": "12:00", "t": "What’s New in Esker Source-to-Pay : AI Innovation", "cat": "esker", "loc": "Guggenheim 1", "note": "", "resa": "", "star": true, "who": ""}, {"d": "mer9", "s": "12:00", "e": "13:30", "t": "Lunch & Innovation Hub", "cat": "esker", "loc": "Avedon Ballroom", "note": "", "resa": "", "star": false, "who": ""}, {"d": "mer9", "s": "13:30", "e": "14:15", "t": "S2P Success Metrics : Benchmarking", "cat": "esker", "loc": "Guggenheim 1", "note": "", "resa": "", "star": true, "who": ""}, {"d": "mer9", "s": "14:15", "e": "14:45", "t": "Pause", "cat": "esker", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "mer9", "s": "14:45", "e": "15:30", "t": "SIM : What It Is, How It Works & Why It Matters", "cat": "esker", "loc": "Guggenheim 1", "note": "", "resa": "", "star": true, "who": ""}, {"d": "mer9", "s": "15:30", "e": "16:00", "t": "Pause", "cat": "esker", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "mer9", "s": "16:00", "e": "16:45", "t": "Connected & Efficient : la suite S2P", "cat": "esker", "loc": "Guggenheim 1", "note": "", "resa": "", "star": true, "who": ""}, {"d": "mer9", "s": "17:00", "e": "18:00", "t": "Sponsor Appreciation Happy Hour", "cat": "esker", "loc": "", "note": "", "resa": "", "star": true, "who": ""}, {"d": "mer9", "s": "19:00", "e": "23:00", "t": "Evening Event — Amped Up After Hours", "cat": "esker", "loc": "", "note": "Soirée officielle du salon, jusqu’à 23 h. À annoncer à Névine en amont.", "resa": "", "star": true, "who": ""}, {"d": "jeu10", "allday": true, "t": "Névine — deuxième journée libre", "cat": "libre", "note": "", "resa": "", "who": "Névine"}, {"d": "jeu10", "allday": true, "t": "✈ Christophe & sa femme repartent (vol du soir)", "cat": "voyage", "note": "Dernière occasion de se voir : le déjeuner du jeudi ou une pause café pendant le salon.", "resa": "", "who": "Christophe"}, {"d": "jeu10", "s": "07:30", "e": "08:30", "t": "Breakfast & networking", "cat": "esker", "loc": "Avedon Ballroom", "note": "", "resa": "", "star": false, "who": ""}, {"d": "jeu10", "s": "08:30", "e": "10:00", "t": "Keynote", "cat": "esker", "loc": "Cassatt Ballroom", "note": "Patrick Reymann, Jean-Jacques Bérard.", "resa": "", "star": true, "who": ""}, {"d": "jeu10", "s": "10:00", "e": "10:30", "t": "Pause", "cat": "esker", "loc": "Louve Ballroom", "note": "", "resa": "", "star": false, "who": ""}, {"d": "jeu10", "s": "10:30", "e": "11:15", "t": "Own Your Solution : tirer le maximum de son compte Esker", "cat": "esker", "loc": "Teylers Room", "note": "", "resa": "", "star": true, "who": ""}, {"d": "jeu10", "s": "11:15", "e": "12:00", "t": "Small Beginnings, Big Results", "cat": "esker", "loc": "Guggenheim 1", "note": "", "resa": "", "star": true, "who": ""}, {"d": "jeu10", "s": "12:00", "e": "13:30", "t": "Lunch", "cat": "esker", "loc": "Avedon Ballroom", "note": "", "resa": "", "star": false, "who": ""}, {"d": "jeu10", "s": "13:30", "e": "14:15", "t": "Global E-Invoicing Compliance", "cat": "esker", "loc": "Guggenheim 1", "note": "", "resa": "", "star": true, "who": ""}, {"d": "jeu10", "s": "14:15", "e": "15:00", "t": "Change Management : la clé du succès durable", "cat": "esker", "loc": "Guggenheim 1", "note": "", "resa": "", "star": true, "who": ""}, {"d": "jeu10", "s": "15:00", "e": "15:30", "t": "Pause", "cat": "esker", "loc": "Louve Ballroom", "note": "", "resa": "", "star": false, "who": ""}, {"d": "jeu10", "s": "15:30", "e": "16:15", "t": "Stopping Fraud Before It Starts", "cat": "esker", "loc": "Guggenheim 1", "note": "", "resa": "", "star": true, "who": ""}, {"d": "jeu10", "s": "16:15", "e": "16:30", "t": "Clôture du salon", "cat": "esker", "loc": "", "note": "Fin officielle de Esker All Access 2026.", "resa": "", "star": false, "who": ""}, {"d": "jeu10", "s": "19:00", "e": "21:00", "t": "Dîner en tête à tête", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "ven11", "s": "09:00", "e": "10:00", "t": "Check-out Loews → Hyatt Regency O’Hare", "cat": "voyage", "loc": "9300 Bryn Mawr Avenue, Rosemont", "note": "Le salon est terminé depuis jeudi 16h15. Les deux hôtels sont à Rosemont, à quelques minutes l’un de l’autre. Si la chambre n’est pas prête, laisser les valises à la bagagerie et filer aux outlets. Réception : +1 847 696 1234.", "resa": "ok", "star": false, "who": ""}, {"d": "ven11", "s": "10:15", "e": "10:45", "t": "Trajet vers Fashion Outlets of Chicago", "cat": "shopping", "loc": "", "note": "10 minutes depuis le Hyatt. Navette gratuite depuis plusieurs hôtels de Rosemont, sinon VTC à moins de 10 $.", "resa": "", "star": false, "who": ""}, {"d": "ven11", "s": "10:45", "e": "13:00", "t": "Fashion Outlets of Chicago", "cat": "shopping", "loc": "Rosemont", "note": "130 boutiques sous un même toit et climatisées. Levi’s, Coach, Michael Kors, Polo Ralph Lauren. Premier réflexe : passer au comptoir d’accueil chercher le Visitor Savings Pass.", "resa": "", "star": true, "who": ""}, {"d": "ven11", "s": "13:00", "e": "14:00", "t": "Déjeuner sur place", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "ven11", "s": "14:00", "e": "16:30", "t": "Suite du shopping", "cat": "shopping", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "ven11", "s": "17:00", "e": "18:00", "t": "Installation au Hyatt et tri des achats", "cat": "libre", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "ven11", "s": "19:30", "e": "21:00", "t": "Dîner à Rosemont", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "sam12", "s": "09:30", "e": "10:45", "t": "Route vers Aurora", "cat": "shopping", "loc": "", "note": "Environ 1 h depuis Rosemont, en voiture de location ou en Metra puis navette.", "resa": "", "star": false, "who": ""}, {"d": "sam12", "s": "11:00", "e": "16:00", "t": "Chicago Premium Outlets — Aurora", "cat": "shopping", "loc": "Aurora", "note": "170 boutiques en plein air. Sélection Ralph Lauren et Coach plus large qu’à Rosemont, mais 1 h de trajet et aucun abri : à décider selon la météo du jour.", "resa": "", "star": true, "who": ""}, {"d": "sam12", "s": "13:00", "e": "13:45", "t": "Déjeuner sur place", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "sam12", "s": "16:00", "e": "17:15", "t": "Retour vers Rosemont", "cat": "shopping", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "sam12", "s": "19:30", "e": "21:30", "t": "Dernier dîner américain", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "sam12", "s": "21:30", "e": "23:00", "t": "Valises et pesée des bagages", "cat": "libre", "loc": "", "note": "23 kg par personne en soute. Les outlets ont une fâcheuse tendance à faire dépasser la limite.", "resa": "", "star": false, "who": ""}, {"d": "dim13", "allday": true, "t": "✈ Chicago 17:10 → Paris CDG 08:15 (lundi matin)", "cat": "voyage", "note": "AF0137, Air France. Fin d’enregistrement à 16:10.", "resa": "ok", "who": ""}, {"d": "dim13", "s": "09:00", "e": "11:00", "t": "Matinée libre, dernières emplettes", "cat": "libre", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "dim13", "s": "11:00", "e": "11:30", "t": "Check-out Hyatt Regency O’Hare", "cat": "voyage", "loc": "", "note": "Réception : +1 847 696 1234.", "resa": "", "star": false, "who": ""}, {"d": "dim13", "s": "11:30", "e": "13:00", "t": "Déjeuner près de l’hôtel", "cat": "repas", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "dim13", "s": "13:00", "e": "13:30", "t": "Navette hôtel → O’Hare", "cat": "voyage", "loc": "", "note": "Le Hyatt Regency O’Hare est à 5 minutes de l’aéroport, navette gratuite et fréquente.", "resa": "", "star": false, "who": ""}, {"d": "dim13", "s": "13:30", "e": "16:10", "t": "Enregistrement, bagages & sécurité", "cat": "voyage", "loc": "", "note": "Fin d’enregistrement à 16:10 précises. Prévoir large : O’Hare un dimanche soir en fin d’été, c’est dense.", "resa": "", "star": false, "who": ""}, {"d": "dim13", "s": "16:10", "e": "17:10", "t": "Embarquement", "cat": "voyage", "loc": "", "note": "", "resa": "", "star": false, "who": ""}, {"d": "dim13", "s": "17:10", "e": "24:00", "t": "AF0137 — vol de nuit vers Paris", "cat": "voyage", "loc": "", "note": "Décollage 17:10 heure de Chicago, atterrissage 08:15 à CDG le lundi matin. Environ 8 h de vol. Dormir dès le repas servi.", "resa": "ok", "star": false, "who": ""}, {"d": "lun14", "allday": true, "t": "✈ CDG 08:15 — correspondance 2E → 2F — Lyon 10:30", "cat": "voyage", "note": "AF7364 opéré par HOP, fin d’enregistrement 08:40. Le changement de terminal 2E vers 2F avec 1 h 05 d’escale est le seul vrai point de tension du retour.", "resa": "ok", "who": ""}, {"d": "lun14", "s": "08:15", "e": "09:20", "t": "Atterrissage CDG 2E & transfert vers 2F", "cat": "voyage", "loc": "", "note": "Liaison piétonne ou navette entre les terminaux. Avec 1 h 05 d’escale seulement, sortir de l’avion sans traîner et suivre les panneaux 2F dès la passerelle.", "resa": "", "star": false, "who": ""}, {"d": "lun14", "s": "09:20", "e": "10:30", "t": "AF7364 — Paris CDG → Lyon", "cat": "voyage", "loc": "", "note": "", "resa": "ok", "star": false, "who": ""}, {"d": "lun14", "s": "10:30", "e": "11:00", "t": "Arrivée Lyon T1, récupération des bagages", "cat": "voyage", "loc": "", "note": "Et voilà. Neuf jours plus tard.", "resa": "", "star": false, "who": ""}];
+
+  var SPANS = [
+    { t:'Sonesta ES Suites', sub:'Downtown \u00b7 Magnificent Mile', from:'sam5', to:'lun7',
+      cat:'voyage', color:'#0e7490', icon:'fa-bed', kind:'hotel',
+      note:'3 nuits, du 5 au 8 septembre. 201 East Walton Place, Streeterville, Chicago IL 60611. R\u00e9ception : +1 312 943 9800. C\u2019est cette adresse que r\u00e9clame le formulaire d\u2019immigration \u00e0 l\u2019arriv\u00e9e.' },
+    { t:'LOEWS Chicago O\u2019Hare', sub:'Rosemont \u00b7 h\u00f4tel du salon', from:'mar8', to:'jeu10',
+      cat:'voyage', color:'#0e7490', icon:'fa-bed', kind:'hotel',
+      note:'3 nuits, du 8 au 11 septembre. 5300 N River Road, Rosemont IL 60018. Le salon se tient dans cet h\u00f4tel m\u00eame : aucun trajet le matin, et la possibilit\u00e9 de remonter en chambre entre deux sessions.' },
+    { t:'Hyatt Regency O\u2019Hare', sub:'Rosemont', from:'ven11', to:'sam12',
+      cat:'voyage', color:'#0e7490', icon:'fa-bed', kind:'hotel',
+      note:'2 nuits, du 11 au 13 septembre. 9300 Bryn Mawr Avenue, Rosemont IL 60018. R\u00e9ception : +1 847 696 1234. \u00c0 5 minutes \u00e0 pied du Fashion Outlets et 5 minutes de l\u2019a\u00e9roport, navette gratuite.' },
+    { t:'Esker All Access 2026', sub:'Loews Chicago O\u2019Hare', from:'mar8', to:'jeu10',
+      cat:'esker', color:'#4338ca', icon:'fa-briefcase', kind:'event',
+      note:'Du mardi 8 \u00e0 14 h (Partner Connect) au jeudi 10 \u00e0 16h15 (cl\u00f4ture). 53 sessions r\u00e9parties sur 5 tracks. Mercredi soir est bloqu\u00e9 jusqu\u2019\u00e0 23 h par la soir\u00e9e officielle.' },
+    { t:'Christophe & sa femme \u00e0 Chicago', sub:'du 4 au 10', from:'ven4', to:'jeu10',
+      cat:'libre', color:'#64748b', icon:'fa-user-group', kind:'people',
+      note:'Arriv\u00e9e le vendredi 4, retour le jeudi 10 au soir. Sept jours de recouvrement, mais trois d\u2019entre eux sont pris par le salon. Le d\u00eener \u00e0 quatre se joue donc mardi soir : mercredi est bloqu\u00e9 jusqu\u2019\u00e0 23 h, et jeudi ils repartent.' }
+  ];
 
   var root = document.getElementById('agenda');
   if (!root) return;
@@ -1499,6 +1610,33 @@ tailwind.config = {
       '<div class="ag-hnum">' + d.num + '</div>' +
       '<div class="ag-htag">' + esc(d.tag) + '</div></div>');
   });
+  /* --- bande des s\u00e9jours multi-jours --- */
+  var DIDX = {};
+  DAYS.forEach(function(d, i){ DIDX[d.k] = i; });
+  SPANS.forEach(function(x){ x._a = DIDX[x.from]; x._b = DIDX[x.to]; });
+  SPANS.sort(function(a, b){ return (a._a - b._a) || ((b._b - b._a) - (a._b - a._a)); });
+  var spLanes = [];
+  SPANS.forEach(function(x){
+    for (var j = 0; j < spLanes.length; j++){
+      if (x._a > spLanes[j]) { x._lane = j; spLanes[j] = x._b; return; }
+    }
+    x._lane = spLanes.length; spLanes.push(x._b);
+  });
+  g.push('<div class="ag-spg">S\u00e9jours</div>');
+  var band = ['<div class="ag-spans" style="grid-column:span ' + DAYS.length +
+              ';height:' + (spLanes.length * 25 + 11) + 'px">'];
+  SPANS.forEach(function(x, i){
+    var l = x._a / DAYS.length * 100, w = (x._b - x._a + 1) / DAYS.length * 100;
+    band.push('<button type="button" class="ag-span" data-src="span" data-i="' + i + '" data-cat="' + x.cat + '" ' +
+      'title="' + esc(x.t) + '" style="top:' + (6 + x._lane * 25) + 'px;left:calc(' + l + '% + 4px);' +
+      'width:calc(' + w + '% - 8px);background:' + x.color + ';color:#fff">' +
+      '<i class="fa-solid ' + x.icon + '" style="opacity:.85"></i><span>' + esc(x.t) + '</span>' +
+      (x.sub ? '<span style="opacity:.68;font-weight:600">\u00b7 ' + esc(x.sub) + '</span>' : '') +
+      '</button>');
+  });
+  band.push('</div>');
+  g.push(band.join(''));
+
   g.push('<div class="ag-adg">Journée</div>');
   DAYS.forEach(function(d){
     var c = ['<div class="ag-adcell' + (d.we ? ' we' : '') + '">'];
@@ -1549,6 +1687,12 @@ tailwind.config = {
     L.push('<div class="ag-day"><div class="ag-dayh">' +
       '<span class="font-serif font-bold text-2xl text-chicago-dark">' + d.dow + ' ' + d.num + '</span>' +
       '<span class="text-xs font-semibold uppercase tracking-widest text-slate-400">septembre</span>' +
+      (function(){
+        var h = null;
+        SPANS.forEach(function(x){ if (x.kind === 'hotel' && DIDX[d.k] >= x._a && DIDX[d.k] <= x._b) h = x; });
+        if (!h) return '<span class="text-[.62rem] font-bold uppercase tracking-wider px-2 py-1 rounded-full bg-slate-100 text-slate-400"><i class="fa-solid fa-plane mr-1"></i>nuit en vol</span>';
+        return '<span class="text-[.62rem] font-bold uppercase tracking-wider px-2 py-1 rounded-full" style="background:' + h.color + '18;color:' + h.color + '"><i class="fa-solid fa-bed mr-1"></i>' + esc(h.t) + '</span>';
+      })() +
       '<span class="text-xs text-slate-500 ml-auto">' + esc(d.tag) + ' · heure de ' + d.tz + '</span></div>');
     allday[d.k].forEach(function(e){
       var col = CMAP[e.cat].color;
@@ -1600,20 +1744,40 @@ tailwind.config = {
       (e.note ? '<p class="text-slate-600 leading-relaxed text-sm border-l-2 pl-4" style="border-color:' + c.color + '55">' + esc(e.note) + '</p>' : '');
     det.classList.remove('hidden');
   }
+  function showSpan(i){
+    var x = SPANS[i], da = null, db = null;
+    DAYS.forEach(function(d){ if (d.k === x.from) da = d; if (d.k === x.to) db = d; });
+    var nb = x._b - x._a + 1;
+    det.innerHTML = '<button type="button" class="close" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>' +
+      '<div class="flex flex-wrap items-center gap-2 mb-2">' +
+        '<span class="text-[.6rem] font-bold uppercase tracking-[.14em] px-2 py-1 rounded" style="background:' + x.color + '18;color:' + x.color + '">' +
+        (x.kind === 'hotel' ? 'H\u00e9bergement' : (x.kind === 'event' ? '\u00c9v\u00e9nement' : 'Pr\u00e9sence')) + '</span>' +
+        '<span class="text-[.6rem] font-bold uppercase tracking-[.1em] px-2 py-1 rounded bg-slate-100 text-slate-500">' + nb + ' jour' + (nb > 1 ? 's' : '') + '</span>' +
+      '</div>' +
+      '<h4 class="font-serif font-bold text-xl md:text-2xl text-chicago-dark leading-snug pr-8 mb-2"><i class="fa-solid ' + x.icon + ' mr-2" style="color:' + x.color + '"></i>' + esc(x.t) + '</h4>' +
+      '<div class="flex flex-wrap gap-x-5 gap-y-1 text-sm text-slate-600 mb-3">' +
+        '<span><i class="fa-regular fa-calendar mr-2 opacity-60"></i>' + da.dow + ' ' + da.num + ' \u2192 ' + db.dow + ' ' + db.num + ' septembre</span>' +
+        (x.sub ? '<span><i class="fa-solid fa-location-dot mr-2 opacity-60"></i>' + esc(x.sub) + '</span>' : '') +
+      '</div>' +
+      (x.note ? '<p class="text-slate-600 leading-relaxed text-sm border-l-2 pl-4" style="border-color:' + x.color + '55">' + esc(x.note) + '</p>' : '');
+    det.classList.remove('hidden');
+  }
+
   det.addEventListener('click', function(ev){
     if (ev.target.closest('.close')) det.classList.add('hidden');
   });
   root.addEventListener('click', function(ev){
-    var el = ev.target.closest('.ag-ev,.ag-chip,.ag-row');
+    var el = ev.target.closest('.ag-ev,.ag-chip,.ag-row,.ag-span');
     if (!el) return;
-    showDetail(+el.getAttribute('data-i'));
+    if (el.getAttribute('data-src') === 'span') showSpan(+el.getAttribute('data-i'));
+    else showDetail(+el.getAttribute('data-i'));
     if (window.innerWidth < 900) det.scrollIntoView({ behavior:'smooth', block:'center' });
   });
 
   /* ---- filtres ---- */
   var cur = 'all';
   function applyFilter(){
-    root.querySelectorAll('.ag-ev,.ag-chip,.ag-row').forEach(function(el){
+    root.querySelectorAll('.ag-ev,.ag-chip,.ag-row,.ag-span').forEach(function(el){
       el.classList.toggle('dim', cur !== 'all' && el.getAttribute('data-cat') !== cur);
     });
     root.querySelectorAll('.ag-day').forEach(function(d){
