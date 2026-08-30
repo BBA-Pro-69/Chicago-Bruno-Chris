@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Chicago 26">
-<link rel="manifest" href="./manifest.webmanifest?v=2026-08-30b">
+<link rel="manifest" href="./manifest.webmanifest?v=2026-08-30c">
 <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon-180.png?v=2026-08-29a">
 <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon-192.png?v=2026-08-29a">
 <title>Chicago City Trip · Septembre 2026 · Bruno &amp; Christophe</title>
@@ -359,6 +359,7 @@ tailwind.config = {
       <a href="#shopping" class="nav-link">Shopping</a>
       <a href="#lieux" class="nav-link">Lieux</a>
       <a href="#manger" class="nav-link">Manger</a>
+      <a href="#gouter" class="nav-link">Go&ucirc;ter</a>
       <a href="#meteo" class="nav-link">Météo</a>
       <a href="#pratique" class="nav-link">Pratique</a>
     </div>
@@ -384,6 +385,7 @@ tailwind.config = {
       <a href="#shopping" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-bag-shopping w-7 text-chicago-blue"></i> Shopping</a>
       <a href="#lieux" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-map-location-dot w-7 text-chicago-blue"></i> Lieux &amp; itinéraires</a>
       <a href="#manger" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-utensils w-7 text-chicago-blue"></i> Où manger</a>
+      <a href="#gouter" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-mug-saucer w-7 text-chicago-blue"></i> Où goûter</a>
       <a href="#meteo" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-cloud-sun w-7 text-chicago-blue"></i> Météo</a>
       <a href="#pratique" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-circle-info w-7 text-chicago-blue"></i> Infos pratiques</a>
     </nav>
@@ -1449,7 +1451,7 @@ tailwind.config = {
     </div>
     <div id="placeChips" class="flex flex-wrap gap-2 mb-8"></div>
     <div id="placeGrid" class="grid md:grid-cols-2 xl:grid-cols-3 gap-5"></div>
-    <p class="text-sm text-slate-700 mt-8 rounded-xl bg-chicago-sand p-4"><i class="fa-solid fa-utensils mr-2 text-chicago-red"></i><strong>Les restaurants ont leur propre section&nbsp;:</strong> vingt adresses class&eacute;es par cat&eacute;gorie, avec photos, temps de marche et itin&eacute;raires, juste en dessous dans <a href="#manger" class="text-chicago-blue font-semibold hover:underline">O&ugrave; manger</a>.</p>
+    <p class="text-sm text-slate-700 mt-8 rounded-xl bg-chicago-sand p-4"><i class="fa-solid fa-utensils mr-2 text-chicago-red"></i><strong>Les restaurants ont leur propre section&nbsp;:</strong> vingt adresses class&eacute;es par cat&eacute;gorie, avec photos, temps de marche et itin&eacute;raires, juste en dessous dans <a href="#manger" class="text-chicago-blue font-semibold hover:underline">O&ugrave; manger</a>, et douze adresses de go&ucirc;ter dans <a href="#gouter" class="text-chicago-blue font-semibold hover:underline">O&ugrave; go&ucirc;ter</a>.</p>
     <p class="text-xs text-slate-400 mt-6"><i class="fa-solid fa-circle-info mr-1.5"></i>Les itin&eacute;raires s&rsquo;ouvrent dans Google Maps, application ou navigateur. En mode application install&eacute;e, la page revient d&rsquo;un simple geste de retour.</p>
   </div>
 </section>
@@ -1499,11 +1501,68 @@ tailwind.config = {
       <p class="text-sm font-bold uppercase tracking-wider text-chicago-dark mb-2"><i class="fa-solid fa-lightbulb mr-2 text-chicago-red"></i>Le r&eacute;flexe &agrave; garder les 11, 12 et 13</p>
       <p class="text-sm text-slate-700 leading-relaxed">Rosemont est une banlieue de congr&egrave;s&nbsp;: en dehors de Carlucci, l&rsquo;offre y tourne vite au steakhouse et au sports bar. Mais la <strong>Blue Line part de la station Rosemont et rejoint Clark/Lake en 33 minutes pour 2,50&nbsp;$</strong>, avec la navette gratuite de l&rsquo;hôtel pour rejoindre la station, et un service 24h/24 au retour. Autrement dit, les quinze adresses du centre-ville restent accessibles jusqu&rsquo;au dernier soir. Rosemont ne devient une contrainte que les mardi et mercredi, d&eacute;j&agrave; pris par les soir&eacute;es Esker.</p>
     </div>
+    <p class="text-sm text-slate-700 mt-8 rounded-xl bg-white border-2 border-chicago-red/30 p-4"><i class="fa-solid fa-mug-saucer mr-2 text-chicago-red"></i><strong>Et pour le go&ucirc;ter&nbsp;?</strong> Comme les petits d&eacute;jeuners de l&rsquo;h&ocirc;tel sont copieux et que vous sauterez probablement les d&eacute;jeuners, douze adresses de p&acirc;tisseries, glaciers et caf&eacute;s sont r&eacute;unies juste en dessous dans <a href="#gouter" class="text-chicago-blue font-semibold hover:underline">O&ugrave; go&ucirc;ter</a>.</p>
     <p class="text-xs text-slate-400 mt-6"><i class="fa-solid fa-circle-info mr-1.5"></i>Photos issues des sites officiels des restaurants, sauf Portillo&rsquo;s et Panera (Wikimedia Commons, CC&nbsp;BY-SA &mdash; Ken Lund, Chris Light), h&eacute;berg&eacute;es dans le d&eacute;p&ocirc;t. Prix indicatifs&nbsp;: <strong>$</strong> moins de 20&nbsp;$ par personne, <strong>$$</strong> de 20 &agrave; 40&nbsp;$, <strong>$$$</strong> au-del&agrave;, hors boissons. Horaires v&eacute;rifi&eacute;s fin ao&ucirc;t 2026, &agrave; reconfirmer sur place.</p>
   </div>
 </section>
 
-<section id="pratique" data-tab="infos" data-sec="Pratique" data-num="12" class="section-pattern py-24">
+<!-- ============ 12. OU GOUTER ============ -->
+<section id="gouter" data-tab="lieux" data-sec="Où goûter" data-num="12" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-8">
+      <p class="text-[.7rem] font-bold uppercase tracking-[.2em] text-chicago-red mb-3">12 &middot; O&ugrave; go&ucirc;ter</p>
+      <h2 class="text-4xl md:text-5xl font-serif font-bold text-chicago-dark mb-4">Le go&ucirc;ter, la vraie pause de vos journ&eacute;es</h2>
+      <p class="text-lg text-slate-600 max-w-3xl">Les petits d&eacute;jeuners de l&rsquo;h&ocirc;tel sont copieux et vous ne d&eacute;jeunerez probablement pas. Le go&ucirc;ter devient donc le vrai repas du milieu de journ&eacute;e, celui qui vous fait tenir jusqu&rsquo;au d&icirc;ner. Douze adresses, choisies sur un crit&egrave;re pr&eacute;cis&nbsp;: <strong>l&rsquo;unanimit&eacute;</strong>.</p>
+    </div>
+
+    <div class="mb-8 rounded-2xl bg-chicago-sand border-2 border-chicago-blue/30 overflow-hidden">
+      <div class="bg-chicago-dark px-6 py-3">
+        <p class="text-white text-xs font-bold uppercase tracking-[.16em]"><i class="fa-solid fa-star-half-stroke mr-2"></i>Comment cette s&eacute;lection a &eacute;t&eacute; faite</p>
+      </div>
+      <div class="p-6 grid md:grid-cols-3 gap-6">
+        <div>
+          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2">Le crit&egrave;re retenu</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Pas la notori&eacute;t&eacute;, mais la <strong>constance des avis</strong>. On a &eacute;cart&eacute; les adresses clivantes, celles qui alternent le 5 et le 1 selon la file d&rsquo;attente ou le vendeur du jour. Ne restent que des maisons o&ugrave; presque personne ne trouve rien &agrave; redire, m&ecirc;me apr&egrave;s des centaines d&rsquo;avis.</p>
+        </div>
+        <div>
+          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2">Ce qui a &eacute;t&eacute; &eacute;cart&eacute;</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Les grosses machines &agrave; touristes de Michigan Avenue, les cha&icirc;nes sans &acirc;me, et les adresses Instagram dont la note s&rsquo;effondre d&egrave;s qu&rsquo;on lit les avis r&eacute;cents. <strong>Toni Patisserie</strong>, souvent recommand&eacute;e dans les guides, a d&eacute;finitivement ferm&eacute; ses portes&nbsp;: inutile de la chercher.</p>
+        </div>
+        <div>
+          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2">Le pi&egrave;ge &agrave; conna&icirc;tre</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Les bonnes p&acirc;tisseries de Chicago ferment t&ocirc;t et souvent&nbsp;: <strong>Hendrickx ferme le lundi</strong>, <strong>Vanille le dimanche et le lundi</strong>, <strong>Eli&rsquo;s le dimanche</strong>, et le th&eacute; du Drake n&rsquo;est servi que du vendredi au dimanche. Chaque fiche pr&eacute;cise sa fen&ecirc;tre de tir. Lisez-la avant de marcher vingt minutes pour rien.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-8 grid md:grid-cols-3 gap-4">
+      <div class="rounded-xl bg-white border-2 border-emerald-200 p-5">
+        <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-emerald-700 mb-2"><i class="fa-solid fa-medal mr-1.5"></i>Si vous n&rsquo;en faites qu&rsquo;un</p>
+        <p class="text-sm text-slate-600 leading-relaxed"><strong>Hendrickx</strong>, &agrave; deux minutes du Sonesta. Un chef belge, treize croissants, une boutique minuscule, et un consensus que rien ne vient troubler.</p>
+      </div>
+      <div class="rounded-xl bg-white border-2 border-chicago-red/30 p-5">
+        <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2"><i class="fa-solid fa-champagne-glasses mr-1.5"></i>Si vous voulez marquer le coup</p>
+        <p class="text-sm text-slate-600 leading-relaxed">Le <strong>th&eacute; au Palm Court du Drake</strong>, le dimanche 6 &agrave; 12h. Harpiste en direct, plateau &agrave; trois &eacute;tages, et l&rsquo;h&ocirc;tel est &agrave; trois minutes de votre chambre.</p>
+      </div>
+      <div class="rounded-xl bg-white border-2 border-indigo-200 p-5">
+        <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-indigo-700 mb-2"><i class="fa-solid fa-bed mr-1.5"></i>Les 11, 12 et 13, c&ocirc;t&eacute; Loews</p>
+        <p class="text-sm text-slate-600 leading-relaxed">Seules deux adresses ne demandent pas la Blue Line&nbsp;: <strong>Stan&rsquo;s Donuts</strong> &agrave; dix minutes &agrave; pied, et <strong>Eli&rsquo;s Cheesecake World</strong> &agrave; douze minutes de taxi.</p>
+      </div>
+    </div>
+
+    <div id="gouterChips" class="flex flex-wrap gap-2 mb-8"></div>
+    <div id="gouterGrid" class="grid md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+
+    <div class="mt-10 rounded-2xl bg-chicago-dark text-white p-6">
+      <p class="text-sm font-bold uppercase tracking-wider mb-3"><i class="fa-solid fa-clock mr-2 text-chicago-blue"></i>Le rythme qui marche&nbsp;: go&ucirc;ter vers 16h, d&icirc;ner vers 19h30</p>
+      <p class="text-sm text-slate-300 leading-relaxed">Chicago d&icirc;ne t&ocirc;t. &Agrave; 19h les salles sont pleines, &agrave; 21h30 les cuisines ferment dans beaucoup d&rsquo;adresses. Un go&ucirc;ter cal&eacute; entre 15h30 et 16h30 vous laisse exactement la faim qu&rsquo;il faut pour un d&icirc;ner &agrave; 19h30, sans finir la soir&eacute;e &agrave; chercher une cuisine encore ouverte. Et si le go&ucirc;ter a &eacute;t&eacute; trop copieux, la section <a href="#manger" class="text-chicago-blue font-semibold hover:underline">O&ugrave; manger</a> compte plusieurs adresses l&eacute;g&egrave;res, dont True Food Kitchen et Le Colonial.</p>
+    </div>
+
+    <p class="text-xs text-slate-400 mt-6"><i class="fa-solid fa-circle-info mr-1.5"></i>Photos issues des sites officiels des maisons cit&eacute;es. Horaires et tarifs v&eacute;rifi&eacute;s fin ao&ucirc;t 2026, &agrave; reconfirmer sur place&nbsp;: les p&acirc;tisseries ind&eacute;pendantes changent leurs horaires plus souvent que les restaurants.</p>
+  </div>
+</section>
+
+<section id="pratique" data-tab="infos" data-sec="Pratique" data-num="13" class="section-pattern py-24">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
       <h2 class="text-sm font-bold text-chicago-red uppercase tracking-widest mb-3">À ne pas oublier</h2>
@@ -1568,7 +1627,7 @@ tailwind.config = {
 </section>
 
 <div class="sep h-12 md:h-20" style="background:#f8fafc"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,0 L1440,100 L0,100 Z" fill="#002B49"></path></svg></div>
-<footer id="fin" data-tab="infos" data-sec="Bon voyage" data-num="13" class="bg-chicago-dark text-slate-400 py-12 text-center">
+<footer id="fin" data-tab="infos" data-sec="Bon voyage" data-num="14" class="bg-chicago-dark text-slate-400 py-12 text-center">
   <i class="fa-solid fa-wind text-chicago-blue text-3xl mb-4"></i>
   <p class="font-serif text-xl text-white mb-2">Chicago, septembre 2026</p>
   <p class="text-sm">Bruno &amp; Névine · Christophe &amp; Laure — bon voyage !</p>
@@ -2480,10 +2539,295 @@ tailwind.config = {
 })();
 </script>
 
+<!-- ============ OU GOUTER : donnees et fiches ============ -->
+<script>
+(function(){
+  var esc = (window.TRIP && window.TRIP.esc) || function(x){ return String(x); };
+  function gd(dest, mode){
+    return 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(dest) + '&travelmode=' + (mode || 'walking');
+  }
+  function gphotos(dest){
+    return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(dest);
+  }
+
+  var CATG = [
+    { k:'the',      label:'Le grand jeu : l\u2019afternoon tea', icon:'fa-mug-hot',      color:'#8B1A3A' },
+    { k:'patis',    label:'P\u00e2tisserie europ\u00e9enne',     icon:'fa-bread-slice',  color:'#b45309' },
+    { k:'cookie',   label:'Cookies & donuts',                    icon:'fa-cookie-bite',  color:'#C60C30' },
+    { k:'glace',    label:'Glaces & gelato',                     icon:'fa-ice-cream',    color:'#0e7490' },
+    { k:'cafe',     label:'Un caf\u00e9, assis',                 icon:'fa-mug-saucer',   color:'#059669' },
+    { k:'emporter', label:'\u00c0 grignoter et \u00e0 ramener',  icon:'fa-gift',         color:'#4338ca' }
+  ];
+
+  var DR = 'https://files.thedrakehotel.com/wp-content/uploads/2026/03/';
+  var HX = 'https://images.squarespace-cdn.com/content/v1/518415b1e4b0046126d3198c/';
+  var LV = 'https://levainbakery.com/cdn/shop/files/';
+  var ST = 'https://images.getbento.com/accounts/b9a42d46517eb361df8be76e90ffe63f/media/images/';
+  var RC = 'https://rainbowcone.com/wp-content/uploads/';
+  var JE = 'https://jenis.com/cdn/shop/files/';
+  var IN = 'https://www.intelligentsia.com/cdn/shop/files/';
+  var GP = 'https://images.ctfassets.net/vbzg160uuenx/';
+  var EC = 'https://elicheesecake.com/wp-content/uploads/2021/08/';
+
+  var G = [
+
+    /* ---------- afternoon tea ---------- */
+    { c:'the', rk:1, n:'Palm Court \u00b7 The Drake Hotel',
+      a:'140 E Walton Pl, Gold Coast', w:'3 min \u00e0 pied du Sonesta',
+      badge:'Le th\u00e9 y est servi depuis plus d\u2019un si\u00e8cle',
+      lo:{ t:'\u2248 1 h', v:'Blue Line \u2192 Clark/Lake, puis <b>Red Line</b> \u2192 <b>Chicago</b>, et 9 min \u00e0 pied vers le nord.', x:'Taxi / Uber 30 min &middot; 40-50 $' },
+      why:'Le seul endroit de cette s\u00e9lection o\u00f9 le go\u00fbter est un vrai moment, assis, et pas une pause debout sur un trottoir. Sous la verri\u00e8re du Drake, harpiste en direct le samedi et le dimanche, service sur plateau \u00e0 trois \u00e9tages et dix-sept th\u00e9s au choix. C\u2019est aussi le plus proche du Sonesta.',
+      order:'Le Gilded Garden Afternoon Tea, l\u2019\u00e9dition d\u2019\u00e9t\u00e9 servie jusqu\u2019au 27 septembre : scones ti\u00e8des, clotted cream, sandwichs au concombre et p\u00e2tisseries maison.',
+      note:'Th\u00e9 servi uniquement vendredi, samedi et dimanche de 12h \u00e0 16h30. Environ 50 $ par personne. R\u00e9servation vivement conseill\u00e9e, tenue smart casual, comptez 90 minutes \u00e0 table. Pour vous, le dimanche 6 est la seule vraie fen\u00eatre avant la croisi\u00e8re de 17h30.',
+      dest:'Palm Court, The Drake Hotel, 140 E Walton Pl, Chicago, IL',
+      url:'https://www.thedrakehotel.com/dining/palm-court/', tel:'+13129324619',
+      imgs:[DR+'NMG_6418-940x625.jpg'] },
+
+    /* ---------- patisserie europeenne ---------- */
+    { c:'patis', rk:1, n:'Hendrickx Belgian Bread Crafter',
+      a:'100 E Walton St, Gold Coast', w:'2 min \u00e0 pied du Sonesta',
+      badge:'Nomm\u00e9e meilleure boulangerie de Chicago par Time Out',
+      lo:{ t:'\u2248 1 h', v:'Blue Line \u2192 Clark/Lake, puis <b>Red Line</b> \u2192 <b>Chicago</b>, et 9 min \u00e0 pied. Franchement, \u00e0 garder pour les trois premiers jours depuis le Sonesta.', x:'Taxi / Uber 30 min &middot; 40-50 $' },
+      why:'Renaud Hendrickx est belge, il a \u00e9t\u00e9 chef p\u00e2tissier du Ritz-Carlton, et il fait treize croissants diff\u00e9rents dans une boutique minuscule \u00e0 cent m\u00e8tres de votre h\u00f4tel. C\u2019est l\u2019adresse la plus unanimement lou\u00e9e du quartier, et la seule o\u00f9 vous retrouverez un vrai feuilletage europ\u00e9en.',
+      order:'Un croissant aux amandes, ou celui au sp\u00e9culoos. Les macarons et le pain aux raisins font aussi consensus.',
+      note:'Ouvert du mardi au samedi de 8h \u00e0 16h, dimanche de 9h \u00e0 14h, FERM\u00c9 LE LUNDI. Tr\u00e8s petit local, quelques tables seulement, beaucoup de vente \u00e0 emporter. Votre fen\u00eatre : dimanche 6 avant 14h, ou mardi 8 au matin avant de changer d\u2019h\u00f4tel.',
+      dest:'Hendrickx Belgian Bread Crafter, 100 E Walton St, Chicago, IL',
+      url:'https://hendrickxbakery.com/', tel:'+13126496717',
+      imgs:[HX+'1537453876232-NJAY7JW2FUSDYSE07AG4/_DSC7445.jpg?format=750w', HX+'1537453931955-HM15XFAU3WCSJ4DDGO9W/_DSC7451.jpg?format=750w', HX+'1571686380448-IJ0IPUG46W504KQ7T8BG/IMG_9803.jpg?format=750w'] },
+
+    { c:'patis', rk:2, n:'Vanille Patisserie',
+      a:'131 N Clinton St, Chicago French Market', w:'35 min \u00e0 pied du Sonesta',
+      badge:'La maison fran\u00e7aise de r\u00e9f\u00e9rence \u00e0 Chicago depuis plus de vingt ans',
+      lo:{ t:'\u2248 45 min', v:'Blue Line \u2192 Clark/Lake, puis <b>Green ou Pink Line</b> \u2192 <b>Clinton</b>, un seul arr\u00eat, et le march\u00e9 couvert est juste l\u00e0. La plus facile d\u2019acc\u00e8s depuis le Loews.', x:'Taxi / Uber 25 min &middot; 35-45 $' },
+      why:'Une p\u00e2tisserie fran\u00e7aise install\u00e9e dans les halles du Chicago French Market. Macarons, \u00e9clairs, entremets et tartes au niveau de ce que vous connaissez \u00e0 Lyon, ce qui n\u2019est pas si courant ici. Le march\u00e9 autour vaut aussi le d\u00e9tour, avec fromagers, charcutiers et un tr\u00e8s bon caf\u00e9.',
+      order:'Les macarons \u00e0 l\u2019unit\u00e9, l\u2019\u00e9clair au chocolat, ou une tarte au citron.',
+      note:'Ouvert du mardi au vendredi de 7h \u00e0 19h, samedi de 9h30 \u00e0 16h, FERM\u00c9 DIMANCHE ET LUNDI. Le March\u00e9 est un vrai march\u00e9 couvert, donc parfait pour une pause \u00e0 l\u2019abri s\u2019il pleut. Un des rares go\u00fbters possibles en fin d\u2019apr\u00e8s-midi.',
+      dest:'Vanille Patisserie, 131 N Clinton St, Chicago, IL',
+      url:'https://vanillepatisserie.com/', tel:'',
+      imgs:['https://d1w7312wesee68.cloudfront.net/4wnPlyzN75VkLiFSN3Ju_eVcxuV8AdLIv5xh35TE4hI/ext:webp/quality:85/c:4027:1972:ce:317:393/plain/s3://toast-sites-resources-prod/restaurantImages/40097f3c-b4d4-48f0-8cbb-5a2f97d74c63/IsWMSX_w.jpeg'] },
+
+    /* ---------- cookies & donuts ---------- */
+    { c:'cookie', rk:1, n:'Levain Bakery \u00b7 River North',
+      a:'408 N Clark St, River North', w:'20 min \u00e0 pied du Sonesta',
+      badge:'Le cookie le plus copi\u00e9 d\u2019Am\u00e9rique',
+      lo:{ t:'\u2248 53 min', v:'<b>Une seule ligne</b> : Blue Line \u2192 <b>Clark/Lake</b>, puis 9 min \u00e0 pied vers le nord sur Clark St. Ouvert jusqu\u2019\u00e0 23h et la Blue Line tourne 24h/24 : aucune contrainte d\u2019horaire.', x:'Taxi / Uber 25 min &middot; 35-45 $' },
+      why:'Le cookie de Levain p\u00e8se pr\u00e8s de 170 grammes, croustillant dehors et volontairement pas cuit \u00e0 c\u0153ur. C\u2019est devenu un p\u00e8lerinage depuis New York et l\u2019antenne de River North fait l\u2019unanimit\u00e9. Surtout, elle est ouverte jusqu\u2019\u00e0 23h : c\u2019est le seul go\u00fbter encore possible apr\u00e8s une journ\u00e9e de salon.',
+      order:'Le Two Chip Chocolate Chip, ou le Dark Chocolate Peanut Butter. Un cookie pour deux suffit largement, ils sont \u00e9normes.',
+      note:'Ouvert de 7h30 \u00e0 23h du dimanche au jeudi, jusqu\u2019\u00e0 minuit vendredi et samedi. Quelques places assises, surtout de la vente \u00e0 emporter. Ils r\u00e9chauffent le cookie sur demande, acceptez.',
+      dest:'Levain Bakery, 408 N Clark St, Chicago, IL',
+      url:'https://levainbakery.com/pages/river-north-chicago', tel:'+18723955573',
+      imgs:[LV+'Shop_bundle_C_B_cookieconnoisseur_cover.png?v=1784833338&width=800'] },
+
+    { c:'cookie', rk:2, n:'Do-Rite Donuts \u00b7 Streeterville',
+      a:'233 E Erie St, Streeterville', w:'8 min \u00e0 pied du Sonesta',
+      badge:'Le donut artisanal le plus r\u00e9guli\u00e8rement bien not\u00e9 de la ville',
+      lo:{ t:'\u2248 1 h', v:'Blue Line \u2192 Clark/Lake, puis <b>Red Line</b> \u2192 <b>Chicago</b>, et 10 min \u00e0 pied vers l\u2019est.', x:'Taxi / Uber 30 min &middot; 40-50 $' },
+      why:'Tout est fait sur place chaque matin, sans conservateur, et la vitrine change selon les saisons. Ce n\u2019est pas un donut industriel : la p\u00e2te est brioch\u00e9e, le gla\u00e7age fin. L\u2019antenne de Streeterville est \u00e0 huit minutes du Sonesta, litt\u00e9ralement sur le chemin de Navy Pier.',
+      order:'Le Valrhona chocolate cake, le pistachio meyer lemon, ou le vegan maple glazed. Ils font aussi un tr\u00e8s bon sandwich au poulet frit.',
+      note:'Ouvert tous les jours de 6h \u00e0 19h. Les meilleures r\u00e9f\u00e9rences partent en fin d\u2019apr\u00e8s-midi, mieux vaut passer avant 17h. Quatre autres antennes en ville, dont une dans le Loop au 50 W Randolph.',
+      dest:'Do-Rite Donuts, 233 E Erie St, Chicago, IL',
+      url:'https://www.doritedonuts.com/locations', tel:'',
+      imgs:['https://storage.googleapis.com/dorite_2025_bucket/wp-content/uploads/2446a085-p1090633-scaled.jpeg'] },
+
+    { c:'cookie', rk:3, n:'Stan\u2019s Donuts & Coffee',
+      a:'9433 W Higgins Rd, Rosemont \u00b7 et 259 E Erie St', w:'10 min \u00e0 pied du Loews',
+      badge:'La seule maison s\u00e9rieuse \u00e0 avoir une boutique \u00e0 Rosemont',
+      lo:{ t:'10 min \u00e0 pied', v:'Higgins Rd vers l\u2019ouest depuis l\u2019h\u00f4tel. Ouvert jusqu\u2019\u00e0 20h tous les jours. Rien \u00e0 prendre.', x:'' },
+      why:'Stan\u2019s est une institution de Chicago, avec ses pocket pies et ses beignets fourr\u00e9s. Son int\u00e9r\u00eat ici est autant g\u00e9ographique que gustatif : c\u2019est votre go\u00fbter des 11, 12 et 13 septembre, \u00e0 dix minutes \u00e0 pied du Loews, sans reprendre la Blue Line.',
+      order:'Le pocket pie \u00e0 la pomme, ou celui au Biscoff. Le glazed old fashioned pour les puristes.',
+      note:'Rosemont, 9433 W Higgins Rd : tous les jours de 6h \u00e0 20h. Streeterville, 259 E Erie : tous les jours de 6h \u00e0 18h. Deux autres antennes au 535 et au 181 N Michigan, ouvertes jusqu\u2019\u00e0 20h.',
+      dest:'Stan\u2019s Donuts, 9433 W Higgins Rd, Rosemont, IL',
+      url:'https://www.stansdonuts.com/locations', tel:'',
+      imgs:[ST+'6693IMG_8663.jpg?w=1200&fit=crop&auto=compress,format', ST+'7476IMG_5612.JPG?w=1200&fit=crop&auto=compress,format'] },
+
+    /* ---------- glaces ---------- */
+    { c:'glace', rk:1, n:'The Original Rainbow Cone \u00b7 Navy Pier',
+      a:'600 E Grand Ave, Navy Pier', w:'20 min \u00e0 pied du Sonesta',
+      badge:'Cent ans en 2026, et toujours le m\u00eame c\u00f4ne',
+      lo:{ t:'\u2248 1 h 10', v:'Blue Line \u2192 Clark/Lake, puis <b>Red Line</b> \u2192 <b>Grand</b>, et le bus 29 ou 20 min \u00e0 pied jusqu\u2019au bout du pier.', x:'Taxi / Uber 35 min &middot; 45-55 $' },
+      why:'Fond\u00e9e en 1926 dans le South Side, la maison sert depuis toujours le m\u00eame c\u00f4ne \u00e0 cinq parfums tranch\u00e9s en couches : chocolat, fraise, Palmer House \u00e0 la cerise et aux noix, pistache et sorbet \u00e0 l\u2019orange. C\u2019est un objet culturel de Chicago autant qu\u2019une glace.',
+      order:'Le Original Rainbow Cone, \u00e9videmment. Rien d\u2019autre n\u2019a vraiment de sens ici.',
+      note:'Ouvert de 11h \u00e0 21h dimanche, lundi, mardi et jeudi, jusqu\u2019\u00e0 22h mercredi et vendredi, 23h le samedi. Happy hour \u00e0 5 $ du lundi au vendredi avant 15h. Sur votre chemin le samedi 5 avant la croisi\u00e8re de 20h45.',
+      dest:'The Original Rainbow Cone, 600 E Grand Ave, Chicago, IL',
+      url:'https://rainbowcone.com/locations/navypier/', tel:'+17732387075',
+      imgs:[RC+'2025/06/rainbow_cone_original-1-1024x683.jpg', RC+'2025/07/feature_triple-1024x683.jpg', RC+'2025/07/rc_navy_pier.jpg'] },
+
+    { c:'glace', rk:2, n:'Jeni\u2019s Splendid Ice Creams \u00b7 Gold Coast',
+      a:'871 N Wabash Ave, Gold Coast', w:'10 min \u00e0 pied du Sonesta',
+      badge:'4,5 sur 5, sur plus de 110 avis',
+      lo:{ t:'\u2248 1 h', v:'Blue Line \u2192 Clark/Lake, puis <b>Red Line</b> \u2192 <b>Chicago</b>, et 6 min \u00e0 pied.', x:'Taxi / Uber 30 min &middot; 40-50 $' },
+      why:'Des glaces faites \u00e0 partir de lait de fermes du Midwest, avec des parfums qui sortent du lot : miel-lavande, g\u00e2teau \u00e0 la banane, brambleberry crisp. La texture est plus dense qu\u2019une glace industrielle, plus proche d\u2019une vraie cr\u00e8me glac\u00e9e artisanale.',
+      order:'Brambleberry Crisp ou Darkest Chocolate. Ils font go\u00fbter avant de choisir, profitez-en.',
+      note:'Comptez 6 \u00e0 8 $ la coupe. Les parfums d\u2019automne sortent d\u00e9but septembre, vous tomberez dessus. Sur le chemin entre le Sonesta et Michigan Avenue.',
+      dest:'Jeni\u2019s Splendid Ice Creams, 871 N Wabash Ave, Chicago, IL',
+      url:'https://jenis.com/blogs/scoop-shops', tel:'',
+      imgs:[JE+'BestSellersCollections-5Pint-2026SaltyCaramel_500x.jpg?v=1783518653', JE+'jbar_for_posters_24456899-a4d4-40b8-bbd5-0673d77220b3_500x.jpg?v=1779999927'] },
+
+    { c:'glace', rk:3, n:'Eataly \u00b7 Nutella Bar & gelato',
+      a:'43 E Ohio St, River North', w:'13 min \u00e0 pied du Sonesta',
+      badge:'Le go\u00fbter le plus simple \u00e0 caler dans une journ\u00e9e downtown',
+      lo:{ t:'\u2248 55 min', v:'Blue Line \u2192 Clark/Lake, puis <b>Red Line</b> \u2192 <b>Grand</b>, et 5 min \u00e0 pied.', x:'Taxi / Uber 25 min &middot; 35-45 $' },
+      why:'Vous avez d\u00e9j\u00e0 Eataly dans la s\u00e9lection restaurants, mais le premier \u00e9tage m\u00e9rite une visite pour lui seul : un Nutella Bar qui sert cr\u00eapes et pains grill\u00e9s, et un comptoir de gelato fait sur place. Ouvert jusqu\u2019\u00e0 22h, \u00e0 l\u2019abri, ce qui compte s\u2019il pleut.',
+      order:'Un cono de gelato pistacchio et nocciola, ou la piadina au Nutella si vous avez vraiment faim.',
+      note:'Ouvert tous les jours de 9h \u00e0 22h. Grand espace, on trouve toujours une place. Toilettes propres et gratuites, plus rare qu\u2019on ne croit dans le centre.',
+      dest:'Eataly Chicago, 43 E Ohio St, Chicago, IL',
+      url:'https://www.eataly.com/us_en/stores/chicago/', tel:'+13125218700',
+      imgs:['https://images.prismic.io/eataly-us/8a9eb635-8fcd-49e8-b8fa-f696cd450be2_Gelato-14.jpg'] },
+
+    /* ---------- cafe ---------- */
+    { c:'cafe', rk:1, n:'Intelligentsia Coffee \u00b7 Millennium Park',
+      a:'53 E Randolph St, Loop', w:'25 min \u00e0 pied du Sonesta',
+      badge:'Le torr\u00e9facteur qui a lanc\u00e9 le caf\u00e9 de sp\u00e9cialit\u00e9 \u00e0 Chicago',
+      lo:{ t:'\u2248 45 min', v:'<b>Une seule ligne</b> : Blue Line \u2192 <b>Washington</b> ou <b>Clark/Lake</b>, puis 5 min \u00e0 pied. Z\u00e9ro changement.', x:'Taxi / Uber 30 min &middot; 40-50 $' },
+      why:'Juste en face du Cultural Center et \u00e0 cinquante m\u00e8tres du Bean. C\u2019est exactement l\u00e0 que vous voudrez vous asseoir le lundi 7 vers 13h, quand Jeff vous rendra votre libert\u00e9 apr\u00e8s trois heures de marche. Terrasse sur Randolph, wifi gratuit, et un comptoir Sweetgreen \u00e0 c\u00f4t\u00e9 si l\u2019un de vous veut une salade.',
+      order:'Un cappuccino ou un cortado, et un cookie. Ils torr\u00e9fient eux-m\u00eames, la qualit\u00e9 est constante d\u2019une visite \u00e0 l\u2019autre.',
+      note:'Ouvert tous les jours de 6h30 \u00e0 19h. \u00c0 trois minutes \u00e0 pied du point de rendez-vous du Greeter, entr\u00e9e Washington du Cultural Center.',
+      dest:'Intelligentsia Coffee Millennium Park Coffeebar, 53 E Randolph St, Chicago, IL',
+      url:'https://www.intelligentsia.com/pages/millennium-park-coffeebar', tel:'+13129209332',
+      imgs:[IN+'Mill-Park-Locations-Detail-Hero-Desktop-2_1_1200x.jpg?v=1769108953', IN+'Mill-Park-Locations-Detail-Split-Tout-Left-Desktop_1200x.jpg?v=1769108981', IN+'Mill-Park-Locations-Detail-Split-Tout-Right-Desktop_1_1200x.jpg?v=1769109005'] },
+
+    /* ---------- a ramener ---------- */
+    { c:'emporter', rk:1, n:'Garrett Popcorn Shops \u00b7 Michigan Ave',
+      a:'625 N Michigan Ave, Magnificent Mile', w:'9 min \u00e0 pied du Sonesta',
+      badge:'Le souvenir comestible le plus consensuel de Chicago',
+      lo:{ t:'\u2248 1 h', v:'Blue Line \u2192 Clark/Lake, puis <b>Red Line</b> \u2192 <b>Grand</b>, et 8 min \u00e0 pied vers l\u2019est. Il y a aussi une antenne dans les terminaux d\u2019O\u2019Hare, pour le dernier achat.', x:'Taxi / Uber 30 min &middot; 40-50 $' },
+      why:'Le Garrett Mix, c\u2019est du caramel et du cheddar m\u00e9lang\u00e9s dans le m\u00eame sac. Dit comme \u00e7a c\u2019est inqui\u00e9tant, dans les faits c\u2019est redoutable et parfaitement addictif. C\u2019est le cadeau \u00e0 ramener qui fait plaisir \u00e0 tout le monde, et les bo\u00eetes voyagent tr\u00e8s bien en soute.',
+      order:'Une bo\u00eete moyenne de Garrett Mix \u00e0 partager tout de suite, et une grande bo\u00eete scell\u00e9e pour la valise.',
+      note:'Ouvert tous les jours de 9h \u00e0 20h. Il y a souvent la queue mais elle avance vite. La boutique de Michigan Avenue sent le caramel chaud depuis le trottoir, vous la trouverez sans carte.',
+      dest:'Garrett Popcorn Shops, 625 N Michigan Ave, Chicago, IL',
+      url:'https://www.garrettpopcorn.com/', tel:'',
+      imgs:[GP+'327E2NNla2cpS1b4xfofyN/4d36dc6351f16893124085921808a35e/cat-cheesecorn-1.webp'] },
+
+    { c:'emporter', rk:2, n:'Eli\u2019s Cheesecake World',
+      a:'6701 W Forest Preserve Dr, Chicago', w:'Pas accessible \u00e0 pied \u00b7 12 min en taxi du Loews',
+      badge:'Le cheesecake officiel de Chicago depuis 1980',
+      mode:'driving',
+      lo:{ t:'12 min en taxi', v:'Pas de ligne CTA jusque-l\u00e0. Taxi ou Uber depuis le Loews, environ 15 \u00e0 20 $ l\u2019aller. C\u2019est le seul de la s\u00e9lection qu\u2019on ne fait pas en transport en commun.', x:'' },
+      why:'C\u2019est l\u2019usine, avec sa boutique et son caf\u00e9, \u00e0 douze minutes de voiture du Loews et presque sur le chemin de l\u2019a\u00e9roport. On y go\u00fbte des parts \u00e0 l\u2019assiette, on voit la production derri\u00e8re une vitre, et les prix sont ceux de l\u2019usine et non ceux de Michigan Avenue. Leur cheesecake a \u00e9t\u00e9 servi \u00e0 l\u2019investiture de Barack Obama, ce qui \u00e0 Chicago vaut label.',
+      order:'Une part de l\u2019Original Plain, la r\u00e9f\u00e9rence absolue, ou la Candy Bar au Heath. Les fins de production sont vendues en vrac \u00e0 prix r\u00e9duit.',
+      note:'Ouvert du lundi au vendredi de 9h \u00e0 17h, samedi de 10h \u00e0 16h, FERM\u00c9 LE DIMANCHE. Pour vous ce sera donc le vendredi 11 ou le samedi 12. Pr\u00e9voir le taxi \u00e0 l\u2019aller comme au retour.',
+      dest:'Eli\u2019s Cheesecake World, 6701 W Forest Preserve Dr, Chicago, IL',
+      url:'https://www.elicheesecake.com/pages/visit-us', tel:'',
+      imgs:[EC+'Original-Plain-Slice-Plated.webp', EC+'Strawberry-topped-cheesecake-whole.webp', EC+'Candy-bar-cheesecake-made-with-heath.webp'] }
+  ];
+
+  var PLACEHOLDER_G = '<div class="h-36 flex items-center justify-center" style="background:linear-gradient(135deg,#8B1A3A 0%,#b45309 100%)">' +
+        '<div class="text-center"><i class="fa-solid fa-camera-retro text-white/40 text-2xl"></i>' +
+        '<p class="text-white/60 text-[.6rem] uppercase tracking-widest mt-2">Photos sur Google Maps</p></div></div>';
+
+  function stripG(r){
+    if (!r.imgs || !r.imgs.length) return PLACEHOLDER_G;
+    var cols = r.imgs.length === 1 ? 'grid-cols-1' : (r.imgs.length === 2 ? 'grid-cols-2' : 'grid-cols-3');
+    return '<div class="gouter-strip grid ' + cols + ' gap-px h-36 bg-slate-200" data-tot="' + r.imgs.length + '" data-ko="0">' +
+      r.imgs.map(function(u){
+        return '<a href="' + u + '" target="_blank" rel="noopener" class="block overflow-hidden bg-chicago-dark">' +
+               '<img src="' + u + '" alt="' + esc(r.n) + '" loading="lazy" decoding="async" ' +
+               'class="w-full h-full object-cover hover:scale-105 transition duration-500" ' +
+               'onerror="window.__gouterImgKO&&window.__gouterImgKO(this)"></a>';
+      }).join('') + '</div>';
+  }
+
+  window.__gouterImgKO = function(img){
+    var a = img.parentNode; if (!a) return;
+    var box = a.parentNode; if (!box) return;
+    a.style.display = 'none';
+    var ko = (parseInt(box.getAttribute('data-ko'), 10) || 0) + 1;
+    var tot = parseInt(box.getAttribute('data-tot'), 10) || 1;
+    box.setAttribute('data-ko', ko);
+    if (ko >= tot) { box.outerHTML = PLACEHOLDER_G; return; }
+    var left = tot - ko;
+    box.className = 'gouter-strip grid ' + (left === 1 ? 'grid-cols-1' : (left === 2 ? 'grid-cols-2' : 'grid-cols-3')) + ' gap-px h-36 bg-slate-200';
+  };
+
+  function loewsG(r){
+    if (!r.lo) return '';
+    var walkOnly = !/Line/.test(r.lo.v);
+    return '<div class="mt-2.5 rounded-lg border p-2.5 ' + (walkOnly ? 'border-emerald-200 bg-emerald-50' : 'border-indigo-200 bg-indigo-50') + '">' +
+      '<div class="flex items-center gap-1.5">' +
+        '<i class="fa-solid ' + (walkOnly ? 'fa-person-walking text-emerald-700' : 'fa-train-subway text-indigo-700') + ' text-[.7rem]"></i>' +
+        '<span class="text-[.55rem] font-bold uppercase tracking-[.12em] ' + (walkOnly ? 'text-emerald-700' : 'text-indigo-700') + '">Depuis le Loews</span>' +
+        '<span class="ml-auto text-[.7rem] font-bold ' + (walkOnly ? 'text-emerald-800' : 'text-indigo-800') + '">' + esc(r.lo.t) + '</span>' +
+      '</div>' +
+      '<p class="text-[.68rem] leading-snug text-slate-600 mt-1.5">' + r.lo.v + '</p>' +
+      (r.lo.x ? '<p class="text-[.62rem] text-slate-400 mt-1"><i class="fa-solid fa-taxi mr-1"></i>' + r.lo.x + '</p>' : '') +
+    '</div>';
+  }
+
+  function cardG(r){
+    var c = CATG.filter(function(x){ return x.k === r.c; })[0] || CATG[0];
+    var btn = function(href, icon, label, primary, title){
+      return '<a href="' + href + '" target="_blank" rel="noopener"' + (title ? ' title="' + title + '"' : '') +
+        ' class="inline-flex items-center px-3 py-2 rounded-lg text-[.66rem] font-bold uppercase tracking-wider transition ' +
+        (primary ? 'bg-chicago-dark text-white hover:bg-chicago-blue' : 'border-2 border-slate-200 text-chicago-dark hover:border-chicago-dark') +
+        '"><i class="fa-solid ' + icon + (label ? ' mr-2' : '') + '"></i>' + (label || '') + '</a>';
+    };
+    return '' +
+    '<div class="gouter-card bg-white rounded-2xl overflow-hidden border-2 border-slate-200 flex flex-col" data-c="' + r.c + '">' +
+      stripG(r) +
+      '<div class="p-5 flex flex-col flex-1">' +
+        '<div class="flex items-start gap-2 mb-1">' +
+          '<span class="shrink-0 w-7 h-7 rounded-lg flex items-center justify-center text-white text-[.7rem] font-bold" style="background:' + c.color + '">' + r.rk + '</span>' +
+          '<div class="min-w-0 flex-1">' +
+            '<p class="text-[.55rem] font-bold uppercase tracking-[.14em] text-slate-400">' + esc(c.label) + '</p>' +
+            '<h4 class="font-serif font-bold text-lg text-chicago-dark leading-tight">' + esc(r.n) + '</h4>' +
+          '</div>' +
+        '</div>' +
+        '<p class="text-[.68rem] font-bold text-white rounded-md px-2 py-1 mt-2 inline-block" style="background:' + c.color + '"><i class="fa-solid fa-star mr-1.5 text-[.6rem]"></i>' + esc(r.badge) + '</p>' +
+        '<p class="text-xs text-slate-500 mt-2.5"><i class="fa-solid fa-location-dot mr-1.5 opacity-60"></i>' + esc(r.a) + '</p>' +
+        '<p class="text-xs font-semibold text-chicago-blue mt-1"><i class="fa-solid fa-person-walking mr-1.5"></i>' + esc(r.w) + '</p>' +
+        loewsG(r) +
+        '<p class="text-sm text-slate-600 leading-relaxed mt-3">' + esc(r.why) + '</p>' +
+        '<p class="text-xs text-slate-700 mt-3 rounded-lg bg-chicago-sand p-3"><strong>\u00c0 commander&nbsp;:</strong> ' + esc(r.order) + '</p>' +
+        '<p class="text-xs text-slate-500 mt-3 flex-1"><i class="fa-solid fa-circle-info mr-1.5 opacity-60"></i>' + esc(r.note) + '</p>' +
+        '<div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-slate-100">' +
+          btn(gd(r.dest, r.mode || 'walking'), 'fa-diamond-turn-right', 'Itin\u00e9raire', true) +
+          btn(gphotos(r.dest), 'fa-images', 'Photos', false, 'Voir toutes les photos sur Google Maps') +
+          (r.url ? btn(r.url, 'fa-arrow-up-right-from-square', '', false, 'Site officiel') : '') +
+          (r.tel ? '<a href="tel:' + r.tel + '" class="inline-flex items-center px-3 py-2 rounded-lg text-[.66rem] font-bold uppercase tracking-wider border-2 border-slate-200 text-chicago-dark hover:border-chicago-dark transition" title="Appeler"><i class="fa-solid fa-phone"></i></a>' : '') +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  var gridG = document.getElementById('gouterGrid');
+  var chipsG = document.getElementById('gouterChips');
+  if (gridG && chipsG) {
+    var sortedG = [];
+    CATG.forEach(function(c){
+      G.filter(function(r){ return r.c === c.k; })
+       .sort(function(a,b){ return a.rk - b.rk; })
+       .forEach(function(r){ sortedG.push(r); });
+    });
+    gridG.innerHTML = sortedG.map(cardG).join('');
+
+    var htmlG = '<button type="button" class="gchip on px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-chicago-dark text-white" data-f="all">Les ' + G.length + ' adresses</button>';
+    CATG.forEach(function(c){
+      var k = G.filter(function(r){ return r.c === c.k; }).length;
+      if (!k) return;
+      htmlG += '<button type="button" class="gchip px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-slate-600 border border-slate-200 hover:border-chicago-dark" data-f="' + c.k + '"><i class="fa-solid ' + c.icon + ' mr-1.5" style="color:' + c.color + '"></i>' + c.label + ' \u00b7 ' + k + '</button>';
+    });
+    chipsG.innerHTML = htmlG;
+
+    chipsG.addEventListener('click', function(e){
+      if (!e.target || !e.target.closest) return;
+      var b = e.target.closest('.gchip'); if (!b) return;
+      chipsG.querySelectorAll('.gchip').forEach(function(x){
+        x.className = 'gchip px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-slate-600 border border-slate-200 hover:border-chicago-dark';
+      });
+      b.className = 'gchip on px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-chicago-dark text-white';
+      var f = b.getAttribute('data-f');
+      gridG.querySelectorAll('[data-c]').forEach(function(cd){
+        cd.style.display = (f === 'all' || cd.getAttribute('data-c') === f) ? '' : 'none';
+      });
+    });
+  }
+})();
+</script>
+
 <!-- ============ MODE APPLICATION : onglets, ecran du jour, lieux, PWA ============ -->
 <script>
 (function(){
-  var V = '2026-08-30b';
+  var V = '2026-08-30c';
   var T = window.TRIP || {};
   var DAYS = T.DAYS || [], EV = T.EV || [], CATS = T.CATS || [];
   var esc = T.esc || function(x){ return String(x); };
