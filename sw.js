@@ -6,7 +6,7 @@
    - pas de skipWaiting automatique : la page propose « Recharger »
    ========================================================================= */
 
-const VERSION  = '2026-08-30a';
+const VERSION  = '2026-08-30b';
 const SHELL    = 'cx-shell-'  + VERSION;   // fichiers du site
 const VENDOR   = 'cx-vendor-' + VERSION;   // Tailwind, Font Awesome, Google Fonts, images
 const PATIENCE = 1200;                      // ms avant de servir le cache
@@ -19,7 +19,12 @@ const SHELL_URLS = [
   './assets/icon-192.png',
   './assets/icon-512.png',
   './assets/icon-maskable-512.png',
-  './assets/apple-touch-icon-180.png'
+  './assets/apple-touch-icon-180.png',
+  './assets/resto/portillos-salle.jpg',
+  './assets/resto/portillos-italian-beef.jpg',
+  './assets/resto/portillos-beef-cheddar.jpg',
+  './assets/resto/panera-comptoir.jpg',
+  './assets/resto/panera-facade.jpg'
 ];
 
 /* ---------------------------------------------------------------- INSTALL */

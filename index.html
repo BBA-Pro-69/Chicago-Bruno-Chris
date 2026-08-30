@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Chicago 26">
-<link rel="manifest" href="./manifest.webmanifest?v=2026-08-30a">
+<link rel="manifest" href="./manifest.webmanifest?v=2026-08-30b">
 <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon-180.png?v=2026-08-29a">
 <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon-192.png?v=2026-08-29a">
 <title>Chicago City Trip · Septembre 2026 · Bruno &amp; Christophe</title>
@@ -1499,7 +1499,7 @@ tailwind.config = {
       <p class="text-sm font-bold uppercase tracking-wider text-chicago-dark mb-2"><i class="fa-solid fa-lightbulb mr-2 text-chicago-red"></i>Le r&eacute;flexe &agrave; garder les 11, 12 et 13</p>
       <p class="text-sm text-slate-700 leading-relaxed">Rosemont est une banlieue de congr&egrave;s&nbsp;: en dehors de Carlucci, l&rsquo;offre y tourne vite au steakhouse et au sports bar. Mais la <strong>Blue Line part de la station Rosemont et rejoint Clark/Lake en 33 minutes pour 2,50&nbsp;$</strong>, avec la navette gratuite de l&rsquo;hôtel pour rejoindre la station, et un service 24h/24 au retour. Autrement dit, les quinze adresses du centre-ville restent accessibles jusqu&rsquo;au dernier soir. Rosemont ne devient une contrainte que les mardi et mercredi, d&eacute;j&agrave; pris par les soir&eacute;es Esker.</p>
     </div>
-    <p class="text-xs text-slate-400 mt-6"><i class="fa-solid fa-circle-info mr-1.5"></i>Photos issues des sites officiels des restaurants. Prix indicatifs&nbsp;: <strong>$</strong> moins de 20&nbsp;$ par personne, <strong>$$</strong> de 20 &agrave; 40&nbsp;$, <strong>$$$</strong> au-del&agrave;, hors boissons. Horaires v&eacute;rifi&eacute;s fin ao&ucirc;t 2026, &agrave; reconfirmer sur place.</p>
+    <p class="text-xs text-slate-400 mt-6"><i class="fa-solid fa-circle-info mr-1.5"></i>Photos issues des sites officiels des restaurants, sauf Portillo&rsquo;s et Panera (Wikimedia Commons, CC&nbsp;BY-SA &mdash; Ken Lund, Chris Light), h&eacute;berg&eacute;es dans le d&eacute;p&ocirc;t. Prix indicatifs&nbsp;: <strong>$</strong> moins de 20&nbsp;$ par personne, <strong>$$</strong> de 20 &agrave; 40&nbsp;$, <strong>$$$</strong> au-del&agrave;, hors boissons. Horaires v&eacute;rifi&eacute;s fin ao&ucirc;t 2026, &agrave; reconfirmer sur place.</p>
   </div>
 </section>
 
@@ -2185,7 +2185,7 @@ tailwind.config = {
   var LC = 'https://www.lecolonial.com/wp-content/uploads/2024/05/';
   var EA = 'https://images.prismic.io/eataly-us/';
   var TF = 'https://www.truefoodkitchen.com/wp-content/uploads/';
-  var PO = 'https://www.portillos.com/assets/1/32/DimMenuCategoryItem/';
+  var RS = './assets/resto/';
   var GG = 'https://cdn.prod.website-files.com/64542138e0be122910058cd2/';
   var LW = 'https://cdn.loewshotels.com/loewshotels.com-2466770763/cms/cache/v2/';
 
@@ -2304,7 +2304,7 @@ tailwind.config = {
       order:"Un Italian beef « dipped », des sweet peppers, et un seul milkshake pour quatre.",
       note:"À faire une fois, à midi, pour la culture. Rapide, bruyant, et moins de 15 $ par personne.",
       url:'https://www.portillos.com/', dest:"Portillo's, 100 W Ontario St, Chicago, IL",
-      imgs:[PO+'Beef_Close_Up.jpg', PO+'hot_dogs_and_chili.jpg', PO+'salads.jpg']  },
+      imgs:[RS+'portillos-salle.jpg', RS+'portillos-italian-beef.jpg', RS+'portillos-beef-cheddar.jpg']  },
 
     /* ---------------- HYPE ---------------- */
     { c:'hype', rk:1, n:'Monteverde', a:'1020 W Madison St, West Loop', w:'Hors périmètre · 15 min en taxi', p:'$$$',
@@ -2361,7 +2361,8 @@ tailwind.config = {
       why:"Sans prétention, mais c'est la seule adresse du secteur qui fait des soupes et des salades correctes à midi, et elle est sur le chemin des outlets.",
       order:"Une soupe et une demi-salade, la formule qui sauve les journées de shopping.",
       note:"Pratique le vendredi 11, quand la journée se passe entièrement aux outlets.",
-      dest:"Panera Bread, Fashion Outlets of Chicago, 5220 Fashion Outlets Way, Rosemont, IL", imgs:[] }
+      dest:"Panera Bread, Fashion Outlets of Chicago, 5220 Fashion Outlets Way, Rosemont, IL",
+      imgs:[RS+'panera-comptoir.jpg', RS+'panera-facade.jpg'] }
   ];
 
   var PLACEHOLDER = '<div class="h-36 flex items-center justify-center" style="background:linear-gradient(135deg,#002B49 0%,#0e7490 100%)">' +
@@ -2482,7 +2483,7 @@ tailwind.config = {
 <!-- ============ MODE APPLICATION : onglets, ecran du jour, lieux, PWA ============ -->
 <script>
 (function(){
-  var V = '2026-08-30a';
+  var V = '2026-08-30b';
   var T = window.TRIP || {};
   var DAYS = T.DAYS || [], EV = T.EV || [], CATS = T.CATS || [];
   var esc = T.esc || function(x){ return String(x); };

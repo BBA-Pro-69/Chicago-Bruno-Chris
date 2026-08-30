@@ -16,6 +16,7 @@ Christophe & Laure. Page unique, aucune dépendance à builder.
 | `assets/icon-512.png` | Icône PWA 512 px |
 | `assets/icon-maskable-512.png` | Icône maskable Android |
 | `assets/apple-touch-icon-180.png` | Icône iOS |
+| `assets/resto/*.jpg` | 5 photos hébergées localement (Portillo's et Panera, dont les CDN bloquent le lien direct) |
 
 > `.nojekyll` est masqué par défaut dans le Finder (macOS : `Cmd + Shift + .`)
 > et dans l'Explorateur Windows (Affichage → Éléments masqués).
@@ -54,8 +55,8 @@ Plus un écran `#today` visible uniquement en mode application.
 La version du cache doit être incrémentée **aux trois endroits** suivants,
 sinon les téléphones déjà installés continueront de servir l'ancienne page :
 
-1. `sw.js`, ligne 9 : `const VERSION = '2026-08-30a';`
-2. `index.html`, ligne 13 : `manifest.webmanifest?v=2026-08-30a`
-3. `index.html`, script « mode application » : `var V = '2026-08-30a';`
+1. `sw.js`, ligne 9 : `const VERSION = '2026-08-30b';`
+2. `index.html`, ligne 13 : `manifest.webmanifest?v=2026-08-30b`
+3. `index.html`, script « mode application » : `var V = '2026-08-30b';`
 
-Version actuelle : **2026-08-30a**
+Version actuelle : **2026-08-30b**
