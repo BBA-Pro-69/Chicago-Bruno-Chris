@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <!-- ============ MODE APPLICATION (PWA) ============ -->
 <meta name="theme-color" content="#002B49">
-<meta name="description" content="Carnet de voyage Chicago, 4 au 14 septembre 2026 : vols, h&ocirc;tels, planning jour par jour, salon Esker All Access, lieux et itin&eacute;raires.">
+<meta name="description" content="Guide de voyage Chicago, 4 au 14 septembre 2026 : vols, h&ocirc;tels, planning jour par jour, salon Esker All Access, lieux et itin&eacute;raires.">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Chicago 26">
-<link rel="manifest" href="./manifest.webmanifest?v=2026-08-30e">
+<link rel="manifest" href="./manifest.webmanifest?v=2026-08-31a">
 <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon-180.png?v=2026-08-29a">
 <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon-192.png?v=2026-08-29a">
 <title>Chicago City Trip · Septembre 2026 · Bruno &amp; Christophe</title>
@@ -41,13 +41,13 @@ tailwind.config = {
   .app-only{display:none!important}
   #appnav{display:none}
   #appTop{display:none}
-  body.appmode{padding-bottom:calc(4.75rem + env(safe-area-inset-bottom))}
+  body.appmode{padding-bottom:calc(5.4rem + env(safe-area-inset-bottom))}
   body.appmode #progress,body.appmode #rail{display:none!important}
   body.appmode #appnav{display:block}
   body.appmode [data-tab]{display:none}
   body.appmode [data-tab].tab-on{display:block}
   body.appmode .app-only.tab-on{display:block!important}
-  body.appmode section[id]{scroll-margin-top:4rem}
+  body.appmode section[id]{scroll-margin-top:4.2rem}
   body.appmode #hero{padding-top:1.5rem}
   #appnav{
     position:fixed;left:0;right:0;bottom:0;z-index:60;
@@ -68,6 +68,88 @@ tailwind.config = {
   .tabbtn.on{color:#002B49}
   .tabbtn.on i{color:#E4002B}
   .tabbtn.on .dotmark{background:#E4002B}
+
+  /* Poignee : suggere le geste de tirer le panneau vers le haut */
+  #appnav .grip{display:flex;justify-content:center;padding-top:.32rem}
+  #appnav .grip span{width:2.25rem;height:3.5px;border-radius:3px;background:#cbd5e1;transition:background .2s ease}
+  #appnav .grip.hot span{background:#41B6E6}
+  .tabbtn.menu i{transition:transform .24s cubic-bezier(.16,1,.3,1)}
+  .tabbtn.menu.opened i{transform:rotate(90deg)}
+  .tabbtn.menu.on i{color:#E4002B}
+
+  /* ============ PANNEAU " TOUTES LES RUBRIQUES " ============ */
+  #appmenu{position:fixed;inset:0;z-index:75;display:none}
+  #appmenu.show{display:block}
+  #appmenu .am-bg{position:absolute;inset:0;background:rgba(0,43,73,.55);
+    -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);
+    opacity:0;transition:opacity .24s ease}
+  #appmenu.show .am-bg{opacity:1}
+  #appmenu .am-sheet{position:absolute;left:0;right:0;bottom:0;background:#fff;
+    border-radius:1.5rem 1.5rem 0 0;box-shadow:0 -20px 50px rgba(0,43,73,.3);
+    max-height:90vh;display:flex;flex-direction:column;
+    transform:translateY(100%);transition:transform .3s cubic-bezier(.16,1,.3,1)}
+  #appmenu.show .am-sheet{transform:none}
+  #appmenu .am-grip{padding:.7rem 0 .15rem;display:flex;justify-content:center;flex:0 0 auto;
+    cursor:grab;touch-action:none}
+  #appmenu .am-grip span{width:2.75rem;height:4px;border-radius:3px;background:#cbd5e1}
+  #appmenu .am-head{flex:0 0 auto;display:flex;align-items:center;gap:.6rem;
+    padding:.35rem 1.15rem .75rem;border-bottom:1px solid #eef2f6}
+  #appmenu .am-scroll{overflow-y:auto;-webkit-overflow-scrolling:touch;
+    padding:.9rem 1.15rem calc(1.5rem + env(safe-area-inset-bottom))}
+  #appmenu .am-fam{display:flex;align-items:center;gap:.5rem;
+    font:800 .57rem/1 'Inter',sans-serif;text-transform:uppercase;letter-spacing:.16em;
+    color:#94a3b8;margin:1.15rem 0 .6rem}
+  #appmenu .am-fam:first-child{margin-top:.15rem}
+  #appmenu .am-fam .line{flex:1;height:1px;background:#eef2f6}
+  #appmenu .am-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem}
+  .am-tile{display:flex;flex-direction:column;align-items:center;gap:.45rem;
+    padding:.9rem .35rem .8rem;border:1px solid #e8edf3;border-radius:.95rem;background:#fff;
+    cursor:pointer;text-align:center;color:#334155;
+    font:700 .615rem/1.25 'Inter',sans-serif;-webkit-tap-highlight-color:transparent;
+    transition:border-color .16s ease,background .16s ease,transform .14s ease}
+  .am-tile i{font-size:1.18rem;color:#41B6E6;line-height:1}
+  .am-tile:active{transform:scale(.955)}
+  .am-tile.on{border-color:#41B6E6;background:#F0FAFE;color:#002B49}
+  .am-tile.on i{color:#E4002B}
+  .am-install{display:flex;align-items:center;gap:.8rem;width:100%;padding:.9rem 1rem;
+    border:0;border-radius:.95rem;background:#002B49;color:#fff;cursor:pointer;text-align:left;
+    -webkit-tap-highlight-color:transparent}
+  .am-install i.lead{font-size:1.15rem;color:#41B6E6}
+  .am-install .go{margin-left:auto;font-size:.7rem;opacity:.6}
+  body.appmode #navToggle{display:none}
+  body.appmode.menu-open{overflow:hidden}
+
+  /* Sections resserrees en mode application : moins de vide avant les titres */
+  body.appmode section[data-tab],body.appmode footer[data-tab]{padding-top:1.9rem;padding-bottom:2.5rem}
+  body.appmode .sep{display:none}
+
+  /* ============ MENUS DEROULANTS (ordinateur) ============ */
+  .dd{position:relative}
+  .dd-btn{display:inline-flex;align-items:center;gap:.35rem;background:none;border:0;cursor:pointer;
+    font:inherit;color:inherit}
+  .dd-btn .caret{font-size:.52rem;opacity:.45;transition:transform .18s ease}
+  .dd.open .dd-btn .caret{transform:rotate(180deg)}
+  .dd-panel{position:absolute;top:100%;left:50%;z-index:50;
+    transform:translateX(-50%) translateY(-4px);
+    min-width:14.5rem;background:#fff;border:1px solid #e2e8f0;border-radius:.95rem;
+    box-shadow:0 22px 45px -18px rgba(0,43,73,.35);padding:.45rem;margin-top:.35rem;
+    opacity:0;visibility:hidden;
+    transition:opacity .16s ease,transform .16s ease,visibility .16s}
+  .dd-panel::before{content:'';position:absolute;left:0;right:0;top:-.5rem;height:.5rem}
+  .dd.open .dd-panel,.dd:hover .dd-panel{opacity:1;visibility:visible;transform:translateX(-50%)}
+  .dd-panel a{display:flex;align-items:center;gap:.65rem;padding:.55rem .7rem;border-radius:.6rem;
+    color:#334155;font-size:.82rem;font-weight:500;white-space:nowrap;text-decoration:none}
+  .dd-panel a:hover{background:#F5F1EA;color:#002B49}
+  .dd-panel a i{width:1.15rem;text-align:center;color:#41B6E6;font-size:.85rem}
+  .dd-panel a.on{background:#F0FAFE;color:#002B49;font-weight:700}
+  /* Les panneaux d'extremite s'alignent sur leur bord pour ne jamais deborder */
+  .dd:first-child .dd-panel{left:0;right:auto;transform:translateX(0) translateY(-4px)}
+  .dd:first-child.open .dd-panel,.dd:first-child:hover .dd-panel{transform:translateX(0)}
+  .dd:last-of-type .dd-panel{left:auto;right:0;transform:translateX(0) translateY(-4px)}
+  .dd:last-of-type.open .dd-panel,.dd:last-of-type:hover .dd-panel{transform:translateX(0)}
+  @media (prefers-reduced-motion:reduce){
+    #appmenu .am-bg,#appmenu .am-sheet,.dd-panel,.am-tile{transition:none}
+  }
   @keyframes tabIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
   .tab-anim{animation:tabIn .19s ease-out both}
   @media (prefers-reduced-motion:reduce){.tab-anim{animation:none}}
@@ -349,21 +431,48 @@ tailwind.config = {
       <span id="crumb" class="lg:hidden text-[0.62rem] font-bold uppercase tracking-[0.18em] text-chicago-red border-l border-slate-300 pl-2 ml-1 transition-opacity duration-300"></span>
     </div>
     <div id="deskNav" class="hidden lg:flex items-center gap-x-1 text-[0.82rem] font-medium">
-      <a href="#spirit" class="nav-link">L'esprit</a>
-      <a href="#vols" class="nav-link">Vols</a>
-      <a href="#hotels" class="nav-link">Hôtels</a>
-      <a href="#planning" class="nav-link">Planning</a>
+      <div class="dd">
+        <button type="button" class="nav-link dd-btn" aria-expanded="false">Le voyage<i class="fa-solid fa-chevron-down caret"></i></button>
+        <div class="dd-panel">
+          <a href="#hero"><i class="fa-solid fa-wind"></i>Vue d&rsquo;ensemble</a>
+          <a href="#spirit"><i class="fa-solid fa-compass"></i>L&rsquo;esprit du voyage</a>
+          <a href="#vols"><i class="fa-solid fa-plane"></i>Vols &amp; a&eacute;roports</a>
+          <a href="#hotels"><i class="fa-solid fa-bed"></i>H&ocirc;tels</a>
+          <a href="#planning"><i class="fa-solid fa-calendar-day"></i>Planning jour par jour</a>
+        </div>
+      </div>
       <a href="#agenda" class="nav-link">Agenda</a>
-      <a href="#travail" class="nav-link">Salon pro</a>
-      <a href="#esker" class="nav-link">Agenda Esker</a>
-      <a href="#shopping" class="nav-link">Shopping</a>
-      <a href="#lieux" class="nav-link">Lieux</a>
-      <a href="#manger" class="nav-link">Manger</a>
-      <a href="#gouter" class="nav-link">Go&ucirc;ter</a>
-      <a href="#patisseries" class="nav-link">P&acirc;tisseries</a>
-      <a href="#transports" class="nav-link">Transports</a>
-      <a href="#meteo" class="nav-link">Météo</a>
-      <a href="#pratique" class="nav-link">Pratique</a>
+      <div class="dd">
+        <button type="button" class="nav-link dd-btn" aria-expanded="false">Le salon<i class="fa-solid fa-chevron-down caret"></i></button>
+        <div class="dd-panel">
+          <a href="#travail"><i class="fa-solid fa-briefcase"></i>Salon pro</a>
+          <a href="#esker"><i class="fa-solid fa-list-check"></i>Esker All Access</a>
+        </div>
+      </div>
+      <div class="dd">
+        <button type="button" class="nav-link dd-btn" aria-expanded="false">Sur place<i class="fa-solid fa-chevron-down caret"></i></button>
+        <div class="dd-panel">
+          <a href="#lieux"><i class="fa-solid fa-map-location-dot"></i>Localisation</a>
+          <a href="#transports"><i class="fa-solid fa-train-subway"></i>Se d&eacute;placer</a>
+          <a href="#shopping"><i class="fa-solid fa-bag-shopping"></i>Shopping &amp; outlets</a>
+        </div>
+      </div>
+      <div class="dd">
+        <button type="button" class="nav-link dd-btn" aria-expanded="false">Se r&eacute;galer<i class="fa-solid fa-chevron-down caret"></i></button>
+        <div class="dd-panel">
+          <a href="#manger"><i class="fa-solid fa-utensils"></i>O&ugrave; manger</a>
+          <a href="#gouter"><i class="fa-solid fa-mug-saucer"></i>O&ugrave; go&ucirc;ter</a>
+          <a href="#patisseries"><i class="fa-solid fa-cake-candles"></i>P&acirc;tisseries</a>
+        </div>
+      </div>
+      <div class="dd">
+        <button type="button" class="nav-link dd-btn" aria-expanded="false">Bon &agrave; savoir<i class="fa-solid fa-chevron-down caret"></i></button>
+        <div class="dd-panel">
+          <a href="#meteo"><i class="fa-solid fa-cloud-sun"></i>M&eacute;t&eacute;o</a>
+          <a href="#pratique"><i class="fa-solid fa-circle-info"></i>Infos pratiques</a>
+        </div>
+      </div>
+      <button type="button" class="js-install ml-2 inline-flex items-center gap-1.5 rounded-lg bg-chicago-dark text-white px-3 py-2 text-[.68rem] font-bold uppercase tracking-wider hover:bg-chicago-blue transition-colors" id="deskInstall"><i class="fa-solid fa-mobile-screen-button"></i>Installer</button>
     </div>
 
     <!-- Bouton burger (mobile) -->
@@ -386,14 +495,31 @@ tailwind.config = {
       <a href="#esker" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-list-check w-7 text-chicago-blue"></i> Agenda Esker All Access</a>
       <a href="#shopping" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-bag-shopping w-7 text-chicago-blue"></i> Shopping</a>
       <a href="#lieux" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-map-location-dot w-7 text-chicago-blue"></i> Lieux &amp; itinéraires</a>
+      <a href="#transports" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-train-subway w-7 text-chicago-blue"></i> Se déplacer</a>
       <a href="#manger" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-utensils w-7 text-chicago-blue"></i> Où manger</a>
       <a href="#gouter" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-mug-saucer w-7 text-chicago-blue"></i> Où goûter</a>
       <a href="#patisseries" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-cake-candles w-7 text-chicago-blue"></i> Pâtisseries</a>
-      <a href="#transports" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-train-subway w-7 text-chicago-blue"></i> Se déplacer</a>
       <button type="button" class="js-install w-full text-left py-3.5 text-chicago-blue font-semibold"><i class="fa-solid fa-mobile-screen-button w-7"></i> Installer l’application</button>
       <a href="#meteo" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-cloud-sun w-7 text-chicago-blue"></i> Météo</a>
       <a href="#pratique" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-circle-info w-7 text-chicago-blue"></i> Infos pratiques</a>
     </nav>
+
+<!-- ============ BANDEAU : INSTALLER L'APPLICATION ============ -->
+<!-- Masque par defaut. Affiche seulement hors application installee, mis en veille 7 jours si ferme. -->
+<div id="installBanner" style="display:none" class="bg-chicago-dark text-white border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-3">
+    <span class="shrink-0 w-10 h-10 rounded-xl bg-white/10 grid place-items-center">
+      <i class="fa-solid fa-mobile-screen-button text-chicago-blue text-lg"></i>
+    </span>
+    <p class="text-[.74rem] sm:text-sm leading-snug flex-1 text-slate-200" id="installTxt"></p>
+    <button type="button" id="installGo"
+            class="shrink-0 bg-chicago-red text-white text-[.66rem] font-bold uppercase tracking-wider px-3.5 py-2.5 rounded-lg hover:brightness-110 transition"
+            style="display:none">Installer</button>
+    <button type="button" id="installClose" class="shrink-0 text-white/40 hover:text-white px-1.5 py-1" aria-label="Masquer ce rappel">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+</div>
   </div>
 </nav>
 
@@ -404,8 +530,8 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- HERO -->
-<section id="hero" data-tab="sejour" data-sec="Le voyage" data-num="00" class="hero-pattern pt-16 pb-20">
+<!-- ============ 00. LE VOYAGE ============ -->
+<section id="hero" data-tab="voyage" data-sec="Le voyage" data-num="00" class="hero-pattern pt-16 pb-20">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
     <span class="inline-block py-1 px-3 rounded-full bg-chicago-red/80 text-sm font-semibold tracking-wider mb-6 border border-white/20">
       <i class="fa-regular fa-calendar mr-2"></i> 4 → 13 septembre 2026
@@ -432,8 +558,8 @@ tailwind.config = {
 </section>
 
 <div class="sep sep-curtain" style="background:#002B49"><div style="background:#ffffff"></div></div>
-<!-- ESPRIT -->
-<section id="spirit" data-tab="sejour" data-sec="L'esprit" data-num="01" class="py-20 bg-white">
+<!-- ============ 01. L'ESPRIT ============ -->
+<section id="spirit" data-tab="voyage" data-sec="L'esprit" data-num="01" class="py-20 bg-white">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-3xl mx-auto">
       <h2 class="text-sm font-bold text-chicago-red uppercase tracking-widest mb-3">Philosophie</h2>
@@ -481,8 +607,8 @@ tailwind.config = {
 </section>
 
 <div class="sep sep-band" style="background:#ffffff"><div class="band" style="background:#F5F1EA"><span>Lyon</span><span>&#9992;</span><span>Amsterdam</span><span>&#9992;</span><span>Chicago</span></div></div>
-<!-- VOLS -->
-<section id="vols" data-tab="sejour" data-sec="Vols" data-num="02" class="py-24 bg-white">
+<!-- ============ 02. VOLS ============ -->
+<section id="vols" data-tab="voyage" data-sec="Vols" data-num="02" class="py-24 bg-white">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-4">
       <h2 class="text-sm font-bold text-chicago-red uppercase tracking-widest mb-3">Air France · KLM · Itinéraire confirmé</h2>
@@ -735,8 +861,8 @@ tailwind.config = {
 </section>
 
 <div class="sep h-12 md:h-20" style="background:#ffffff"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,100 L1440,0 L1440,100 Z" fill="#F5F1EA"></path></svg></div>
-<!-- HOTELS -->
-<section id="hotels" data-tab="sejour" data-sec="Hôtels" data-num="03" class="py-20 bg-chicago-sand">
+<!-- ============ 03. HOTELS ============ -->
+<section id="hotels" data-tab="voyage" data-sec="Hôtels" data-num="03" class="py-20 bg-chicago-sand">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
       <h2 class="text-sm font-bold text-chicago-red uppercase tracking-widest mb-3">Hébergements réservés</h2>
@@ -852,8 +978,8 @@ tailwind.config = {
 </section>
 
 <div class="sep h-12 md:h-16" style="background:#F5F1EA"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,0 L720,78 L1440,0 L1440,100 L0,100 Z" fill="#f8fafc"></path></svg></div>
-<!-- PLANNING -->
-<section id="planning" data-tab="sejour" data-sec="Planning" data-num="04" class="section-pattern py-24">
+<!-- ============ 04. PLANNING ============ -->
+<section id="planning" data-tab="voyage" data-sec="Planning" data-num="04" class="section-pattern py-24">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-20">
       <h2 class="text-sm font-bold text-chicago-red uppercase tracking-widest mb-3">Le planning</h2>
@@ -1138,7 +1264,7 @@ tailwind.config = {
 <!-- SEPARATEUR planning -> agenda -->
 <div class="sep h-14 md:h-20" style="background:#f8fafc"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,100 C300,20 560,20 720,58 C880,96 1140,96 1440,16 L1440,100 Z" fill="#ffffff"></path></svg></div>
 
-<!-- AGENDA GLOBAL -->
+<!-- ============ 05. AGENDA GLOBAL ============ -->
 <section id="agenda" data-tab="agenda" data-sec="Agenda" data-num="05" class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-4">
@@ -1203,8 +1329,8 @@ tailwind.config = {
 </section>
 
 <div class="sep h-16 md:h-24" style="background:#ffffff"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,55 C240,115 480,5 720,42 C960,80 1200,8 1440,48 L1440,100 L0,100 Z" fill="#002B49"></path></svg></div>
-<!-- TRAVAIL -->
-<section id="travail" data-tab="sejour" data-sec="Salon pro" data-num="06" class="py-20 bg-chicago-dark text-white">
+<!-- ============ 06. SALON PRO ============ -->
+<section id="travail" data-tab="voyage" data-sec="Salon pro" data-num="06" class="py-20 bg-chicago-dark text-white">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <h2 class="text-sm font-bold text-chicago-blue uppercase tracking-widest mb-3">Mardi 8 → jeudi 10</h2>
     <h3 class="text-3xl md:text-4xl font-serif font-bold mb-8">Transfert vers O'Hare &amp; salon professionnel</h3>
@@ -1219,8 +1345,8 @@ tailwind.config = {
 
 <div class="sep h-10 md:h-14" style="background:#002B49"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,100 L0,45 L120,95 L240,45 L360,95 L480,45 L600,95 L720,45 L840,95 L960,45 L1080,95 L1200,45 L1320,95 L1440,45 L1440,100 Z" fill="#ffffff"></path></svg></div>
 
-<!-- ESKER ALL ACCESS -->
-<section id="esker" data-tab="sejour" data-sec="Esker All Access" data-num="07" class="py-24 bg-white">
+<!-- ============ 07. ESKER ALL ACCESS ============ -->
+<section id="esker" data-tab="voyage" data-sec="Esker All Access" data-num="07" class="py-24 bg-white">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-4">
       <h2 class="text-sm font-bold text-chicago-red uppercase tracking-widest mb-3">8 → 10 septembre · Rosemont</h2>
@@ -1277,8 +1403,8 @@ tailwind.config = {
 </section>
 
 <div class="sep sep-medallion" style="background:#ffffff"><span class="rule"></span><span class="badge"><i class="fa-solid fa-bag-shopping"></i></span></div>
-<!-- SHOPPING -->
-<section id="shopping" data-tab="sejour" data-sec="Shopping" data-num="08" class="py-24 bg-white">
+<!-- ============ 08. SHOPPING ============ -->
+<section id="shopping" data-tab="voyage" data-sec="Shopping" data-num="08" class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
       <h2 class="text-sm font-bold text-chicago-red uppercase tracking-widest mb-3">Vendredi 11 &amp; samedi 12</h2>
@@ -1326,131 +1452,13 @@ tailwind.config = {
   </div>
 </section>
 
-<div class="sep h-20 md:h-28" style="background:#ffffff"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,60 C280,10 560,95 820,55 C1060,18 1240,70 1440,40 L1440,100 L0,100 Z" fill="#002B49" opacity=".35"></path><path d="M0,75 C260,35 520,110 780,72 C1040,35 1230,88 1440,62 L1440,100 L0,100 Z" fill="#002B49"></path></svg></div>
-<!-- METEO -->
-<section id="meteo" data-tab="infos" data-sec="Météo" data-num="09" class="py-24 bg-chicago-dark text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-4">
-      <h2 class="text-sm font-bold text-chicago-blue uppercase tracking-widest mb-3">Du 4 au 13 septembre</h2>
-      <h3 class="text-4xl md:text-5xl font-serif font-bold">Quel temps fera-t-il ?</h3>
-    </div>
-    <p class="text-center text-slate-400 text-sm max-w-2xl mx-auto mb-12">
-      Les prévisions réelles n'existent pas encore à cette échéance. Voici les <strong class="text-slate-200">normales saisonnières jour par jour</strong>
-      relevées à la station d'O'Hare sur la période 1991-2020 : c'est la meilleure estimation possible aujourd'hui, et elle est très stable d'une année sur l'autre.
-    </p>
+<div class="sep sep-medallion" style="background:#ffffff"><span class="rule"></span><span class="badge"><i class="fa-solid fa-map-location-dot"></i></span></div>
 
-    <div class="grid gap-3 mb-10" style="grid-template-columns:repeat(auto-fit,minmax(120px,1fr))">
-      <!-- 4 -->
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center backdrop-blur-sm">
-        <p class="text-xs uppercase tracking-wider text-chicago-blue font-bold">Ven 4</p>
-        <i class="fa-solid fa-sun text-3xl text-amber-300 my-3"></i>
-        <p class="text-2xl font-bold">26°</p>
-        <p class="text-sm text-slate-400">16° la nuit</p>
-        <p class="text-xs text-slate-500 mt-3 leading-snug">Arrivée de Christophe &amp; Laure</p>
-      </div>
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center backdrop-blur-sm">
-        <p class="text-xs uppercase tracking-wider text-chicago-blue font-bold">Sam 5</p>
-        <i class="fa-solid fa-sun text-3xl text-amber-300 my-3"></i>
-        <p class="text-2xl font-bold">26°</p>
-        <p class="text-sm text-slate-400">16° la nuit</p>
-        <p class="text-xs text-amber-300 mt-3 leading-snug font-medium">Voilier 20h45 : ~17° ressenti sur l'eau</p>
-      </div>
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center backdrop-blur-sm">
-        <p class="text-xs uppercase tracking-wider text-chicago-blue font-bold">Dim 6</p>
-        <i class="fa-solid fa-sun text-3xl text-amber-300 my-3"></i>
-        <p class="text-2xl font-bold">26°</p>
-        <p class="text-sm text-slate-400">16° la nuit</p>
-        <p class="text-xs text-amber-300 mt-3 leading-snug font-medium">Croisière 17h30 : idéal</p>
-      </div>
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center backdrop-blur-sm">
-        <p class="text-xs uppercase tracking-wider text-chicago-blue font-bold">Lun 7</p>
-        <i class="fa-solid fa-sun text-3xl text-amber-300 my-3"></i>
-        <p class="text-2xl font-bold">26°</p>
-        <p class="text-sm text-slate-400">16° la nuit</p>
-        <p class="text-xs text-slate-500 mt-3 leading-snug">Journée à pied</p>
-      </div>
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center backdrop-blur-sm">
-        <p class="text-xs uppercase tracking-wider text-chicago-blue font-bold">Mar 8</p>
-        <i class="fa-solid fa-cloud-sun text-3xl text-slate-300 my-3"></i>
-        <p class="text-2xl font-bold">26°</p>
-        <p class="text-sm text-slate-400">16° la nuit</p>
-        <p class="text-xs text-slate-500 mt-3 leading-snug">Transfert O'Hare</p>
-      </div>
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center backdrop-blur-sm">
-        <p class="text-xs uppercase tracking-wider text-chicago-blue font-bold">Mer 9</p>
-        <i class="fa-solid fa-cloud-sun text-3xl text-slate-300 my-3"></i>
-        <p class="text-2xl font-bold">26°</p>
-        <p class="text-sm text-slate-400">15° la nuit</p>
-        <p class="text-xs text-slate-500 mt-3 leading-snug">Salon</p>
-      </div>
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center backdrop-blur-sm">
-        <p class="text-xs uppercase tracking-wider text-chicago-blue font-bold">Jeu 10</p>
-        <i class="fa-solid fa-cloud-sun text-3xl text-slate-300 my-3"></i>
-        <p class="text-2xl font-bold">25°</p>
-        <p class="text-sm text-slate-400">15° la nuit</p>
-        <p class="text-xs text-slate-500 mt-3 leading-snug">Départ de Christophe &amp; Laure</p>
-      </div>
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center backdrop-blur-sm">
-        <p class="text-xs uppercase tracking-wider text-chicago-blue font-bold">Ven 11</p>
-        <i class="fa-solid fa-sun text-3xl text-amber-300 my-3"></i>
-        <p class="text-2xl font-bold">25°</p>
-        <p class="text-sm text-slate-400">15° la nuit</p>
-        <p class="text-xs text-slate-500 mt-3 leading-snug">Outlets (couvert)</p>
-      </div>
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center backdrop-blur-sm">
-        <p class="text-xs uppercase tracking-wider text-chicago-blue font-bold">Sam 12</p>
-        <i class="fa-solid fa-sun text-3xl text-amber-300 my-3"></i>
-        <p class="text-2xl font-bold">25°</p>
-        <p class="text-sm text-slate-400">15° la nuit</p>
-        <p class="text-xs text-slate-500 mt-3 leading-snug">Journée libre</p>
-      </div>
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center backdrop-blur-sm">
-        <p class="text-xs uppercase tracking-wider text-chicago-blue font-bold">Dim 13</p>
-        <i class="fa-solid fa-plane-departure text-3xl text-chicago-blue my-3"></i>
-        <p class="text-2xl font-bold">25°</p>
-        <p class="text-sm text-slate-400">15° la nuit</p>
-        <p class="text-xs text-slate-500 mt-3 leading-snug">Vol retour 17h00</p>
-      </div>
-    </div>
-
-    <div class="grid gap-6" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
-        <i class="fa-solid fa-temperature-half text-chicago-blue text-2xl mb-3"></i>
-        <h4 class="font-bold mb-2">Un été qui s'étire</h4>
-        <p class="text-sm text-slate-400">Début septembre reste chaud : 25 à 26 °C l'après-midi, avec une baisse très progressive d'un degré sur la durée du séjour. Les nuits descendent à 15-16 °C. Il peut encore faire 30 °C sur un coup de chaud, comme il peut faire 20 °C sur un coup de vent du nord.</p>
-      </div>
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
-        <i class="fa-solid fa-wind text-chicago-blue text-2xl mb-3"></i>
-        <h4 class="font-bold mb-2">L'effet lac, à ne pas sous-estimer</h4>
-        <p class="text-sm text-slate-400">Au bord de l'eau et surtout <strong class="text-slate-200">sur l'eau</strong>, il fait 3 à 5 °C de moins qu'en ville, et le vent ne s'arrête jamais — on ne l'appelle pas <em>Windy City</em> pour rien. Sur le voilier à 21h, prévoir un vrai coupe-vent : le ressenti tourne autour de 15 °C.</p>
-      </div>
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
-        <i class="fa-solid fa-cloud-rain text-chicago-blue text-2xl mb-3"></i>
-        <h4 class="font-bold mb-2">La pluie</h4>
-        <p class="text-sm text-slate-400">Environ 90 mm sur le mois, répartis sur une dizaine de jours : statistiquement, <strong class="text-slate-200">2 à 3 jours de notre séjour verront de la pluie</strong>, souvent sous forme d'averse orageuse courte plutôt que de crachin. Un petit parapluie suffit, pas besoin de K-way.</p>
-      </div>
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
-        <i class="fa-solid fa-suitcase text-chicago-blue text-2xl mb-3"></i>
-        <h4 class="font-bold mb-2">Dans la valise</h4>
-        <p class="text-sm text-slate-400">Le principe de la superposition : tee-shirts pour la journée, un pull léger et un coupe-vent pour les soirées et les deux croisières. Une tenue un peu habillée pour les rooftops (tenue correcte exigée après 18h). Et de très bonnes chaussures : on marche énormément.</p>
-      </div>
-    </div>
-
-    <p class="text-center text-xs text-slate-500 mt-10">
-      Source : normales climatiques 1991-2020, National Weather Service (station Chicago O'Hare).
-      <a href="https://forecast.weather.gov/MapClick.php?lat=41.8843&lon=-87.6324" target="_blank" rel="noopener" class="text-chicago-blue hover:underline ml-1">Voir les vraies prévisions <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a>
-      — disponibles à partir de fin août.
-    </p>
-  </div>
-</section>
-
-<div class="sep h-16 md:h-24" style="background:#002B49"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,100 C420,0 1020,0 1440,100 Z" fill="#f8fafc"></path></svg></div>
-<!-- PRATIQUE -->
-<!-- ============ 10. LOCALISATION ============ -->
-<section id="lieux" data-tab="lieux" data-sec="Localisation" data-num="10" class="py-24 bg-white">
+<!-- ============ 09. LOCALISATION ============ -->
+<section id="lieux" data-tab="lieux" data-sec="Localisation" data-num="09" class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mb-10">
-      <p class="text-[.7rem] font-bold uppercase tracking-[.2em] text-chicago-red mb-3">10 &middot; Localisation</p>
+      <p class="text-[.7rem] font-bold uppercase tracking-[.2em] text-chicago-red mb-3">09 &middot; Localisation</p>
       <h2 class="text-4xl md:text-5xl font-serif font-bold text-chicago-dark mb-4">Tous les lieux du s&eacute;jour, un bouton, un itin&eacute;raire</h2>
       <p class="text-lg text-slate-600 max-w-3xl">Chaque adresse du voyage, des a&eacute;roports aux rooftops, avec son itin&eacute;raire <strong>calcul&eacute; depuis l&rsquo;endroit exact o&ugrave; vous vous trouvez</strong>. Aucun point de d&eacute;part n&rsquo;est fig&eacute;&nbsp;: le t&eacute;l&eacute;phone part de sa position GPS, en marche, en transports ou en voiture. Les num&eacute;ros de t&eacute;l&eacute;phone sont cliquables.</p>
     </div>
@@ -1461,172 +1469,11 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- ============ 11. OU MANGER ============ -->
-<section id="manger" data-tab="lieux" data-sec="Où manger" data-num="11" class="py-24 bg-chicago-sand">
+<!-- ============ 10. SE DEPLACER ============ -->
+<section id="transports" data-tab="lieux" data-sec="Se d&eacute;placer" data-num="10" class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mb-8">
-      <p class="text-[.7rem] font-bold uppercase tracking-[.2em] text-chicago-red mb-3">11 &middot; O&ugrave; manger</p>
-      <h2 class="text-4xl md:text-5xl font-serif font-bold text-chicago-dark mb-4">Manger correctement, sans se ruiner ni nager dans le gras</h2>
-      <p class="text-lg text-slate-600 max-w-3xl">Vingt adresses tri&eacute;es par cat&eacute;gorie, avec les trois ou quatre meilleurs retours dans chacune. Le fil conducteur&nbsp;: des <strong>l&eacute;gumes</strong>, des <strong>portions humaines</strong> et des <strong>additions raisonnables</strong>, avec la deep dish comme exception culturelle assum&eacute;e. La s&eacute;lection croise trois sources fran&ccedil;aises, dont le blog de <strong>Delphine Fortin</strong>, food-blogueuse fran&ccedil;aise qui a v&eacute;cu plusieurs ann&eacute;es &agrave; Chicago, et les avis Google et Yelp locaux.</p>
-    </div>
-    <div class="mb-8 rounded-2xl bg-white border-2 border-indigo-200 overflow-hidden">
-      <div class="bg-indigo-600 px-6 py-3">
-        <p class="text-white text-xs font-bold uppercase tracking-[.16em]"><i class="fa-solid fa-train-subway mr-2"></i>Y aller depuis le Loews &mdash; le mode d&rsquo;emploi &agrave; retenir une fois pour toutes</p>
-      </div>
-      <div class="p-6 grid md:grid-cols-3 gap-6">
-        <div>
-          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-indigo-700 mb-2"><span class="inline-flex w-5 h-5 rounded-full bg-indigo-600 text-white items-center justify-center text-[.6rem] mr-1.5">1</span>Rejoindre la station</p>
-          <p class="text-sm text-slate-600 leading-relaxed">Le Loews assure une <strong>navette gratuite 24h/24</strong> vers O&rsquo;Hare, la <strong>station Blue Line de Rosemont</strong> et la gare Metra. Sinon&nbsp;: <strong>12 minutes &agrave; pied</strong> le long de River Rd, ou la <strong>navette gratuite Pace&nbsp;811</strong> qui relie hôtels, Convention Center, Fashion Outlets et Rosemont Transit Center.</p>
-          <p class="text-[.65rem] text-slate-400 mt-2">Pace 811&nbsp;: lun-jeu 7h30-minuit, ven-sam 8h30-3h. Demander la navette de l&rsquo;hôtel &agrave; la r&eacute;ception, c&rsquo;est le plus rapide.</p>
-        </div>
-        <div>
-          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-indigo-700 mb-2"><span class="inline-flex w-5 h-5 rounded-full bg-indigo-600 text-white items-center justify-center text-[.6rem] mr-1.5">2</span>La Blue Line, direction Forest Park</p>
-          <p class="text-sm text-slate-600 leading-relaxed"><strong>2,50&nbsp;$</strong> le trajet, un train toutes les 7 &agrave; 10 minutes, et surtout&nbsp;: la Blue Line tourne <strong>24 heures sur 24</strong>. Pas de dernier m&eacute;tro &agrave; craindre au moment du dessert.</p>
-          <ul class="text-[.7rem] text-slate-500 mt-2 space-y-1">
-            <li>Rosemont &rarr; <strong>Chicago</strong> (Blue)&nbsp;: 28 min</li>
-            <li>Rosemont &rarr; <strong>Grand</strong>&nbsp;: 30 min &mdash; River North ouest</li>
-            <li>Rosemont &rarr; <strong>Clark/Lake</strong>&nbsp;: 33 min &mdash; le hub des correspondances</li>
-          </ul>
-        </div>
-        <div>
-          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-indigo-700 mb-2"><span class="inline-flex w-5 h-5 rounded-full bg-indigo-600 text-white items-center justify-center text-[.6rem] mr-1.5">3</span>La correspondance &agrave; Clark/Lake</p>
-          <p class="text-sm text-slate-600 leading-relaxed">Tout part de l&agrave;, sans ressortir et sans repayer&nbsp;: la <strong>Red Line</strong> vers le nord pour Michigan Avenue et le Gold Coast, la <strong>Green</strong> ou la <strong>Pink</strong> vers l&rsquo;ouest pour le West Loop (arr&ecirc;t Morgan).</p>
-          <p class="text-[.65rem] text-slate-400 mt-2">Total porte &agrave; porte&nbsp;: 52 &agrave; 62 minutes selon l&rsquo;adresse. Chaque fiche ci-dessous donne son propre temps et ses propres lignes.</p>
-        </div>
-      </div>
-      <div class="border-t border-slate-100 px-6 py-3 flex flex-wrap gap-2 items-center">
-        <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Loews+Chicago+O%27Hare%2C+5300+N+River+Rd%2C+Rosemont%2C+IL&amp;destination=Clark%2FLake+CTA+Station%2C+Chicago%2C+IL&amp;travelmode=transit" target="_blank" rel="noopener" class="inline-flex items-center px-3 py-2 rounded-lg text-[.66rem] font-bold uppercase tracking-wider bg-indigo-600 text-white hover:bg-indigo-700 transition"><i class="fa-solid fa-diamond-turn-right mr-2"></i>Loews &rarr; Clark/Lake en direct</a>
-        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Rosemont+CTA+Blue+Line+Station%2C+5801+N+River+Rd%2C+Rosemont%2C+IL&amp;travelmode=walking" target="_blank" rel="noopener" class="inline-flex items-center px-3 py-2 rounded-lg text-[.66rem] font-bold uppercase tracking-wider border-2 border-slate-200 text-chicago-dark hover:border-chicago-dark transition"><i class="fa-solid fa-person-walking mr-2"></i>Aller &agrave; la station Rosemont</a>
-        <a href="https://www.transitchicago.com/blueline/" target="_blank" rel="noopener" class="inline-flex items-center px-3 py-2 rounded-lg text-[.66rem] font-bold uppercase tracking-wider border-2 border-slate-200 text-chicago-dark hover:border-chicago-dark transition"><i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>Horaires CTA Blue Line</a>
-      </div>
-    </div>
-    <div id="restoChips" class="flex flex-wrap gap-2 mb-8"></div>
-    <div id="restoGrid" class="grid md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
-    <div class="mt-10 rounded-2xl bg-white border-2 border-chicago-blue/30 p-6">
-      <p class="text-sm font-bold uppercase tracking-wider text-chicago-dark mb-2"><i class="fa-solid fa-lightbulb mr-2 text-chicago-red"></i>Le r&eacute;flexe &agrave; garder les 11, 12 et 13</p>
-      <p class="text-sm text-slate-700 leading-relaxed">Rosemont est une banlieue de congr&egrave;s&nbsp;: en dehors de Carlucci, l&rsquo;offre y tourne vite au steakhouse et au sports bar. Mais la <strong>Blue Line part de la station Rosemont et rejoint Clark/Lake en 33 minutes pour 2,50&nbsp;$</strong>, avec la navette gratuite de l&rsquo;hôtel pour rejoindre la station, et un service 24h/24 au retour. Autrement dit, les quinze adresses du centre-ville restent accessibles jusqu&rsquo;au dernier soir. Rosemont ne devient une contrainte que les mardi et mercredi, d&eacute;j&agrave; pris par les soir&eacute;es Esker.</p>
-    </div>
-    <p class="text-sm text-slate-700 mt-8 rounded-xl bg-white border-2 border-chicago-red/30 p-4"><i class="fa-solid fa-mug-saucer mr-2 text-chicago-red"></i><strong>Et pour le go&ucirc;ter&nbsp;?</strong> Comme les petits d&eacute;jeuners de l&rsquo;h&ocirc;tel sont copieux et que vous sauterez probablement les d&eacute;jeuners, dix adresses de glaciers, donuts et caf&eacute;s sont r&eacute;unies dans <a href="#gouter" class="text-chicago-blue font-semibold hover:underline">O&ugrave; go&ucirc;ter</a>, et huit p&acirc;tisseries class&eacute;es par style dans <a href="#patisseries" class="text-chicago-blue font-semibold hover:underline">P&acirc;tisseries</a>.</p>
-    <p class="text-xs text-slate-400 mt-6"><i class="fa-solid fa-circle-info mr-1.5"></i>Photos issues des sites officiels des restaurants, sauf Portillo&rsquo;s et Panera (Wikimedia Commons, CC&nbsp;BY-SA &mdash; Ken Lund, Chris Light), h&eacute;berg&eacute;es dans le d&eacute;p&ocirc;t. Prix indicatifs&nbsp;: <strong>$</strong> moins de 20&nbsp;$ par personne, <strong>$$</strong> de 20 &agrave; 40&nbsp;$, <strong>$$$</strong> au-del&agrave;, hors boissons. Horaires v&eacute;rifi&eacute;s fin ao&ucirc;t 2026, &agrave; reconfirmer sur place.</p>
-  </div>
-</section>
-
-<!-- ============ 12. OU GOUTER ============ -->
-<section id="gouter" data-tab="lieux" data-sec="Où goûter" data-num="12" class="py-24 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="mb-8">
-      <p class="text-[.7rem] font-bold uppercase tracking-[.2em] text-chicago-red mb-3">12 &middot; O&ugrave; go&ucirc;ter</p>
-      <h2 class="text-4xl md:text-5xl font-serif font-bold text-chicago-dark mb-4">Le go&ucirc;ter, la vraie pause de vos journ&eacute;es</h2>
-      <p class="text-lg text-slate-600 max-w-3xl">Les petits d&eacute;jeuners de l&rsquo;h&ocirc;tel sont copieux et vous ne d&eacute;jeunerez probablement pas. Le go&ucirc;ter devient donc le vrai repas du milieu de journ&eacute;e, celui qui vous fait tenir jusqu&rsquo;au d&icirc;ner. Dix adresses, choisies sur un crit&egrave;re pr&eacute;cis&nbsp;: <strong>l&rsquo;unanimit&eacute;</strong>. Les p&acirc;tisseries, elles, ont leur propre section juste en dessous.</p>
-    </div>
-
-    <div class="mb-8 rounded-2xl bg-chicago-sand border-2 border-chicago-blue/30 overflow-hidden">
-      <div class="bg-chicago-dark px-6 py-3">
-        <p class="text-white text-xs font-bold uppercase tracking-[.16em]"><i class="fa-solid fa-star-half-stroke mr-2"></i>Comment cette s&eacute;lection a &eacute;t&eacute; faite</p>
-      </div>
-      <div class="p-6 grid md:grid-cols-3 gap-6">
-        <div>
-          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2">Le crit&egrave;re retenu</p>
-          <p class="text-sm text-slate-600 leading-relaxed">Pas la notori&eacute;t&eacute;, mais la <strong>constance des avis</strong>. On a &eacute;cart&eacute; les adresses clivantes, celles qui alternent le 5 et le 1 selon la file d&rsquo;attente ou le vendeur du jour. Ne restent que des maisons o&ugrave; presque personne ne trouve rien &agrave; redire, m&ecirc;me apr&egrave;s des centaines d&rsquo;avis.</p>
-        </div>
-        <div>
-          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2">Ce qui a &eacute;t&eacute; &eacute;cart&eacute;</p>
-          <p class="text-sm text-slate-600 leading-relaxed">Les grosses machines &agrave; touristes de Michigan Avenue, les cha&icirc;nes sans &acirc;me, et les adresses Instagram dont la note s&rsquo;effondre d&egrave;s qu&rsquo;on lit les avis r&eacute;cents. <strong>Toni Patisserie</strong>, souvent recommand&eacute;e dans les guides, a d&eacute;finitivement ferm&eacute; ses portes&nbsp;: inutile de la chercher.</p>
-        </div>
-        <div>
-          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2">Le pi&egrave;ge &agrave; conna&icirc;tre</p>
-          <p class="text-sm text-slate-600 leading-relaxed">Beaucoup de ces adresses ferment plus t&ocirc;t qu&rsquo;on ne l&rsquo;imagine&nbsp;: <strong>Eli&rsquo;s ferme le dimanche</strong>, <strong>Do-Rite &agrave; 19h</strong>, et le th&eacute; du Drake n&rsquo;est servi que du vendredi au dimanche, de 12h &agrave; 16h30. Chaque fiche pr&eacute;cise sa fen&ecirc;tre de tir. Lisez-la avant de marcher vingt minutes pour rien.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="mb-8 grid md:grid-cols-3 gap-4">
-      <div class="rounded-xl bg-white border-2 border-emerald-200 p-5">
-        <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-emerald-700 mb-2"><i class="fa-solid fa-medal mr-1.5"></i>Si vous n&rsquo;en faites qu&rsquo;un</p>
-        <p class="text-sm text-slate-600 leading-relaxed"><strong>Levain Bakery</strong>, 408 N Clark. Un cookie de 170 grammes, pas cuit &agrave; cœur, et une boutique ouverte jusqu&rsquo;&agrave; 23h&nbsp;: le seul go&ucirc;ter encore possible apr&egrave;s une journ&eacute;e de salon.</p>
-      </div>
-      <div class="rounded-xl bg-white border-2 border-chicago-red/30 p-5">
-        <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2"><i class="fa-solid fa-champagne-glasses mr-1.5"></i>Si vous voulez marquer le coup</p>
-        <p class="text-sm text-slate-600 leading-relaxed">Le <strong>th&eacute; au Palm Court du Drake</strong>, le dimanche 6 &agrave; 12h. Harpiste en direct, plateau &agrave; trois &eacute;tages, et l&rsquo;h&ocirc;tel est &agrave; trois minutes de votre chambre.</p>
-      </div>
-      <div class="rounded-xl bg-white border-2 border-indigo-200 p-5">
-        <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-indigo-700 mb-2"><i class="fa-solid fa-bed mr-1.5"></i>Les 11, 12 et 13, c&ocirc;t&eacute; Loews</p>
-        <p class="text-sm text-slate-600 leading-relaxed">Seules deux adresses ne demandent pas la Blue Line&nbsp;: <strong>Stan&rsquo;s Donuts</strong> &agrave; dix minutes &agrave; pied, et <strong>Eli&rsquo;s Cheesecake World</strong> &agrave; douze minutes de taxi.</p>
-      </div>
-    </div>
-
-    <div id="gouterChips" class="flex flex-wrap gap-2 mb-8"></div>
-    <div id="gouterGrid" class="grid md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
-
-    <div class="mt-10 rounded-2xl bg-chicago-dark text-white p-6">
-      <p class="text-sm font-bold uppercase tracking-wider mb-3"><i class="fa-solid fa-clock mr-2 text-chicago-blue"></i>Le rythme qui marche&nbsp;: go&ucirc;ter vers 16h, d&icirc;ner vers 19h30</p>
-      <p class="text-sm text-slate-300 leading-relaxed">Chicago d&icirc;ne t&ocirc;t. &Agrave; 19h les salles sont pleines, &agrave; 21h30 les cuisines ferment dans beaucoup d&rsquo;adresses. Un go&ucirc;ter cal&eacute; entre 15h30 et 16h30 vous laisse exactement la faim qu&rsquo;il faut pour un d&icirc;ner &agrave; 19h30, sans finir la soir&eacute;e &agrave; chercher une cuisine encore ouverte. Et si le go&ucirc;ter a &eacute;t&eacute; trop copieux, la section <a href="#patisseries" class="text-chicago-blue font-semibold hover:underline">P&acirc;tisseries</a> juste en dessous compl&egrave;te cette s&eacute;lection, et <a href="#manger" class="text-chicago-blue font-semibold hover:underline">O&ugrave; manger</a> compte plusieurs adresses l&eacute;g&egrave;res, dont True Food Kitchen et Le Colonial.</p>
-    </div>
-
-    <p class="text-xs text-slate-400 mt-6"><i class="fa-solid fa-circle-info mr-1.5"></i>Photos issues des sites officiels des maisons cit&eacute;es. Horaires et tarifs v&eacute;rifi&eacute;s fin ao&ucirc;t 2026, &agrave; reconfirmer sur place&nbsp;: les p&acirc;tisseries ind&eacute;pendantes changent leurs horaires plus souvent que les restaurants.</p>
-  </div>
-</section>
-
-<!-- ============ 13. PATISSERIES ============ -->
-<section id="patisseries" data-tab="lieux" data-sec="P&acirc;tisseries" data-num="13" class="py-24 section-pattern">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="mb-8">
-      <p class="text-[.7rem] font-bold uppercase tracking-[.2em] text-chicago-red mb-3">13 &middot; P&acirc;tisseries</p>
-      <h2 class="text-4xl md:text-5xl font-serif font-bold text-chicago-dark mb-4">Les p&acirc;tisseries, par style</h2>
-      <p class="text-lg text-slate-600 max-w-3xl">Vous avez aim&eacute; Magnolia Bakery &agrave; New York. Ce n&rsquo;est pas du tout le m&ecirc;me registre qu&rsquo;un croissant belge ou qu&rsquo;un macaron fran&ccedil;ais, alors voici les deux mondes c&ocirc;te &agrave; c&ocirc;te, avec l&rsquo;&eacute;quivalent Magnolia en t&ecirc;te de liste.</p>
-    </div>
-
-    <div class="mb-8 rounded-2xl bg-white border-2 border-chicago-red/40 overflow-hidden">
-      <div class="bg-chicago-red px-6 py-3">
-        <p class="text-white text-xs font-bold uppercase tracking-[.16em]"><i class="fa-solid fa-cake-candles mr-2"></i>Magnolia Bakery, ce que c&rsquo;est vraiment &mdash; et ce que &ccedil;a change</p>
-      </div>
-      <div class="p-6 grid md:grid-cols-3 gap-6">
-        <div>
-          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2">Le registre Magnolia</p>
-          <p class="text-sm text-slate-600 leading-relaxed">Cupcakes &agrave; la cr&egrave;me au beurre, banana pudding, layer cakes hauts comme des immeubles, red velvet. C&rsquo;est de la <strong>p&acirc;tisserie am&eacute;ricaine domestique</strong>, g&eacute;n&eacute;reuse et sucr&eacute;e, l&rsquo;h&eacute;ritage du g&acirc;teau fait maison. Rien &agrave; voir avec le feuilletage ou la p&acirc;te &agrave; choux.</p>
-        </div>
-        <div>
-          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2">Bonne nouvelle</p>
-          <p class="text-sm text-slate-600 leading-relaxed"><strong>Magnolia Bakery existe &agrave; Chicago</strong>, dans le Loop, au 108 N State St. Et surtout il existe un &eacute;quivalent local encore plus proche de vous&nbsp;: <strong>Sweet Mandy B&rsquo;s</strong>, &agrave; huit minutes &agrave; pied du Sonesta, qui fait exactement le m&ecirc;me genre de choses depuis 2002.</p>
-        </div>
-        <div>
-          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2">La r&eacute;serve &agrave; conna&icirc;tre</p>
-          <p class="text-sm text-slate-600 leading-relaxed">Le Magnolia de Chicago a &eacute;t&eacute; <strong>ferm&eacute; administrativement le 15 juillet 2026</strong> apr&egrave;s la d&eacute;couverte de cafards vivants et d&rsquo;une centaine de mouches. Il a r&eacute;ouvert six jours plus tard. C&rsquo;est vieux de six semaines et le probl&egrave;me est trait&eacute;, mais vous devez le savoir avant d&rsquo;y aller.</p>
-        </div>
-      </div>
-    </div>
-
-    <div id="patisChips" class="flex flex-wrap gap-2 mb-8"></div>
-    <div id="patisGrid" class="grid md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
-
-    <div class="mt-10 grid md:grid-cols-2 gap-4">
-      <div class="rounded-2xl bg-chicago-dark text-white p-6">
-        <p class="text-sm font-bold uppercase tracking-wider mb-3"><i class="fa-solid fa-route mr-2 text-chicago-blue"></i>Le circuit p&acirc;tisserie id&eacute;al, en trois jours</p>
-        <ul class="text-sm text-slate-300 leading-relaxed space-y-2">
-          <li><strong class="text-white">Dimanche 6, vers 10h&nbsp;:</strong> Hendrickx pour les croissants, &agrave; deux minutes de la chambre. Il ferme &agrave; 14h le dimanche.</li>
-          <li><strong class="text-white">Dimanche 6 ou lundi 7, l&rsquo;apr&egrave;s-midi&nbsp;:</strong> Sweet Mandy B&rsquo;s au 254 E Ontario. Ouvert tous les jours jusqu&rsquo;&agrave; 18h, c&rsquo;est le plus souple de la liste et c&rsquo;est votre Magnolia.</li>
-          <li><strong class="text-white">Mardi 8 au matin&nbsp;:</strong> Magnolia dans le Loop si la curiosit&eacute; l&rsquo;emporte, ou D&rsquo;Amato&rsquo;s et son four &agrave; charbon de 1912 pour les cannoli.</li>
-        </ul>
-      </div>
-      <div class="rounded-2xl bg-white border-2 border-amber-300 p-6">
-        <p class="text-sm font-bold uppercase tracking-wider mb-3 text-amber-700"><i class="fa-solid fa-triangle-exclamation mr-2"></i>Trois pi&egrave;ges d&rsquo;horaires, &agrave; lire avant de marcher</p>
-        <ul class="text-sm text-slate-600 leading-relaxed space-y-2">
-          <li><strong>Les boulangeries de Chicago ferment l&rsquo;apr&egrave;s-midi.</strong> La Fournette baisse le rideau &agrave; 14h, Hendrickx &agrave; 16h. Ce sont des adresses de matin&eacute;e, pas de go&ucirc;ter.</li>
-          <li><strong>Hendrickx ferme le lundi</strong>, <strong>Vanille le dimanche et le lundi</strong>. Le lundi 7, jour du Greeter, seules Sweet Mandy B&rsquo;s, Magnolia et D&rsquo;Amato&rsquo;s sont ouvertes.</li>
-          <li><strong>Les 11, 12 et 13, c&ocirc;t&eacute; Loews, il n&rsquo;y a rien.</strong> Aucune vraie p&acirc;tisserie &agrave; Rosemont. Il faut la Blue Line, ou se rabattre sur Stan&rsquo;s Donuts &agrave; dix minutes &agrave; pied.</li>
-        </ul>
-      </div>
-    </div>
-
-    <p class="text-xs text-slate-400 mt-6"><i class="fa-solid fa-circle-info mr-1.5"></i>Photos issues des sites officiels des maisons cit&eacute;es. Horaires v&eacute;rifi&eacute;s fin ao&ucirc;t 2026. Les p&acirc;tisseries ind&eacute;pendantes ferment parfois sans pr&eacute;venir&nbsp;: un coup d&rsquo;œil &agrave; Google Maps avant de partir co&ucirc;te trente secondes.</p>
-  </div>
-</section>
-
-<!-- ============ 14. SE DEPLACER ============ -->
-<section id="transports" data-tab="infos" data-sec="Se d&eacute;placer" data-num="14" class="py-24 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="mb-8">
-      <p class="text-[.7rem] font-bold uppercase tracking-[.2em] text-chicago-red mb-3">14 &middot; Se d&eacute;placer</p>
+      <p class="text-[.7rem] font-bold uppercase tracking-[.2em] text-chicago-red mb-3">10 &middot; Se d&eacute;placer</p>
       <h2 class="text-4xl md:text-5xl font-serif font-bold text-chicago-dark mb-4">Les transports, sans se tromper</h2>
       <p class="text-lg text-slate-600 max-w-3xl">Chicago a l&rsquo;un des meilleurs r&eacute;seaux des &Eacute;tats-Unis et l&rsquo;un des plus simples &agrave; payer, &agrave; condition de conna&icirc;tre deux ou trois choses avant d&rsquo;arriver. Voici comment &ccedil;a marche, ce que &ccedil;a co&ucirc;te, et les pi&egrave;ges &agrave; &eacute;viter.</p>
     </div>
@@ -1845,7 +1692,7 @@ tailwind.config = {
         <div class="mt-4 rounded-xl bg-chicago-dark text-white p-5 flex flex-col sm:flex-row sm:items-center gap-4">
           <i class="fa-solid fa-mobile-screen-button text-chicago-blue text-2xl shrink-0"></i>
           <div class="flex-1">
-            <p class="text-sm font-bold uppercase tracking-wider mb-1">Et installez ce carnet comme une application</p>
+            <p class="text-sm font-bold uppercase tracking-wider mb-1">Et installez cette page comme une application</p>
             <p class="text-xs text-slate-300 leading-relaxed">Il fonctionne alors <strong class="text-white">sans r&eacute;seau</strong>, ce qui est exactement ce qu&rsquo;il vous faut entre deux stations de m&eacute;tro. Sur iPhone, Apple impose de passer par le menu Partager de Safari&nbsp;: le bouton ci-contre vous montre les quatre gestes.</p>
           </div>
           <button type="button" class="js-install shrink-0 bg-chicago-blue text-white font-bold uppercase tracking-wider text-xs px-5 py-3 rounded-xl hover:bg-white hover:text-chicago-dark transition"><i class="fa-solid fa-download mr-2"></i>Installer</button>
@@ -1958,6 +1805,289 @@ tailwind.config = {
   </div>
 </section>
 
+<!-- ============ 11. OU MANGER ============ -->
+<section id="manger" data-tab="manger" data-sec="Où manger" data-num="11" class="py-24 bg-chicago-sand">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-8">
+      <p class="text-[.7rem] font-bold uppercase tracking-[.2em] text-chicago-red mb-3">11 &middot; O&ugrave; manger</p>
+      <h2 class="text-4xl md:text-5xl font-serif font-bold text-chicago-dark mb-4">Manger correctement, sans se ruiner ni nager dans le gras</h2>
+      <p class="text-lg text-slate-600 max-w-3xl">Vingt adresses tri&eacute;es par cat&eacute;gorie, avec les trois ou quatre meilleurs retours dans chacune. Le fil conducteur&nbsp;: des <strong>l&eacute;gumes</strong>, des <strong>portions humaines</strong> et des <strong>additions raisonnables</strong>, avec la deep dish comme exception culturelle assum&eacute;e. La s&eacute;lection croise trois sources fran&ccedil;aises, dont le blog de <strong>Delphine Fortin</strong>, food-blogueuse fran&ccedil;aise qui a v&eacute;cu plusieurs ann&eacute;es &agrave; Chicago, et les avis Google et Yelp locaux.</p>
+    </div>
+    <div class="mb-8 rounded-2xl bg-white border-2 border-indigo-200 overflow-hidden">
+      <div class="bg-indigo-600 px-6 py-3">
+        <p class="text-white text-xs font-bold uppercase tracking-[.16em]"><i class="fa-solid fa-train-subway mr-2"></i>Y aller depuis le Loews &mdash; le mode d&rsquo;emploi &agrave; retenir une fois pour toutes</p>
+      </div>
+      <div class="p-6 grid md:grid-cols-3 gap-6">
+        <div>
+          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-indigo-700 mb-2"><span class="inline-flex w-5 h-5 rounded-full bg-indigo-600 text-white items-center justify-center text-[.6rem] mr-1.5">1</span>Rejoindre la station</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Le Loews assure une <strong>navette gratuite 24h/24</strong> vers O&rsquo;Hare, la <strong>station Blue Line de Rosemont</strong> et la gare Metra. Sinon&nbsp;: <strong>12 minutes &agrave; pied</strong> le long de River Rd, ou la <strong>navette gratuite Pace&nbsp;811</strong> qui relie hôtels, Convention Center, Fashion Outlets et Rosemont Transit Center.</p>
+          <p class="text-[.65rem] text-slate-400 mt-2">Pace 811&nbsp;: lun-jeu 7h30-minuit, ven-sam 8h30-3h. Demander la navette de l&rsquo;hôtel &agrave; la r&eacute;ception, c&rsquo;est le plus rapide.</p>
+        </div>
+        <div>
+          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-indigo-700 mb-2"><span class="inline-flex w-5 h-5 rounded-full bg-indigo-600 text-white items-center justify-center text-[.6rem] mr-1.5">2</span>La Blue Line, direction Forest Park</p>
+          <p class="text-sm text-slate-600 leading-relaxed"><strong>2,50&nbsp;$</strong> le trajet, un train toutes les 7 &agrave; 10 minutes, et surtout&nbsp;: la Blue Line tourne <strong>24 heures sur 24</strong>. Pas de dernier m&eacute;tro &agrave; craindre au moment du dessert.</p>
+          <ul class="text-[.7rem] text-slate-500 mt-2 space-y-1">
+            <li>Rosemont &rarr; <strong>Chicago</strong> (Blue)&nbsp;: 28 min</li>
+            <li>Rosemont &rarr; <strong>Grand</strong>&nbsp;: 30 min &mdash; River North ouest</li>
+            <li>Rosemont &rarr; <strong>Clark/Lake</strong>&nbsp;: 33 min &mdash; le hub des correspondances</li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-indigo-700 mb-2"><span class="inline-flex w-5 h-5 rounded-full bg-indigo-600 text-white items-center justify-center text-[.6rem] mr-1.5">3</span>La correspondance &agrave; Clark/Lake</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Tout part de l&agrave;, sans ressortir et sans repayer&nbsp;: la <strong>Red Line</strong> vers le nord pour Michigan Avenue et le Gold Coast, la <strong>Green</strong> ou la <strong>Pink</strong> vers l&rsquo;ouest pour le West Loop (arr&ecirc;t Morgan).</p>
+          <p class="text-[.65rem] text-slate-400 mt-2">Total porte &agrave; porte&nbsp;: 52 &agrave; 62 minutes selon l&rsquo;adresse. Chaque fiche ci-dessous donne son propre temps et ses propres lignes.</p>
+        </div>
+      </div>
+      <div class="border-t border-slate-100 px-6 py-3 flex flex-wrap gap-2 items-center">
+        <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Loews+Chicago+O%27Hare%2C+5300+N+River+Rd%2C+Rosemont%2C+IL&amp;destination=Clark%2FLake+CTA+Station%2C+Chicago%2C+IL&amp;travelmode=transit" target="_blank" rel="noopener" class="inline-flex items-center px-3 py-2 rounded-lg text-[.66rem] font-bold uppercase tracking-wider bg-indigo-600 text-white hover:bg-indigo-700 transition"><i class="fa-solid fa-diamond-turn-right mr-2"></i>Loews &rarr; Clark/Lake en direct</a>
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Rosemont+CTA+Blue+Line+Station%2C+5801+N+River+Rd%2C+Rosemont%2C+IL&amp;travelmode=walking" target="_blank" rel="noopener" class="inline-flex items-center px-3 py-2 rounded-lg text-[.66rem] font-bold uppercase tracking-wider border-2 border-slate-200 text-chicago-dark hover:border-chicago-dark transition"><i class="fa-solid fa-person-walking mr-2"></i>Aller &agrave; la station Rosemont</a>
+        <a href="https://www.transitchicago.com/blueline/" target="_blank" rel="noopener" class="inline-flex items-center px-3 py-2 rounded-lg text-[.66rem] font-bold uppercase tracking-wider border-2 border-slate-200 text-chicago-dark hover:border-chicago-dark transition"><i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>Horaires CTA Blue Line</a>
+      </div>
+    </div>
+    <div id="restoChips" class="flex flex-wrap gap-2 mb-8"></div>
+    <div id="restoGrid" class="grid md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+    <div class="mt-10 rounded-2xl bg-white border-2 border-chicago-blue/30 p-6">
+      <p class="text-sm font-bold uppercase tracking-wider text-chicago-dark mb-2"><i class="fa-solid fa-lightbulb mr-2 text-chicago-red"></i>Le r&eacute;flexe &agrave; garder les 11, 12 et 13</p>
+      <p class="text-sm text-slate-700 leading-relaxed">Rosemont est une banlieue de congr&egrave;s&nbsp;: en dehors de Carlucci, l&rsquo;offre y tourne vite au steakhouse et au sports bar. Mais la <strong>Blue Line part de la station Rosemont et rejoint Clark/Lake en 33 minutes pour 2,50&nbsp;$</strong>, avec la navette gratuite de l&rsquo;hôtel pour rejoindre la station, et un service 24h/24 au retour. Autrement dit, les quinze adresses du centre-ville restent accessibles jusqu&rsquo;au dernier soir. Rosemont ne devient une contrainte que les mardi et mercredi, d&eacute;j&agrave; pris par les soir&eacute;es Esker.</p>
+    </div>
+    <p class="text-sm text-slate-700 mt-8 rounded-xl bg-white border-2 border-chicago-red/30 p-4"><i class="fa-solid fa-mug-saucer mr-2 text-chicago-red"></i><strong>Et pour le go&ucirc;ter&nbsp;?</strong> Comme les petits d&eacute;jeuners de l&rsquo;h&ocirc;tel sont copieux et que vous sauterez probablement les d&eacute;jeuners, dix adresses de glaciers, donuts et caf&eacute;s sont r&eacute;unies dans <a href="#gouter" class="text-chicago-blue font-semibold hover:underline">O&ugrave; go&ucirc;ter</a>, et huit p&acirc;tisseries class&eacute;es par style dans <a href="#patisseries" class="text-chicago-blue font-semibold hover:underline">P&acirc;tisseries</a>.</p>
+    <p class="text-xs text-slate-400 mt-6"><i class="fa-solid fa-circle-info mr-1.5"></i>Photos issues des sites officiels des restaurants, sauf Portillo&rsquo;s et Panera (Wikimedia Commons, CC&nbsp;BY-SA &mdash; Ken Lund, Chris Light), h&eacute;berg&eacute;es dans le d&eacute;p&ocirc;t. Prix indicatifs&nbsp;: <strong>$</strong> moins de 20&nbsp;$ par personne, <strong>$$</strong> de 20 &agrave; 40&nbsp;$, <strong>$$$</strong> au-del&agrave;, hors boissons. Horaires v&eacute;rifi&eacute;s fin ao&ucirc;t 2026, &agrave; reconfirmer sur place.</p>
+  </div>
+</section>
+
+<!-- ============ 12. OU GOUTER ============ -->
+<section id="gouter" data-tab="manger" data-sec="Où goûter" data-num="12" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-8">
+      <p class="text-[.7rem] font-bold uppercase tracking-[.2em] text-chicago-red mb-3">12 &middot; O&ugrave; go&ucirc;ter</p>
+      <h2 class="text-4xl md:text-5xl font-serif font-bold text-chicago-dark mb-4">Le go&ucirc;ter, la vraie pause de vos journ&eacute;es</h2>
+      <p class="text-lg text-slate-600 max-w-3xl">Les petits d&eacute;jeuners de l&rsquo;h&ocirc;tel sont copieux et vous ne d&eacute;jeunerez probablement pas. Le go&ucirc;ter devient donc le vrai repas du milieu de journ&eacute;e, celui qui vous fait tenir jusqu&rsquo;au d&icirc;ner. Dix adresses, choisies sur un crit&egrave;re pr&eacute;cis&nbsp;: <strong>l&rsquo;unanimit&eacute;</strong>. Les p&acirc;tisseries, elles, ont leur propre section juste en dessous.</p>
+    </div>
+
+    <div class="mb-8 rounded-2xl bg-chicago-sand border-2 border-chicago-blue/30 overflow-hidden">
+      <div class="bg-chicago-dark px-6 py-3">
+        <p class="text-white text-xs font-bold uppercase tracking-[.16em]"><i class="fa-solid fa-star-half-stroke mr-2"></i>Comment cette s&eacute;lection a &eacute;t&eacute; faite</p>
+      </div>
+      <div class="p-6 grid md:grid-cols-3 gap-6">
+        <div>
+          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2">Le crit&egrave;re retenu</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Pas la notori&eacute;t&eacute;, mais la <strong>constance des avis</strong>. On a &eacute;cart&eacute; les adresses clivantes, celles qui alternent le 5 et le 1 selon la file d&rsquo;attente ou le vendeur du jour. Ne restent que des maisons o&ugrave; presque personne ne trouve rien &agrave; redire, m&ecirc;me apr&egrave;s des centaines d&rsquo;avis.</p>
+        </div>
+        <div>
+          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2">Ce qui a &eacute;t&eacute; &eacute;cart&eacute;</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Les grosses machines &agrave; touristes de Michigan Avenue, les cha&icirc;nes sans &acirc;me, et les adresses Instagram dont la note s&rsquo;effondre d&egrave;s qu&rsquo;on lit les avis r&eacute;cents. <strong>Toni Patisserie</strong>, souvent recommand&eacute;e dans les guides, a d&eacute;finitivement ferm&eacute; ses portes&nbsp;: inutile de la chercher.</p>
+        </div>
+        <div>
+          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2">Le pi&egrave;ge &agrave; conna&icirc;tre</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Beaucoup de ces adresses ferment plus t&ocirc;t qu&rsquo;on ne l&rsquo;imagine&nbsp;: <strong>Eli&rsquo;s ferme le dimanche</strong>, <strong>Do-Rite &agrave; 19h</strong>, et le th&eacute; du Drake n&rsquo;est servi que du vendredi au dimanche, de 12h &agrave; 16h30. Chaque fiche pr&eacute;cise sa fen&ecirc;tre de tir. Lisez-la avant de marcher vingt minutes pour rien.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-8 grid md:grid-cols-3 gap-4">
+      <div class="rounded-xl bg-white border-2 border-emerald-200 p-5">
+        <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-emerald-700 mb-2"><i class="fa-solid fa-medal mr-1.5"></i>Si vous n&rsquo;en faites qu&rsquo;un</p>
+        <p class="text-sm text-slate-600 leading-relaxed"><strong>Levain Bakery</strong>, 408 N Clark. Un cookie de 170 grammes, pas cuit &agrave; cœur, et une boutique ouverte jusqu&rsquo;&agrave; 23h&nbsp;: le seul go&ucirc;ter encore possible apr&egrave;s une journ&eacute;e de salon.</p>
+      </div>
+      <div class="rounded-xl bg-white border-2 border-chicago-red/30 p-5">
+        <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2"><i class="fa-solid fa-champagne-glasses mr-1.5"></i>Si vous voulez marquer le coup</p>
+        <p class="text-sm text-slate-600 leading-relaxed">Le <strong>th&eacute; au Palm Court du Drake</strong>, le dimanche 6 &agrave; 12h. Harpiste en direct, plateau &agrave; trois &eacute;tages, et l&rsquo;h&ocirc;tel est &agrave; trois minutes de votre chambre.</p>
+      </div>
+      <div class="rounded-xl bg-white border-2 border-indigo-200 p-5">
+        <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-indigo-700 mb-2"><i class="fa-solid fa-bed mr-1.5"></i>Les 11, 12 et 13, c&ocirc;t&eacute; Loews</p>
+        <p class="text-sm text-slate-600 leading-relaxed">Seules deux adresses ne demandent pas la Blue Line&nbsp;: <strong>Stan&rsquo;s Donuts</strong> &agrave; dix minutes &agrave; pied, et <strong>Eli&rsquo;s Cheesecake World</strong> &agrave; douze minutes de taxi.</p>
+      </div>
+    </div>
+
+    <div id="gouterChips" class="flex flex-wrap gap-2 mb-8"></div>
+    <div id="gouterGrid" class="grid md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+
+    <div class="mt-10 rounded-2xl bg-chicago-dark text-white p-6">
+      <p class="text-sm font-bold uppercase tracking-wider mb-3"><i class="fa-solid fa-clock mr-2 text-chicago-blue"></i>Le rythme qui marche&nbsp;: go&ucirc;ter vers 16h, d&icirc;ner vers 19h30</p>
+      <p class="text-sm text-slate-300 leading-relaxed">Chicago d&icirc;ne t&ocirc;t. &Agrave; 19h les salles sont pleines, &agrave; 21h30 les cuisines ferment dans beaucoup d&rsquo;adresses. Un go&ucirc;ter cal&eacute; entre 15h30 et 16h30 vous laisse exactement la faim qu&rsquo;il faut pour un d&icirc;ner &agrave; 19h30, sans finir la soir&eacute;e &agrave; chercher une cuisine encore ouverte. Et si le go&ucirc;ter a &eacute;t&eacute; trop copieux, la section <a href="#patisseries" class="text-chicago-blue font-semibold hover:underline">P&acirc;tisseries</a> juste en dessous compl&egrave;te cette s&eacute;lection, et <a href="#manger" class="text-chicago-blue font-semibold hover:underline">O&ugrave; manger</a> compte plusieurs adresses l&eacute;g&egrave;res, dont True Food Kitchen et Le Colonial.</p>
+    </div>
+
+    <p class="text-xs text-slate-400 mt-6"><i class="fa-solid fa-circle-info mr-1.5"></i>Photos issues des sites officiels des maisons cit&eacute;es. Horaires et tarifs v&eacute;rifi&eacute;s fin ao&ucirc;t 2026, &agrave; reconfirmer sur place&nbsp;: les p&acirc;tisseries ind&eacute;pendantes changent leurs horaires plus souvent que les restaurants.</p>
+  </div>
+</section>
+
+<!-- ============ 13. PATISSERIES ============ -->
+<section id="patisseries" data-tab="manger" data-sec="P&acirc;tisseries" data-num="13" class="py-24 section-pattern">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-8">
+      <p class="text-[.7rem] font-bold uppercase tracking-[.2em] text-chicago-red mb-3">13 &middot; P&acirc;tisseries</p>
+      <h2 class="text-4xl md:text-5xl font-serif font-bold text-chicago-dark mb-4">Les p&acirc;tisseries, par style</h2>
+      <p class="text-lg text-slate-600 max-w-3xl">Vous avez aim&eacute; Magnolia Bakery &agrave; New York. Ce n&rsquo;est pas du tout le m&ecirc;me registre qu&rsquo;un croissant belge ou qu&rsquo;un macaron fran&ccedil;ais, alors voici les deux mondes c&ocirc;te &agrave; c&ocirc;te, avec l&rsquo;&eacute;quivalent Magnolia en t&ecirc;te de liste.</p>
+    </div>
+
+    <div class="mb-8 rounded-2xl bg-white border-2 border-chicago-red/40 overflow-hidden">
+      <div class="bg-chicago-red px-6 py-3">
+        <p class="text-white text-xs font-bold uppercase tracking-[.16em]"><i class="fa-solid fa-cake-candles mr-2"></i>Magnolia Bakery, ce que c&rsquo;est vraiment &mdash; et ce que &ccedil;a change</p>
+      </div>
+      <div class="p-6 grid md:grid-cols-3 gap-6">
+        <div>
+          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2">Le registre Magnolia</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Cupcakes &agrave; la cr&egrave;me au beurre, banana pudding, layer cakes hauts comme des immeubles, red velvet. C&rsquo;est de la <strong>p&acirc;tisserie am&eacute;ricaine domestique</strong>, g&eacute;n&eacute;reuse et sucr&eacute;e, l&rsquo;h&eacute;ritage du g&acirc;teau fait maison. Rien &agrave; voir avec le feuilletage ou la p&acirc;te &agrave; choux.</p>
+        </div>
+        <div>
+          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2">Bonne nouvelle</p>
+          <p class="text-sm text-slate-600 leading-relaxed"><strong>Magnolia Bakery existe &agrave; Chicago</strong>, dans le Loop, au 108 N State St. Et surtout il existe un &eacute;quivalent local encore plus proche de vous&nbsp;: <strong>Sweet Mandy B&rsquo;s</strong>, &agrave; huit minutes &agrave; pied du Sonesta, qui fait exactement le m&ecirc;me genre de choses depuis 2002.</p>
+        </div>
+        <div>
+          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2">La r&eacute;serve &agrave; conna&icirc;tre</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Le Magnolia de Chicago a &eacute;t&eacute; <strong>ferm&eacute; administrativement le 15 juillet 2026</strong> apr&egrave;s la d&eacute;couverte de cafards vivants et d&rsquo;une centaine de mouches. Il a r&eacute;ouvert six jours plus tard. C&rsquo;est vieux de six semaines et le probl&egrave;me est trait&eacute;, mais vous devez le savoir avant d&rsquo;y aller.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="patisChips" class="flex flex-wrap gap-2 mb-8"></div>
+    <div id="patisGrid" class="grid md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+
+    <div class="mt-10 grid md:grid-cols-2 gap-4">
+      <div class="rounded-2xl bg-chicago-dark text-white p-6">
+        <p class="text-sm font-bold uppercase tracking-wider mb-3"><i class="fa-solid fa-route mr-2 text-chicago-blue"></i>Le circuit p&acirc;tisserie id&eacute;al, en trois jours</p>
+        <ul class="text-sm text-slate-300 leading-relaxed space-y-2">
+          <li><strong class="text-white">Dimanche 6, vers 10h&nbsp;:</strong> Hendrickx pour les croissants, &agrave; deux minutes de la chambre. Il ferme &agrave; 14h le dimanche.</li>
+          <li><strong class="text-white">Dimanche 6 ou lundi 7, l&rsquo;apr&egrave;s-midi&nbsp;:</strong> Sweet Mandy B&rsquo;s au 254 E Ontario. Ouvert tous les jours jusqu&rsquo;&agrave; 18h, c&rsquo;est le plus souple de la liste et c&rsquo;est votre Magnolia.</li>
+          <li><strong class="text-white">Mardi 8 au matin&nbsp;:</strong> Magnolia dans le Loop si la curiosit&eacute; l&rsquo;emporte, ou D&rsquo;Amato&rsquo;s et son four &agrave; charbon de 1912 pour les cannoli.</li>
+        </ul>
+      </div>
+      <div class="rounded-2xl bg-white border-2 border-amber-300 p-6">
+        <p class="text-sm font-bold uppercase tracking-wider mb-3 text-amber-700"><i class="fa-solid fa-triangle-exclamation mr-2"></i>Trois pi&egrave;ges d&rsquo;horaires, &agrave; lire avant de marcher</p>
+        <ul class="text-sm text-slate-600 leading-relaxed space-y-2">
+          <li><strong>Les boulangeries de Chicago ferment l&rsquo;apr&egrave;s-midi.</strong> La Fournette baisse le rideau &agrave; 14h, Hendrickx &agrave; 16h. Ce sont des adresses de matin&eacute;e, pas de go&ucirc;ter.</li>
+          <li><strong>Hendrickx ferme le lundi</strong>, <strong>Vanille le dimanche et le lundi</strong>. Le lundi 7, jour du Greeter, seules Sweet Mandy B&rsquo;s, Magnolia et D&rsquo;Amato&rsquo;s sont ouvertes.</li>
+          <li><strong>Les 11, 12 et 13, c&ocirc;t&eacute; Loews, il n&rsquo;y a rien.</strong> Aucune vraie p&acirc;tisserie &agrave; Rosemont. Il faut la Blue Line, ou se rabattre sur Stan&rsquo;s Donuts &agrave; dix minutes &agrave; pied.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="text-xs text-slate-400 mt-6"><i class="fa-solid fa-circle-info mr-1.5"></i>Photos issues des sites officiels des maisons cit&eacute;es. Horaires v&eacute;rifi&eacute;s fin ao&ucirc;t 2026. Les p&acirc;tisseries ind&eacute;pendantes ferment parfois sans pr&eacute;venir&nbsp;: un coup d&rsquo;œil &agrave; Google Maps avant de partir co&ucirc;te trente secondes.</p>
+  </div>
+</section>
+
+<div class="sep h-20 md:h-28" style="background:#f8fafc"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,60 C280,10 560,95 820,55 C1060,18 1240,70 1440,40 L1440,100 L0,100 Z" fill="#002B49" opacity=".35"></path><path d="M0,75 C260,35 520,110 780,72 C1040,35 1230,88 1440,62 L1440,100 L0,100 Z" fill="#002B49"></path></svg></div>
+<!-- ============ 14. METEO ============ -->
+<section id="meteo" data-tab="infos" data-sec="Météo" data-num="14" class="py-24 bg-chicago-dark text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-4">
+      <h2 class="text-sm font-bold text-chicago-blue uppercase tracking-widest mb-3">Du 4 au 13 septembre</h2>
+      <h3 class="text-4xl md:text-5xl font-serif font-bold">Quel temps fera-t-il ?</h3>
+    </div>
+    <p class="text-center text-slate-400 text-sm max-w-2xl mx-auto mb-12">
+      Les prévisions réelles n'existent pas encore à cette échéance. Voici les <strong class="text-slate-200">normales saisonnières jour par jour</strong>
+      relevées à la station d'O'Hare sur la période 1991-2020 : c'est la meilleure estimation possible aujourd'hui, et elle est très stable d'une année sur l'autre.
+    </p>
+
+    <div class="grid gap-3 mb-10" style="grid-template-columns:repeat(auto-fit,minmax(120px,1fr))">
+      <!-- 4 -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center backdrop-blur-sm">
+        <p class="text-xs uppercase tracking-wider text-chicago-blue font-bold">Ven 4</p>
+        <i class="fa-solid fa-sun text-3xl text-amber-300 my-3"></i>
+        <p class="text-2xl font-bold">26°</p>
+        <p class="text-sm text-slate-400">16° la nuit</p>
+        <p class="text-xs text-slate-500 mt-3 leading-snug">Arrivée de Christophe &amp; Laure</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center backdrop-blur-sm">
+        <p class="text-xs uppercase tracking-wider text-chicago-blue font-bold">Sam 5</p>
+        <i class="fa-solid fa-sun text-3xl text-amber-300 my-3"></i>
+        <p class="text-2xl font-bold">26°</p>
+        <p class="text-sm text-slate-400">16° la nuit</p>
+        <p class="text-xs text-amber-300 mt-3 leading-snug font-medium">Voilier 20h45 : ~17° ressenti sur l'eau</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center backdrop-blur-sm">
+        <p class="text-xs uppercase tracking-wider text-chicago-blue font-bold">Dim 6</p>
+        <i class="fa-solid fa-sun text-3xl text-amber-300 my-3"></i>
+        <p class="text-2xl font-bold">26°</p>
+        <p class="text-sm text-slate-400">16° la nuit</p>
+        <p class="text-xs text-amber-300 mt-3 leading-snug font-medium">Croisière 17h30 : idéal</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center backdrop-blur-sm">
+        <p class="text-xs uppercase tracking-wider text-chicago-blue font-bold">Lun 7</p>
+        <i class="fa-solid fa-sun text-3xl text-amber-300 my-3"></i>
+        <p class="text-2xl font-bold">26°</p>
+        <p class="text-sm text-slate-400">16° la nuit</p>
+        <p class="text-xs text-slate-500 mt-3 leading-snug">Journée à pied</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center backdrop-blur-sm">
+        <p class="text-xs uppercase tracking-wider text-chicago-blue font-bold">Mar 8</p>
+        <i class="fa-solid fa-cloud-sun text-3xl text-slate-300 my-3"></i>
+        <p class="text-2xl font-bold">26°</p>
+        <p class="text-sm text-slate-400">16° la nuit</p>
+        <p class="text-xs text-slate-500 mt-3 leading-snug">Transfert O'Hare</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center backdrop-blur-sm">
+        <p class="text-xs uppercase tracking-wider text-chicago-blue font-bold">Mer 9</p>
+        <i class="fa-solid fa-cloud-sun text-3xl text-slate-300 my-3"></i>
+        <p class="text-2xl font-bold">26°</p>
+        <p class="text-sm text-slate-400">15° la nuit</p>
+        <p class="text-xs text-slate-500 mt-3 leading-snug">Salon</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center backdrop-blur-sm">
+        <p class="text-xs uppercase tracking-wider text-chicago-blue font-bold">Jeu 10</p>
+        <i class="fa-solid fa-cloud-sun text-3xl text-slate-300 my-3"></i>
+        <p class="text-2xl font-bold">25°</p>
+        <p class="text-sm text-slate-400">15° la nuit</p>
+        <p class="text-xs text-slate-500 mt-3 leading-snug">Départ de Christophe &amp; Laure</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center backdrop-blur-sm">
+        <p class="text-xs uppercase tracking-wider text-chicago-blue font-bold">Ven 11</p>
+        <i class="fa-solid fa-sun text-3xl text-amber-300 my-3"></i>
+        <p class="text-2xl font-bold">25°</p>
+        <p class="text-sm text-slate-400">15° la nuit</p>
+        <p class="text-xs text-slate-500 mt-3 leading-snug">Outlets (couvert)</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center backdrop-blur-sm">
+        <p class="text-xs uppercase tracking-wider text-chicago-blue font-bold">Sam 12</p>
+        <i class="fa-solid fa-sun text-3xl text-amber-300 my-3"></i>
+        <p class="text-2xl font-bold">25°</p>
+        <p class="text-sm text-slate-400">15° la nuit</p>
+        <p class="text-xs text-slate-500 mt-3 leading-snug">Journée libre</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center backdrop-blur-sm">
+        <p class="text-xs uppercase tracking-wider text-chicago-blue font-bold">Dim 13</p>
+        <i class="fa-solid fa-plane-departure text-3xl text-chicago-blue my-3"></i>
+        <p class="text-2xl font-bold">25°</p>
+        <p class="text-sm text-slate-400">15° la nuit</p>
+        <p class="text-xs text-slate-500 mt-3 leading-snug">Vol retour 17h00</p>
+      </div>
+    </div>
+
+    <div class="grid gap-6" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <i class="fa-solid fa-temperature-half text-chicago-blue text-2xl mb-3"></i>
+        <h4 class="font-bold mb-2">Un été qui s'étire</h4>
+        <p class="text-sm text-slate-400">Début septembre reste chaud : 25 à 26 °C l'après-midi, avec une baisse très progressive d'un degré sur la durée du séjour. Les nuits descendent à 15-16 °C. Il peut encore faire 30 °C sur un coup de chaud, comme il peut faire 20 °C sur un coup de vent du nord.</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <i class="fa-solid fa-wind text-chicago-blue text-2xl mb-3"></i>
+        <h4 class="font-bold mb-2">L'effet lac, à ne pas sous-estimer</h4>
+        <p class="text-sm text-slate-400">Au bord de l'eau et surtout <strong class="text-slate-200">sur l'eau</strong>, il fait 3 à 5 °C de moins qu'en ville, et le vent ne s'arrête jamais — on ne l'appelle pas <em>Windy City</em> pour rien. Sur le voilier à 21h, prévoir un vrai coupe-vent : le ressenti tourne autour de 15 °C.</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <i class="fa-solid fa-cloud-rain text-chicago-blue text-2xl mb-3"></i>
+        <h4 class="font-bold mb-2">La pluie</h4>
+        <p class="text-sm text-slate-400">Environ 90 mm sur le mois, répartis sur une dizaine de jours : statistiquement, <strong class="text-slate-200">2 à 3 jours de notre séjour verront de la pluie</strong>, souvent sous forme d'averse orageuse courte plutôt que de crachin. Un petit parapluie suffit, pas besoin de K-way.</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <i class="fa-solid fa-suitcase text-chicago-blue text-2xl mb-3"></i>
+        <h4 class="font-bold mb-2">Dans la valise</h4>
+        <p class="text-sm text-slate-400">Le principe de la superposition : tee-shirts pour la journée, un pull léger et un coupe-vent pour les soirées et les deux croisières. Une tenue un peu habillée pour les rooftops (tenue correcte exigée après 18h). Et de très bonnes chaussures : on marche énormément.</p>
+      </div>
+    </div>
+
+    <p class="text-center text-xs text-slate-500 mt-10">
+      Source : normales climatiques 1991-2020, National Weather Service (station Chicago O'Hare).
+      <a href="https://forecast.weather.gov/MapClick.php?lat=41.8843&lon=-87.6324" target="_blank" rel="noopener" class="text-chicago-blue hover:underline ml-1">Voir les vraies prévisions <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a>
+      — disponibles à partir de fin août.
+    </p>
+  </div>
+</section>
+
+<div class="sep h-16 md:h-24" style="background:#002B49"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,100 C420,0 1020,0 1440,100 Z" fill="#f8fafc"></path></svg></div>
+
+
+<!-- ============ 15. PRATIQUE ============ -->
 <section id="pratique" data-tab="infos" data-sec="Pratique" data-num="15" class="section-pattern py-24">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
@@ -2023,6 +2153,7 @@ tailwind.config = {
 </section>
 
 <div class="sep h-12 md:h-20" style="background:#f8fafc"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,0 L1440,100 L0,100 Z" fill="#002B49"></path></svg></div>
+<!-- ============ 16. BON VOYAGE ============ -->
 <footer id="fin" data-tab="infos" data-sec="Bon voyage" data-num="16" class="bg-chicago-dark text-slate-400 py-12 text-center">
   <i class="fa-solid fa-wind text-chicago-blue text-3xl mb-4"></i>
   <p class="font-serif text-xl text-white mb-2">Chicago, septembre 2026</p>
@@ -2173,7 +2304,11 @@ tailwind.config = {
     b.className = 'rail-item';
     b.setAttribute('aria-label', 'Aller à ' + sec.getAttribute('data-sec'));
     b.innerHTML = '<span class="rail-label">' + sec.getAttribute('data-sec') + '</span><span class="rail-dot"></span>';
-    b.addEventListener('click', function(){ sec.scrollIntoView({ behavior:'smooth', block:'start' }); });
+    b.addEventListener('click', function(){
+      /* CX_GOTO cale le defilement sur le titre, pas sur la marge haute de la section */
+      if (window.CX_GOTO) window.CX_GOTO(sec, true);
+      else sec.scrollIntoView({ behavior:'smooth', block:'start' });
+    });
     b.addEventListener('mouseenter', function(){ count.textContent = sec.getAttribute('data-num'); });
     rail.appendChild(b);
   });
@@ -2185,9 +2320,19 @@ tailwind.config = {
     items.forEach(function(b,k){ b.classList.toggle('active', k === i); });
     count.textContent = secs[i].getAttribute('data-num');
     rail.classList.toggle('on-dark', DARK_SECTIONS.indexOf(secs[i].id) > -1);
-    var id = secs[i].id;
-    document.querySelectorAll('#deskNav .nav-link').forEach(function(a){
-      a.classList.toggle('is-active', a.getAttribute('href') === '#' + id);
+    var id = secs[i].id, sel = '#' + id;
+    /* La rubrique courante s'allume dans son panneau, et son groupe s'allume dans la barre. */
+    document.querySelectorAll('#deskNav .dd-panel a').forEach(function(a){
+      a.classList.toggle('on', a.getAttribute('href') === sel);
+    });
+    document.querySelectorAll('#deskNav .nav-link').forEach(function(el){
+      var on;
+      if (el.classList.contains('dd-btn')) {
+        on = !!(el.parentNode && el.parentNode.querySelector('.dd-panel a[href="' + sel + '"]'));
+      } else {
+        on = el.getAttribute('href') === sel;
+      }
+      el.classList.toggle('is-active', on);
     });
     var crumb = document.getElementById('crumb');
     if (crumb) {
@@ -2583,32 +2728,88 @@ tailwind.config = {
 
 <!-- ============ BARRE D'ONGLETS (mode application) ============ -->
 <div id="appnav" role="tablist" aria-label="Navigation de l&rsquo;application">
+  <div class="grip" id="appGrip" aria-hidden="true"><span></span></div>
   <div class="row">
     <button type="button" class="tabbtn" data-go="today" role="tab"><i class="fa-solid fa-bolt"></i><span>Aujourd&rsquo;hui</span><span class="dotmark"></span></button>
     <button type="button" class="tabbtn" data-go="agenda" role="tab"><i class="fa-regular fa-calendar-days"></i><span>Agenda</span><span class="dotmark"></span></button>
     <button type="button" class="tabbtn" data-go="lieux" role="tab"><i class="fa-solid fa-map-location-dot"></i><span>Lieux</span><span class="dotmark"></span></button>
-    <button type="button" class="tabbtn" data-go="sejour" role="tab"><i class="fa-solid fa-suitcase-rolling"></i><span>Carnet</span><span class="dotmark"></span></button>
-    <button type="button" class="tabbtn" data-go="infos" role="tab"><i class="fa-solid fa-circle-info"></i><span>Infos</span><span class="dotmark"></span></button>
+    <button type="button" class="tabbtn" data-go="manger" role="tab"><i class="fa-solid fa-utensils"></i><span>Manger</span><span class="dotmark"></span></button>
+    <button type="button" class="tabbtn menu" id="menuBtn" aria-expanded="false" aria-controls="appmenu"><i class="fa-solid fa-bars-staggered"></i><span>Menu</span><span class="dotmark"></span></button>
+  </div>
+</div>
+
+<!-- ============ PANNEAU : TOUTES LES RUBRIQUES ============ -->
+<div id="appmenu" role="dialog" aria-modal="true" aria-label="Toutes les rubriques">
+  <div class="am-bg" id="amBg"></div>
+  <div class="am-sheet">
+    <div class="am-grip" id="amGrip"><span></span></div>
+    <div class="am-head">
+      <i class="fa-solid fa-wind text-chicago-blue"></i>
+      <div class="flex-1">
+        <p class="font-serif font-bold text-base text-chicago-dark leading-tight">Toutes les rubriques</p>
+        <p class="text-[.62rem] text-slate-400 font-medium uppercase tracking-wider">Chicago &middot; 4 au 14 septembre 2026</p>
+      </div>
+      <button type="button" id="amClose" class="text-slate-400 px-2 text-xl" aria-label="Fermer le menu"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="am-scroll">
+      <button type="button" class="am-install js-install" id="amInstall">
+        <i class="fa-solid fa-mobile-screen-button lead"></i>
+        <span class="flex-1">
+          <span class="block font-bold text-[.78rem] leading-tight">Installer l&rsquo;application</span>
+          <span class="block text-[.66rem] text-slate-300 font-medium mt-.5">Sur l&rsquo;&eacute;cran d&rsquo;accueil, iPhone ou Android &middot; fonctionne sans r&eacute;seau</span>
+        </span>
+        <i class="fa-solid fa-chevron-right go"></i>
+      </button>
+      <p class="am-fam"><i class="fa-solid fa-suitcase-rolling"></i>Le voyage<span class="line"></span></p>
+      <div class="am-grid">
+        <button type="button" class="am-tile" data-goto="hero"><i class="fa-solid fa-wind"></i><span>Vue d&rsquo;ensemble</span></button>
+        <button type="button" class="am-tile" data-goto="spirit"><i class="fa-solid fa-compass"></i><span>L&rsquo;esprit</span></button>
+        <button type="button" class="am-tile" data-goto="vols"><i class="fa-solid fa-plane"></i><span>Vols</span></button>
+        <button type="button" class="am-tile" data-goto="hotels"><i class="fa-solid fa-bed"></i><span>H&ocirc;tels</span></button>
+        <button type="button" class="am-tile" data-goto="planning"><i class="fa-solid fa-calendar-day"></i><span>Planning</span></button>
+      </div>
+      <p class="am-fam"><i class="fa-solid fa-bolt"></i>Jour par jour<span class="line"></span></p>
+      <div class="am-grid">
+        <button type="button" class="am-tile" data-goto="today"><i class="fa-solid fa-bolt"></i><span>Aujourd&rsquo;hui</span></button>
+        <button type="button" class="am-tile" data-goto="agenda"><i class="fa-solid fa-table-columns"></i><span>Agenda complet</span></button>
+      </div>
+      <p class="am-fam"><i class="fa-solid fa-briefcase"></i>Le salon<span class="line"></span></p>
+      <div class="am-grid">
+        <button type="button" class="am-tile" data-goto="travail"><i class="fa-solid fa-briefcase"></i><span>Salon pro</span></button>
+        <button type="button" class="am-tile" data-goto="esker"><i class="fa-solid fa-list-check"></i><span>Esker All&nbsp;Access</span></button>
+      </div>
+      <p class="am-fam"><i class="fa-solid fa-map-location-dot"></i>Sur place<span class="line"></span></p>
+      <div class="am-grid">
+        <button type="button" class="am-tile" data-goto="lieux"><i class="fa-solid fa-map-location-dot"></i><span>Localisation</span></button>
+        <button type="button" class="am-tile" data-goto="transports"><i class="fa-solid fa-train-subway"></i><span>Se d&eacute;placer</span></button>
+        <button type="button" class="am-tile" data-goto="shopping"><i class="fa-solid fa-bag-shopping"></i><span>Shopping</span></button>
+      </div>
+      <p class="am-fam"><i class="fa-solid fa-utensils"></i>Se r&eacute;galer<span class="line"></span></p>
+      <div class="am-grid">
+        <button type="button" class="am-tile" data-goto="manger"><i class="fa-solid fa-utensils"></i><span>O&ugrave; manger</span></button>
+        <button type="button" class="am-tile" data-goto="gouter"><i class="fa-solid fa-mug-saucer"></i><span>O&ugrave; go&ucirc;ter</span></button>
+        <button type="button" class="am-tile" data-goto="patisseries"><i class="fa-solid fa-cake-candles"></i><span>P&acirc;tisseries</span></button>
+      </div>
+      <p class="am-fam"><i class="fa-solid fa-circle-info"></i>Bon &agrave; savoir<span class="line"></span></p>
+      <div class="am-grid">
+        <button type="button" class="am-tile" data-goto="meteo"><i class="fa-solid fa-cloud-sun"></i><span>M&eacute;t&eacute;o</span></button>
+        <button type="button" class="am-tile" data-goto="pratique"><i class="fa-solid fa-circle-info"></i><span>Pratique</span></button>
+      </div>
+      <p class="text-[.62rem] text-slate-400 mt-6 leading-relaxed"><i class="fa-solid fa-hand-pointer mr-1"></i>Astuce&nbsp;: ce panneau s&rsquo;ouvre aussi en <strong>glissant le doigt vers le haut</strong> depuis la barre du bas.</p>
+    </div>
   </div>
 </div>
 
 <div id="swBanner">
   <div class="bg-chicago-dark text-white rounded-xl shadow-2xl px-4 py-3 flex items-center gap-3">
     <i class="fa-solid fa-arrows-rotate text-chicago-blue"></i>
-    <p class="text-xs flex-1 leading-snug"><strong>Carnet mis &agrave; jour.</strong> Recharger pour voir la nouvelle version&nbsp;?</p>
+    <p class="text-xs flex-1 leading-snug"><strong>Nouvelle version disponible.</strong> Recharger pour l&rsquo;afficher&nbsp;?</p>
     <button type="button" id="swReload" class="text-[.68rem] font-bold uppercase tracking-wider bg-chicago-red px-3 py-2 rounded-lg">Recharger</button>
     <button type="button" id="swClose" class="text-slate-400 px-1" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
   </div>
 </div>
 
-<div id="installBanner" style="display:none" class="fixed left-3 right-3 z-[65]" >
-  <div class="bg-white border-2 border-chicago-blue rounded-xl shadow-2xl px-4 py-3 flex items-center gap-3">
-    <i class="fa-solid fa-mobile-screen-button text-chicago-blue text-lg shrink-0"></i>
-    <p class="text-xs text-slate-700 flex-1 leading-snug" id="installTxt"></p>
-    <button type="button" id="installGo" class="shrink-0 text-[.68rem] font-bold uppercase tracking-wider bg-chicago-dark text-white px-3 py-2 rounded-lg" style="display:none">Installer</button>
-    <button type="button" id="installClose" class="shrink-0 text-slate-400 px-1" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
-  </div>
-</div>
+<!-- Le bandeau d'installation vit desormais juste sous la navigation -->
 
 <!-- Mode d'emploi iOS : Safari n'expose aucun prompt d'installation, il faut guider a la main -->
 <div id="iosSheet" style="display:none" class="fixed inset-0 z-[80]">
@@ -2618,7 +2819,7 @@ tailwind.config = {
       <i class="fa-brands fa-apple text-chicago-dark text-xl"></i>
       <div class="flex-1">
         <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red">Sur iPhone et iPad</p>
-        <h3 class="font-serif font-bold text-lg text-chicago-dark leading-tight">Installer le carnet en 4 gestes</h3>
+        <h3 class="font-serif font-bold text-lg text-chicago-dark leading-tight">Installer l&rsquo;application en 4 gestes</h3>
       </div>
       <button type="button" id="iosSheetClose" class="text-slate-400 px-2 text-xl" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
     </div>
@@ -2644,7 +2845,7 @@ tailwind.config = {
       </ol>
       <div class="mt-5 rounded-xl bg-chicago-sand p-4">
         <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2">Ce que &ccedil;a change vraiment</p>
-        <p class="text-sm text-slate-600 leading-relaxed">L&rsquo;application s&rsquo;ouvre en plein &eacute;cran sans la barre Safari, garde le carnet en m&eacute;moire et <strong>fonctionne sans r&eacute;seau</strong>. Utile dans le m&eacute;tro, o&ugrave; il n&rsquo;y a pas de signal entre les stations, et pr&eacute;cieux si votre eSIM fait des caprices.</p>
+        <p class="text-sm text-slate-600 leading-relaxed">L&rsquo;application s&rsquo;ouvre en plein &eacute;cran sans la barre Safari, garde tout le voyage en m&eacute;moire et <strong>fonctionne sans r&eacute;seau</strong>. Utile dans le m&eacute;tro, o&ugrave; il n&rsquo;y a pas de signal entre les stations, et pr&eacute;cieux si votre eSIM fait des caprices.</p>
       </div>
       <div class="mt-4 rounded-xl border-2 border-amber-300 bg-amber-50 p-4">
         <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-amber-700 mb-2">Si &laquo;&nbsp;Sur l&rsquo;&eacute;cran d&rsquo;accueil&nbsp;&raquo; n&rsquo;appara&icirc;t pas</p>
@@ -3464,7 +3665,7 @@ tailwind.config = {
 <!-- ============ MODE APPLICATION : onglets, ecran du jour, lieux, PWA ============ -->
 <script>
 (function(){
-  var V = '2026-08-30e';
+  var V = '2026-08-31a';
   var T = window.TRIP || {};
   var DAYS = T.DAYS || [], EV = T.EV || [], CATS = T.CATS || [];
   var esc = T.esc || function(x){ return String(x); };
@@ -3627,7 +3828,7 @@ tailwind.config = {
             '<p class="text-xs text-slate-400 mt-1">avant le décollage de Lyon, vendredi 4 septembre à 06h50</p>'
           : '<p class="text-[.6rem] font-bold uppercase tracking-[.2em] text-chicago-blue mb-1">C’est fini</p>' +
             '<p class="text-2xl font-serif font-bold">Le séjour est derrière nous</p>' +
-            '<p class="text-xs text-slate-400 mt-1">Le carnet reste consultable, jour par jour.</p>') +
+            '<p class="text-xs text-slate-400 mt-1">Tout le voyage reste consultable, jour par jour.</p>') +
         '</div>';
     }
 
@@ -3676,11 +3877,40 @@ tailwind.config = {
   /* =================================================================
      3. ONGLETS
      ================================================================= */
-  var TABS = ['today','agenda','lieux','sejour','infos'];
+  var TABS = ['today','agenda','lieux','manger','voyage','infos'];
+  var BAR  = ['today','agenda','lieux','manger'];   /* les 4 onglets presents dans la barre */
   var current = null, agendaReady = false;
-  var nav = document.getElementById('appnav');
+  var nav  = document.getElementById('appnav');
+  var menu = document.getElementById('appmenu');
+  var mBtn = document.getElementById('menuBtn');
 
   function isPhone(){ return window.matchMedia('(max-width: 1023px)').matches; }
+
+  /* -----------------------------------------------------------------
+     Defilement : on atterrit sur le TITRE de la section, pas dans sa
+     marge haute. Les sections ont un gros padding-top : sauter a leur
+     bord superieur donnait l'impression d'arriver dans le vide.
+     ----------------------------------------------------------------- */
+  function headerH(){
+    var n = document.querySelector('nav.sticky');
+    return n ? Math.round(n.getBoundingClientRect().height) : 64;
+  }
+  function goTo(el, smooth){
+    if (!el) return;
+    var pt = parseFloat(getComputedStyle(el).paddingTop) || 0;
+    var y  = el.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop || 0);
+    y = y + Math.max(pt - 18, 0) - headerH() - 10;
+    if (y < 40) y = 0;
+    if (y < 0) y = 0;
+    try { window.scrollTo({ top:y, behavior: smooth ? 'smooth' : 'auto' }); }
+    catch (e) { window.scrollTo(0, y); }
+  }
+  window.CX_GOTO = goTo;
+
+  function hostTab(el){
+    var h = el && el.closest ? el.closest('[data-tab]') : null;
+    return h ? h.getAttribute('data-tab') : null;
+  }
 
   function paint(tab){
     document.querySelectorAll('[data-tab]').forEach(function(el){
@@ -3689,8 +3919,15 @@ tailwind.config = {
       if (on) { el.classList.remove('tab-anim'); void el.offsetWidth; el.classList.add('tab-anim'); }
     });
     if (nav) nav.querySelectorAll('.tabbtn').forEach(function(b){
-      b.classList.toggle('on', b.getAttribute('data-go') === tab);
-      b.setAttribute('aria-selected', b.getAttribute('data-go') === tab ? 'true' : 'false');
+      var g = b.getAttribute('data-go');
+      /* le bouton Menu s'allume des que l'onglet courant n'est pas dans la barre */
+      var on = g ? (g === tab) : (BAR.indexOf(tab) < 0);
+      b.classList.toggle('on', on);
+      if (g) b.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    if (menu) menu.querySelectorAll('.am-tile').forEach(function(t){
+      var el = document.getElementById(t.getAttribute('data-goto'));
+      t.classList.toggle('on', !!el && hostTab(el) === tab);
     });
     if (tab === 'agenda' && !agendaReady) {
       agendaReady = true;
@@ -3715,48 +3952,155 @@ tailwind.config = {
     return m ? m[1] : null;
   }
 
+  /* Aller a une section, en basculant d'onglet si besoin. */
+  function gotoSection(id){
+    var el = document.getElementById(id);
+    if (!el) return;
+    var t = hostTab(el);
+    var changed = document.body.classList.contains('appmode') && t && t !== current;
+    if (changed) setTab(t, true, true);
+    setTimeout(function(){ goTo(el, true); }, changed ? 80 : 0);
+  }
+  window.CX_SECTION = gotoSection;
+
+  /* =================================================================
+     3 bis. PANNEAU " TOUTES LES RUBRIQUES "
+     ================================================================= */
+  var menuOpen = false, menuPushed = false, swipeGuard = 0;
+
+  function openMenu(){
+    if (!menu || menuOpen) return;
+    menuOpen = true;
+    menu.classList.add('show');
+    document.body.classList.add('menu-open');
+    if (mBtn) { mBtn.classList.add('opened'); mBtn.setAttribute('aria-expanded', 'true'); }
+    /* une entree d'historique : le bouton retour du telephone referme le panneau */
+    try {
+      history.pushState({ cxmenu:1, cxtab: current }, '', location.hash || ('#t=' + (current || 'today')));
+      menuPushed = true;
+    } catch (e) { menuPushed = false; }
+  }
+  function closeMenu(useBack){
+    if (!menu || !menuOpen) return;
+    menuOpen = false;
+    menu.classList.remove('show');
+    document.body.classList.remove('menu-open');
+    if (mBtn) { mBtn.classList.remove('opened'); mBtn.setAttribute('aria-expanded', 'false'); }
+    if (useBack && menuPushed) { menuPushed = false; try { history.back(); } catch (e) {} }
+    else menuPushed = false;
+  }
+
+  if (menu) {
+    menu.addEventListener('click', function(e){
+      if (!e.target || !e.target.closest) return;
+      if (e.target.closest('#amBg') || e.target.closest('#amClose')) { closeMenu(true); return; }
+      var t = e.target.closest('.am-tile');
+      if (!t) return;
+      var id = t.getAttribute('data-goto');
+      closeMenu(true);
+      setTimeout(function(){ gotoSection(id); }, 210);
+    });
+    /* glisser vers le bas sur la poignee : fermeture */
+    var gy = null, amGrip = document.getElementById('amGrip');
+    if (amGrip) {
+      amGrip.addEventListener('touchstart', function(e){ gy = e.touches[0].clientY; }, { passive:true });
+      amGrip.addEventListener('touchmove', function(e){
+        if (gy === null) return;
+        if (e.touches[0].clientY - gy > 45) { gy = null; closeMenu(true); }
+      }, { passive:true });
+      amGrip.addEventListener('touchend', function(){ gy = null; }, { passive:true });
+    }
+  }
+
+  if (nav) {
+    nav.addEventListener('click', function(e){
+      if (!e.target || !e.target.closest) return;
+      var b = e.target.closest('.tabbtn'); if (!b) return;
+      if (Date.now() - swipeGuard < 500) return;      /* clic parasite apres un glisse */
+      if (b === mBtn) { if (menuOpen) closeMenu(true); else openMenu(); return; }
+      var t = b.getAttribute('data-go');
+      if (t === current) { window.scrollTo({ top:0, behavior:'smooth' }); return; }
+      setTab(t, true);
+    });
+    /* glisser vers le haut depuis la barre : ouverture du panneau */
+    var ty = null, grip = document.getElementById('appGrip');
+    nav.addEventListener('touchstart', function(e){ ty = e.touches[0].clientY; }, { passive:true });
+    nav.addEventListener('touchmove', function(e){
+      if (ty === null || menuOpen) return;
+      var dy = ty - e.touches[0].clientY;
+      if (grip) grip.classList.toggle('hot', dy > 14);
+      if (dy > 48) { ty = null; swipeGuard = Date.now(); if (grip) grip.classList.remove('hot'); openMenu(); }
+    }, { passive:true });
+    nav.addEventListener('touchend', function(){ ty = null; if (grip) grip.classList.remove('hot'); }, { passive:true });
+  }
+
+  /* =================================================================
+     3 ter. MENUS DEROULANTS DE LA NAVIGATION ORDINATEUR
+     ================================================================= */
+  var dds = [].slice.call(document.querySelectorAll('.dd'));
+  function closeDD(except){
+    dds.forEach(function(d){
+      if (d === except) return;
+      d.classList.remove('open');
+      var b = d.querySelector('.dd-btn');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    });
+  }
+  dds.forEach(function(d){
+    var b = d.querySelector('.dd-btn'); if (!b) return;
+    b.addEventListener('click', function(ev){
+      ev.preventDefault(); ev.stopPropagation();
+      var was = d.classList.contains('open');
+      closeDD(d);
+      d.classList.toggle('open', !was);
+      b.setAttribute('aria-expanded', was ? 'false' : 'true');
+    });
+  });
+  document.addEventListener('click', function(ev){
+    if (!ev.target || !ev.target.closest || !ev.target.closest('.dd')) closeDD();
+  });
+  document.addEventListener('keydown', function(ev){
+    if (ev.key === 'Escape' || ev.keyCode === 27) { closeDD(); closeMenu(true); }
+  });
+
+  /* =================================================================
+     3 quater. BASCULE DU MODE APPLICATION
+     ================================================================= */
   function enableApp(){
     if (document.body.classList.contains('appmode')) return;
     document.body.classList.add('appmode');
     var start = tabFromHash() || 'today';
+    if (TABS.indexOf(start) < 0) start = 'today';
     setTab(start, false);
     try { history.replaceState({ cxtab: start }, '', '#t=' + start); } catch (e) {}
   }
   function disableApp(){
     if (!document.body.classList.contains('appmode')) return;
     document.body.classList.remove('appmode');
+    closeMenu(false);
     document.querySelectorAll('[data-tab]').forEach(function(el){ el.classList.remove('tab-on','tab-anim'); });
   }
 
-  if (nav) nav.addEventListener('click', function(e){
-    if (!e.target || !e.target.closest) return;
-    var b = e.target.closest('.tabbtn'); if (!b) return;
-    var t = b.getAttribute('data-go');
-    if (t === current) { window.scrollTo({ top:0, behavior:'smooth' }); return; }
-    setTab(t, true);
-  });
-
   window.addEventListener('popstate', function(e){
+    if (menuOpen) { closeMenu(false); return; }   /* le retour referme d'abord le panneau */
     if (!document.body.classList.contains('appmode')) return;
     var t = (e.state && e.state.cxtab) || tabFromHash() || 'today';
     setTab(t, false);
   });
 
-  /* Les liens internes basculent sur le bon onglet avant de defiler. */
+  /* Tous les liens internes : bon onglet, puis defilement cale sur le titre. */
   document.addEventListener('click', function(e){
     if (!e.target || !e.target.closest) return;
     var a = e.target.closest('a[href^="#"]');
-    if (!a || !document.body.classList.contains('appmode')) return;
-    var id = a.getAttribute('href').slice(1);
+    if (!a) return;
+    var id = (a.getAttribute('href') || '').slice(1);
     if (!id || id.indexOf('t=') === 0) return;
     var el = document.getElementById(id);
     if (!el) return;
-    var host = el.closest('[data-tab]');
-    if (!host) return;
     e.preventDefault();
-    var t = host.getAttribute('data-tab');
-    if (t !== current) setTab(t, true, true);
-    setTimeout(function(){ el.scrollIntoView({ behavior:'smooth', block:'start' }); }, 60);
+    closeDD();
+    if (menuOpen) closeMenu(true);
+    gotoSection(id);
     var mm = document.getElementById('mobileMenu');
     if (mm && !mm.classList.contains('hidden')) {
       mm.classList.add('hidden');
@@ -3848,11 +4192,7 @@ tailwind.config = {
   }
   function snooze(){ try { localStorage.setItem(HKEY, String(Date.now())); } catch (e) {} }
 
-  function placeBanner(){
-    if (!ib) return;
-    var base = document.body.classList.contains('appmode') ? '5.25rem' : '1rem';
-    ib.style.bottom = 'calc(' + base + ' + env(safe-area-inset-bottom))';
-  }
+  function placeBanner(){ /* le bandeau est en flux normal : rien a positionner */ }
 
   function openSheet(){
     if (!sheet) return;
@@ -3876,8 +4216,7 @@ tailwind.config = {
     itxt.innerHTML = html;
     if (buttonLabel && igo) { igo.textContent = buttonLabel; igo.style.display = ''; igo.onclick = onClick; }
     else if (igo) { igo.style.display = 'none'; }
-    ib.style.display = 'block';
-    placeBanner();
+    ib.style.display = '';
   }
 
   /* Point d'entree permanent : n'importe quel element .js-install ouvre le bon chemin. */
@@ -3902,8 +4241,8 @@ tailwind.config = {
   window.addEventListener('beforeinstallprompt', function(e){
     e.preventDefault();
     deferred = e;
-    if (isInstalled() || snoozed() || !isPhone()) return;
-    showBanner('<strong>Installer le carnet</strong> sur l\u2019\u00e9cran d\u2019accueil, pour l\u2019ouvrir comme une application, m\u00eame sans r\u00e9seau.', 'Installer', triggerInstall);
+    if (isInstalled() || snoozed()) return;
+    showBanner('<strong>Installer l\u2019application</strong> sur l\u2019\u00e9cran d\u2019accueil, pour l\u2019ouvrir comme une application, m\u00eame sans r\u00e9seau.', 'Installer', triggerInstall);
   });
 
   /* iOS : rien n'arrivera jamais tout seul, on affiche apres le premier rendu. */
@@ -3911,13 +4250,21 @@ tailwind.config = {
     if (!ib || isInstalled() || snoozed() || !isPhone() || !isApple()) return;
     if (ib.style.display === 'block') return;
     if (isIosSafari()) {
-      showBanner('<strong>Ajouter \u00e0 l\u2019\u00e9cran d\u2019accueil</strong> pour ouvrir le carnet comme une application, m\u00eame sans r\u00e9seau.', 'Comment faire', openSheet);
+      showBanner('<strong>Ajouter \u00e0 l\u2019\u00e9cran d\u2019accueil</strong> pour ouvrir tout le voyage comme une application, m\u00eame sans r\u00e9seau.', 'Comment faire', openSheet);
     } else {
-      showBanner('Pour installer le carnet sur iPhone, <strong>ouvrez cette page dans Safari</strong>. Les autres navigateurs ne le permettent pas.', 'D\u00e9tails', openSheet);
+      showBanner('Pour installer l\u2019application sur iPhone, <strong>ouvrez cette page dans Safari</strong>. Les autres navigateurs ne le permettent pas.', 'D\u00e9tails', openSheet);
     }
   }
   if (document.readyState === 'complete') setTimeout(maybeShowApple, 1500);
   else window.addEventListener('load', function(){ setTimeout(maybeShowApple, 1500); });
+
+  /* Deja installe : plus aucune invitation nulle part. */
+  if (isInstalled()) {
+    document.querySelectorAll('.js-install').forEach(function(el){
+      if (el.parentNode) el.parentNode.removeChild(el);
+    });
+    if (ib && ib.parentNode) ib.parentNode.removeChild(ib);
+  }
 
   if (icl) icl.onclick = function(){ if (ib) ib.style.display = 'none'; snooze(); };
   window.addEventListener('resize', placeBanner);

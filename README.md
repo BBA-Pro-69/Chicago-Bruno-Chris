@@ -58,8 +58,61 @@ Plus un écran `#today` visible uniquement en mode application.
 La version du cache doit être incrémentée **aux trois endroits** suivants,
 sinon les téléphones déjà installés continueront de servir l'ancienne page :
 
-1. `sw.js`, ligne 9 : `const VERSION = '2026-08-30e';`
-2. `index.html`, ligne 13 : `manifest.webmanifest?v=2026-08-30e`
-3. `index.html`, script « mode application » : `var V = '2026-08-30e';`
+1. `sw.js`, ligne 9 : `const VERSION = '2026-08-31a';`
+2. `index.html`, ligne 13 : `manifest.webmanifest?v=2026-08-31a`
+3. `index.html`, script « mode application » : `var V = '2026-08-31a';`
 
-Version actuelle : **2026-08-30e**
+Version actuelle : **2026-08-31a**
+
+## Navigation (refonte du 31 aout 2026)
+
+### Ordinateur
+La barre du haut ne contient plus 15 liens a plat mais **6 entrees** :
+`Le voyage` (menu deroulant) · `Agenda` (lien direct) · `Le salon` · `Sur place` ·
+`Se regaler` · `Bon a savoir`, plus un bouton **Installer**.
+Les menus s'ouvrent au survol ou au clic (classe `.dd` / `.dd-panel`).
+La rubrique courante s'allume dans son panneau, et son groupe s'allume dans la barre.
+
+### Telephone (mode application)
+La barre du bas compte **4 onglets + 1 bouton Menu** :
+`Aujourd'hui` · `Agenda` · `Lieux` · `Manger` · `Menu`.
+Le bouton Menu ouvre `#appmenu`, un panneau coulissant qui liste **les 17 rubriques**
+groupees en 6 familles, avec le bouton Installer en tete.
+Il s'ouvre aussi en **glissant le doigt vers le haut** depuis la barre,
+se ferme par la poignee, le fond, la croix, la touche Echap ou le bouton retour du telephone.
+Le bouton Menu s'allume automatiquement quand l'onglet courant n'est pas dans la barre
+(onglets `voyage` et `infos`).
+
+Le terme *carnet* a ete retire de toute l'interface : il ne disait rien a l'utilisateur.
+
+### Defilement
+`window.CX_GOTO(element, smooth)` remplace `scrollIntoView`.
+Les sections ont un gros `padding-top` : sauter a leur bord superieur donnait
+l'impression d'arriver dans le vide avant le titre. `CX_GOTO` retranche la hauteur
+de la barre de navigation et l'essentiel du padding pour caler le titre en haut de l'ecran.
+`window.CX_SECTION(id)` bascule sur le bon onglet puis appelle `CX_GOTO`.
+
+### Ordre des sections
+| # | id | onglet |
+|---|----|--------|
+| 00 | hero | voyage |
+| 01 | spirit | voyage |
+| 02 | vols | voyage |
+| 03 | hotels | voyage |
+| 04 | planning | voyage |
+| 05 | agenda | agenda |
+| 06 | travail | voyage |
+| 07 | esker | voyage |
+| 08 | shopping | voyage |
+| 09 | lieux | lieux |
+| 10 | transports | lieux |
+| 11 | manger | manger |
+| 12 | gouter | manger |
+| 13 | patisseries | manger |
+| 14 | meteo | infos |
+| 15 | pratique | infos |
+| 16 | fin | infos |
+
+Le bandeau d'installation vit desormais **juste sous la navigation**, en flux normal
+(plus de bandeau flottant). Il est supprime du DOM des que l'application est installee,
+en meme temps que tous les elements `.js-install`.
