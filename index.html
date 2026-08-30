@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Chicago 26">
-<link rel="manifest" href="./manifest.webmanifest?v=2026-08-30d">
+<link rel="manifest" href="./manifest.webmanifest?v=2026-08-30e">
 <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon-180.png?v=2026-08-29a">
 <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon-192.png?v=2026-08-29a">
 <title>Chicago City Trip · Septembre 2026 · Bruno &amp; Christophe</title>
@@ -361,6 +361,7 @@ tailwind.config = {
       <a href="#manger" class="nav-link">Manger</a>
       <a href="#gouter" class="nav-link">Go&ucirc;ter</a>
       <a href="#patisseries" class="nav-link">P&acirc;tisseries</a>
+      <a href="#transports" class="nav-link">Transports</a>
       <a href="#meteo" class="nav-link">Météo</a>
       <a href="#pratique" class="nav-link">Pratique</a>
     </div>
@@ -388,6 +389,8 @@ tailwind.config = {
       <a href="#manger" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-utensils w-7 text-chicago-blue"></i> Où manger</a>
       <a href="#gouter" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-mug-saucer w-7 text-chicago-blue"></i> Où goûter</a>
       <a href="#patisseries" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-cake-candles w-7 text-chicago-blue"></i> Pâtisseries</a>
+      <a href="#transports" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-train-subway w-7 text-chicago-blue"></i> Se déplacer</a>
+      <button type="button" class="js-install w-full text-left py-3.5 text-chicago-blue font-semibold"><i class="fa-solid fa-mobile-screen-button w-7"></i> Installer l’application</button>
       <a href="#meteo" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-cloud-sun w-7 text-chicago-blue"></i> Météo</a>
       <a href="#pratique" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-circle-info w-7 text-chicago-blue"></i> Infos pratiques</a>
     </nav>
@@ -1619,7 +1622,343 @@ tailwind.config = {
   </div>
 </section>
 
-<section id="pratique" data-tab="infos" data-sec="Pratique" data-num="14" class="py-24 bg-white">
+<!-- ============ 14. SE DEPLACER ============ -->
+<section id="transports" data-tab="infos" data-sec="Se d&eacute;placer" data-num="14" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-8">
+      <p class="text-[.7rem] font-bold uppercase tracking-[.2em] text-chicago-red mb-3">14 &middot; Se d&eacute;placer</p>
+      <h2 class="text-4xl md:text-5xl font-serif font-bold text-chicago-dark mb-4">Les transports, sans se tromper</h2>
+      <p class="text-lg text-slate-600 max-w-3xl">Chicago a l&rsquo;un des meilleurs r&eacute;seaux des &Eacute;tats-Unis et l&rsquo;un des plus simples &agrave; payer, &agrave; condition de conna&icirc;tre deux ou trois choses avant d&rsquo;arriver. Voici comment &ccedil;a marche, ce que &ccedil;a co&ucirc;te, et les pi&egrave;ges &agrave; &eacute;viter.</p>
+    </div>
+
+    <!-- LA REGLE D'OR -->
+    <div class="mb-8 rounded-2xl bg-emerald-600 text-white overflow-hidden shadow-xl">
+      <div class="p-8">
+        <p class="text-[.65rem] font-bold uppercase tracking-[.2em] text-emerald-100 mb-3"><i class="fa-solid fa-circle-check mr-2"></i>La r&egrave;gle d&rsquo;or, celle qui vous fait gagner le plus de temps</p>
+        <h3 class="text-2xl md:text-3xl font-serif font-bold mb-4">N&rsquo;achetez aucune carte. Posez votre carte bancaire sur le lecteur.</h3>
+        <p class="text-emerald-50 leading-relaxed max-w-4xl">Depuis 2021, les tourniquets du m&eacute;tro et les valideurs des bus acceptent <strong class="text-white">directement votre carte bancaire sans contact</strong>, ou votre t&eacute;l&eacute;phone via Apple&nbsp;Pay ou Google&nbsp;Pay. Vous posez, &ccedil;a bipe, vous passez. Le tarif est <strong class="text-white">exactement le m&ecirc;me</strong> qu&rsquo;avec une carte Ventra locale. Pas de machine &agrave; comprendre, pas de file d&rsquo;attente, pas de solde &agrave; recharger, pas de carte inutilis&eacute;e &agrave; ramener dans un tiroir.</p>
+        <div class="mt-6 grid md:grid-cols-3 gap-4">
+          <div class="rounded-xl bg-white/10 p-4">
+            <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-emerald-100 mb-1.5">Ce qui marche</p>
+            <p class="text-sm text-emerald-50 leading-snug">Toute carte Visa ou Mastercard sans contact, m&ecirc;me fran&ccedil;aise. Apple&nbsp;Pay et Google&nbsp;Pay, y compris en Express Transit, donc sans d&eacute;verrouiller le t&eacute;l&eacute;phone.</p>
+          </div>
+          <div class="rounded-xl bg-white/10 p-4">
+            <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-emerald-100 mb-1.5">La r&egrave;gle absolue</p>
+            <p class="text-sm text-emerald-50 leading-snug"><strong class="text-white">Une carte par personne.</strong> On ne passe jamais deux voyageurs avec la m&ecirc;me carte&nbsp;: le lecteur refuse pendant plusieurs minutes et vous restez bloqu&eacute;s devant le tourniquet.</p>
+          </div>
+          <div class="rounded-xl bg-white/10 p-4">
+            <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-emerald-100 mb-1.5">Le d&eacute;tail qui rassure</p>
+            <p class="text-sm text-emerald-50 leading-snug">Chaque personne utilise <strong class="text-white">la m&ecirc;me carte pendant tout le s&eacute;jour</strong>. C&rsquo;est ce qui permet au syst&egrave;me de reconna&icirc;tre vos correspondances gratuites.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LE MEILLEUR PLAN A L'ARRIVEE -->
+    <div class="mb-8 rounded-2xl bg-white border-2 border-chicago-red overflow-hidden">
+      <div class="bg-chicago-red px-6 py-3">
+        <p class="text-white text-xs font-bold uppercase tracking-[.16em]"><i class="fa-solid fa-plane-arrival mr-2"></i>Le bon plan du samedi 5, &agrave; l&rsquo;arriv&eacute;e &agrave; O&rsquo;Hare</p>
+      </div>
+      <div class="p-6">
+        <p class="text-sm text-slate-600 leading-relaxed mb-5">Il existe un pi&egrave;ge et une astuce, et les deux se jouent dans le m&ecirc;me hall. <strong>Prendre le m&eacute;tro depuis O&rsquo;Hare co&ucirc;te 5&nbsp;$ au lieu de 2,50&nbsp;$</strong>&nbsp;: c&rsquo;est la seule station du r&eacute;seau &agrave; appliquer une surtaxe, et elle ne s&rsquo;applique qu&rsquo;&agrave; l&rsquo;entr&eacute;e. L&rsquo;astuce, c&rsquo;est qu&rsquo;<strong>un pass illimit&eacute; embarque &agrave; O&rsquo;Hare sans aucun suppl&eacute;ment</strong>.</p>
+        <div class="grid md:grid-cols-3 gap-5">
+          <div class="rounded-xl border-2 border-emerald-300 bg-emerald-50 p-5">
+            <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-emerald-700 mb-2"><i class="fa-solid fa-medal mr-1.5"></i>Le meilleur calcul</p>
+            <p class="text-sm text-slate-700 leading-relaxed">Achetez un <strong>1-Day Ventra Ticket &agrave; 5&nbsp;$</strong> au distributeur de la station O&rsquo;Hare. Vous payez le m&ecirc;me prix que le trajet simple surtax&eacute;, mais vous obtenez <strong>24 heures de trajets illimit&eacute;s</strong> en plus. Le seul moment du s&eacute;jour o&ugrave; un pass est math&eacute;matiquement gratuit.</p>
+          </div>
+          <div class="rounded-xl border-2 border-slate-200 p-5">
+            <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-slate-500 mb-2">La r&eacute;alit&eacute; du 5 septembre</p>
+            <p class="text-sm text-slate-600 leading-relaxed">Vous atterrissez &agrave; 14h15 apr&egrave;s onze heures de voyage, avec les valises, et la croisi&egrave;re est &agrave; 20h45. La Blue Line met <strong>45 minutes jusqu&rsquo;&agrave; Chicago Ave</strong>, plus dix minutes &agrave; pied. Un Uber met 40 minutes pour environ <strong>50&nbsp;$</strong>. Honn&ecirc;tement, ce jour-l&agrave;, le taxi se d&eacute;fend.</p>
+          </div>
+          <div class="rounded-xl border-2 border-slate-200 p-5">
+            <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-slate-500 mb-2">O&ugrave; les trouver &agrave; O&rsquo;Hare</p>
+            <p class="text-sm text-slate-600 leading-relaxed">Les <strong>taxis sont au niveau Arriv&eacute;es</strong>, on suit les panneaux, pas de r&eacute;servation, file organis&eacute;e. Les <strong>Uber et Lyft sont au niveau D&eacute;parts</strong>, un &eacute;tage au-dessus&nbsp;: c&rsquo;est contre-intuitif et beaucoup de monde s&rsquo;y perd. Vous arrivez au <strong>Terminal 5</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TARIFS -->
+    <div class="mb-8 grid lg:grid-cols-2 gap-6">
+      <div class="rounded-2xl bg-white border-2 border-slate-200 overflow-hidden">
+        <div class="bg-chicago-dark px-6 py-3">
+          <p class="text-white text-xs font-bold uppercase tracking-[.16em]"><i class="fa-solid fa-ticket mr-2"></i>Les tarifs, trajet par trajet</p>
+        </div>
+        <div class="p-6">
+          <table class="w-full text-sm">
+            <tbody class="divide-y divide-slate-100">
+              <tr><td class="py-2.5 text-slate-600">M&eacute;tro, le &laquo;&nbsp;L&nbsp;&raquo;</td><td class="py-2.5 text-right font-bold text-chicago-dark whitespace-nowrap">2,50&nbsp;$</td></tr>
+              <tr><td class="py-2.5 text-slate-600">Bus</td><td class="py-2.5 text-right font-bold text-chicago-dark whitespace-nowrap">2,25&nbsp;$</td></tr>
+              <tr class="bg-emerald-50"><td class="py-2.5 text-emerald-800 font-semibold">Correspondances</td><td class="py-2.5 text-right font-bold text-emerald-700 whitespace-nowrap">gratuites</td></tr>
+              <tr class="bg-chicago-red/5"><td class="py-2.5 text-chicago-red font-semibold">M&eacute;tro au d&eacute;part d&rsquo;O&rsquo;Hare</td><td class="py-2.5 text-right font-bold text-chicago-red whitespace-nowrap">5,00&nbsp;$</td></tr>
+              <tr><td class="py-2.5 text-slate-600">Pass 1 jour</td><td class="py-2.5 text-right font-bold text-chicago-dark whitespace-nowrap">5,00&nbsp;$</td></tr>
+              <tr><td class="py-2.5 text-slate-600">Pass 3 jours</td><td class="py-2.5 text-right font-bold text-chicago-dark whitespace-nowrap">15,00&nbsp;$</td></tr>
+              <tr><td class="py-2.5 text-slate-600">Pass 7 jours</td><td class="py-2.5 text-right font-bold text-chicago-dark whitespace-nowrap">20,00&nbsp;$</td></tr>
+              <tr><td class="py-2.5 text-slate-600">Carte Ventra en plastique</td><td class="py-2.5 text-right font-bold text-slate-400 whitespace-nowrap">5,00&nbsp;$</td></tr>
+              <tr><td class="py-2.5 text-slate-600">Bus pay&eacute; en esp&egrave;ces</td><td class="py-2.5 text-right font-bold text-slate-400 whitespace-nowrap">2,50&nbsp;$</td></tr>
+            </tbody>
+          </table>
+          <p class="text-xs text-slate-500 mt-4 leading-relaxed"><strong>Les correspondances gratuites</strong> sont la meilleure surprise du r&eacute;seau&nbsp;: apr&egrave;s le premier paiement, vous avez droit &agrave; <strong>deux trajets suppl&eacute;mentaires gratuits dans les deux heures</strong>. Concr&egrave;tement, votre Blue Line puis Red Line jusqu&rsquo;&agrave; Michigan Avenue ne co&ucirc;te que 2,50&nbsp;$, pas 5&nbsp;$.</p>
+          <p class="text-xs text-slate-500 mt-3 leading-relaxed"><strong>Ne payez jamais un bus en esp&egrave;ces&nbsp;:</strong> c&rsquo;est plus cher, il faut l&rsquo;appoint exact, le chauffeur ne rend pas la monnaie, et vous perdez le droit aux correspondances gratuites.</p>
+          <p class="text-xs text-amber-700 mt-3 leading-relaxed rounded-lg bg-amber-50 border border-amber-200 p-3"><i class="fa-solid fa-triangle-exclamation mr-1.5"></i><strong>Une hausse a &eacute;t&eacute; vot&eacute;e pour 2026</strong>, portant le m&eacute;tro &agrave; 2,75&nbsp;$ et le bus &agrave; 2,50&nbsp;$, avec la suppression annonc&eacute;e du pass 3 jours. La grille officielle affiche encore les anciens tarifs. V&eacute;rifiez dans l&rsquo;application Ventra en arrivant, et budg&eacute;tez 25 cents de plus par trajet pour ne pas &ecirc;tre surpris.</p>
+        </div>
+      </div>
+
+      <div class="rounded-2xl bg-white border-2 border-slate-200 overflow-hidden">
+        <div class="bg-chicago-dark px-6 py-3">
+          <p class="text-white text-xs font-bold uppercase tracking-[.16em]"><i class="fa-solid fa-calculator mr-2"></i>Faut-il un pass&nbsp;? Le calcul honn&ecirc;te</p>
+        </div>
+        <div class="p-6">
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">Un pass 1 jour co&ucirc;te 5&nbsp;$, soit exactement deux trajets de m&eacute;tro. Il devient donc rentable <strong>d&egrave;s le troisi&egrave;me trajet de la journ&eacute;e</strong>. Un pass 7 jours &agrave; 20&nbsp;$ &eacute;quivaut &agrave; huit trajets.</p>
+          <div class="space-y-3">
+            <div class="rounded-xl bg-emerald-50 border border-emerald-200 p-4">
+              <p class="text-sm font-bold text-emerald-800 mb-1">Samedi 5 &middot; pass 1 jour, sans h&eacute;siter</p>
+              <p class="text-xs text-slate-600 leading-relaxed">M&ecirc;me prix que le trajet surtax&eacute; d&rsquo;O&rsquo;Hare, et tout le reste de la journ&eacute;e offert.</p>
+            </div>
+            <div class="rounded-xl bg-slate-50 border border-slate-200 p-4">
+              <p class="text-sm font-bold text-chicago-dark mb-1">Du 6 au 8 &middot; au trajet, sans pass</p>
+              <p class="text-xs text-slate-600 leading-relaxed">Le Sonesta est au c&oelig;ur du Gold Coast et tout se fait &agrave; pied. Vous ferez un ou deux trajets par jour, pas plus&nbsp;: le pass ne se rentabilise pas.</p>
+            </div>
+            <div class="rounded-xl bg-slate-50 border border-slate-200 p-4">
+              <p class="text-sm font-bold text-chicago-dark mb-1">Du 8 au 10 &middot; presque rien</p>
+              <p class="text-xs text-slate-600 leading-relaxed">Le salon Esker se tient dans votre h&ocirc;tel. Vous ne prendrez le m&eacute;tro que si vous descendez d&icirc;ner en ville.</p>
+            </div>
+            <div class="rounded-xl bg-indigo-50 border border-indigo-200 p-4">
+              <p class="text-sm font-bold text-indigo-800 mb-1">Du 11 au 13 &middot; pass 1 jour les jours de sortie</p>
+              <p class="text-xs text-slate-600 leading-relaxed">Depuis Rosemont, un aller-retour en ville avec correspondance co&ucirc;te 5&nbsp;$. D&egrave;s que vous ajoutez un troisi&egrave;me d&eacute;placement dans la journ&eacute;e, le pass 1 jour gagne.</p>
+            </div>
+          </div>
+          <p class="text-sm text-slate-700 mt-5 rounded-xl bg-chicago-sand p-4 leading-relaxed"><strong>Verdict&nbsp;:</strong> un pass 1 jour le samedi 5, puis le paiement sans contact au trajet le reste du temps, avec un pass 1 jour ponctuel les journ&eacute;es charg&eacute;es. Le pass 7 jours ne se justifie pas pour votre programme, qui alterne journ&eacute;es &agrave; pied et journ&eacute;es de salon.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEPUIS LES HOTELS -->
+    <div class="mb-8 grid lg:grid-cols-2 gap-6">
+      <div class="rounded-2xl bg-white border-2 border-chicago-blue/40 overflow-hidden">
+        <div class="bg-chicago-blue px-6 py-3">
+          <p class="text-white text-xs font-bold uppercase tracking-[.16em]"><i class="fa-solid fa-hotel mr-2"></i>Depuis le Sonesta &middot; 5 au 8 septembre</p>
+        </div>
+        <div class="p-6">
+          <p class="text-xs text-slate-500 mb-4">201 E Walton Pl, Gold Coast</p>
+          <div class="space-y-3.5">
+            <div>
+              <p class="text-sm font-bold text-chicago-dark"><i class="fa-solid fa-person-walking mr-2 text-chicago-blue"></i>&Agrave; pied, la vraie r&eacute;ponse</p>
+              <p class="text-xs text-slate-600 leading-relaxed mt-1">Michigan Avenue &agrave; 5 minutes, Navy Pier &agrave; 20, le Bean &agrave; 25, Millennium Park &agrave; 25. Pendant ces trois jours, vous n&rsquo;aurez presque pas besoin des transports.</p>
+            </div>
+            <div>
+              <p class="text-sm font-bold text-chicago-dark"><i class="fa-solid fa-train-subway mr-2 text-chicago-blue"></i>Red Line, station Chicago</p>
+              <p class="text-xs text-slate-600 leading-relaxed mt-1">&Agrave; <strong>8 minutes &agrave; pied</strong>, angle Chicago Ave et State St. C&rsquo;est votre porte d&rsquo;entr&eacute;e vers le Loop, le West Loop et Lincoln Park. La Red Line circule <strong>24h/24</strong>.</p>
+            </div>
+            <div>
+              <p class="text-sm font-bold text-chicago-dark"><i class="fa-solid fa-bus mr-2 text-chicago-blue"></i>Les bus utiles</p>
+              <p class="text-xs text-slate-600 leading-relaxed mt-1">Le <strong>151</strong> descend Michigan Avenue et longe le lac jusqu&rsquo;&agrave; Millennium Park. Le <strong>66 Chicago</strong> traverse vers l&rsquo;ouest. Le <strong>2</strong> et le <strong>143</strong> filent vers le Loop. Arr&ecirc;ts &agrave; deux minutes de l&rsquo;h&ocirc;tel.</p>
+            </div>
+            <div>
+              <p class="text-sm font-bold text-chicago-dark"><i class="fa-solid fa-taxi mr-2 text-chicago-blue"></i>Taxi et Uber</p>
+              <p class="text-xs text-slate-600 leading-relaxed mt-1">Les taxis passent en permanence sur Michigan Avenue, on l&egrave;ve le bras, &ccedil;a marche. Inutile de r&eacute;server. Une course dans le centre co&ucirc;te 10 &agrave; 18&nbsp;$.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-2xl bg-white border-2 border-indigo-300 overflow-hidden">
+        <div class="bg-indigo-600 px-6 py-3">
+          <p class="text-white text-xs font-bold uppercase tracking-[.16em]"><i class="fa-solid fa-hotel mr-2"></i>Depuis le Loews &middot; 8 au 13 septembre</p>
+        </div>
+        <div class="p-6">
+          <p class="text-xs text-slate-500 mb-4">5300 N River Rd, Rosemont</p>
+          <div class="space-y-3.5">
+            <div>
+              <p class="text-sm font-bold text-chicago-dark"><i class="fa-solid fa-van-shuttle mr-2 text-indigo-600"></i>La navette de l&rsquo;h&ocirc;tel, votre meilleur atout</p>
+              <p class="text-xs text-slate-600 leading-relaxed mt-1">Le Loews assure une <strong>navette gratuite 24h/24</strong> vers O&rsquo;Hare, la <strong>station Blue Line de Rosemont</strong> et la gare Metra. Elle vous &eacute;pargne les 12 minutes &agrave; pied sur River Rd. Demandez-la &agrave; la r&eacute;ception, c&rsquo;est le r&eacute;flexe &agrave; prendre d&egrave;s le premier soir.</p>
+            </div>
+            <div>
+              <p class="text-sm font-bold text-chicago-dark"><i class="fa-solid fa-bus mr-2 text-indigo-600"></i>La navette gratuite Pace 811</p>
+              <p class="text-xs text-slate-600 leading-relaxed mt-1">Le <strong>Rosemont Entertainment Circulator</strong> relie gratuitement le Convention Center, les Fashion Outlets, Parkway Bank Park et le Rosemont Transit Center. Lundi &agrave; jeudi de 7h30 &agrave; minuit, vendredi et samedi de 8h30 &agrave; 3h.</p>
+            </div>
+            <div>
+              <p class="text-sm font-bold text-chicago-dark"><i class="fa-solid fa-train-subway mr-2 text-indigo-600"></i>Blue Line, station Rosemont</p>
+              <p class="text-xs text-slate-600 leading-relaxed mt-1">Direction <strong>Forest Park</strong> pour descendre en ville. Un train toutes les 7 &agrave; 10 minutes, et surtout un service <strong>24 heures sur 24</strong>&nbsp;: vous pouvez d&icirc;ner tard sans surveiller l&rsquo;heure du dernier m&eacute;tro.</p>
+            </div>
+            <div>
+              <p class="text-sm font-bold text-chicago-dark"><i class="fa-solid fa-taxi mr-2 text-indigo-600"></i>Taxi et Uber &agrave; Rosemont</p>
+              <p class="text-xs text-slate-600 leading-relaxed mt-1">Ici, on ne l&egrave;ve pas le bras&nbsp;: il n&rsquo;y a pas de circulation de taxis. Il faut <strong>commander sur l&rsquo;application ou passer par la r&eacute;ception</strong>. Comptez 35 &agrave; 50&nbsp;$ vers le centre, 15 &agrave; 20&nbsp;$ vers O&rsquo;Hare, 3 &agrave; 6&nbsp;$ dans Rosemont m&ecirc;me.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LES PLANS -->
+    <div class="mb-8 rounded-2xl bg-chicago-sand border-2 border-chicago-dark/20 overflow-hidden">
+      <div class="bg-chicago-dark px-6 py-3">
+        <p class="text-white text-xs font-bold uppercase tracking-[.16em]"><i class="fa-solid fa-map mr-2"></i>Les plans &agrave; t&eacute;l&eacute;charger avant de partir</p>
+      </div>
+      <div class="p-6">
+        <p class="text-sm text-slate-600 leading-relaxed mb-5">T&eacute;l&eacute;chargez-les <strong>maintenant, sur le wifi</strong>, pas une fois sur place. Il n&rsquo;y a pas de r&eacute;seau entre les stations du m&eacute;tro de Chicago, et c&rsquo;est pr&eacute;cis&eacute;ment le moment o&ugrave; l&rsquo;on veut v&eacute;rifier o&ugrave; descendre. Enregistrez-les dans vos Fichiers ou en favoris hors ligne.</p>
+        <div class="grid md:grid-cols-2 gap-3">
+          <a href="https://www.transitchicago.com/assets/1/6/ctamap_Lsystem.pdf" target="_blank" rel="noopener" class="group flex items-start gap-3 rounded-xl bg-white border-2 border-slate-200 hover:border-chicago-dark p-4 transition">
+            <i class="fa-solid fa-file-pdf text-chicago-red text-xl mt-0.5"></i>
+            <div class="min-w-0">
+              <p class="text-sm font-bold text-chicago-dark">Plan du m&eacute;tro, les 8 lignes</p>
+              <p class="text-xs text-slate-500 leading-snug mt-0.5">Le sch&eacute;ma classique en couleurs. C&rsquo;est celui &agrave; garder&nbsp;: 90&nbsp;% de vos trajets se lisent dessus.</p>
+            </div>
+          </a>
+          <a href="https://www.transitchicago.com/assets/1/6/ctamap_SystemMap.pdf" target="_blank" rel="noopener" class="group flex items-start gap-3 rounded-xl bg-white border-2 border-slate-200 hover:border-chicago-dark p-4 transition">
+            <i class="fa-solid fa-file-pdf text-chicago-red text-xl mt-0.5"></i>
+            <div class="min-w-0">
+              <p class="text-sm font-bold text-chicago-dark">Plan complet, m&eacute;tro et bus</p>
+              <p class="text-xs text-slate-500 leading-snug mt-0.5">Toutes les lignes de bus superpos&eacute;es &agrave; la ville. Dense, mais indispensable pour les trajets transversaux.</p>
+            </div>
+          </a>
+          <a href="https://www.transitchicago.com/assets/1/6/ctamap_DowntownTransitSightseeingGuide.pdf" target="_blank" rel="noopener" class="group flex items-start gap-3 rounded-xl bg-white border-2 border-slate-200 hover:border-chicago-dark p-4 transition">
+            <i class="fa-solid fa-file-pdf text-chicago-red text-xl mt-0.5"></i>
+            <div class="min-w-0">
+              <p class="text-sm font-bold text-chicago-dark">Visiter le centre en transports</p>
+              <p class="text-xs text-slate-500 leading-snug mt-0.5">Le plan que la CTA fait pour les visiteurs&nbsp;: quelle ligne pour quel monument. Le plus utile des trois.</p>
+            </div>
+          </a>
+          <a href="https://www.transitchicago.com/assets/1/6/ctamap_OwlService.pdf" target="_blank" rel="noopener" class="group flex items-start gap-3 rounded-xl bg-white border-2 border-slate-200 hover:border-chicago-dark p-4 transition">
+            <i class="fa-solid fa-file-pdf text-chicago-red text-xl mt-0.5"></i>
+            <div class="min-w-0">
+              <p class="text-sm font-bold text-chicago-dark">Le r&eacute;seau de nuit</p>
+              <p class="text-xs text-slate-500 leading-snug mt-0.5">Ce qui roule entre 1h et 5h. Utile apr&egrave;s une soir&eacute;e Esker qui s&rsquo;&eacute;ternise.</p>
+            </div>
+          </a>
+          <a href="https://www.transitchicago.com/maps/system/" target="_blank" rel="noopener" class="group flex items-start gap-3 rounded-xl bg-white border-2 border-slate-200 hover:border-chicago-dark p-4 transition">
+            <i class="fa-solid fa-hand-pointer text-chicago-blue text-xl mt-0.5"></i>
+            <div class="min-w-0">
+              <p class="text-sm font-bold text-chicago-dark">Plan interactif du r&eacute;seau</p>
+              <p class="text-xs text-slate-500 leading-snug mt-0.5">Chaque station est cliquable&nbsp;: horaires, correspondances, accessibilit&eacute;. N&eacute;cessite du r&eacute;seau.</p>
+            </div>
+          </a>
+          <a href="https://www.rtachicago.org/uploads/files/general/RTA-System-Map.pdf" target="_blank" rel="noopener" class="group flex items-start gap-3 rounded-xl bg-white border-2 border-slate-200 hover:border-chicago-dark p-4 transition">
+            <i class="fa-solid fa-file-pdf text-chicago-red text-xl mt-0.5"></i>
+            <div class="min-w-0">
+              <p class="text-sm font-bold text-chicago-dark">Plan r&eacute;gional, avec Rosemont</p>
+              <p class="text-xs text-slate-500 leading-snug mt-0.5">CTA, Metra et Pace ensemble. Le seul o&ugrave; l&rsquo;on voit clairement la banlieue et votre second h&ocirc;tel.</p>
+            </div>
+          </a>
+        </div>
+        <p class="text-sm text-slate-700 mt-5 rounded-xl bg-white border-2 border-chicago-blue/30 p-4 leading-relaxed"><i class="fa-solid fa-mobile-screen-button mr-2 text-chicago-blue"></i><strong>Les deux applications &agrave; installer avant le d&eacute;part&nbsp;:</strong> <strong>Ventra</strong> pour acheter un pass sans passer par un distributeur, et <strong>Transit</strong> ou Google Maps pour les horaires en temps r&eacute;el, nettement plus fiables que les panneaux en station.</p>
+        <div class="mt-4 rounded-xl bg-chicago-dark text-white p-5 flex flex-col sm:flex-row sm:items-center gap-4">
+          <i class="fa-solid fa-mobile-screen-button text-chicago-blue text-2xl shrink-0"></i>
+          <div class="flex-1">
+            <p class="text-sm font-bold uppercase tracking-wider mb-1">Et installez ce carnet comme une application</p>
+            <p class="text-xs text-slate-300 leading-relaxed">Il fonctionne alors <strong class="text-white">sans r&eacute;seau</strong>, ce qui est exactement ce qu&rsquo;il vous faut entre deux stations de m&eacute;tro. Sur iPhone, Apple impose de passer par le menu Partager de Safari&nbsp;: le bouton ci-contre vous montre les quatre gestes.</p>
+          </div>
+          <button type="button" class="js-install shrink-0 bg-chicago-blue text-white font-bold uppercase tracking-wider text-xs px-5 py-3 rounded-xl hover:bg-white hover:text-chicago-dark transition"><i class="fa-solid fa-download mr-2"></i>Installer</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUDGET -->
+    <div class="mb-8 rounded-2xl bg-white border-2 border-slate-200 overflow-hidden">
+      <div class="bg-chicago-dark px-6 py-3">
+        <p class="text-white text-xs font-bold uppercase tracking-[.16em]"><i class="fa-solid fa-wallet mr-2"></i>Ce que &ccedil;a va vous co&ucirc;ter, pour vous deux, du 5 au 13</p>
+      </div>
+      <div class="p-6">
+        <p class="text-sm text-slate-600 leading-relaxed mb-5">Trois sc&eacute;narios calcul&eacute;s sur votre programme r&eacute;el&nbsp;: trois jours &agrave; pied depuis le Sonesta, trois jours de salon &agrave; l&rsquo;h&ocirc;tel, et deux jours de sorties depuis Rosemont. Montants pour <strong>deux personnes</strong>, transferts a&eacute;roport compris.</p>
+        <div class="grid md:grid-cols-3 gap-5">
+          <div class="rounded-xl border-2 border-emerald-300 overflow-hidden">
+            <div class="bg-emerald-600 px-4 py-2.5"><p class="text-white text-[.62rem] font-bold uppercase tracking-[.12em]">Tout en transports</p></div>
+            <div class="p-4">
+              <p class="text-3xl font-serif font-bold text-emerald-700">~ 90&nbsp;$</p>
+              <p class="text-[.65rem] text-slate-400 uppercase tracking-wider mb-3">soit environ 83&nbsp;&euro; &agrave; deux</p>
+              <ul class="text-xs text-slate-600 space-y-1.5 leading-snug">
+                <li><strong>10&nbsp;$</strong> &middot; pass 1 jour &times;2 &agrave; l&rsquo;arriv&eacute;e</li>
+                <li><strong>25&nbsp;$</strong> &middot; trajets du 6 au 8, au centre</li>
+                <li><strong>5&nbsp;$</strong> &middot; Sonesta vers le Loews le 8</li>
+                <li><strong>50&nbsp;$</strong> &middot; sorties depuis Rosemont</li>
+                <li><strong>0&nbsp;$</strong> &middot; retour &agrave; O&rsquo;Hare en navette</li>
+              </ul>
+              <p class="text-xs text-slate-500 mt-3 leading-relaxed">Faisable, mais suppose de porter les valises dans le m&eacute;tro le jour de l&rsquo;arriv&eacute;e et le jour du changement d&rsquo;h&ocirc;tel.</p>
+            </div>
+          </div>
+          <div class="rounded-xl border-2 border-chicago-blue overflow-hidden ring-4 ring-chicago-blue/10">
+            <div class="bg-chicago-blue px-4 py-2.5"><p class="text-white text-[.62rem] font-bold uppercase tracking-[.12em]"><i class="fa-solid fa-star mr-1"></i>Mixte, le r&eacute;aliste</p></div>
+            <div class="p-4">
+              <p class="text-3xl font-serif font-bold text-chicago-blue">~ 210&nbsp;$</p>
+              <p class="text-[.65rem] text-slate-400 uppercase tracking-wider mb-3">soit environ 195&nbsp;&euro; &agrave; deux</p>
+              <ul class="text-xs text-slate-600 space-y-1.5 leading-snug">
+                <li><strong>55&nbsp;$</strong> &middot; Uber O&rsquo;Hare vers le Sonesta le 5</li>
+                <li><strong>25&nbsp;$</strong> &middot; trajets du 6 au 8</li>
+                <li><strong>45&nbsp;$</strong> &middot; taxi vers le Loews le 8, avec les valises</li>
+                <li><strong>50&nbsp;$</strong> &middot; sorties depuis Rosemont</li>
+                <li><strong>35&nbsp;$</strong> &middot; deux ou trois taxis de confort le soir</li>
+                <li><strong>0&nbsp;$</strong> &middot; retour &agrave; O&rsquo;Hare en navette</li>
+              </ul>
+              <p class="text-xs text-slate-500 mt-3 leading-relaxed">Le m&eacute;tro pour les journ&eacute;es, le taxi pour les valises et les retours de nuit. C&rsquo;est ce que je vous recommande.</p>
+            </div>
+          </div>
+          <div class="rounded-xl border-2 border-slate-300 overflow-hidden">
+            <div class="bg-slate-500 px-4 py-2.5"><p class="text-white text-[.62rem] font-bold uppercase tracking-[.12em]">Tout en taxi</p></div>
+            <div class="p-4">
+              <p class="text-3xl font-serif font-bold text-slate-500">~ 620&nbsp;$</p>
+              <p class="text-[.65rem] text-slate-400 uppercase tracking-wider mb-3">soit environ 575&nbsp;&euro; &agrave; deux</p>
+              <ul class="text-xs text-slate-600 space-y-1.5 leading-snug">
+                <li><strong>100&nbsp;$</strong> &middot; les deux transferts a&eacute;roport</li>
+                <li><strong>45&nbsp;$</strong> &middot; changement d&rsquo;h&ocirc;tel</li>
+                <li><strong>120&nbsp;$</strong> &middot; courses dans le centre du 6 au 8</li>
+                <li><strong>355&nbsp;$</strong> &middot; allers-retours Rosemont vers le centre</li>
+              </ul>
+              <p class="text-xs text-slate-500 mt-3 leading-relaxed">Le poste qui d&eacute;rape, c&rsquo;est Rosemont&nbsp;: chaque aller-retour en ville co&ucirc;te 70 &agrave; 100&nbsp;$ contre 10&nbsp;$ en m&eacute;tro.</p>
+            </div>
+          </div>
+        </div>
+        <p class="text-xs text-slate-400 mt-5">Estimations &agrave; 1&nbsp;$ = 0,92&nbsp;&euro;. Uber et Lyft appliquent une majoration aux heures de pointe et par mauvais temps&nbsp;: pr&eacute;voyez 30&nbsp;% de plus le vendredi soir et les jours de pluie. Pourboire d&rsquo;usage&nbsp;: 15 &agrave; 20&nbsp;% en taxi, arrondi &agrave; la hausse dans l&rsquo;application.</p>
+      </div>
+    </div>
+
+    <!-- BONS PLANS -->
+    <div class="rounded-2xl bg-chicago-dark text-white p-8">
+      <p class="text-sm font-bold uppercase tracking-wider mb-5"><i class="fa-solid fa-lightbulb mr-2 text-chicago-blue"></i>Neuf r&eacute;flexes qui changent tout</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div>
+          <p class="text-sm font-bold text-chicago-blue mb-1.5">1 &middot; La Blue Line et la Red Line ne dorment jamais</p>
+          <p class="text-xs text-slate-300 leading-relaxed">Ce sont les deux seules lignes en service 24h/24, et ce sont pr&eacute;cis&eacute;ment celles de vos deux h&ocirc;tels. Vous ne serez jamais bloqu&eacute;s.</p>
+        </div>
+        <div>
+          <p class="text-sm font-bold text-chicago-blue mb-1.5">2 &middot; La surtaxe d&rsquo;O&rsquo;Hare ne joue qu&rsquo;&agrave; l&rsquo;aller</p>
+          <p class="text-xs text-slate-300 leading-relaxed">Elle s&rsquo;applique en entrant dans la station O&rsquo;Hare, jamais en y arrivant. Le retour vers l&rsquo;a&eacute;roport co&ucirc;te 2,50&nbsp;$.</p>
+        </div>
+        <div>
+          <p class="text-sm font-bold text-chicago-blue mb-1.5">3 &middot; Le 151 vaut un bus touristique</p>
+          <p class="text-xs text-slate-300 leading-relaxed">Il descend Michigan Avenue puis longe le lac. Pour 2,25&nbsp;$, asseyez-vous &agrave; droite&nbsp;: c&rsquo;est le plus beau trajet de la ville.</p>
+        </div>
+        <div>
+          <p class="text-sm font-bold text-chicago-blue mb-1.5">4 &middot; Deux correspondances gratuites</p>
+          <p class="text-xs text-slate-300 leading-relaxed">Dans les deux heures suivant le premier paiement. Un aller-retour rapide avec changement peut ne co&ucirc;ter qu&rsquo;un seul trajet.</p>
+        </div>
+        <div>
+          <p class="text-sm font-bold text-chicago-blue mb-1.5">5 &middot; Le Pedway pour les jours de pluie</p>
+          <p class="text-xs text-slate-300 leading-relaxed">Un r&eacute;seau de galeries souterraines relie le Loop, plusieurs stations et des centres commerciaux. Gratuit, sec, chauff&eacute;.</p>
+        </div>
+        <div>
+          <p class="text-sm font-bold text-chicago-blue mb-1.5">6 &middot; Divvy, si le v&eacute;lo vous tente</p>
+          <p class="text-xs text-slate-300 leading-relaxed">Les stations sont partout dans le centre et la piste cyclable du lac est magnifique. Pass 24h autour de 18&nbsp;$, d&eacute;verrouillage dans l&rsquo;application Lyft.</p>
+        </div>
+        <div>
+          <p class="text-sm font-bold text-chicago-blue mb-1.5">7 &middot; V&eacute;rifiez la direction, pas le num&eacute;ro</p>
+          <p class="text-xs text-slate-300 leading-relaxed">Les quais indiquent le terminus, pas &laquo;&nbsp;centre-ville&nbsp;&raquo;. Depuis Rosemont, votre train est celui marqu&eacute; <strong class="text-white">Forest Park</strong>.</p>
+        </div>
+        <div>
+          <p class="text-sm font-bold text-chicago-blue mb-1.5">8 &middot; Les taxis ne rôdent pas &agrave; Rosemont</p>
+          <p class="text-xs text-slate-300 leading-relaxed">Contrairement au centre, on n&rsquo;en trouve pas dans la rue. Commandez toujours &agrave; l&rsquo;avance ou passez par la r&eacute;ception du Loews.</p>
+        </div>
+        <div>
+          <p class="text-sm font-bold text-chicago-blue mb-1.5">9 &middot; Gardez la m&ecirc;me carte tout le s&eacute;jour</p>
+          <p class="text-xs text-slate-300 leading-relaxed">C&rsquo;est elle qui identifie vos correspondances. Changer de carte en cours de route vous fait repayer plein tarif.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-xs text-slate-400 mt-6"><i class="fa-solid fa-circle-info mr-1.5"></i>Tarifs relev&eacute;s sur la grille officielle de la CTA fin ao&ucirc;t 2026. Une hausse vot&eacute;e pour 2026 pourrait s&rsquo;appliquer pendant votre s&eacute;jour&nbsp;: l&rsquo;application Ventra affiche toujours le tarif r&eacute;el.</p>
+  </div>
+</section>
+
+<section id="pratique" data-tab="infos" data-sec="Pratique" data-num="15" class="section-pattern py-24">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
       <h2 class="text-sm font-bold text-chicago-red uppercase tracking-widest mb-3">À ne pas oublier</h2>
@@ -1684,7 +2023,7 @@ tailwind.config = {
 </section>
 
 <div class="sep h-12 md:h-20" style="background:#f8fafc"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,0 L1440,100 L0,100 Z" fill="#002B49"></path></svg></div>
-<footer id="fin" data-tab="infos" data-sec="Bon voyage" data-num="15" class="bg-chicago-dark text-slate-400 py-12 text-center">
+<footer id="fin" data-tab="infos" data-sec="Bon voyage" data-num="16" class="bg-chicago-dark text-slate-400 py-12 text-center">
   <i class="fa-solid fa-wind text-chicago-blue text-3xl mb-4"></i>
   <p class="font-serif text-xl text-white mb-2">Chicago, septembre 2026</p>
   <p class="text-sm">Bruno &amp; Névine · Christophe &amp; Laure — bon voyage !</p>
@@ -2264,10 +2603,55 @@ tailwind.config = {
 
 <div id="installBanner" style="display:none" class="fixed left-3 right-3 z-[65]" >
   <div class="bg-white border-2 border-chicago-blue rounded-xl shadow-2xl px-4 py-3 flex items-center gap-3">
-    <i class="fa-solid fa-mobile-screen-button text-chicago-blue text-lg"></i>
+    <i class="fa-solid fa-mobile-screen-button text-chicago-blue text-lg shrink-0"></i>
     <p class="text-xs text-slate-700 flex-1 leading-snug" id="installTxt"></p>
-    <button type="button" id="installGo" class="text-[.68rem] font-bold uppercase tracking-wider bg-chicago-dark text-white px-3 py-2 rounded-lg" style="display:none">Installer</button>
-    <button type="button" id="installClose" class="text-slate-400 px-1" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+    <button type="button" id="installGo" class="shrink-0 text-[.68rem] font-bold uppercase tracking-wider bg-chicago-dark text-white px-3 py-2 rounded-lg" style="display:none">Installer</button>
+    <button type="button" id="installClose" class="shrink-0 text-slate-400 px-1" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+</div>
+
+<!-- Mode d'emploi iOS : Safari n'expose aucun prompt d'installation, il faut guider a la main -->
+<div id="iosSheet" style="display:none" class="fixed inset-0 z-[80]">
+  <div class="absolute inset-0 bg-chicago-dark/70 backdrop-blur-sm" id="iosSheetBg"></div>
+  <div class="absolute left-0 right-0 bottom-0 bg-white rounded-t-3xl shadow-2xl max-h-[88vh] overflow-y-auto" style="padding-bottom:calc(1.5rem + env(safe-area-inset-bottom))">
+    <div class="sticky top-0 bg-white px-5 pt-4 pb-3 border-b border-slate-100 flex items-center gap-3">
+      <i class="fa-brands fa-apple text-chicago-dark text-xl"></i>
+      <div class="flex-1">
+        <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red">Sur iPhone et iPad</p>
+        <h3 class="font-serif font-bold text-lg text-chicago-dark leading-tight">Installer le carnet en 4 gestes</h3>
+      </div>
+      <button type="button" id="iosSheetClose" class="text-slate-400 px-2 text-xl" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="px-5 py-4">
+      <p class="text-sm text-slate-600 leading-relaxed mb-4">Apple ne laisse aucun site installer une application tout seul&nbsp;: sur iPhone, c&rsquo;est toujours vous qui validez, depuis Safari. C&rsquo;est plus long &agrave; lire qu&rsquo;&agrave; faire, comptez vingt secondes.</p>
+      <ol class="space-y-3">
+        <li class="flex gap-3">
+          <span class="shrink-0 w-7 h-7 rounded-full bg-chicago-dark text-white text-xs font-bold flex items-center justify-center">1</span>
+          <p class="text-sm text-slate-700 leading-snug pt-1">Ouvrez cette page <strong>dans Safari</strong>. Depuis Chrome, Gmail ou WhatsApp sur iPhone, l&rsquo;installation est impossible&nbsp;: touchez les trois points, puis &laquo;&nbsp;Ouvrir dans Safari&nbsp;&raquo;.</p>
+        </li>
+        <li class="flex gap-3">
+          <span class="shrink-0 w-7 h-7 rounded-full bg-chicago-dark text-white text-xs font-bold flex items-center justify-center">2</span>
+          <p class="text-sm text-slate-700 leading-snug pt-1">Touchez le bouton <strong>Partager</strong>, le carr&eacute; avec la fl&egrave;che qui monte <i class="fa-solid fa-arrow-up-from-bracket mx-1 text-chicago-blue"></i>, en bas de l&rsquo;&eacute;cran au centre.</p>
+        </li>
+        <li class="flex gap-3">
+          <span class="shrink-0 w-7 h-7 rounded-full bg-chicago-dark text-white text-xs font-bold flex items-center justify-center">3</span>
+          <p class="text-sm text-slate-700 leading-snug pt-1">Faites d&eacute;filer la liste vers le bas et choisissez <strong>&laquo;&nbsp;Sur l&rsquo;&eacute;cran d&rsquo;accueil&nbsp;&raquo;</strong> <i class="fa-solid fa-square-plus mx-1 text-chicago-blue"></i>. Elle est plus bas qu&rsquo;on ne croit, apr&egrave;s &laquo;&nbsp;Ajouter aux favoris&nbsp;&raquo;.</p>
+        </li>
+        <li class="flex gap-3">
+          <span class="shrink-0 w-7 h-7 rounded-full bg-chicago-dark text-white text-xs font-bold flex items-center justify-center">4</span>
+          <p class="text-sm text-slate-700 leading-snug pt-1">Touchez <strong>Ajouter</strong> en haut &agrave; droite. L&rsquo;ic&ocirc;ne &laquo;&nbsp;Chicago 26&nbsp;&raquo; appara&icirc;t sur votre &eacute;cran d&rsquo;accueil.</p>
+        </li>
+      </ol>
+      <div class="mt-5 rounded-xl bg-chicago-sand p-4">
+        <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2">Ce que &ccedil;a change vraiment</p>
+        <p class="text-sm text-slate-600 leading-relaxed">L&rsquo;application s&rsquo;ouvre en plein &eacute;cran sans la barre Safari, garde le carnet en m&eacute;moire et <strong>fonctionne sans r&eacute;seau</strong>. Utile dans le m&eacute;tro, o&ugrave; il n&rsquo;y a pas de signal entre les stations, et pr&eacute;cieux si votre eSIM fait des caprices.</p>
+      </div>
+      <div class="mt-4 rounded-xl border-2 border-amber-300 bg-amber-50 p-4">
+        <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-amber-700 mb-2">Si &laquo;&nbsp;Sur l&rsquo;&eacute;cran d&rsquo;accueil&nbsp;&raquo; n&rsquo;appara&icirc;t pas</p>
+        <p class="text-sm text-slate-600 leading-relaxed">C&rsquo;est que vous n&rsquo;&ecirc;tes pas dans Safari, ou que vous naviguez en <strong>navigation priv&eacute;e</strong>. Sortez du mode priv&eacute; et rechargez la page.</p>
+      </div>
+      <button type="button" id="iosSheetOk" class="w-full mt-5 bg-chicago-dark text-white font-bold uppercase tracking-wider text-xs py-3.5 rounded-xl">C&rsquo;est compris</button>
+    </div>
   </div>
 </div>
 
@@ -3080,7 +3464,7 @@ tailwind.config = {
 <!-- ============ MODE APPLICATION : onglets, ecran du jour, lieux, PWA ============ -->
 <script>
 (function(){
-  var V = '2026-08-30d';
+  var V = '2026-08-30e';
   var T = window.TRIP || {};
   var DAYS = T.DAYS || [], EV = T.EV || [], CATS = T.CATS || [];
   var esc = T.esc || function(x){ return String(x); };
@@ -3418,37 +3802,125 @@ tailwind.config = {
     });
   }
 
-  /* Invitation a installer : prompt Android, mode d'emploi iOS. */
-  var ib = document.getElementById('installBanner'), itxt = document.getElementById('installTxt'),
-      igo = document.getElementById('installGo'), icl = document.getElementById('installClose');
-  var standalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-  var dismissed = false;
-  try { dismissed = localStorage.getItem('cx-install-hint') === 'off'; } catch (e) {}
+  /* =================================================================
+     INVITATION A INSTALLER
+     Android/Chrome : evenement beforeinstallprompt, bouton natif.
+     iOS/Safari : aucun prompt n'existe, Apple l'interdit. On affiche
+     donc une banniere avec un bouton qui ouvre un mode d'emploi.
+     ================================================================= */
+  var ib   = document.getElementById('installBanner'),
+      itxt = document.getElementById('installTxt'),
+      igo  = document.getElementById('installGo'),
+      icl  = document.getElementById('installClose'),
+      sheet = document.getElementById('iosSheet');
 
-  function placeBanner(){ if (ib) ib.style.bottom = 'calc(5.25rem + env(safe-area-inset-bottom))'; }
-
-  if (ib && !standalone && !dismissed && isPhone()) {
-    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-    var deferred = null;
-    window.addEventListener('beforeinstallprompt', function(e){
-      e.preventDefault(); deferred = e;
-      itxt.innerHTML = '<strong>Installer le carnet</strong> sur l’écran d’accueil, pour l’ouvrir comme une application, même sans réseau.';
-      igo.style.display = ''; ib.style.display = 'block'; placeBanner();
-    });
-    if (isIOS) {
-      itxt.innerHTML = '<strong>Ajouter à l’écran d’accueil</strong> : bouton <i class="fa-solid fa-arrow-up-from-bracket mx-1"></i> Partager, puis « Sur l’écran d’accueil ». Le carnet fonctionnera hors réseau.';
-      setTimeout(function(){ ib.style.display = 'block'; placeBanner(); }, 2200);
-    }
-    if (igo) igo.onclick = function(){
-      if (!deferred) return;
-      deferred.prompt();
-      deferred.userChoice.then(function(){ ib.style.display = 'none'; deferred = null; });
-    };
-    if (icl) icl.onclick = function(){
-      ib.style.display = 'none';
-      try { localStorage.setItem('cx-install-hint', 'off'); } catch (e) {}
-    };
+  /* Deja installe ? Sur iOS c'est navigator.standalone, ailleurs display-mode. */
+  function isInstalled(){
+    try {
+      if (window.navigator.standalone === true) return true;
+      if (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) return true;
+      if (window.matchMedia && window.matchMedia('(display-mode: fullscreen)').matches) return true;
+    } catch (e) {}
+    return false;
   }
+
+  /* iOS, y compris les iPad recents qui se declarent Macintosh. */
+  function isApple(){
+    var ua = navigator.userAgent || '';
+    if (/iPad|iPhone|iPod/.test(ua)) return true;
+    if (/Macintosh/.test(ua) && navigator.maxTouchPoints && navigator.maxTouchPoints > 1) return true;
+    return false;
+  }
+  /* Sur iPhone, seul Safari sait installer. Chrome iOS se signale par CriOS, Firefox par FxiOS. */
+  function isIosSafari(){
+    var ua = navigator.userAgent || '';
+    return isApple() && !/CriOS|FxiOS|EdgiOS|OPiOS|GSA/.test(ua);
+  }
+
+  /* Le rappel se met en veille 7 jours, il ne disparait plus definitivement. */
+  var HKEY = 'cx-install-hint-v2';
+  function snoozed(){
+    try {
+      var v = localStorage.getItem(HKEY);
+      if (!v) return false;
+      return (Date.now() - parseInt(v, 10)) < 7 * 24 * 3600 * 1000;
+    } catch (e) { return false; }
+  }
+  function snooze(){ try { localStorage.setItem(HKEY, String(Date.now())); } catch (e) {} }
+
+  function placeBanner(){
+    if (!ib) return;
+    var base = document.body.classList.contains('appmode') ? '5.25rem' : '1rem';
+    ib.style.bottom = 'calc(' + base + ' + env(safe-area-inset-bottom))';
+  }
+
+  function openSheet(){
+    if (!sheet) return;
+    sheet.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeSheet(){
+    if (!sheet) return;
+    sheet.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  if (sheet) {
+    ['iosSheetClose','iosSheetOk','iosSheetBg'].forEach(function(id){
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('click', closeSheet);
+    });
+  }
+
+  function showBanner(html, buttonLabel, onClick){
+    if (!ib || !itxt) return;
+    itxt.innerHTML = html;
+    if (buttonLabel && igo) { igo.textContent = buttonLabel; igo.style.display = ''; igo.onclick = onClick; }
+    else if (igo) { igo.style.display = 'none'; }
+    ib.style.display = 'block';
+    placeBanner();
+  }
+
+  /* Point d'entree permanent : n'importe quel element .js-install ouvre le bon chemin. */
+  var deferred = null;
+  function triggerInstall(){
+    if (deferred) {
+      deferred.prompt();
+      deferred.userChoice.then(function(){ if (ib) ib.style.display = 'none'; deferred = null; });
+      return;
+    }
+    openSheet();
+  }
+  document.addEventListener('click', function(e){
+    if (!e.target || !e.target.closest) return;
+    var t = e.target.closest('.js-install');
+    if (!t) return;
+    e.preventDefault();
+    triggerInstall();
+  });
+
+  /* Android : on capte le prompt des qu'il arrive, meme si deja installe. */
+  window.addEventListener('beforeinstallprompt', function(e){
+    e.preventDefault();
+    deferred = e;
+    if (isInstalled() || snoozed() || !isPhone()) return;
+    showBanner('<strong>Installer le carnet</strong> sur l\u2019\u00e9cran d\u2019accueil, pour l\u2019ouvrir comme une application, m\u00eame sans r\u00e9seau.', 'Installer', triggerInstall);
+  });
+
+  /* iOS : rien n'arrivera jamais tout seul, on affiche apres le premier rendu. */
+  function maybeShowApple(){
+    if (!ib || isInstalled() || snoozed() || !isPhone() || !isApple()) return;
+    if (ib.style.display === 'block') return;
+    if (isIosSafari()) {
+      showBanner('<strong>Ajouter \u00e0 l\u2019\u00e9cran d\u2019accueil</strong> pour ouvrir le carnet comme une application, m\u00eame sans r\u00e9seau.', 'Comment faire', openSheet);
+    } else {
+      showBanner('Pour installer le carnet sur iPhone, <strong>ouvrez cette page dans Safari</strong>. Les autres navigateurs ne le permettent pas.', 'D\u00e9tails', openSheet);
+    }
+  }
+  if (document.readyState === 'complete') setTimeout(maybeShowApple, 1500);
+  else window.addEventListener('load', function(){ setTimeout(maybeShowApple, 1500); });
+
+  if (icl) icl.onclick = function(){ if (ib) ib.style.display = 'none'; snooze(); };
+  window.addEventListener('resize', placeBanner);
 })();
 </script>
 </body>
