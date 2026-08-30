@@ -358,6 +358,7 @@ tailwind.config = {
       <a href="#esker" class="nav-link">Agenda Esker</a>
       <a href="#shopping" class="nav-link">Shopping</a>
       <a href="#lieux" class="nav-link">Lieux</a>
+      <a href="#manger" class="nav-link">Manger</a>
       <a href="#meteo" class="nav-link">Météo</a>
       <a href="#pratique" class="nav-link">Pratique</a>
     </div>
@@ -382,6 +383,7 @@ tailwind.config = {
       <a href="#esker" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-list-check w-7 text-chicago-blue"></i> Agenda Esker All Access</a>
       <a href="#shopping" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-bag-shopping w-7 text-chicago-blue"></i> Shopping</a>
       <a href="#lieux" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-map-location-dot w-7 text-chicago-blue"></i> Lieux &amp; itinéraires</a>
+      <a href="#manger" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-utensils w-7 text-chicago-blue"></i> Où manger</a>
       <a href="#meteo" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-cloud-sun w-7 text-chicago-blue"></i> Météo</a>
       <a href="#pratique" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-circle-info w-7 text-chicago-blue"></i> Infos pratiques</a>
     </nav>
@@ -1447,11 +1449,30 @@ tailwind.config = {
     </div>
     <div id="placeChips" class="flex flex-wrap gap-2 mb-8"></div>
     <div id="placeGrid" class="grid md:grid-cols-2 xl:grid-cols-3 gap-5"></div>
-    <p class="text-xs text-slate-400 mt-8"><i class="fa-solid fa-circle-info mr-1.5"></i>Les itin&eacute;raires s&rsquo;ouvrent dans Google Maps, application ou navigateur. En mode application install&eacute;e, la page revient d&rsquo;un simple geste de retour.</p>
+    <p class="text-sm text-slate-700 mt-8 rounded-xl bg-chicago-sand p-4"><i class="fa-solid fa-utensils mr-2 text-chicago-red"></i><strong>Les restaurants ont leur propre section&nbsp;:</strong> vingt adresses class&eacute;es par cat&eacute;gorie, avec photos, temps de marche et itin&eacute;raires, juste en dessous dans <a href="#manger" class="text-chicago-blue font-semibold hover:underline">O&ugrave; manger</a>.</p>
+    <p class="text-xs text-slate-400 mt-6"><i class="fa-solid fa-circle-info mr-1.5"></i>Les itin&eacute;raires s&rsquo;ouvrent dans Google Maps, application ou navigateur. En mode application install&eacute;e, la page revient d&rsquo;un simple geste de retour.</p>
   </div>
 </section>
 
-<section id="pratique" data-tab="infos" data-sec="Pratique" data-num="11" class="section-pattern py-24">
+<!-- ============ 11. OU MANGER ============ -->
+<section id="manger" data-tab="lieux" data-sec="Où manger" data-num="11" class="py-24 bg-chicago-sand">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-8">
+      <p class="text-[.7rem] font-bold uppercase tracking-[.2em] text-chicago-red mb-3">11 &middot; O&ugrave; manger</p>
+      <h2 class="text-4xl md:text-5xl font-serif font-bold text-chicago-dark mb-4">Manger correctement, sans se ruiner ni nager dans le gras</h2>
+      <p class="text-lg text-slate-600 max-w-3xl">Vingt adresses tri&eacute;es par cat&eacute;gorie, avec les trois ou quatre meilleurs retours dans chacune. Le fil conducteur&nbsp;: des <strong>l&eacute;gumes</strong>, des <strong>portions humaines</strong> et des <strong>additions raisonnables</strong>, avec la deep dish comme exception culturelle assum&eacute;e. La s&eacute;lection croise trois sources fran&ccedil;aises, dont le blog de <strong>Delphine Fortin</strong>, food-blogueuse fran&ccedil;aise qui a v&eacute;cu plusieurs ann&eacute;es &agrave; Chicago, et les avis Google et Yelp locaux.</p>
+    </div>
+    <div id="restoChips" class="flex flex-wrap gap-2 mb-8"></div>
+    <div id="restoGrid" class="grid md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+    <div class="mt-10 rounded-2xl bg-white border-2 border-chicago-blue/30 p-6">
+      <p class="text-sm font-bold uppercase tracking-wider text-chicago-dark mb-2"><i class="fa-solid fa-lightbulb mr-2 text-chicago-red"></i>Le r&eacute;flexe &agrave; garder les 11, 12 et 13</p>
+      <p class="text-sm text-slate-700 leading-relaxed">Rosemont est une banlieue de congr&egrave;s&nbsp;: en dehors de Carlucci, l&rsquo;offre y tourne vite au steakhouse et au sports bar. Mais la <strong>Blue Line part de la station Rosemont, &agrave; 12 minutes &agrave; pied du Loews, et rejoint le Loop en 25 minutes pour 2,50&nbsp;$</strong>. Autrement dit, les quinze adresses du centre-ville restent accessibles jusqu&rsquo;au dernier soir. Rosemont ne devient une contrainte que les mardi et mercredi, d&eacute;j&agrave; pris par les soir&eacute;es Esker.</p>
+    </div>
+    <p class="text-xs text-slate-400 mt-6"><i class="fa-solid fa-circle-info mr-1.5"></i>Photos issues des sites officiels des restaurants. Prix indicatifs&nbsp;: <strong>$</strong> moins de 20&nbsp;$ par personne, <strong>$$</strong> de 20 &agrave; 40&nbsp;$, <strong>$$$</strong> au-del&agrave;, hors boissons. Horaires v&eacute;rifi&eacute;s fin ao&ucirc;t 2026, &agrave; reconfirmer sur place.</p>
+  </div>
+</section>
+
+<section id="pratique" data-tab="infos" data-sec="Pratique" data-num="12" class="section-pattern py-24">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
       <h2 class="text-sm font-bold text-chicago-red uppercase tracking-widest mb-3">À ne pas oublier</h2>
@@ -1516,7 +1537,7 @@ tailwind.config = {
 </section>
 
 <div class="sep h-12 md:h-20" style="background:#f8fafc"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,0 L1440,100 L0,100 Z" fill="#002B49"></path></svg></div>
-<footer id="fin" data-tab="infos" data-sec="Bon voyage" data-num="12" class="bg-chicago-dark text-slate-400 py-12 text-center">
+<footer id="fin" data-tab="infos" data-sec="Bon voyage" data-num="13" class="bg-chicago-dark text-slate-400 py-12 text-center">
   <i class="fa-solid fa-wind text-chicago-blue text-3xl mb-4"></i>
   <p class="font-serif text-xl text-white mb-2">Chicago, septembre 2026</p>
   <p class="text-sm">Bruno &amp; Névine · Christophe &amp; Laure — bon voyage !</p>
@@ -2103,6 +2124,267 @@ tailwind.config = {
   </div>
 </div>
 
+<!-- ============ OU MANGER : donnees et fiches ============ -->
+<script>
+(function(){
+  var esc = (window.TRIP && window.TRIP.esc) || function(x){ return String(x); };
+  function gd(dest, mode){
+    return 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(dest) + '&travelmode=' + (mode || 'walking');
+  }
+  function gphotos(dest){
+    return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(dest);
+  }
+
+  var CATR = [
+    { k:'pizza',    label:'Deep dish, le passage obligé', icon:'fa-pizza-slice',   color:'#C60C30' },
+    { k:'italien',  label:'Italien, la vraie cuisine',    icon:'fa-wheat-awn',     color:'#0f766e' },
+    { k:'healthy',  label:'Léger, des légumes',           icon:'fa-leaf',          color:'#059669' },
+    { k:'sure',     label:'Valeurs sûres, très bien notées', icon:'fa-thumbs-up',  color:'#0e7490' },
+    { k:'hype',     label:'Le hype du moment',            icon:'fa-fire',          color:'#b45309' },
+    { k:'rosemont', label:'À côté du Loews · Rosemont',   icon:'fa-bed',           color:'#4338ca' }
+  ];
+
+  var LM = 'https://www.loumalnatis.com/wp-content/uploads/';
+  var GE = 'https://images.squarespace-cdn.com/content/v1/664532bc932d355a278a9374/';
+  var VO = 'https://images.squarespace-cdn.com/content/v1/58b5ae81be65947fa34a070c/';
+  var QU = 'https://quartinoristorante.com/wp-content/uploads/';
+  var XO = 'https://xocochicago.com/wp-content/uploads/2024/10/';
+  var HC = 'https://www.harrycarays.com/uploads/1/1/0/0/110013823/';
+  var TC = 'https://tempochicago.com/img/';
+  var LC = 'https://www.lecolonial.com/wp-content/uploads/2024/05/';
+
+  var R = [
+    /* ---------------- DEEP DISH ---------------- */
+    { c:'pizza', rk:1, n:"Lou Malnati's · River North", a:'439 N Wells St', w:'22 min à pied du Sonesta', p:'$$',
+      why:"La deep dish de référence, celle que tout Chicago cite en premier. La pâte « Buttercrust » au beurre et la saucisse en une seule galette, pas en morceaux.",
+      order:"Une Malnati Chicago Classic à partager, plus une salade Malnati pour l'équilibre.",
+      note:"Compter 30 à 45 minutes de cuisson : commander dès l'arrivée. C'est l'adresse du dîner du lundi 7 au programme.",
+      tel:'+13128289800', url:'https://www.loumalnatis.com/river-north', dest:"Lou Malnati's Pizzeria, 439 N Wells St, Chicago, IL",
+      imgs:[LM+'River-North_May2026-66-1024x683.webp', LM+'River-North_May2026-63-1024x683.webp', LM+'River-North_May2026-65-1024x683.webp'] },
+
+    { c:'pizza', rk:2, n:"Pequod's Pizza", a:'2207 N Clybourn Ave, Lincoln Park', w:'Hors périmètre · 15 min en taxi', p:'$$',
+      why:"Élue n°1 des pizzas des États-Unis par les Yelp Elites, et n°1 de Chicago par USA TODAY 10Best. Sa signature : une couronne de fromage caramélisée sur le bord.",
+      order:"Une pan pizza medium à partager. Vue dans la saison 2 de The Bear, si le nom vous dit quelque chose.",
+      note:"Réservation possible sur Tock, très recommandée. Hors du périmètre de marche, mais c'est la seule de la liste qui justifie un taxi.",
+      tel:'+17733271512', url:'https://pequodspizza.com/', dest:"Pequod's Pizza, 2207 N Clybourn Ave, Chicago, IL", mode:'driving',
+      imgs:['https://pequodspizza.com/wp-content/uploads/2019/04/chicago-storefront-color-1.jpg'] },
+
+    { c:'pizza', rk:3, n:"Gino's East · Magnificent Mile", a:'162 E Superior St', w:'6 min à pied du Sonesta', p:'$$',
+      why:"Depuis 1966, et les murs entièrement recouverts de graffitis laissés par les clients. C'est la deep dish la plus proche de l'hôtel, de très loin.",
+      order:"La Deep Dish Supreme, ou une Chicago-style à la saucisse. Pâte au maïs, légèrement sucrée.",
+      note:"Pas de réservation, on donne son nom et on attend au bar. Idéal le soir de l'arrivée, quand personne n'a le courage d'aller loin.",
+      url:'https://www.ginoseast.com/', dest:"Gino's East, 162 E Superior St, Chicago, IL",
+      imgs:[GE+'5de0f281-d5b2-440d-920d-398157d0cd6e/pizza-pull.jpg', GE+'ad032ce0-5c70-4aeb-80ee-b2572c221c48/Street+view+of+a+brick+building+Gino+East', GE+'2c482cd5-0675-4d6c-8f39-8134a00b8e47/240701_CheesePullsGinos-008.jpg'] },
+
+    { c:'pizza', rk:4, n:"Giordano's · Gold Coast", a:'730 N Rush St', p:'$$', w:'10 min à pied du Sonesta',
+      why:"Le camp adverse : la stuffed pizza, deux croûtes avec le fromage scellé au milieu et la sauce tomate par-dessus. Plus haute, plus dense.",
+      order:"Une small stuffed à deux, pas plus. C'est un plat, pas une pizza.",
+      note:"Le débat Malnati contre Giordano's est un sujet sérieux ici. Autant se faire son propre avis.",
+      url:'https://www.giordanos.com/', dest:"Giordano's, 730 N Rush St, Chicago, IL", imgs:[] },
+
+    /* ---------------- ITALIEN ---------------- */
+    { c:'italien', rk:1, n:'Quartino Ristorante', a:'626 N State St', w:'14 min à pied du Sonesta', p:'$',
+      why:"Le meilleur rapport qualité-prix-ambiance de toute la sélection, et le plus européen. Assiettes à partager, pâtes façonnées à la main sur place, salumeria à l'ancienne, vins au verre honnêtes.",
+      order:"Trois ou quatre assiettes de verdure grillées, une planche de salumi, deux pâtes. On mange bien pour le prix d'un plat ailleurs.",
+      note:"Ouvert jusqu'à 00h30 tous les jours : c'est l'adresse qui sauve les soirs où le rooftop s'éternise.",
+      tel:'+13126985000', url:'https://www.quartinochicago.com/', dest:"Quartino Ristorante, 626 N State St, Chicago, IL",
+      imgs:[QU+'2023/05/Salumeria-Tasting3-400x250.jpg', QU+'2023/05/quartino-clam-pasta-400x250.png', QU+'2022/08/Kale-Pizza2-400x250.jpg'] },
+
+    { c:'italien', rk:2, n:'Volare Ristorante Italiano', a:'201 E Grand Ave', w:'10 min à pied du Sonesta', p:'$$',
+      why:"La vraie trattoria familiale du quartier, tenue par la même famille depuis 1997, cuisine italienne traditionnelle avec des touches sardes. Beaucoup d'habitués, peu de touristes.",
+      order:"Les pâtes du jour, le poisson, et les légumes grillés qu'on peut demander en accompagnement sans supplément déraisonnable.",
+      note:"Ouvre à 16h du lundi au jeudi, 15h le week-end. Réserver le soir, la salle est petite et pleine.",
+      tel:'+13124109900', url:'https://www.volarerestaurant.com/', dest:"Volare Ristorante Italiano, 201 E Grand Ave, Chicago, IL",
+      imgs:[VO+'f8ed541c-cff2-425a-9aa2-4ef62df912b7/volare-italianweek-25.jpg', VO+'1699583907572-RTZA4YAALRG0MRN3M0Q9/volare-italianweek-35.jpg'] },
+
+    { c:'italien', rk:3, n:'Eataly Chicago', a:'43 E Ohio St', w:'13 min à pied du Sonesta', p:'$ à $$$',
+      why:"Un marché italien sur deux niveaux avec une dizaine de comptoirs : pâtes fraîches, pizza, poisson, légumes, fromages. On mange pour 15 $ ou pour 50 $ selon le comptoir choisi.",
+      order:"Le comptoir des pâtes fraîches, ou La Pizza & La Pasta pour s'asseoir vraiment.",
+      note:"La solution quand les quatre ne veulent pas la même chose. Ouvert de 7h à 22h, 23h le week-end.",
+      tel:'+13125218700', url:'https://www.eataly.com/us_en/stores/chicago/', dest:"Eataly Chicago, 43 E Ohio St, Chicago, IL", imgs:[] },
+
+    /* ---------------- HEALTHY ---------------- */
+    { c:'healthy', rk:1, n:'True Food Kitchen', a:'1 W Erie St', w:'13 min à pied du Sonesta', p:'$$',
+      why:"L'adresse que recommande Delphine Fortin, la food-blogueuse française installée à Chicago, précisément pour se remettre aux légumes après quelques jours de cuisine américaine. Carte saisonnière, végétarien et sans gluten balisés.",
+      order:"Les bols de légumes rôtis, le saumon, les salades qui ne sont pas des salades tristes.",
+      note:"4,5/5 sur plus de 2 600 avis Google. Lundi à jeudi 11h-21h, dimanche dès 10h pour le brunch.",
+      tel:'+13122046981', url:'https://www.truefoodkitchen.com/locations/chicago-river-north/', dest:"True Food Kitchen, 1 W Erie St, Chicago, IL", imgs:[] },
+
+    { c:'healthy', rk:2, n:'The Purple Pig', a:'444 N Michigan Ave', w:'15 min à pied du Sonesta', p:'$$',
+      why:"Petites assiettes méditerranéennes et un travail remarquable sur les légumes : aubergine fumée, chou-fleur rôti, artichauts. Charcuteries et une carte de vins au verre très large.",
+      order:"Six assiettes à quatre, dont au moins trois végétales. L'addition reste sage si on évite la partie viande.",
+      note:"Ouvert tous les jours de 11h à 22h, sur Michigan Avenue, donc sur le chemin du retour vers l'hôtel. Réservation conseillée.",
+      tel:'+13124641744', url:'https://thepurplepigchicago.com/', dest:"The Purple Pig, 444 N Michigan Ave, Chicago, IL",
+      imgs:['https://thepurplepigrestaurantgroup.com/wp-content/uploads/2026/07/PP-Chi-Dining-Room-full-shot.jpg'] },
+
+    { c:'healthy', rk:3, n:'Le Colonial', a:'57 E Oak St', w:'6 min à pied du Sonesta', p:'$$',
+      why:"Vietnamien avec un héritage français assumé : herbes fraîches, salades de papaye, poisson vapeur, rouleaux. Le contrepoison idéal le lendemain d'une deep dish.",
+      order:"Les rouleaux frais, le bo bun, le poisson au caramel. La véranda au premier étage est la plus jolie salle.",
+      note:"Attention, tenue soignée demandée le soir. À six minutes de l'hôtel, c'est la plus courte marche de toute la liste.",
+      tel:'+13122550088', url:'https://www.lecolonialchicago.com/', dest:"Le Colonial, 57 E Oak St, Chicago, IL",
+      imgs:[LC+'Chicago01.jpg', LC+'Chicago02.jpg', LC+'Chicago03.jpg'] },
+
+    { c:'healthy', rk:4, n:'Beatrix · River North', a:'519 N Clark St', w:'18 min à pied du Sonesta', p:'$$',
+      why:"Café-restaurant de quartier, cuisine claire et saisonnière, beaucoup de bols et de légumes, et une pâtisserie maison pour ceux qui craquent quand même.",
+      order:"Les bowls du déjeuner, les légumes rôtis, et le café qui est enfin correct.",
+      note:"Bon pour un déjeuner rapide entre deux visites, sans se poser deux heures.",
+      url:'https://www.beatrixrestaurants.com/beatrix/river-north/', dest:"Beatrix River North, 519 N Clark St, Chicago, IL",
+      imgs:['https://storage.googleapis.com/beatrix2023_bucket/wp-content/uploads/4a60dccb-beatrix_rivernorth_interior.jpg'] },
+
+    /* ---------------- VALEURS SURES ---------------- */
+    { c:'sure', rk:1, n:'Xoco', a:'67 W Illinois St', w:'18 min à pied du Sonesta', p:'$',
+      why:"La cantine mexicaine de Rick Bayless, le chef qui a fait connaître la cuisine mexicaine aux États-Unis. Cuisson au feu de bois, produits frais, prix de cantine.",
+      order:"Une torta au feu de bois, un caldo de légumes, et le chocolat chaud mexicain préparé à la meule.",
+      note:"Fermé dimanche et lundi. Mardi à vendredi 11h-21h, samedi dès 10h30. On commande au comptoir, on s'assoit où on peut.",
+      tel:'+13127232131', url:'https://xocochicago.com/', dest:"Xoco, 67 W Illinois St, Chicago, IL",
+      imgs:[XO+'info-1024x683.jpg', XO+'Xoco_WoodFiredFood-1024x683.jpg'] },
+
+    { c:'sure', rk:2, n:'Tempo Cafe', a:'6 E Chestnut St', w:'8 min à pied du Sonesta', p:'$',
+      why:"L'institution du Gold Coast, ouverte depuis 1983, avec une terrasse chauffée et une carte interminable. Omelettes montées à la commande, salades grecques, plats grillés.",
+      order:"Une omelette aux légumes construite soi-même, ou une salade grecque et une soupe. Portions généreuses, additions minuscules.",
+      note:"Ouvert de 6h30 à 20h tous les jours. La solution du petit-déjeuner et du déjeuner sans réfléchir, à huit minutes de l'hôtel.",
+      tel:'+13129434373', url:'https://www.tempochicago.com/', dest:"Tempo Cafe, 6 E Chestnut St, Chicago, IL",
+      imgs:[TC+'tempo-outside-dining.jpg', TC+'menu-item-images/build-omelette.jpg', TC+'tempo-cafe-blt.jpg'] },
+
+    { c:'sure', rk:3, n:"Portillo's", a:'100 W Ontario St', w:'15 min à pied du Sonesta', p:'$',
+      why:"Assumons : c'est du graillon, mais c'est LE graillon local. L'Italian beef trempé dans son jus, le hot-dog façon Chicago et le chocolate cake shake.",
+      order:"Un Italian beef « dipped », des sweet peppers, et un seul milkshake pour quatre.",
+      note:"À faire une fois, à midi, pour la culture. Rapide, bruyant, et moins de 15 $ par personne.",
+      url:'https://www.portillos.com/', dest:"Portillo's, 100 W Ontario St, Chicago, IL", imgs:[] },
+
+    /* ---------------- HYPE ---------------- */
+    { c:'hype', rk:1, n:'Monteverde', a:'1020 W Madison St, West Loop', w:'Hors périmètre · 15 min en taxi', p:'$$$',
+      why:"Sarah Grueneberg, James Beard Award, et la meilleure table à pâtes fraîches de la ville. Le genre d'endroit dont les Chicagoans parlent avec les yeux qui brillent.",
+      order:"Les pâtes du moment, évidemment. L'aperitivo de 14h30 à 16h30 est la façon la plus accessible d'y goûter.",
+      note:"Ouvert du mardi au samedi seulement. Réservation sur Resy, à poser plusieurs semaines à l'avance : c'est la contrainte de toute cette catégorie.",
+      url:'https://www.monteverdechicago.com/', dest:"Monteverde Restaurant, 1020 W Madison St, Chicago, IL", mode:'driving', imgs:[] },
+
+    { c:'hype', rk:2, n:'Girl & the Goat', a:'809 W Randolph St, West Loop', w:'Hors périmètre · 15 min en taxi', p:'$$$',
+      why:"Stephanie Izard, la table la plus courtisée de Chicago depuis quinze ans. Assiettes à partager, légumes traités comme des plats principaux.",
+      order:"Le pain maison, les légumes rôtis, et une ou deux assiettes de viande pour la forme.",
+      note:"Réserver des semaines à l'avance, ou tenter le bar en walk-in dès l'ouverture. Sans réservation le soir, c'est perdu d'avance.",
+      url:'https://www.girlandthegoat.com/', dest:"Girl & the Goat, 809 W Randolph St, Chicago, IL", mode:'driving', imgs:[] },
+
+    { c:'hype', rk:3, n:'Aba', a:'302 N Green St, 4e étage, West Loop', w:'Hors périmètre · 15 min en taxi', p:'$$$',
+      why:"Méditerranéen, houmous et légumes grillés, sur l'une des plus belles terrasses de la ville. Très photographié, et pour une fois c'est mérité.",
+      order:"Les mezze à partager, les légumes au charbon, et un verre sur la terrasse avant le coucher du soleil.",
+      note:"Si vous voulez cumuler un rooftop et un dîner, c'est ici. Réservation indispensable.",
+      url:'https://www.aba-restaurant.com/chicago/', dest:"Aba Chicago, 302 N Green St, Chicago, IL", mode:'driving', imgs:[] },
+
+    /* ---------------- ROSEMONT ---------------- */
+    { c:'rosemont', rk:1, n:'Carlucci Rosemont', a:'6111 N River Rd, Rosemont', w:'17 min à pied du Loews', p:'$$',
+      why:"La seule vraie cuisine italienne du secteur, et de loin la meilleure adresse autour du Loews : pâtes fraîches maison et pizzas au feu de bois, dans un registre rustique. Travelers' Choice 2025, plus de 35 ans d'ancienneté.",
+      order:"Les pâtes du jour, une pizza au feu de bois à partager, et les légumes grillés en accompagnement.",
+      note:"Fermé le dimanche. Lundi à vendredi 11h30-21h, samedi 16h30-21h30. Happy hour du lundi au vendredi de 15h à 18h, cocktails à moitié prix. C'est l'adresse des soirées du vendredi 11 et du samedi 12.",
+      tel:'+18475180990', url:'https://www.carluccirosemont.com/', dest:"Carlucci Rosemont, 6111 N River Rd, Rosemont, IL",
+      imgs:['https://img1.wsimg.com/isteam/ip/89500dab-9663-4049-8783-f6867f8100cb/HappyHour_WEB.jpg/:/rs=w:600,h:400,cg:true,m'] },
+
+    { c:'rosemont', rk:2, n:'The Ashburn · gastropub du Loews', a:'5300 N River Rd, dans l\u2019hôtel', w:'0 minute', p:'$$',
+      why:"Le restaurant de l'hôtel, classé premier des adresses du secteur sur Yelp, ce qui en dit long sur la concurrence. Gastropub américain, mais avec de vraies salades et des plats grillés.",
+      order:"Un plat grillé et une salade. Éviter la partie fritures, c'est exactement ce qu'on cherche à fuir.",
+      note:"L'option du soir où le salon aura vidé tout le monde. Facturable sur la chambre, ce qui simplifie la note de frais.",
+      tel:'+18475445300', url:'https://www.loewshotels.com/chicago-ohare/dining', dest:"Loews Chicago O'Hare, 5300 N River Rd, Rosemont, IL", imgs:[] },
+
+    { c:'rosemont', rk:3, n:"Harry Caray's Italian Steakhouse", a:'10233 W Higgins Rd, Rosemont', w:'10 min à pied du Loews', p:'$$$',
+      why:"Une institution de Chicago, version italo-américaine : pâtes, Chicken Vesuvio et un brocoli grillé au charbon étonnamment bon. Plus cher et plus lourd, mais à dix minutes.",
+      order:"Le Chicken Vesuvio, le brocoli grillé, et la planche de charcuterie toscane pour commencer.",
+      note:"Dîner du lundi au vendredi de 17h à 22h, samedi dès 16h, dimanche 16h-21h. Parking gratuit, tenue décontractée acceptée.",
+      tel:'+18476991200', url:'https://www.harrycarays.com/harry-carays-italian-steakhouse-rosemont.html', dest:"Harry Caray's Italian Steakhouse, 10233 W Higgins Rd, Rosemont, IL",
+      imgs:[HC+'charred-broccoli-solo_2.jpg', HC+'chicken-milanese_3.jpg', HC+'hcis-tuscan-charcuterie-board_1.jpg'] },
+
+    { c:'rosemont', rk:4, n:'Panera Bread · Fashion Outlets', a:'5220 Fashion Outlets Way, Rosemont', w:'8 min à pied du Loews', p:'$',
+      why:"Sans prétention, mais c'est la seule adresse du secteur qui fait des soupes et des salades correctes à midi, et elle est sur le chemin des outlets.",
+      order:"Une soupe et une demi-salade, la formule qui sauve les journées de shopping.",
+      note:"Pratique le vendredi 11, quand la journée se passe entièrement aux outlets.",
+      dest:"Panera Bread, Fashion Outlets of Chicago, 5220 Fashion Outlets Way, Rosemont, IL", imgs:[] }
+  ];
+
+  function strip(r){
+    if (!r.imgs || !r.imgs.length) {
+      return '<div class="h-36 flex items-center justify-center" style="background:linear-gradient(135deg,#002B49 0%,#0e7490 100%)">' +
+             '<div class="text-center"><i class="fa-solid fa-camera-retro text-white/40 text-2xl"></i>' +
+             '<p class="text-white/60 text-[.6rem] uppercase tracking-widest mt-2">Photos sur Google Maps</p></div></div>';
+    }
+    var cols = r.imgs.length === 1 ? 'grid-cols-1' : (r.imgs.length === 2 ? 'grid-cols-2' : 'grid-cols-3');
+    return '<div class="grid ' + cols + ' gap-px h-36 bg-slate-200">' +
+      r.imgs.map(function(u){
+        return '<a href="' + u + '" target="_blank" rel="noopener" class="block overflow-hidden bg-chicago-dark">' +
+               '<img src="' + u + '" alt="' + esc(r.n) + '" loading="lazy" decoding="async" ' +
+               'class="w-full h-full object-cover hover:scale-105 transition duration-500" ' +
+               'onerror="this.parentNode.style.display=&quot;none&quot;"></a>';
+      }).join('') + '</div>';
+  }
+
+  function card(r){
+    var c = CATR.filter(function(x){ return x.k === r.c; })[0] || CATR[0];
+    var btn = function(href, icon, label, primary, title){
+      return '<a href="' + href + '" target="_blank" rel="noopener"' + (title ? ' title="' + title + '"' : '') +
+        ' class="inline-flex items-center px-3 py-2 rounded-lg text-[.66rem] font-bold uppercase tracking-wider transition ' +
+        (primary ? 'bg-chicago-dark text-white hover:bg-chicago-blue' : 'border-2 border-slate-200 text-chicago-dark hover:border-chicago-dark') +
+        '"><i class="fa-solid ' + icon + (label ? ' mr-2' : '') + '"></i>' + (label || '') + '</a>';
+    };
+    return '' +
+    '<div class="resto-card bg-white rounded-2xl overflow-hidden border-2 border-slate-200 flex flex-col" data-c="' + r.c + '">' +
+      strip(r) +
+      '<div class="p-5 flex flex-col flex-1">' +
+        '<div class="flex items-start gap-2 mb-1">' +
+          '<span class="shrink-0 w-7 h-7 rounded-lg flex items-center justify-center text-white text-[.7rem] font-bold" style="background:' + c.color + '">' + r.rk + '</span>' +
+          '<div class="min-w-0 flex-1">' +
+            '<p class="text-[.55rem] font-bold uppercase tracking-[.14em] text-slate-400">' + esc(c.label) + '</p>' +
+            '<h4 class="font-serif font-bold text-lg text-chicago-dark leading-tight">' + esc(r.n) + '</h4>' +
+          '</div>' +
+          '<span class="shrink-0 text-[.7rem] font-bold text-emerald-700">' + r.p + '</span>' +
+        '</div>' +
+        '<p class="text-xs text-slate-500 mt-1.5"><i class="fa-solid fa-location-dot mr-1.5 opacity-60"></i>' + esc(r.a) + '</p>' +
+        '<p class="text-xs font-semibold text-chicago-blue mt-1"><i class="fa-solid fa-person-walking mr-1.5"></i>' + esc(r.w) + '</p>' +
+        '<p class="text-sm text-slate-600 leading-relaxed mt-3">' + esc(r.why) + '</p>' +
+        '<p class="text-xs text-slate-700 mt-3 rounded-lg bg-chicago-sand p-3"><strong>À commander&nbsp;:</strong> ' + esc(r.order) + '</p>' +
+        '<p class="text-xs text-slate-500 mt-3 flex-1"><i class="fa-solid fa-circle-info mr-1.5 opacity-60"></i>' + esc(r.note) + '</p>' +
+        '<div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-slate-100">' +
+          btn(gd(r.dest, r.mode || 'walking'), 'fa-diamond-turn-right', 'Itinéraire', true) +
+          btn(gphotos(r.dest), 'fa-images', 'Photos', false, 'Voir toutes les photos sur Google Maps') +
+          (r.url ? btn(r.url, 'fa-arrow-up-right-from-square', '', false, 'Site officiel et menu') : '') +
+          (r.tel ? '<a href="tel:' + r.tel + '" class="inline-flex items-center px-3 py-2 rounded-lg text-[.66rem] font-bold uppercase tracking-wider border-2 border-slate-200 text-chicago-dark hover:border-chicago-dark transition" title="Appeler"><i class="fa-solid fa-phone"></i></a>' : '') +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  var grid = document.getElementById('restoGrid');
+  var chips = document.getElementById('restoChips');
+  if (grid && chips) {
+    var sorted = [];
+    CATR.forEach(function(c){
+      R.filter(function(r){ return r.c === c.k; })
+       .sort(function(a,b){ return a.rk - b.rk; })
+       .forEach(function(r){ sorted.push(r); });
+    });
+    grid.innerHTML = sorted.map(card).join('');
+
+    var html = '<button type="button" class="rchip on px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-chicago-dark text-white" data-f="all">Les ' + R.length + ' adresses</button>';
+    CATR.forEach(function(c){
+      var k = R.filter(function(r){ return r.c === c.k; }).length;
+      if (!k) return;
+      html += '<button type="button" class="rchip px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-slate-600 border border-slate-200 hover:border-chicago-dark" data-f="' + c.k + '"><i class="fa-solid ' + c.icon + ' mr-1.5" style="color:' + c.color + '"></i>' + c.label + ' · ' + k + '</button>';
+    });
+    chips.innerHTML = html;
+
+    chips.addEventListener('click', function(e){
+      if (!e.target || !e.target.closest) return;
+      var b = e.target.closest('.rchip'); if (!b) return;
+      chips.querySelectorAll('.rchip').forEach(function(x){
+        x.className = 'rchip px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-slate-600 border border-slate-200 hover:border-chicago-dark';
+      });
+      b.className = 'rchip on px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-chicago-dark text-white';
+      var f = b.getAttribute('data-f');
+      grid.querySelectorAll('[data-c]').forEach(function(card){
+        card.style.display = (f === 'all' || card.getAttribute('data-c') === f) ? '' : 'none';
+      });
+    });
+  }
+})();
+</script>
+
 <!-- ============ MODE APPLICATION : onglets, ecran du jour, lieux, PWA ============ -->
 <script>
 (function(){
@@ -2122,8 +2404,7 @@ tailwind.config = {
     { k:'hotel',   label:'Hôtels',                 icon:'fa-bed',   color:'#4338ca' },
     { k:'visite',  label:'Visites & downtown',     icon:'fa-camera-retro', color:'#C60C30' },
     { k:'verre',   label:'Rooftops & un verre',    icon:'fa-martini-glass-citrus', color:'#b45309' },
-    { k:'shop',    label:'Shopping',               icon:'fa-bag-shopping', color:'#0f766e' },
-    { k:'food',    label:'À manger',               icon:'fa-utensils', color:'#9333ea' }
+    { k:'shop',    label:'Shopping',               icon:'fa-bag-shopping', color:'#0f766e' }
   ];
 
   var PLACES = [
@@ -2151,11 +2432,8 @@ tailwind.config = {
 
     { z:'shop', n:'Fashion Outlets of Chicago', a:'5220 Fashion Outlets Way, Rosemont IL', w:'Ven 11, 10h15 : 600 m à pied du Loews, soit 8 minutes.', dest:"Fashion Outlets of Chicago, 5220 Fashion Outlets Way, Rosemont, IL 60018", mode:'walking' },
     { z:'shop', n:'Chicago Premium Outlets', a:'1650 Premium Outlets Blvd, Aurora IL', w:'Sam 12 : la grosse journée shopping, environ 1 h de route depuis Rosemont.', dest:"Chicago Premium Outlets, 1650 Premium Outlets Blvd, Aurora, IL 60502", mode:'driving' },
-    { z:'shop', n:'Magnificent Mile', a:'N Michigan Ave, entre le fleuve et Oak St', w:'Dim 6 et lun 7 : à deux pas du Sonesta, ouvert tard.', dest:"Magnificent Mile, N Michigan Ave, Chicago, IL", mode:'walking' },
+    { z:'shop', n:'Magnificent Mile', a:'N Michigan Ave, entre le fleuve et Oak St', w:'Dim 6 et lun 7 : à deux pas du Sonesta, ouvert tard.', dest:"Magnificent Mile, N Michigan Ave, Chicago, IL", mode:'walking' }
 
-    { z:'food', n:"Lou Malnati's · River North", a:'439 N Wells St', w:'Lun 7, 20h15 : la deep dish de référence. Compter 30 à 45 min de cuisson, commander en arrivant.', dest:"Lou Malnati's Pizzeria, 439 N Wells St, Chicago, IL", mode:'walking' },
-    { z:'food', n:"Pequod's Pizza", a:'2207 N Clybourn Ave, Lincoln Park', w:'L’autre deep dish, celle à la croûte caramélisée. Hors du centre, mais elle vaut le taxi.', dest:"Pequod's Pizza, 2207 N Clybourn Ave, Chicago, IL", mode:'driving' },
-    { z:'food', n:"Portillo's", a:'100 W Ontario St', w:'L’Italian beef, le hot-dog et le chocolate cake shake. Rapide, bruyant, pas cher.', dest:"Portillo's, 100 W Ontario St, Chicago, IL", mode:'walking' }
   ];
 
   function placeCard(pl){

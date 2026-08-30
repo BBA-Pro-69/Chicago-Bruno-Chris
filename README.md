@@ -20,6 +20,16 @@ Déposer les fichiers à la **racine** du dépôt, en conservant le dossier
 `assets/`. GitHub Pages sert le site en HTTPS, ce qui est indispensable
 pour que le service worker s'active.
 
+## Sections de la page
+
+00 Le voyage · 01 L'esprit · 02 Vols · 03 Hôtels · 04 Planning ·
+05 Agenda · 06 Salon pro · 07 Esker All Access · 08 Shopping ·
+09 Météo · **10 Localisation** · **11 Où manger** · 12 Pratique ·
+13 Bon voyage
+
+Les sections 10 et 11 sont regroupées dans l'onglet « Lieux » de
+l'application mobile.
+
 ## Mode application (mobile)
 
 Sous 1024 px de large, la page bascule automatiquement en application :
