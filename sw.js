@@ -6,7 +6,7 @@
    - pas de skipWaiting automatique : la page propose « Recharger »
    ========================================================================= */
 
-const VERSION  = '2026-08-30c';
+const VERSION  = '2026-08-30d';
 const SHELL    = 'cx-shell-'  + VERSION;   // fichiers du site
 const VENDOR   = 'cx-vendor-' + VERSION;   // Tailwind, Font Awesome, Google Fonts, images
 const PATIENCE = 1200;                      // ms avant de servir le cache

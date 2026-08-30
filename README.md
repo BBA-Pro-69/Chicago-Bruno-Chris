@@ -37,9 +37,10 @@ Christophe & Laure. Page unique, aucune dépendance à builder.
 | 09 | `#meteo` | Météo et bagages |
 | 10 | `#lieux` | **Localisation** — 21 lieux du séjour, boutons Google Maps |
 | 11 | `#manger` | **Où manger** — 21 restaurants, 6 catégories, photos, itinéraires depuis le Loews |
-| 12 | `#gouter` | **Où goûter** — 12 adresses, 6 catégories, sélection par unanimité des avis |
-| 13 | `#pratique` | ESTA, eSIM, argent, pourboires, urgences |
-| 14 | `#fin` | Bon voyage |
+| 12 | `#gouter` | **Où goûter** — 10 adresses, 6 catégories, sélection par unanimité des avis |
+| 13 | `#patisseries` | **Pâtisseries** — 8 adresses classées par style : américain, français, belge, italien |
+| 14 | `#pratique` | ESTA, eSIM, argent, pourboires, urgences |
+| 15 | `#fin` | Bon voyage |
 
 Plus un écran `#today` visible uniquement en mode application.
 
@@ -56,8 +57,8 @@ Plus un écran `#today` visible uniquement en mode application.
 La version du cache doit être incrémentée **aux trois endroits** suivants,
 sinon les téléphones déjà installés continueront de servir l'ancienne page :
 
-1. `sw.js`, ligne 9 : `const VERSION = '2026-08-30c';`
-2. `index.html`, ligne 13 : `manifest.webmanifest?v=2026-08-30c`
-3. `index.html`, script « mode application » : `var V = '2026-08-30c';`
+1. `sw.js`, ligne 9 : `const VERSION = '2026-08-30d';`
+2. `index.html`, ligne 13 : `manifest.webmanifest?v=2026-08-30d`
+3. `index.html`, script « mode application » : `var V = '2026-08-30d';`
 
-Version actuelle : **2026-08-30c**
+Version actuelle : **2026-08-30d**

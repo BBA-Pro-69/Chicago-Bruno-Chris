@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Chicago 26">
-<link rel="manifest" href="./manifest.webmanifest?v=2026-08-30c">
+<link rel="manifest" href="./manifest.webmanifest?v=2026-08-30d">
 <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon-180.png?v=2026-08-29a">
 <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon-192.png?v=2026-08-29a">
 <title>Chicago City Trip · Septembre 2026 · Bruno &amp; Christophe</title>
@@ -360,6 +360,7 @@ tailwind.config = {
       <a href="#lieux" class="nav-link">Lieux</a>
       <a href="#manger" class="nav-link">Manger</a>
       <a href="#gouter" class="nav-link">Go&ucirc;ter</a>
+      <a href="#patisseries" class="nav-link">P&acirc;tisseries</a>
       <a href="#meteo" class="nav-link">Météo</a>
       <a href="#pratique" class="nav-link">Pratique</a>
     </div>
@@ -386,6 +387,7 @@ tailwind.config = {
       <a href="#lieux" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-map-location-dot w-7 text-chicago-blue"></i> Lieux &amp; itinéraires</a>
       <a href="#manger" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-utensils w-7 text-chicago-blue"></i> Où manger</a>
       <a href="#gouter" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-mug-saucer w-7 text-chicago-blue"></i> Où goûter</a>
+      <a href="#patisseries" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-cake-candles w-7 text-chicago-blue"></i> Pâtisseries</a>
       <a href="#meteo" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-cloud-sun w-7 text-chicago-blue"></i> Météo</a>
       <a href="#pratique" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-circle-info w-7 text-chicago-blue"></i> Infos pratiques</a>
     </nav>
@@ -1451,7 +1453,7 @@ tailwind.config = {
     </div>
     <div id="placeChips" class="flex flex-wrap gap-2 mb-8"></div>
     <div id="placeGrid" class="grid md:grid-cols-2 xl:grid-cols-3 gap-5"></div>
-    <p class="text-sm text-slate-700 mt-8 rounded-xl bg-chicago-sand p-4"><i class="fa-solid fa-utensils mr-2 text-chicago-red"></i><strong>Les restaurants ont leur propre section&nbsp;:</strong> vingt adresses class&eacute;es par cat&eacute;gorie, avec photos, temps de marche et itin&eacute;raires, juste en dessous dans <a href="#manger" class="text-chicago-blue font-semibold hover:underline">O&ugrave; manger</a>, et douze adresses de go&ucirc;ter dans <a href="#gouter" class="text-chicago-blue font-semibold hover:underline">O&ugrave; go&ucirc;ter</a>.</p>
+    <p class="text-sm text-slate-700 mt-8 rounded-xl bg-chicago-sand p-4"><i class="fa-solid fa-utensils mr-2 text-chicago-red"></i><strong>Les restaurants ont leur propre section&nbsp;:</strong> vingt adresses class&eacute;es par cat&eacute;gorie, avec photos, temps de marche et itin&eacute;raires, juste en dessous dans <a href="#manger" class="text-chicago-blue font-semibold hover:underline">O&ugrave; manger</a>, dix adresses de go&ucirc;ter dans <a href="#gouter" class="text-chicago-blue font-semibold hover:underline">O&ugrave; go&ucirc;ter</a>, et huit p&acirc;tisseries dans <a href="#patisseries" class="text-chicago-blue font-semibold hover:underline">P&acirc;tisseries</a>.</p>
     <p class="text-xs text-slate-400 mt-6"><i class="fa-solid fa-circle-info mr-1.5"></i>Les itin&eacute;raires s&rsquo;ouvrent dans Google Maps, application ou navigateur. En mode application install&eacute;e, la page revient d&rsquo;un simple geste de retour.</p>
   </div>
 </section>
@@ -1501,7 +1503,7 @@ tailwind.config = {
       <p class="text-sm font-bold uppercase tracking-wider text-chicago-dark mb-2"><i class="fa-solid fa-lightbulb mr-2 text-chicago-red"></i>Le r&eacute;flexe &agrave; garder les 11, 12 et 13</p>
       <p class="text-sm text-slate-700 leading-relaxed">Rosemont est une banlieue de congr&egrave;s&nbsp;: en dehors de Carlucci, l&rsquo;offre y tourne vite au steakhouse et au sports bar. Mais la <strong>Blue Line part de la station Rosemont et rejoint Clark/Lake en 33 minutes pour 2,50&nbsp;$</strong>, avec la navette gratuite de l&rsquo;hôtel pour rejoindre la station, et un service 24h/24 au retour. Autrement dit, les quinze adresses du centre-ville restent accessibles jusqu&rsquo;au dernier soir. Rosemont ne devient une contrainte que les mardi et mercredi, d&eacute;j&agrave; pris par les soir&eacute;es Esker.</p>
     </div>
-    <p class="text-sm text-slate-700 mt-8 rounded-xl bg-white border-2 border-chicago-red/30 p-4"><i class="fa-solid fa-mug-saucer mr-2 text-chicago-red"></i><strong>Et pour le go&ucirc;ter&nbsp;?</strong> Comme les petits d&eacute;jeuners de l&rsquo;h&ocirc;tel sont copieux et que vous sauterez probablement les d&eacute;jeuners, douze adresses de p&acirc;tisseries, glaciers et caf&eacute;s sont r&eacute;unies juste en dessous dans <a href="#gouter" class="text-chicago-blue font-semibold hover:underline">O&ugrave; go&ucirc;ter</a>.</p>
+    <p class="text-sm text-slate-700 mt-8 rounded-xl bg-white border-2 border-chicago-red/30 p-4"><i class="fa-solid fa-mug-saucer mr-2 text-chicago-red"></i><strong>Et pour le go&ucirc;ter&nbsp;?</strong> Comme les petits d&eacute;jeuners de l&rsquo;h&ocirc;tel sont copieux et que vous sauterez probablement les d&eacute;jeuners, dix adresses de glaciers, donuts et caf&eacute;s sont r&eacute;unies dans <a href="#gouter" class="text-chicago-blue font-semibold hover:underline">O&ugrave; go&ucirc;ter</a>, et huit p&acirc;tisseries class&eacute;es par style dans <a href="#patisseries" class="text-chicago-blue font-semibold hover:underline">P&acirc;tisseries</a>.</p>
     <p class="text-xs text-slate-400 mt-6"><i class="fa-solid fa-circle-info mr-1.5"></i>Photos issues des sites officiels des restaurants, sauf Portillo&rsquo;s et Panera (Wikimedia Commons, CC&nbsp;BY-SA &mdash; Ken Lund, Chris Light), h&eacute;berg&eacute;es dans le d&eacute;p&ocirc;t. Prix indicatifs&nbsp;: <strong>$</strong> moins de 20&nbsp;$ par personne, <strong>$$</strong> de 20 &agrave; 40&nbsp;$, <strong>$$$</strong> au-del&agrave;, hors boissons. Horaires v&eacute;rifi&eacute;s fin ao&ucirc;t 2026, &agrave; reconfirmer sur place.</p>
   </div>
 </section>
@@ -1512,7 +1514,7 @@ tailwind.config = {
     <div class="mb-8">
       <p class="text-[.7rem] font-bold uppercase tracking-[.2em] text-chicago-red mb-3">12 &middot; O&ugrave; go&ucirc;ter</p>
       <h2 class="text-4xl md:text-5xl font-serif font-bold text-chicago-dark mb-4">Le go&ucirc;ter, la vraie pause de vos journ&eacute;es</h2>
-      <p class="text-lg text-slate-600 max-w-3xl">Les petits d&eacute;jeuners de l&rsquo;h&ocirc;tel sont copieux et vous ne d&eacute;jeunerez probablement pas. Le go&ucirc;ter devient donc le vrai repas du milieu de journ&eacute;e, celui qui vous fait tenir jusqu&rsquo;au d&icirc;ner. Douze adresses, choisies sur un crit&egrave;re pr&eacute;cis&nbsp;: <strong>l&rsquo;unanimit&eacute;</strong>.</p>
+      <p class="text-lg text-slate-600 max-w-3xl">Les petits d&eacute;jeuners de l&rsquo;h&ocirc;tel sont copieux et vous ne d&eacute;jeunerez probablement pas. Le go&ucirc;ter devient donc le vrai repas du milieu de journ&eacute;e, celui qui vous fait tenir jusqu&rsquo;au d&icirc;ner. Dix adresses, choisies sur un crit&egrave;re pr&eacute;cis&nbsp;: <strong>l&rsquo;unanimit&eacute;</strong>. Les p&acirc;tisseries, elles, ont leur propre section juste en dessous.</p>
     </div>
 
     <div class="mb-8 rounded-2xl bg-chicago-sand border-2 border-chicago-blue/30 overflow-hidden">
@@ -1530,7 +1532,7 @@ tailwind.config = {
         </div>
         <div>
           <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2">Le pi&egrave;ge &agrave; conna&icirc;tre</p>
-          <p class="text-sm text-slate-600 leading-relaxed">Les bonnes p&acirc;tisseries de Chicago ferment t&ocirc;t et souvent&nbsp;: <strong>Hendrickx ferme le lundi</strong>, <strong>Vanille le dimanche et le lundi</strong>, <strong>Eli&rsquo;s le dimanche</strong>, et le th&eacute; du Drake n&rsquo;est servi que du vendredi au dimanche. Chaque fiche pr&eacute;cise sa fen&ecirc;tre de tir. Lisez-la avant de marcher vingt minutes pour rien.</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Beaucoup de ces adresses ferment plus t&ocirc;t qu&rsquo;on ne l&rsquo;imagine&nbsp;: <strong>Eli&rsquo;s ferme le dimanche</strong>, <strong>Do-Rite &agrave; 19h</strong>, et le th&eacute; du Drake n&rsquo;est servi que du vendredi au dimanche, de 12h &agrave; 16h30. Chaque fiche pr&eacute;cise sa fen&ecirc;tre de tir. Lisez-la avant de marcher vingt minutes pour rien.</p>
         </div>
       </div>
     </div>
@@ -1538,7 +1540,7 @@ tailwind.config = {
     <div class="mb-8 grid md:grid-cols-3 gap-4">
       <div class="rounded-xl bg-white border-2 border-emerald-200 p-5">
         <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-emerald-700 mb-2"><i class="fa-solid fa-medal mr-1.5"></i>Si vous n&rsquo;en faites qu&rsquo;un</p>
-        <p class="text-sm text-slate-600 leading-relaxed"><strong>Hendrickx</strong>, &agrave; deux minutes du Sonesta. Un chef belge, treize croissants, une boutique minuscule, et un consensus que rien ne vient troubler.</p>
+        <p class="text-sm text-slate-600 leading-relaxed"><strong>Levain Bakery</strong>, 408 N Clark. Un cookie de 170 grammes, pas cuit &agrave; cœur, et une boutique ouverte jusqu&rsquo;&agrave; 23h&nbsp;: le seul go&ucirc;ter encore possible apr&egrave;s une journ&eacute;e de salon.</p>
       </div>
       <div class="rounded-xl bg-white border-2 border-chicago-red/30 p-5">
         <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2"><i class="fa-solid fa-champagne-glasses mr-1.5"></i>Si vous voulez marquer le coup</p>
@@ -1555,14 +1557,69 @@ tailwind.config = {
 
     <div class="mt-10 rounded-2xl bg-chicago-dark text-white p-6">
       <p class="text-sm font-bold uppercase tracking-wider mb-3"><i class="fa-solid fa-clock mr-2 text-chicago-blue"></i>Le rythme qui marche&nbsp;: go&ucirc;ter vers 16h, d&icirc;ner vers 19h30</p>
-      <p class="text-sm text-slate-300 leading-relaxed">Chicago d&icirc;ne t&ocirc;t. &Agrave; 19h les salles sont pleines, &agrave; 21h30 les cuisines ferment dans beaucoup d&rsquo;adresses. Un go&ucirc;ter cal&eacute; entre 15h30 et 16h30 vous laisse exactement la faim qu&rsquo;il faut pour un d&icirc;ner &agrave; 19h30, sans finir la soir&eacute;e &agrave; chercher une cuisine encore ouverte. Et si le go&ucirc;ter a &eacute;t&eacute; trop copieux, la section <a href="#manger" class="text-chicago-blue font-semibold hover:underline">O&ugrave; manger</a> compte plusieurs adresses l&eacute;g&egrave;res, dont True Food Kitchen et Le Colonial.</p>
+      <p class="text-sm text-slate-300 leading-relaxed">Chicago d&icirc;ne t&ocirc;t. &Agrave; 19h les salles sont pleines, &agrave; 21h30 les cuisines ferment dans beaucoup d&rsquo;adresses. Un go&ucirc;ter cal&eacute; entre 15h30 et 16h30 vous laisse exactement la faim qu&rsquo;il faut pour un d&icirc;ner &agrave; 19h30, sans finir la soir&eacute;e &agrave; chercher une cuisine encore ouverte. Et si le go&ucirc;ter a &eacute;t&eacute; trop copieux, la section <a href="#patisseries" class="text-chicago-blue font-semibold hover:underline">P&acirc;tisseries</a> juste en dessous compl&egrave;te cette s&eacute;lection, et <a href="#manger" class="text-chicago-blue font-semibold hover:underline">O&ugrave; manger</a> compte plusieurs adresses l&eacute;g&egrave;res, dont True Food Kitchen et Le Colonial.</p>
     </div>
 
     <p class="text-xs text-slate-400 mt-6"><i class="fa-solid fa-circle-info mr-1.5"></i>Photos issues des sites officiels des maisons cit&eacute;es. Horaires et tarifs v&eacute;rifi&eacute;s fin ao&ucirc;t 2026, &agrave; reconfirmer sur place&nbsp;: les p&acirc;tisseries ind&eacute;pendantes changent leurs horaires plus souvent que les restaurants.</p>
   </div>
 </section>
 
-<section id="pratique" data-tab="infos" data-sec="Pratique" data-num="13" class="section-pattern py-24">
+<!-- ============ 13. PATISSERIES ============ -->
+<section id="patisseries" data-tab="lieux" data-sec="P&acirc;tisseries" data-num="13" class="py-24 section-pattern">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-8">
+      <p class="text-[.7rem] font-bold uppercase tracking-[.2em] text-chicago-red mb-3">13 &middot; P&acirc;tisseries</p>
+      <h2 class="text-4xl md:text-5xl font-serif font-bold text-chicago-dark mb-4">Les p&acirc;tisseries, par style</h2>
+      <p class="text-lg text-slate-600 max-w-3xl">Vous avez aim&eacute; Magnolia Bakery &agrave; New York. Ce n&rsquo;est pas du tout le m&ecirc;me registre qu&rsquo;un croissant belge ou qu&rsquo;un macaron fran&ccedil;ais, alors voici les deux mondes c&ocirc;te &agrave; c&ocirc;te, avec l&rsquo;&eacute;quivalent Magnolia en t&ecirc;te de liste.</p>
+    </div>
+
+    <div class="mb-8 rounded-2xl bg-white border-2 border-chicago-red/40 overflow-hidden">
+      <div class="bg-chicago-red px-6 py-3">
+        <p class="text-white text-xs font-bold uppercase tracking-[.16em]"><i class="fa-solid fa-cake-candles mr-2"></i>Magnolia Bakery, ce que c&rsquo;est vraiment &mdash; et ce que &ccedil;a change</p>
+      </div>
+      <div class="p-6 grid md:grid-cols-3 gap-6">
+        <div>
+          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2">Le registre Magnolia</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Cupcakes &agrave; la cr&egrave;me au beurre, banana pudding, layer cakes hauts comme des immeubles, red velvet. C&rsquo;est de la <strong>p&acirc;tisserie am&eacute;ricaine domestique</strong>, g&eacute;n&eacute;reuse et sucr&eacute;e, l&rsquo;h&eacute;ritage du g&acirc;teau fait maison. Rien &agrave; voir avec le feuilletage ou la p&acirc;te &agrave; choux.</p>
+        </div>
+        <div>
+          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2">Bonne nouvelle</p>
+          <p class="text-sm text-slate-600 leading-relaxed"><strong>Magnolia Bakery existe &agrave; Chicago</strong>, dans le Loop, au 108 N State St. Et surtout il existe un &eacute;quivalent local encore plus proche de vous&nbsp;: <strong>Sweet Mandy B&rsquo;s</strong>, &agrave; huit minutes &agrave; pied du Sonesta, qui fait exactement le m&ecirc;me genre de choses depuis 2002.</p>
+        </div>
+        <div>
+          <p class="text-[.6rem] font-bold uppercase tracking-[.14em] text-chicago-red mb-2">La r&eacute;serve &agrave; conna&icirc;tre</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Le Magnolia de Chicago a &eacute;t&eacute; <strong>ferm&eacute; administrativement le 15 juillet 2026</strong> apr&egrave;s la d&eacute;couverte de cafards vivants et d&rsquo;une centaine de mouches. Il a r&eacute;ouvert six jours plus tard. C&rsquo;est vieux de six semaines et le probl&egrave;me est trait&eacute;, mais vous devez le savoir avant d&rsquo;y aller.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="patisChips" class="flex flex-wrap gap-2 mb-8"></div>
+    <div id="patisGrid" class="grid md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+
+    <div class="mt-10 grid md:grid-cols-2 gap-4">
+      <div class="rounded-2xl bg-chicago-dark text-white p-6">
+        <p class="text-sm font-bold uppercase tracking-wider mb-3"><i class="fa-solid fa-route mr-2 text-chicago-blue"></i>Le circuit p&acirc;tisserie id&eacute;al, en trois jours</p>
+        <ul class="text-sm text-slate-300 leading-relaxed space-y-2">
+          <li><strong class="text-white">Dimanche 6, vers 10h&nbsp;:</strong> Hendrickx pour les croissants, &agrave; deux minutes de la chambre. Il ferme &agrave; 14h le dimanche.</li>
+          <li><strong class="text-white">Dimanche 6 ou lundi 7, l&rsquo;apr&egrave;s-midi&nbsp;:</strong> Sweet Mandy B&rsquo;s au 254 E Ontario. Ouvert tous les jours jusqu&rsquo;&agrave; 18h, c&rsquo;est le plus souple de la liste et c&rsquo;est votre Magnolia.</li>
+          <li><strong class="text-white">Mardi 8 au matin&nbsp;:</strong> Magnolia dans le Loop si la curiosit&eacute; l&rsquo;emporte, ou D&rsquo;Amato&rsquo;s et son four &agrave; charbon de 1912 pour les cannoli.</li>
+        </ul>
+      </div>
+      <div class="rounded-2xl bg-white border-2 border-amber-300 p-6">
+        <p class="text-sm font-bold uppercase tracking-wider mb-3 text-amber-700"><i class="fa-solid fa-triangle-exclamation mr-2"></i>Trois pi&egrave;ges d&rsquo;horaires, &agrave; lire avant de marcher</p>
+        <ul class="text-sm text-slate-600 leading-relaxed space-y-2">
+          <li><strong>Les boulangeries de Chicago ferment l&rsquo;apr&egrave;s-midi.</strong> La Fournette baisse le rideau &agrave; 14h, Hendrickx &agrave; 16h. Ce sont des adresses de matin&eacute;e, pas de go&ucirc;ter.</li>
+          <li><strong>Hendrickx ferme le lundi</strong>, <strong>Vanille le dimanche et le lundi</strong>. Le lundi 7, jour du Greeter, seules Sweet Mandy B&rsquo;s, Magnolia et D&rsquo;Amato&rsquo;s sont ouvertes.</li>
+          <li><strong>Les 11, 12 et 13, c&ocirc;t&eacute; Loews, il n&rsquo;y a rien.</strong> Aucune vraie p&acirc;tisserie &agrave; Rosemont. Il faut la Blue Line, ou se rabattre sur Stan&rsquo;s Donuts &agrave; dix minutes &agrave; pied.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="text-xs text-slate-400 mt-6"><i class="fa-solid fa-circle-info mr-1.5"></i>Photos issues des sites officiels des maisons cit&eacute;es. Horaires v&eacute;rifi&eacute;s fin ao&ucirc;t 2026. Les p&acirc;tisseries ind&eacute;pendantes ferment parfois sans pr&eacute;venir&nbsp;: un coup d&rsquo;œil &agrave; Google Maps avant de partir co&ucirc;te trente secondes.</p>
+  </div>
+</section>
+
+<section id="pratique" data-tab="infos" data-sec="Pratique" data-num="14" class="py-24 bg-white">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
       <h2 class="text-sm font-bold text-chicago-red uppercase tracking-widest mb-3">À ne pas oublier</h2>
@@ -1627,7 +1684,7 @@ tailwind.config = {
 </section>
 
 <div class="sep h-12 md:h-20" style="background:#f8fafc"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,0 L1440,100 L0,100 Z" fill="#002B49"></path></svg></div>
-<footer id="fin" data-tab="infos" data-sec="Bon voyage" data-num="14" class="bg-chicago-dark text-slate-400 py-12 text-center">
+<footer id="fin" data-tab="infos" data-sec="Bon voyage" data-num="15" class="bg-chicago-dark text-slate-400 py-12 text-center">
   <i class="fa-solid fa-wind text-chicago-blue text-3xl mb-4"></i>
   <p class="font-serif text-xl text-white mb-2">Chicago, septembre 2026</p>
   <p class="text-sm">Bruno &amp; Névine · Christophe &amp; Laure — bon voyage !</p>
@@ -2552,7 +2609,6 @@ tailwind.config = {
 
   var CATG = [
     { k:'the',      label:'Le grand jeu : l\u2019afternoon tea', icon:'fa-mug-hot',      color:'#8B1A3A' },
-    { k:'patis',    label:'P\u00e2tisserie europ\u00e9enne',     icon:'fa-bread-slice',  color:'#b45309' },
     { k:'cookie',   label:'Cookies & donuts',                    icon:'fa-cookie-bite',  color:'#C60C30' },
     { k:'glace',    label:'Glaces & gelato',                     icon:'fa-ice-cream',    color:'#0e7490' },
     { k:'cafe',     label:'Un caf\u00e9, assis',                 icon:'fa-mug-saucer',   color:'#059669' },
@@ -2583,28 +2639,7 @@ tailwind.config = {
       url:'https://www.thedrakehotel.com/dining/palm-court/', tel:'+13129324619',
       imgs:[DR+'NMG_6418-940x625.jpg'] },
 
-    /* ---------- patisserie europeenne ---------- */
-    { c:'patis', rk:1, n:'Hendrickx Belgian Bread Crafter',
-      a:'100 E Walton St, Gold Coast', w:'2 min \u00e0 pied du Sonesta',
-      badge:'Nomm\u00e9e meilleure boulangerie de Chicago par Time Out',
-      lo:{ t:'\u2248 1 h', v:'Blue Line \u2192 Clark/Lake, puis <b>Red Line</b> \u2192 <b>Chicago</b>, et 9 min \u00e0 pied. Franchement, \u00e0 garder pour les trois premiers jours depuis le Sonesta.', x:'Taxi / Uber 30 min &middot; 40-50 $' },
-      why:'Renaud Hendrickx est belge, il a \u00e9t\u00e9 chef p\u00e2tissier du Ritz-Carlton, et il fait treize croissants diff\u00e9rents dans une boutique minuscule \u00e0 cent m\u00e8tres de votre h\u00f4tel. C\u2019est l\u2019adresse la plus unanimement lou\u00e9e du quartier, et la seule o\u00f9 vous retrouverez un vrai feuilletage europ\u00e9en.',
-      order:'Un croissant aux amandes, ou celui au sp\u00e9culoos. Les macarons et le pain aux raisins font aussi consensus.',
-      note:'Ouvert du mardi au samedi de 8h \u00e0 16h, dimanche de 9h \u00e0 14h, FERM\u00c9 LE LUNDI. Tr\u00e8s petit local, quelques tables seulement, beaucoup de vente \u00e0 emporter. Votre fen\u00eatre : dimanche 6 avant 14h, ou mardi 8 au matin avant de changer d\u2019h\u00f4tel.',
-      dest:'Hendrickx Belgian Bread Crafter, 100 E Walton St, Chicago, IL',
-      url:'https://hendrickxbakery.com/', tel:'+13126496717',
-      imgs:[HX+'1537453876232-NJAY7JW2FUSDYSE07AG4/_DSC7445.jpg?format=750w', HX+'1537453931955-HM15XFAU3WCSJ4DDGO9W/_DSC7451.jpg?format=750w', HX+'1571686380448-IJ0IPUG46W504KQ7T8BG/IMG_9803.jpg?format=750w'] },
 
-    { c:'patis', rk:2, n:'Vanille Patisserie',
-      a:'131 N Clinton St, Chicago French Market', w:'35 min \u00e0 pied du Sonesta',
-      badge:'La maison fran\u00e7aise de r\u00e9f\u00e9rence \u00e0 Chicago depuis plus de vingt ans',
-      lo:{ t:'\u2248 45 min', v:'Blue Line \u2192 Clark/Lake, puis <b>Green ou Pink Line</b> \u2192 <b>Clinton</b>, un seul arr\u00eat, et le march\u00e9 couvert est juste l\u00e0. La plus facile d\u2019acc\u00e8s depuis le Loews.', x:'Taxi / Uber 25 min &middot; 35-45 $' },
-      why:'Une p\u00e2tisserie fran\u00e7aise install\u00e9e dans les halles du Chicago French Market. Macarons, \u00e9clairs, entremets et tartes au niveau de ce que vous connaissez \u00e0 Lyon, ce qui n\u2019est pas si courant ici. Le march\u00e9 autour vaut aussi le d\u00e9tour, avec fromagers, charcutiers et un tr\u00e8s bon caf\u00e9.',
-      order:'Les macarons \u00e0 l\u2019unit\u00e9, l\u2019\u00e9clair au chocolat, ou une tarte au citron.',
-      note:'Ouvert du mardi au vendredi de 7h \u00e0 19h, samedi de 9h30 \u00e0 16h, FERM\u00c9 DIMANCHE ET LUNDI. Le March\u00e9 est un vrai march\u00e9 couvert, donc parfait pour une pause \u00e0 l\u2019abri s\u2019il pleut. Un des rares go\u00fbters possibles en fin d\u2019apr\u00e8s-midi.',
-      dest:'Vanille Patisserie, 131 N Clinton St, Chicago, IL',
-      url:'https://vanillepatisserie.com/', tel:'',
-      imgs:['https://d1w7312wesee68.cloudfront.net/4wnPlyzN75VkLiFSN3Ju_eVcxuV8AdLIv5xh35TE4hI/ext:webp/quality:85/c:4027:1972:ce:317:393/plain/s3://toast-sites-resources-prod/restaurantImages/40097f3c-b4d4-48f0-8cbb-5a2f97d74c63/IsWMSX_w.jpeg'] },
 
     /* ---------- cookies & donuts ---------- */
     { c:'cookie', rk:1, n:'Levain Bakery \u00b7 River North',
@@ -2824,10 +2859,228 @@ tailwind.config = {
 })();
 </script>
 
+<!-- ============ PATISSERIES : donnees et fiches ============ -->
+<script>
+(function(){
+  var esc = (window.TRIP && window.TRIP.esc) || function(x){ return String(x); };
+  function gd(dest, mode){ return 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(dest) + '&travelmode=' + (mode || 'walking'); }
+  function gph(dest){ return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(dest); }
+
+  var CATP = [
+    { k:'us',    label:'Le registre Magnolia \u00b7 am\u00e9ricain', icon:'fa-cake-candles', color:'#C60C30' },
+    { k:'fr',    label:'Fran\u00e7ais',                            icon:'fa-wheat-awn',    color:'#1e40af' },
+    { k:'be',    label:'Belge',                                   icon:'fa-croissant',    color:'#b45309' },
+    { k:'it',    label:'Italien',                                 icon:'fa-mug-hot',      color:'#047857' }
+  ];
+
+  var SMB = 'https://sweetmandybs.com/wp-content/uploads/2020/01/';
+  var MG  = 'https://cdn.shopify.com/s/files/1/0565/9757/7916/';
+  var MC  = 'https://mollyscupcakes.com/wp-content/uploads/2024/08/';
+  var LF  = 'https://images.squarespace-cdn.com/content/v1/5f9a2252d4275d0c17010c4c/';
+  var DA  = 'https://damatoschicago.com/wp-content/uploads/';
+  var HX  = 'https://images.squarespace-cdn.com/content/v1/518415b1e4b0046126d3198c/';
+
+  var P = [
+
+    /* ---------- le registre Magnolia ---------- */
+    { c:'us', rk:1, n:'Sweet Mandy B\u2019s \u00b7 Streeterville',
+      a:'254 E Ontario St, Streeterville', w:'8 min \u00e0 pied du Sonesta',
+      badge:'C\u2019est votre Magnolia, et il est plus proche que l\u2019original',
+      lo:{ t:'\u2248 1 h', v:'Blue Line \u2192 Clark/Lake, puis <b>Red Line</b> \u2192 <b>Chicago</b>, et 11 min \u00e0 pied vers l\u2019est.', x:'Taxi / Uber 30 min &middot; 40-50 $' },
+      why:'Ouverte en 2002, cette maison se d\u00e9crit elle-m\u00eame comme une p\u00e2tisserie am\u00e9ricaine \u00e0 l\u2019ancienne, et c\u2019est exactement \u00e7a : vitrine en marbre, cupcakes align\u00e9s, layer cakes \u00e0 la cr\u00e8me au beurre, cookies mous, brownies, banana pudding. Si vous avez aim\u00e9 Magnolia \u00e0 New York, vous \u00eates chez vous ici, et c\u2019est la m\u00eame chose en mieux tenu.',
+      order:'Un cupcake au butter cream vanille, la r\u00e9f\u00e9rence de la maison, et une part de layer cake au chocolat \u00e0 partager. Les cookies sont vendus au poids.',
+      note:'Ouvert tous les jours de 9h \u00e0 18h, ce qui en fait l\u2019adresse la plus souple de toute la section. Deuxi\u00e8me boutique historique \u00e0 Lincoln Park, 1208 W Webster. On commande au comptoir, quelques tables seulement.',
+      dest:'Sweet Mandy B\u2019s, 254 E Ontario St, Chicago, IL',
+      url:'https://sweetmandybs.com/streeterville/', tel:'+13122551632',
+      imgs:[SMB+'streeterville_1.png', SMB+'cake-01.png'] },
+
+    { c:'us', rk:2, n:'Magnolia Bakery \u00b7 Loop',
+      a:'108 N State St, Block 37, Loop', w:'25 min \u00e0 pied du Sonesta',
+      badge:'Le vrai, celui de New York \u2014 avec une r\u00e9serve',
+      lo:{ t:'\u2248 45 min', v:'<b>Une seule ligne</b> : Blue Line \u2192 <b>Washington</b>, et la boutique est dans le centre commercial juste au-dessus. Z\u00e9ro changement, z\u00e9ro marche dehors.', x:'Taxi / Uber 30 min &middot; 40-50 $' },
+      why:'La maison que vous avez aim\u00e9e \u00e0 New York a bien une antenne \u00e0 Chicago, dans la galerie Block 37 en plein Loop. M\u00eame banana pudding, m\u00eames cupcakes, m\u00eame red velvet. L\u2019acc\u00e8s depuis le Loews est le plus simple de toute la s\u00e9lection : une seule ligne de m\u00e9tro et vous \u00eates dedans, \u00e0 l\u2019abri.',
+      order:'Le banana pudding en pot, leur signature absolue. Sinon un cupcake red velvet ou le Carrie, en clin d\u2019\u0153il \u00e0 Sex and the City.',
+      note:'Ouvert du dimanche au jeudi de 8h \u00e0 20h, plus tard le week-end. \u00c0 savoir avant d\u2019y aller : la boutique a \u00e9t\u00e9 ferm\u00e9e par les services d\u2019hygi\u00e8ne le 15 juillet 2026 apr\u00e8s la d\u00e9couverte de cafards vivants, et a r\u00e9ouvert six jours plus tard apr\u00e8s traitement. \u00c0 vous de voir.',
+      dest:'Magnolia Bakery, 108 N State St, Chicago, IL',
+      url:'https://www.magnoliabakery.com/', tel:'+13123467777',
+      imgs:[MG+'files/Group_Shot__43.jpg?v=1632996165', MG+'products/RVCreamCheese_2_1280x.jpg?v=1632988093'] },
+
+    { c:'us', rk:3, n:'Molly\u2019s Cupcakes \u00b7 Lincoln Park',
+      a:'2536 N Clark St, Lincoln Park', w:'Pas \u00e0 pied \u00b7 Red Line jusqu\u2019\u00e0 Fullerton',
+      badge:'4,6 sur 5, sur plus de 330 avis',
+      lo:{ t:'\u2248 1 h 05', v:'Blue Line \u2192 Clark/Lake, puis <b>Red ou Brown Line</b> \u2192 <b>Fullerton</b>, et 12 min \u00e0 pied vers le nord.', x:'Taxi / Uber 25 min &middot; 40-50 $' },
+      why:'Une institution de quartier, class\u00e9e parmi les dix meilleures boutiques \u00e0 cupcakes du pays, avec des cupcakes fourr\u00e9s au c\u0153ur et une barre \u00e0 garnitures o\u00f9 l\u2019on compl\u00e8te soi-m\u00eame. Il y a m\u00eame des balan\u00e7oires \u00e0 la place des chaises au comptoir. C\u2019est le plus joueur des trois am\u00e9ricains, et le plus \u00e9loign\u00e9.',
+      order:'Le Cr\u00e8me Br\u00fbl\u00e9e, fourr\u00e9 \u00e0 la cr\u00e8me p\u00e2tissi\u00e8re avec le sucre caram\u00e9lis\u00e9 au chalumeau devant vous. Le Ba-Ba-Bacon pour les curieux.',
+      note:'\u00c0 combiner avec Lincoln Park et le zoo, qui est gratuit et \u00e0 dix minutes. Pequod\u2019s, la pizza de la s\u00e9lection restaurants, est dans le m\u00eame quartier : \u00e7a fait une vraie demi-journ\u00e9e coh\u00e9rente.',
+      dest:'Molly\u2019s Cupcakes, 2536 N Clark St, Chicago, IL',
+      url:'https://mollyscupcakes.com/', tel:'+17738837220',
+      imgs:[MC+'chicago-big.webp', MC+'cremebrulee.webp'] },
+
+    /* ---------- francais ---------- */
+    { c:'fr', rk:1, n:'Vanille Patisserie',
+      a:'131 N Clinton St, Chicago French Market', w:'35 min \u00e0 pied du Sonesta',
+      badge:'La maison fran\u00e7aise de r\u00e9f\u00e9rence \u00e0 Chicago depuis plus de vingt ans',
+      lo:{ t:'\u2248 45 min', v:'Blue Line \u2192 Clark/Lake, puis <b>Green ou Pink Line</b> \u2192 <b>Clinton</b>, un seul arr\u00eat, et le march\u00e9 couvert est juste l\u00e0.', x:'Taxi / Uber 25 min &middot; 35-45 $' },
+      why:'Install\u00e9e dans les halles du Chicago French Market, c\u2019est la seule adresse de la ville o\u00f9 vous retrouverez vraiment le niveau d\u2019une bonne p\u00e2tisserie lyonnaise : macarons, \u00e9clairs, entremets, tartes. Le march\u00e9 autour ajoute fromagers, charcutiers et un tr\u00e8s bon caf\u00e9, donc on y passe facilement une heure.',
+      order:'Les macarons \u00e0 l\u2019unit\u00e9, l\u2019\u00e9clair au chocolat, ou une tarte au citron.',
+      note:'Ouvert du mardi au vendredi de 7h \u00e0 19h, samedi de 9h30 \u00e0 16h, FERM\u00c9 DIMANCHE ET LUNDI. Le seul de la s\u00e9lection ouvert jusqu\u2019\u00e0 19h, donc le seul qui fonctionne vraiment comme un go\u00fbter. March\u00e9 couvert, parfait s\u2019il pleut.',
+      dest:'Vanille Patisserie, 131 N Clinton St, Chicago, IL',
+      url:'https://vanillepatisserie.com/', tel:'',
+      imgs:['https://d1w7312wesee68.cloudfront.net/4wnPlyzN75VkLiFSN3Ju_eVcxuV8AdLIv5xh35TE4hI/ext:webp/quality:85/c:4027:1972:ce:317:393/plain/s3://toast-sites-resources-prod/restaurantImages/40097f3c-b4d4-48f0-8cbb-5a2f97d74c63/IsWMSX_w.jpeg'] },
+
+    { c:'fr', rk:2, n:'La Fournette \u00b7 Old Town',
+      a:'1547 N Wells St, Old Town', w:'30 min \u00e0 pied du Sonesta',
+      badge:'Boulangerie fran\u00e7aise \u00e0 l\u2019ancienne, plus de 650 avis',
+      lo:{ t:'\u2248 1 h', v:'Blue Line \u2192 Clark/Lake, puis <b>Brown ou Purple Line</b> \u2192 <b>Sedgwick</b>, et 6 min \u00e0 pied.', x:'Taxi / Uber 25 min &middot; 35-45 $' },
+      why:'Un vrai four fran\u00e7ais tenu par un Alsacien, dans une rue d\u2019Old Town qui ressemble \u00e0 un village. Baguettes, croissants, pains au chocolat, macarons et madeleines, tout au beurre et fait sur place. C\u2019est l\u2019adresse la plus proche de ce que vous connaissez, mais elle ferme t\u00f4t.',
+      order:'Un croissant ou un pain au chocolat, une madeleine, et un caf\u00e9 en terrasse. Les quiches sont excellentes si la faim se r\u00e9veille.',
+      note:'Ouvert tous les jours de 7h \u00e0 14h. C\u2019est une adresse de matin\u00e9e, pas de go\u00fbter : ne partez pas \u00e0 16h. \u00c0 combiner avec une balade dans Old Town et Wells Street, l\u2019un des plus jolis quartiers de la ville.',
+      dest:'La Fournette, 1547 N Wells St, Chicago, IL',
+      url:'https://www.lafournette.com/', tel:'+13126249430',
+      imgs:[LF+'1603941726248-8V1GP8N2O9X97P5W53NH/image-asset.jpeg', LF+'1603941754873-F4I20PWGMN4WOTJFZ4KC/image-asset.jpeg', LF+'1603941811482-Z503TCTCUZEWSTCYEQES/image-asset.jpeg'] },
+
+    /* ---------- belge ---------- */
+    { c:'be', rk:1, n:'Hendrickx Belgian Bread Crafter',
+      a:'100 E Walton St, Gold Coast', w:'2 min \u00e0 pied du Sonesta',
+      badge:'Nomm\u00e9e meilleure boulangerie de Chicago par Time Out',
+      lo:{ t:'\u2248 1 h', v:'Blue Line \u2192 Clark/Lake, puis <b>Red Line</b> \u2192 <b>Chicago</b>, et 9 min \u00e0 pied. Honn\u00eatement, \u00e0 garder pour les trois premiers jours depuis le Sonesta.', x:'Taxi / Uber 30 min &middot; 40-50 $' },
+      why:'Renaud Hendrickx est belge, il a \u00e9t\u00e9 chef p\u00e2tissier du Ritz-Carlton, et il fait treize croissants diff\u00e9rents dans une boutique minuscule \u00e0 cent m\u00e8tres de votre h\u00f4tel. C\u2019est l\u2019adresse la plus unanimement lou\u00e9e du quartier, et le seul endroit o\u00f9 le feuilletage est irr\u00e9prochable.',
+      order:'Un croissant aux amandes, ou celui au sp\u00e9culoos qui est une signature tr\u00e8s belge. Les macarons et le pain aux raisins font aussi consensus.',
+      note:'Ouvert du mardi au samedi de 8h \u00e0 16h, dimanche de 9h \u00e0 14h, FERM\u00c9 LE LUNDI. Tr\u00e8s petit local, deux ou trois tables. Votre fen\u00eatre : dimanche 6 avant 14h, ou mardi 8 au matin avant de changer d\u2019h\u00f4tel.',
+      dest:'Hendrickx Belgian Bread Crafter, 100 E Walton St, Chicago, IL',
+      url:'https://hendrickxbakery.com/', tel:'+13126496717',
+      imgs:[HX+'1537453876232-NJAY7JW2FUSDYSE07AG4/_DSC7445.jpg?format=750w', HX+'1537453931955-HM15XFAU3WCSJ4DDGO9W/_DSC7451.jpg?format=750w', HX+'1571686380448-IJ0IPUG46W504KQ7T8BG/IMG_9803.jpg?format=750w'] },
+
+    /* ---------- italien ---------- */
+    { c:'it', rk:1, n:'D\u2019Amato\u2019s Bakery',
+      a:'1124 W Grand Ave, West Town', w:'Pas \u00e0 pied \u00b7 Blue Line jusqu\u2019\u00e0 Grand',
+      badge:'M\u00eame famille depuis 1970, four \u00e0 charbon de 1912',
+      lo:{ t:'\u2248 50 min', v:'<b>Une seule ligne</b> : Blue Line \u2192 <b>Grand</b> (Grand/Milwaukee), puis 12 min \u00e0 pied vers l\u2019ouest sur Grand Ave. Z\u00e9ro changement.', x:'Taxi / Uber 25 min &middot; 35-45 $' },
+      why:'Les fr\u00e8res D\u2019Amato sont arriv\u00e9s de Sicile en 1961 et cuisent toujours dans le four \u00e0 charbon d\u2019origine, install\u00e9 en 1912. C\u2019est la boulangerie italienne authentique de Chicago, celle o\u00f9 les Chicagoans vont chercher leur pain le dimanche. Cannoli remplis \u00e0 la commande, sfogliatelle, biscuits aux amandes.',
+      order:'Deux cannoli remplis devant vous, et une part de cannoli cake si vous partagez. Le pain au romarin sorti du four \u00e0 charbon vaut aussi le d\u00e9tour.',
+      note:'Ouvert du lundi au vendredi de 7h \u00e0 19h, samedi de 7h \u00e0 18h, dimanche de 8h \u00e0 17h. Ouvert sept jours sur sept et tard, ce qui est rare : c\u2019est le plus fiable de la section c\u00f4t\u00e9 horaires. Paiement en esp\u00e8ces appr\u00e9ci\u00e9.',
+      dest:'D\u2019Amato\u2019s Bakery, 1124 W Grand Ave, Chicago, IL',
+      url:'https://damatoschicago.com/', tel:'+13127335456',
+      imgs:[DA+'2017/10/damatos-bakery-twocanolis.jpg', DA+'2017/03/damatos-bakery-sweets1.jpg', DA+'2017/03/damatos-bakery-cannolicake.jpg'] }
+  ];
+
+  var PH_P = '<div class="h-36 flex items-center justify-center" style="background:linear-gradient(135deg,#C60C30 0%,#b45309 100%)">' +
+        '<div class="text-center"><i class="fa-solid fa-camera-retro text-white/40 text-2xl"></i>' +
+        '<p class="text-white/60 text-[.6rem] uppercase tracking-widest mt-2">Photos sur Google Maps</p></div></div>';
+
+  function stripP(r){
+    if (!r.imgs || !r.imgs.length) return PH_P;
+    var cols = r.imgs.length === 1 ? 'grid-cols-1' : (r.imgs.length === 2 ? 'grid-cols-2' : 'grid-cols-3');
+    return '<div class="patis-strip grid ' + cols + ' gap-px h-36 bg-slate-200" data-tot="' + r.imgs.length + '" data-ko="0">' +
+      r.imgs.map(function(u){
+        return '<a href="' + u + '" target="_blank" rel="noopener" class="block overflow-hidden bg-chicago-dark">' +
+               '<img src="' + u + '" alt="' + esc(r.n) + '" loading="lazy" decoding="async" ' +
+               'class="w-full h-full object-cover hover:scale-105 transition duration-500" ' +
+               'onerror="window.__patisImgKO&&window.__patisImgKO(this)"></a>';
+      }).join('') + '</div>';
+  }
+
+  window.__patisImgKO = function(img){
+    var a = img.parentNode; if (!a) return;
+    var box = a.parentNode; if (!box) return;
+    a.style.display = 'none';
+    var ko = (parseInt(box.getAttribute('data-ko'), 10) || 0) + 1;
+    var tot = parseInt(box.getAttribute('data-tot'), 10) || 1;
+    box.setAttribute('data-ko', ko);
+    if (ko >= tot) { box.outerHTML = PH_P; return; }
+    var left = tot - ko;
+    box.className = 'patis-strip grid ' + (left === 1 ? 'grid-cols-1' : (left === 2 ? 'grid-cols-2' : 'grid-cols-3')) + ' gap-px h-36 bg-slate-200';
+  };
+
+  function loewsP(r){
+    if (!r.lo) return '';
+    var walkOnly = !/Line/.test(r.lo.v);
+    return '<div class="mt-2.5 rounded-lg border p-2.5 ' + (walkOnly ? 'border-emerald-200 bg-emerald-50' : 'border-indigo-200 bg-indigo-50') + '">' +
+      '<div class="flex items-center gap-1.5">' +
+        '<i class="fa-solid ' + (walkOnly ? 'fa-person-walking text-emerald-700' : 'fa-train-subway text-indigo-700') + ' text-[.7rem]"></i>' +
+        '<span class="text-[.55rem] font-bold uppercase tracking-[.12em] ' + (walkOnly ? 'text-emerald-700' : 'text-indigo-700') + '">Depuis le Loews</span>' +
+        '<span class="ml-auto text-[.7rem] font-bold ' + (walkOnly ? 'text-emerald-800' : 'text-indigo-800') + '">' + esc(r.lo.t) + '</span>' +
+      '</div>' +
+      '<p class="text-[.68rem] leading-snug text-slate-600 mt-1.5">' + r.lo.v + '</p>' +
+      (r.lo.x ? '<p class="text-[.62rem] text-slate-400 mt-1"><i class="fa-solid fa-taxi mr-1"></i>' + r.lo.x + '</p>' : '') +
+    '</div>';
+  }
+
+  function cardP(r){
+    var c = CATP.filter(function(x){ return x.k === r.c; })[0] || CATP[0];
+    var btn = function(href, icon, label, primary, title){
+      return '<a href="' + href + '" target="_blank" rel="noopener"' + (title ? ' title="' + title + '"' : '') +
+        ' class="inline-flex items-center px-3 py-2 rounded-lg text-[.66rem] font-bold uppercase tracking-wider transition ' +
+        (primary ? 'bg-chicago-dark text-white hover:bg-chicago-blue' : 'border-2 border-slate-200 text-chicago-dark hover:border-chicago-dark') +
+        '"><i class="fa-solid ' + icon + (label ? ' mr-2' : '') + '"></i>' + (label || '') + '</a>';
+    };
+    return '' +
+    '<div class="patis-card bg-white rounded-2xl overflow-hidden border-2 border-slate-200 flex flex-col" data-c="' + r.c + '">' +
+      stripP(r) +
+      '<div class="p-5 flex flex-col flex-1">' +
+        '<div class="flex items-start gap-2 mb-1">' +
+          '<span class="shrink-0 w-7 h-7 rounded-lg flex items-center justify-center text-white text-[.7rem] font-bold" style="background:' + c.color + '">' + r.rk + '</span>' +
+          '<div class="min-w-0 flex-1">' +
+            '<p class="text-[.55rem] font-bold uppercase tracking-[.14em] text-slate-400">' + esc(c.label) + '</p>' +
+            '<h4 class="font-serif font-bold text-lg text-chicago-dark leading-tight">' + esc(r.n) + '</h4>' +
+          '</div>' +
+        '</div>' +
+        '<p class="text-[.68rem] font-bold text-white rounded-md px-2 py-1 mt-2 inline-block" style="background:' + c.color + '"><i class="fa-solid fa-star mr-1.5 text-[.6rem]"></i>' + esc(r.badge) + '</p>' +
+        '<p class="text-xs text-slate-500 mt-2.5"><i class="fa-solid fa-location-dot mr-1.5 opacity-60"></i>' + esc(r.a) + '</p>' +
+        '<p class="text-xs font-semibold text-chicago-blue mt-1"><i class="fa-solid fa-person-walking mr-1.5"></i>' + esc(r.w) + '</p>' +
+        loewsP(r) +
+        '<p class="text-sm text-slate-600 leading-relaxed mt-3">' + esc(r.why) + '</p>' +
+        '<p class="text-xs text-slate-700 mt-3 rounded-lg bg-chicago-sand p-3"><strong>\u00c0 commander&nbsp;:</strong> ' + esc(r.order) + '</p>' +
+        '<p class="text-xs text-slate-500 mt-3 flex-1"><i class="fa-solid fa-circle-info mr-1.5 opacity-60"></i>' + esc(r.note) + '</p>' +
+        '<div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-slate-100">' +
+          btn(gd(r.dest, r.mode || 'walking'), 'fa-diamond-turn-right', 'Itin\u00e9raire', true) +
+          btn(gph(r.dest), 'fa-images', 'Photos', false, 'Voir toutes les photos sur Google Maps') +
+          (r.url ? btn(r.url, 'fa-arrow-up-right-from-square', '', false, 'Site officiel') : '') +
+          (r.tel ? '<a href="tel:' + r.tel + '" class="inline-flex items-center px-3 py-2 rounded-lg text-[.66rem] font-bold uppercase tracking-wider border-2 border-slate-200 text-chicago-dark hover:border-chicago-dark transition" title="Appeler"><i class="fa-solid fa-phone"></i></a>' : '') +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  var gridP = document.getElementById('patisGrid');
+  var chipsP = document.getElementById('patisChips');
+  if (gridP && chipsP) {
+    var sortedP = [];
+    CATP.forEach(function(c){
+      P.filter(function(r){ return r.c === c.k; })
+       .sort(function(a,b){ return a.rk - b.rk; })
+       .forEach(function(r){ sortedP.push(r); });
+    });
+    gridP.innerHTML = sortedP.map(cardP).join('');
+
+    var h = '<button type="button" class="pchip on px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-chicago-dark text-white" data-f="all">Les ' + P.length + ' p\u00e2tisseries</button>';
+    CATP.forEach(function(c){
+      var k = P.filter(function(r){ return r.c === c.k; }).length;
+      if (!k) return;
+      h += '<button type="button" class="pchip px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-slate-600 border border-slate-200 hover:border-chicago-dark" data-f="' + c.k + '"><i class="fa-solid ' + c.icon + ' mr-1.5" style="color:' + c.color + '"></i>' + c.label + ' \u00b7 ' + k + '</button>';
+    });
+    chipsP.innerHTML = h;
+
+    chipsP.addEventListener('click', function(e){
+      if (!e.target || !e.target.closest) return;
+      var b = e.target.closest('.pchip'); if (!b) return;
+      chipsP.querySelectorAll('.pchip').forEach(function(x){
+        x.className = 'pchip px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-slate-600 border border-slate-200 hover:border-chicago-dark';
+      });
+      b.className = 'pchip on px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-chicago-dark text-white';
+      var f = b.getAttribute('data-f');
+      gridP.querySelectorAll('[data-c]').forEach(function(cd){
+        cd.style.display = (f === 'all' || cd.getAttribute('data-c') === f) ? '' : 'none';
+      });
+    });
+  }
+})();
+</script>
+
 <!-- ============ MODE APPLICATION : onglets, ecran du jour, lieux, PWA ============ -->
 <script>
 (function(){
-  var V = '2026-08-30c';
+  var V = '2026-08-30d';
   var T = window.TRIP || {};
   var DAYS = T.DAYS || [], EV = T.EV || [], CATS = T.CATS || [];
   var esc = T.esc || function(x){ return String(x); };
