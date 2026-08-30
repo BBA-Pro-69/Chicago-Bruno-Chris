@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Chicago 26">
-<link rel="manifest" href="./manifest.webmanifest?v=2026-08-31a">
+<link rel="manifest" href="./manifest.webmanifest?v=2026-08-31b">
 <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon-180.png?v=2026-08-29a">
 <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon-192.png?v=2026-08-29a">
 <title>Chicago City Trip · Septembre 2026 · Bruno &amp; Christophe</title>
@@ -295,6 +295,15 @@ tailwind.config = {
 
   @media (prefers-reduced-motion: reduce){
     .reveal{opacity:1;transform:none;transition:none}
+    .kicker-line{width:60px;transition:none}
+  }
+
+  /* Telephone et tablette : aucune revelation au defilement.
+     Les onglets masquent les sections, l'observateur ne pouvait pas voir
+     les elements caches et le contenu naissait invisible. Sur petit ecran
+     l'effet n'apporte rien et coute cher : on l'enleve. */
+  @media (max-width: 1023px){
+    .reveal{opacity:1!important;transform:none!important;transition:none!important}
     .kicker-line{width:60px;transition:none}
   }
 
@@ -2260,16 +2269,43 @@ tailwind.config = {
   });
 
   /* ---- Révélation progressive au défilement ---- */
-  var io = new IntersectionObserver(function(entries){
+  /* Desactive sous 1024 px (mode application), si l'utilisateur refuse les
+     animations, ou si le navigateur ne sait pas observer. */
+  var REVEAL_OFF = !('IntersectionObserver' in window) ||
+    window.matchMedia('(max-width: 1023px)').matches ||
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* seuil 0 et non 0.12 : un conteneur plus haut que l'ecran ne peut jamais
+     atteindre un pourcentage de visibilite, il resterait invisible a vie. */
+  var io = REVEAL_OFF ? null : new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
 
   function mark(el, delay){
-    if (!el || el.nodeType !== 1 || el.classList.contains('reveal')) return;
+    if (REVEAL_OFF || !el || el.nodeType !== 1 || el.classList.contains('reveal')) return;
+    /* Conteneur encore vide : il sera rempli plus tard par un autre script.
+       L'animer ici ferait naitre tout son contenu invisible. */
+    if (!el.children.length && !el.textContent.trim()) return;
     el.classList.add('reveal');
     if (delay) el.style.transitionDelay = delay + 's';
     io.observe(el);
   }
+
+  /* Filet de securite : rend visible tout ce qui n'a pas ete revele. */
+  window.CX_REVEAL_ALL = function(scope){
+    (scope || document).querySelectorAll('.reveal:not(.in)').forEach(function(el){
+      el.classList.add('in');
+    });
+  };
+  /* Au bout de 3 s, tout ce qui touche l'ecran et n'est pas apparu devient
+     visible de force. On ne touche pas au reste : l'effet garde son sens
+     plus bas dans la page. */
+  setTimeout(function(){
+    document.querySelectorAll('.reveal:not(.in)').forEach(function(el){
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('in');
+    });
+  }, 3000);
   function isList(el){
     return el.children.length > 1 &&
       (el.classList.contains('grid') || el.classList.contains('space-y-4') ||
@@ -3665,7 +3701,7 @@ tailwind.config = {
 <!-- ============ MODE APPLICATION : onglets, ecran du jour, lieux, PWA ============ -->
 <script>
 (function(){
-  var V = '2026-08-31a';
+  var V = '2026-08-31b';
   var T = window.TRIP || {};
   var DAYS = T.DAYS || [], EV = T.EV || [], CATS = T.CATS || [];
   var esc = T.esc || function(x){ return String(x); };
@@ -3929,6 +3965,7 @@ tailwind.config = {
       var el = document.getElementById(t.getAttribute('data-goto'));
       t.classList.toggle('on', !!el && hostTab(el) === tab);
     });
+    if (window.CX_REVEAL_ALL) window.CX_REVEAL_ALL();
     if (tab === 'agenda' && !agendaReady) {
       agendaReady = true;
       var sc = document.getElementById('agScroll');

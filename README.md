@@ -58,11 +58,11 @@ Plus un écran `#today` visible uniquement en mode application.
 La version du cache doit être incrémentée **aux trois endroits** suivants,
 sinon les téléphones déjà installés continueront de servir l'ancienne page :
 
-1. `sw.js`, ligne 9 : `const VERSION = '2026-08-31a';`
-2. `index.html`, ligne 13 : `manifest.webmanifest?v=2026-08-31a`
-3. `index.html`, script « mode application » : `var V = '2026-08-31a';`
+1. `sw.js`, ligne 9 : `const VERSION = '2026-08-31b';`
+2. `index.html`, ligne 13 : `manifest.webmanifest?v=2026-08-31b`
+3. `index.html`, script « mode application » : `var V = '2026-08-31b';`
 
-Version actuelle : **2026-08-31a**
+Version actuelle : **2026-08-31b**
 
 ## Navigation (refonte du 31 aout 2026)
 
@@ -116,3 +116,31 @@ de la barre de navigation et l'essentiel du padding pour caler le titre en haut 
 Le bandeau d'installation vit desormais **juste sous la navigation**, en flux normal
 (plus de bandeau flottant). Il est supprime du DOM des que l'application est installee,
 en meme temps que tous les elements `.js-install`.
+
+## Revelation au defilement : correctif du 31 aout 2026
+
+Symptome : dans l'agenda (vue liste), dans Localisation et dans Ou manger, aucune
+fiche ne s'affichait. Il fallait cliquer sur un filtre pour que le contenu apparaisse.
+
+Trois causes cumulees :
+
+1. **Seuil impossible a atteindre.** L'observateur exigeait `threshold: 0.12`,
+   soit 12 % de la hauteur de l'element visible a l'ecran. Les grilles de fiches
+   mesurent plusieurs milliers de pixels : 12 % depassait la hauteur de l'ecran,
+   donc le seuil ne pouvait jamais etre atteint et l'element restait a
+   `opacity: 0` indefiniment. Corrige en `threshold: 0`.
+2. **Conteneurs vides animes.** `#agList`, `#agDetail`, `#restoGrid`, `#gouterGrid`,
+   `#patisGrid` et `#placeGrid` sont remplis par des scripts qui s'executent APRES
+   la mise en place de l'animation. Ils etaient donc vides, traites comme un bloc
+   unique a reveler, et leur contenu naissait invisible. `mark()` ignore desormais
+   tout element vide au moment du marquage.
+3. **Sections masquees par les onglets.** En mode application, l'observateur ne
+   peut rien voir dans un onglet en `display:none`. L'effet est donc entierement
+   desactive sous 1024 px, via une regle CSS `@media (max-width: 1023px)`.
+
+Filets de securite ajoutes : `window.CX_REVEAL_ALL(scope)` force l'affichage,
+appele a chaque changement d'onglet ; et au bout de 3 s tout element `.reveal`
+qui touche l'ecran sans etre apparu est rendu visible de force.
+
+Regle a retenir pour la suite : **ne jamais poser `.reveal` sur un conteneur
+qui sera rempli par un script.**
