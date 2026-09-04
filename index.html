@@ -1141,7 +1141,7 @@ tailwind.config = {
               <li><strong>Notre greeter :</strong> Jeff DeToro &mdash; portable <a href="tel:+17738051115" class="text-chicago-blue hover:underline">+1 773 805 1115</a> (WhatsApp possible le jour J), joignable par mail avant le lundi 7</li>
               <li><strong>Groupe confirm&eacute; :</strong> <strong>visite priv&eacute;e &agrave; 5</strong> &mdash; Bruno, N&eacute;vine, Christophe, Laure et Jeff. Aucun autre participant, Jeff l&rsquo;a confirm&eacute; par &eacute;crit. Christophe est en copie de tous les &eacute;changes.</li>
               <li><strong>Langue :</strong> visite <strong>en anglais</strong>. Jeff parle un peu fran&ccedil;ais (&laquo;&nbsp;<em>enough to be a little dangerous</em>&nbsp;&raquo;) et a accept&eacute; de <strong>basculer en fran&ccedil;ais ponctuellement</strong> pour lever une ambigu&iuml;t&eacute; ou pr&eacute;ciser une nuance.</li>
-              <li><strong>Bureau Chicago Greeter :</strong> <a href="/cdn-cgi/l/email-protection#9dfaeff8f8e9f8eff9ffddfef5f2f2eef8fef5f4fefcfaf2b3fef2f0" class="text-chicago-blue hover:underline"><span class="__cf_email__" data-cfemail="3354415656475641575173505b5c5c4056505b5a5052545c1d505c5e">[email&#160;protected]</span></a> &mdash; &agrave; n&rsquo;utiliser qu&rsquo;en dernier recours&nbsp;: passer par Jeff.</li>
+              <li><strong>Bureau Chicago Greeter :</strong> <a href="/cdn-cgi/l/email-protection#1a7d687f7f6e7f687e785a79727575697f797273797b7d7534797577" class="text-chicago-blue hover:underline"><span class="__cf_email__" data-cfemail="6502170000110017010725060d0a0a1600060d0c0604020a4b060a08">[email&#160;protected]</span></a> &mdash; &agrave; n&rsquo;utiliser qu&rsquo;en dernier recours&nbsp;: passer par Jeff.</li>
             </ul>
           </div>
 
@@ -1402,7 +1402,7 @@ tailwind.config = {
       </div>
       <div class="bg-chicago-sand rounded-2xl p-5">
         <p class="text-xs uppercase tracking-wider text-slate-500 font-bold mb-1">Contact</p>
-        <a href="/cdn-cgi/l/email-protection#9bfefafaf8f4f5fdfee9fef5f8fedbfee8f0fee9b5f8f4f6" class="font-bold text-chicago-dark hover:text-chicago-red break-all text-sm"><span class="__cf_email__" data-cfemail="3f5a5e5e5c5051595a4d5a515c5a7f5a4c545a4d115c5052">[email&#160;protected]</span></a>
+        <a href="/cdn-cgi/l/email-protection#60050101030f0e060512050e03052005130b05124e030f0d" class="font-bold text-chicago-dark hover:text-chicago-red break-all text-sm"><span class="__cf_email__" data-cfemail="52373333313d3c343720373c31371237213937207c313d3f">[email&#160;protected]</span></a>
         <p class="text-xs text-slate-500 mt-1">Commande du 29 juillet 2026</p>
       </div>
     </div>
@@ -3853,7 +3853,7 @@ tailwind.config = {
       '<div class="rounded-xl border-2 ' + ring + ' p-3.5 mb-2.5">' +
         '<div class="flex items-center gap-2 mb-1">' +
           '<span class="w-2 h-2 rounded-full shrink-0" style="background:' + c.color + '"></span>' +
-          '<span class="text-[.7rem] font-bold tabular-nums ' + (state ? 'text-chicago-dark' : 'text-chicago-blue') + '">' + e.s + ' → ' + e.e + '</span>' +
+          '<span class="text-[.7rem] font-bold tabular-nums ' + (state ? 'text-chicago-dark' : 'text-chicago-blue') + '">' + (e.allday ? 'Toute la journée' : (e.s + ' → ' + e.e)) + '</span>' +
           badge +
           (e.star ? '<i class="fa-solid fa-star text-amber-400 text-[.6rem] ml-auto"></i>' : '') +
         '</div>' +
@@ -3869,7 +3869,8 @@ tailwind.config = {
     if (live >= 0 && dayIdx === -1) dayIdx = live;
     var d = DAYS[dayIdx] || DAYS[0];
     var isLive = (live === dayIdx);
-    var list = EV.filter(function(e){ return e.d === d.k; }).sort(function(a,b){ return a.s < b.s ? -1 : 1; });
+    var allDay = EV.filter(function(e){ return e.d === d.k && e.allday; });
+    var list = EV.filter(function(e){ return e.d === d.k && !e.allday && e.s && e.e; }).sort(function(a,b){ return a.s < b.s ? -1 : 1; });
 
     var head = '';
     if (live < 0) {
@@ -3895,10 +3896,10 @@ tailwind.config = {
       '<button type="button" id="dNext" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center" ' + (dayIdx === DAYS.length-1 ? 'disabled style="opacity:.3"' : '') + '><i class="fa-solid fa-chevron-right"></i></button>' +
     '</div>';
 
-    var body = '';
-    if (!list.length) {
-      body = '<p class="text-sm text-slate-400 text-center py-8">Aucun rendez-vous ce jour-là. Journée libre.</p>';
-    } else {
+    var body = allDay.map(function(e){ return evCard(e, null); }).join('');
+    if (!list.length && !allDay.length) {
+      body += '<p class="text-sm text-slate-400 text-center py-8">Aucun rendez-vous ce jour-là. Journée libre.</p>';
+    } else if (list.length) {
       var nm = nowMinutes(), nextFound = false;
       list.forEach(function(e){
         var st = null;
