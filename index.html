@@ -123,6 +123,12 @@ tailwind.config = {
   body.appmode section[data-tab],body.appmode footer[data-tab]{padding-top:1.9rem;padding-bottom:2.5rem}
   body.appmode .sep{display:none}
 
+  /* Filet de sécurité : la barre reste visible sur mobile même si le JS
+     principal est retardé par le réseau ou le cache du navigateur. */
+  @media (max-width:1023px){
+    #appnav{display:block}
+  }
+
   /* ============ MENUS DEROULANTS (ordinateur) ============ */
   .dd{position:relative}
   .dd-btn{display:inline-flex;align-items:center;gap:.35rem;background:none;border:0;cursor:pointer;
@@ -419,6 +425,17 @@ tailwind.config = {
 </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-chicago-red selection:text-white">
+<script>
+/* Initialisation immédiate du mode application mobile.
+   Le script principal reprend ensuite la gestion des onglets et du menu. */
+(function(){
+  try {
+    if (window.matchMedia && window.matchMedia('(max-width: 1023px)').matches) {
+      document.body.classList.add('appmode');
+    }
+  } catch (e) {}
+})();
+</script>
 
 <!-- Bandeau d'avertissement local (affiché uniquement si le fichier est ouvert en file:///) -->
 <div id="localWarn" class="hidden bg-amber-400 text-chicago-dark text-sm px-4 py-3 text-center font-medium">
@@ -1124,7 +1141,7 @@ tailwind.config = {
               <li><strong>Notre greeter :</strong> Jeff DeToro &mdash; portable <a href="tel:+17738051115" class="text-chicago-blue hover:underline">+1 773 805 1115</a> (WhatsApp possible le jour J), joignable par mail avant le lundi 7</li>
               <li><strong>Groupe confirm&eacute; :</strong> <strong>visite priv&eacute;e &agrave; 5</strong> &mdash; Bruno, N&eacute;vine, Christophe, Laure et Jeff. Aucun autre participant, Jeff l&rsquo;a confirm&eacute; par &eacute;crit. Christophe est en copie de tous les &eacute;changes.</li>
               <li><strong>Langue :</strong> visite <strong>en anglais</strong>. Jeff parle un peu fran&ccedil;ais (&laquo;&nbsp;<em>enough to be a little dangerous</em>&nbsp;&raquo;) et a accept&eacute; de <strong>basculer en fran&ccedil;ais ponctuellement</strong> pour lever une ambigu&iuml;t&eacute; ou pr&eacute;ciser une nuance.</li>
-              <li><strong>Bureau Chicago Greeter :</strong> <a href="mailto:greeterdb@choosechicago.com" class="text-chicago-blue hover:underline">greeterdb@choosechicago.com</a> &mdash; &agrave; n&rsquo;utiliser qu&rsquo;en dernier recours&nbsp;: passer par Jeff.</li>
+              <li><strong>Bureau Chicago Greeter :</strong> <a href="/cdn-cgi/l/email-protection#9dfaeff8f8e9f8eff9ffddfef5f2f2eef8fef5f4fefcfaf2b3fef2f0" class="text-chicago-blue hover:underline"><span class="__cf_email__" data-cfemail="3354415656475641575173505b5c5c4056505b5a5052545c1d505c5e">[email&#160;protected]</span></a> &mdash; &agrave; n&rsquo;utiliser qu&rsquo;en dernier recours&nbsp;: passer par Jeff.</li>
             </ul>
           </div>
 
@@ -1385,7 +1402,7 @@ tailwind.config = {
       </div>
       <div class="bg-chicago-sand rounded-2xl p-5">
         <p class="text-xs uppercase tracking-wider text-slate-500 font-bold mb-1">Contact</p>
-        <a href="mailto:eaaconference@esker.com" class="font-bold text-chicago-dark hover:text-chicago-red break-all text-sm">eaaconference@esker.com</a>
+        <a href="/cdn-cgi/l/email-protection#9bfefafaf8f4f5fdfee9fef5f8fedbfee8f0fee9b5f8f4f6" class="font-bold text-chicago-dark hover:text-chicago-red break-all text-sm"><span class="__cf_email__" data-cfemail="3f5a5e5e5c5051595a4d5a515c5a7f5a4c545a4d115c5052">[email&#160;protected]</span></a>
         <p class="text-xs text-slate-500 mt-1">Commande du 29 juillet 2026</p>
       </div>
     </div>
@@ -2179,7 +2196,7 @@ tailwind.config = {
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function(){
   // Menu mobile
   var btn = document.getElementById('navToggle'),
@@ -4219,7 +4236,7 @@ tailwind.config = {
   }
 
   /* Le rappel se met en veille 7 jours, il ne disparait plus definitivement. */
-  var HKEY = 'cx-install-hint-v2';
+  var HKEY = 'cx-install-hint-v3';
   function snoozed(){
     try {
       var v = localStorage.getItem(HKEY);
