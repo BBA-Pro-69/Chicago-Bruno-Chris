@@ -425,17 +425,6 @@ tailwind.config = {
 </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-chicago-red selection:text-white">
-<script>
-/* Initialisation immédiate du mode application mobile.
-   Le script principal reprend ensuite la gestion des onglets et du menu. */
-(function(){
-  try {
-    if (window.matchMedia && window.matchMedia('(max-width: 1023px)').matches) {
-      document.body.classList.add('appmode');
-    }
-  } catch (e) {}
-})();
-</script>
 
 <!-- Bandeau d'avertissement local (affiché uniquement si le fichier est ouvert en file:///) -->
 <div id="localWarn" class="hidden bg-amber-400 text-chicago-dark text-sm px-4 py-3 text-center font-medium">
@@ -1141,7 +1130,7 @@ tailwind.config = {
               <li><strong>Notre greeter :</strong> Jeff DeToro &mdash; portable <a href="tel:+17738051115" class="text-chicago-blue hover:underline">+1 773 805 1115</a> (WhatsApp possible le jour J), joignable par mail avant le lundi 7</li>
               <li><strong>Groupe confirm&eacute; :</strong> <strong>visite priv&eacute;e &agrave; 5</strong> &mdash; Bruno, N&eacute;vine, Christophe, Laure et Jeff. Aucun autre participant, Jeff l&rsquo;a confirm&eacute; par &eacute;crit. Christophe est en copie de tous les &eacute;changes.</li>
               <li><strong>Langue :</strong> visite <strong>en anglais</strong>. Jeff parle un peu fran&ccedil;ais (&laquo;&nbsp;<em>enough to be a little dangerous</em>&nbsp;&raquo;) et a accept&eacute; de <strong>basculer en fran&ccedil;ais ponctuellement</strong> pour lever une ambigu&iuml;t&eacute; ou pr&eacute;ciser une nuance.</li>
-              <li><strong>Bureau Chicago Greeter :</strong> <a href="/cdn-cgi/l/email-protection#1a7d687f7f6e7f687e785a79727575697f797273797b7d7534797577" class="text-chicago-blue hover:underline"><span class="__cf_email__" data-cfemail="6502170000110017010725060d0a0a1600060d0c0604020a4b060a08">[email&#160;protected]</span></a> &mdash; &agrave; n&rsquo;utiliser qu&rsquo;en dernier recours&nbsp;: passer par Jeff.</li>
+              <li><strong>Bureau Chicago Greeter :</strong> <a href="/cdn-cgi/l/email-protection#0463766161706176606644676c6b6b7761676c6d6765636b2a676b69" class="text-chicago-blue hover:underline"><span class="__cf_email__" data-cfemail="c6a1b4a3a3b2a3b4a2a486a5aea9a9b5a3a5aeafa5a7a1a9e8a5a9ab">[email&#160;protected]</span></a> &mdash; &agrave; n&rsquo;utiliser qu&rsquo;en dernier recours&nbsp;: passer par Jeff.</li>
             </ul>
           </div>
 
@@ -1402,7 +1391,7 @@ tailwind.config = {
       </div>
       <div class="bg-chicago-sand rounded-2xl p-5">
         <p class="text-xs uppercase tracking-wider text-slate-500 font-bold mb-1">Contact</p>
-        <a href="/cdn-cgi/l/email-protection#60050101030f0e060512050e03052005130b05124e030f0d" class="font-bold text-chicago-dark hover:text-chicago-red break-all text-sm"><span class="__cf_email__" data-cfemail="52373333313d3c343720373c31371237213937207c313d3f">[email&#160;protected]</span></a>
+        <a href="/cdn-cgi/l/email-protection#f0959191939f9e969582959e9395b095839b9582de939f9d" class="font-bold text-chicago-dark hover:text-chicago-red break-all text-sm"><span class="__cf_email__" data-cfemail="3b5e5a5a5854555d5e495e55585e7b5e48505e4915585456">[email&#160;protected]</span></a>
         <p class="text-xs text-slate-500 mt-1">Commande du 29 juillet 2026</p>
       </div>
     </div>
@@ -3993,7 +3982,7 @@ tailwind.config = {
   }
 
   function setTab(tab, push, keepScroll){
-    if (TABS.indexOf(tab) < 0) tab = 'today';
+    if (TABS.indexOf(tab) < 0) tab = 'voyage';
     current = tab;
     paint(tab);
     if (!keepScroll) window.scrollTo(0, 0);
@@ -4031,7 +4020,7 @@ tailwind.config = {
     if (mBtn) { mBtn.classList.add('opened'); mBtn.setAttribute('aria-expanded', 'true'); }
     /* une entree d'historique : le bouton retour du telephone referme le panneau */
     try {
-      history.pushState({ cxmenu:1, cxtab: current }, '', location.hash || ('#t=' + (current || 'today')));
+      history.pushState({ cxmenu:1, cxtab: current }, '', location.hash || ('#t=' + (current || 'voyage')));
       menuPushed = true;
     } catch (e) { menuPushed = false; }
   }
@@ -4124,8 +4113,8 @@ tailwind.config = {
   function enableApp(){
     if (document.body.classList.contains('appmode')) return;
     document.body.classList.add('appmode');
-    var start = tabFromHash() || 'today';
-    if (TABS.indexOf(start) < 0) start = 'today';
+    var start = tabFromHash() || 'voyage';
+    if (TABS.indexOf(start) < 0) start = 'voyage';
     setTab(start, false);
     try { history.replaceState({ cxtab: start }, '', '#t=' + start); } catch (e) {}
   }
@@ -4139,7 +4128,7 @@ tailwind.config = {
   window.addEventListener('popstate', function(e){
     if (menuOpen) { closeMenu(false); return; }   /* le retour referme d'abord le panneau */
     if (!document.body.classList.contains('appmode')) return;
-    var t = (e.state && e.state.cxtab) || tabFromHash() || 'today';
+    var t = (e.state && e.state.cxtab) || tabFromHash() || 'voyage';
     setTab(t, false);
   });
 
