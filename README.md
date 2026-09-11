@@ -36,9 +36,9 @@ Christophe & Laure. Page unique, aucune dépendance à builder.
 | 08 | `#shopping` | Outlets et shopping |
 | 09 | `#meteo` | Météo et bagages |
 | 10 | `#lieux` | **Localisation** — 21 lieux du séjour, boutons Google Maps |
-| 11 | `#manger` | **Où manger** — 21 restaurants, 6 catégories, photos, itinéraires depuis le Loews |
-| 12 | `#gouter` | **Où goûter** — 10 adresses, 6 catégories, sélection par unanimité des avis |
-| 13 | `#patisseries` | **Pâtisseries** — 8 adresses classées par style : américain, français, belge, italien |
+| 12 | `#manger` | **Où manger** — 21 restaurants, 6 catégories, photos, itinéraires depuis le Loews |
+| 13 | `#gouter` | **Où goûter** — 10 adresses, 6 catégories, sélection par unanimité des avis |
+| 14 | `#patisseries` | **Pâtisseries** — 8 adresses classées par style : américain, français, belge, italien |
 | 14 | `#transports` | **Se déplacer** — Ventra, tarifs CTA, plans PDF, budget, bons plans |
 | 15 | `#pratique` | ESTA, eSIM, argent, pourboires, urgences |
 | 16 | `#fin` | Bon voyage |
@@ -58,11 +58,11 @@ Plus un écran `#today` visible uniquement en mode application.
 La version du cache doit être incrémentée **aux trois endroits** suivants,
 sinon les téléphones déjà installés continueront de servir l'ancienne page :
 
-1. `sw.js`, ligne 9 : `const VERSION = '2026-08-31b';`
-2. `index.html`, ligne 13 : `manifest.webmanifest?v=2026-08-31b`
-3. `index.html`, script « mode application » : `var V = '2026-08-31b';`
+1. `sw.js`, ligne 9 : `const VERSION = '2026-09-11a';`
+2. `index.html`, ligne 13 : `manifest.webmanifest?v=2026-09-11a`
+3. `index.html`, script « mode application » : `var V = '2026-09-11a';`
 
-Version actuelle : **2026-08-31b**
+Version actuelle : **2026-09-11a**
 
 ## Navigation (refonte du 31 aout 2026)
 
@@ -76,7 +76,7 @@ La rubrique courante s'allume dans son panneau, et son groupe s'allume dans la b
 ### Telephone (mode application)
 La barre du bas compte **4 onglets + 1 bouton Menu** :
 `Aujourd'hui` · `Agenda` · `Lieux` · `Manger` · `Menu`.
-Le bouton Menu ouvre `#appmenu`, un panneau coulissant qui liste **les 17 rubriques**
+Le bouton Menu ouvre `#appmenu`, un panneau coulissant qui liste **les 18 rubriques**
 groupees en 6 familles, avec le bouton Installer en tete.
 Il s'ouvre aussi en **glissant le doigt vers le haut** depuis la barre,
 se ferme par la poignee, le fond, la croix, la touche Echap ou le bouton retour du telephone.
@@ -144,3 +144,9 @@ qui touche l'ecran sans etre apparu est rendu visible de force.
 
 Regle a retenir pour la suite : **ne jamais poser `.reveal` sur un conteneur
 qui sera rempli par un script.**
+
+## Mise à jour du 11 septembre 2026
+
+Ajout de la rubrique **Quartiers & ligne bleue** (`#quartiers`) dans la navigation ordinateur, le menu mobile et le menu de l'application PWA. La rubrique propose un comparatif pratique de Wicker Park/Bucktown, Logan Square, Avondale, Jefferson Park/Portage Park et Rosemont, avec des parcours conseillés, des repères CTA et des liens Google Maps.
+
+La version du cache PWA a été portée à `2026-09-11a`.

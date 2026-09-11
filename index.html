@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Chicago 26">
-<link rel="manifest" href="./manifest.webmanifest?v=2026-08-31b">
+<link rel="manifest" href="./manifest.webmanifest?v=2026-09-11a">
 <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon-180.png?v=2026-08-29a">
 <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon-192.png?v=2026-08-29a">
 <title>Chicago City Trip · Septembre 2026 · Bruno &amp; Christophe</title>
@@ -468,6 +468,7 @@ tailwind.config = {
         <button type="button" class="nav-link dd-btn" aria-expanded="false">Sur place<i class="fa-solid fa-chevron-down caret"></i></button>
         <div class="dd-panel">
           <a href="#lieux"><i class="fa-solid fa-map-location-dot"></i>Localisation</a>
+          <a href="#quartiers"><i class="fa-solid fa-route"></i>Quartiers &amp; ligne bleue</a>
           <a href="#transports"><i class="fa-solid fa-train-subway"></i>Se d&eacute;placer</a>
           <a href="#shopping"><i class="fa-solid fa-bag-shopping"></i>Shopping &amp; outlets</a>
         </div>
@@ -510,6 +511,7 @@ tailwind.config = {
       <a href="#esker" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-list-check w-7 text-chicago-blue"></i> Agenda Esker All Access</a>
       <a href="#shopping" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-bag-shopping w-7 text-chicago-blue"></i> Shopping</a>
       <a href="#lieux" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-map-location-dot w-7 text-chicago-blue"></i> Lieux &amp; itinéraires</a>
+      <a href="#quartiers" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-route w-7 text-chicago-blue"></i> Quartiers &amp; ligne bleue</a>
       <a href="#transports" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-train-subway w-7 text-chicago-blue"></i> Se déplacer</a>
       <a href="#manger" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-utensils w-7 text-chicago-blue"></i> Où manger</a>
       <a href="#gouter" class="py-3.5 text-slate-700 hover:text-chicago-red"><i class="fa-solid fa-mug-saucer w-7 text-chicago-blue"></i> Où goûter</a>
@@ -1485,7 +1487,136 @@ tailwind.config = {
 </section>
 
 <!-- ============ 10. SE DEPLACER ============ -->
-<section id="transports" data-tab="lieux" data-sec="Se d&eacute;placer" data-num="10" class="py-24 bg-white">
+
+<!-- ============ QUARTIERS ET LIGNE BLEUE ============ -->
+<section id="quartiers" data-tab="lieux" data-sec="Quartiers &amp; ligne bleue" data-num="10" class="py-24 bg-chicago-sand">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-12">
+      <p class="text-[.7rem] font-bold uppercase tracking-[.2em] text-chicago-red mb-3">10 &middot; Décider où aller</p>
+      <h2 class="text-4xl md:text-5xl font-serif font-bold text-chicago-dark mb-5">Les quartiers entre le Loop et Rosemont</h2>
+      <p class="text-lg text-slate-600 max-w-4xl">Une autre façon de découvrir Chicago, sans musée et sans refaire le centre-ville&nbsp;: prendre la ligne bleue, descendre dans un quartier habité et marcher à son rythme. Pour votre séjour, <strong>Logan Square</strong> est le meilleur équilibre entre promenade, architecture et vie locale. <strong>Wicker Park / Bucktown</strong> est le plus facile et le plus animé. <strong>Avondale</strong> et <strong>Jefferson Park</strong> sont plus résidentiels.</p>
+    </div>
+
+    <div class="bg-white rounded-2xl border-2 border-emerald-300 p-5 md:p-6 mb-10 shadow-sm">
+      <div class="flex items-start gap-3">
+        <i class="fa-solid fa-circle-check text-emerald-600 text-xl mt-0.5"></i>
+        <div>
+          <h3 class="font-bold text-chicago-dark text-lg mb-2">La décision rapide</h3>
+          <p class="text-slate-700 text-sm md:text-base">Si vous ne faites qu'une sortie&nbsp;: <strong>ligne bleue jusqu'à Logan Square</strong>, Centennial Monument, Logan Boulevard, Palmer Square, puis dîner sur Milwaukee Avenue. Si vous préférez davantage de commerces, de bars et de mouvement&nbsp;: <strong>Damen, pour Wicker Park et Bucktown</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-6 mb-12">
+      <article class="bg-white rounded-2xl border border-slate-200 p-6 card-hover">
+        <div class="flex items-start justify-between gap-4 mb-4">
+          <div>
+            <p class="text-[.65rem] font-bold uppercase tracking-widest text-chicago-red">Arrêt Damen</p>
+            <h3 class="text-2xl font-serif font-bold text-chicago-dark mt-1">Wicker Park &amp; Bucktown</h3>
+          </div>
+          <span class="shrink-0 rounded-full bg-sky-50 text-sky-800 px-3 py-1 text-[.65rem] font-bold uppercase">Le plus animé</span>
+        </div>
+        <p class="text-sm text-slate-600 mb-4">Le secteur de North, Milwaukee et Damen est vivant, commerçant et facile à parcourir. Il est plus branché que résidentiel, mais reste excellent pour ressentir le rythme quotidien du North Side.</p>
+        <ul class="text-sm text-slate-700 space-y-2 mb-5">
+          <li><i class="fa-solid fa-shoe-prints w-5 text-chicago-blue"></i>Marcher sur Milwaukee Avenue et autour de Six Corners</li>
+          <li><i class="fa-solid fa-book w-5 text-chicago-blue"></i>Myopic Books, boutiques indépendantes et disquaires</li>
+          <li><i class="fa-solid fa-road w-5 text-chicago-blue"></i>Faire une partie de la promenade surélevée The 606</li>
+          <li><i class="fa-solid fa-utensils w-5 text-chicago-blue"></i>Club Lucky, Ina Mae Tavern ou Dove's Luncheonette</li>
+        </ul>
+        <a class="inline-flex items-center gap-2 text-sm font-bold text-chicago-blue hover:underline" href="https://www.google.com/maps/search/?api=1&amp;query=North+Milwaukee+Damen+Chicago" target="_blank" rel="noopener"><i class="fa-solid fa-map-location-dot"></i>Ouvrir le point de départ</a>
+      </article>
+
+      <article class="bg-white rounded-2xl border-2 border-chicago-blue p-6 card-hover shadow-sm">
+        <div class="flex items-start justify-between gap-4 mb-4">
+          <div>
+            <p class="text-[.65rem] font-bold uppercase tracking-widest text-chicago-red">Arrêt Logan Square</p>
+            <h3 class="text-2xl font-serif font-bold text-chicago-dark mt-1">Logan Square</h3>
+          </div>
+          <span class="shrink-0 rounded-full bg-emerald-50 text-emerald-800 px-3 py-1 text-[.65rem] font-bold uppercase">Notre choix</span>
+        </div>
+        <p class="text-sm text-slate-600 mb-4">De grands boulevards, des maisons anciennes, des parcs et une vraie vie de quartier. C'est le meilleur compromis pour voir un Chicago moins monumental, mais toujours riche à observer à pied.</p>
+        <ul class="text-sm text-slate-700 space-y-2 mb-5">
+          <li><i class="fa-solid fa-landmark w-5 text-chicago-blue"></i>Centennial Monument à Logan Square</li>
+          <li><i class="fa-solid fa-tree w-5 text-chicago-blue"></i>Logan Boulevard et Palmer Square</li>
+          <li><i class="fa-solid fa-film w-5 text-chicago-blue"></i>Façade du Logan Theatre, ancien cinéma de quartier</li>
+          <li><i class="fa-solid fa-utensils w-5 text-chicago-blue"></i>Lula Cafe, Longman &amp; Eagle, Parson's ou Daisies</li>
+        </ul>
+        <a class="inline-flex items-center gap-2 text-sm font-bold text-chicago-blue hover:underline" href="https://www.google.com/maps/search/?api=1&amp;query=Logan+Square+Monument+Chicago" target="_blank" rel="noopener"><i class="fa-solid fa-map-location-dot"></i>Ouvrir le point de départ</a>
+      </article>
+
+      <article class="bg-white rounded-2xl border border-slate-200 p-6 card-hover">
+        <div class="flex items-start justify-between gap-4 mb-4">
+          <div>
+            <p class="text-[.65rem] font-bold uppercase tracking-widest text-chicago-red">Arrêt Belmont</p>
+            <h3 class="text-2xl font-serif font-bold text-chicago-dark mt-1">Avondale</h3>
+          </div>
+          <span class="shrink-0 rounded-full bg-amber-50 text-amber-800 px-3 py-1 text-[.65rem] font-bold uppercase">Plus local</span>
+        </div>
+        <p class="text-sm text-slate-600 mb-4">Un quartier plus résidentiel et multiculturel, à choisir surtout pour l'ambiance de fin de journée, les brasseries, les restaurants et la musique.</p>
+        <ul class="text-sm text-slate-700 space-y-2 mb-5">
+          <li><i class="fa-solid fa-beer-mug-empty w-5 text-chicago-blue"></i>Revolution Brewing, pour une bière locale</li>
+          <li><i class="fa-solid fa-bowling-ball w-5 text-chicago-blue"></i>Avondale Bowl, bowling de quartier</li>
+          <li><i class="fa-solid fa-music w-5 text-chicago-blue"></i>Sleeping Village, concerts et bar</li>
+          <li><i class="fa-solid fa-person-walking w-5 text-chicago-blue"></i>À combiner avec Logan Square plutôt qu'à visiter seul</li>
+        </ul>
+        <a class="inline-flex items-center gap-2 text-sm font-bold text-chicago-blue hover:underline" href="https://www.google.com/maps/search/?api=1&amp;query=Revolution+Brewing+Avondale+Chicago" target="_blank" rel="noopener"><i class="fa-solid fa-map-location-dot"></i>Ouvrir le point de départ</a>
+      </article>
+
+      <article class="bg-white rounded-2xl border border-slate-200 p-6 card-hover">
+        <div class="flex items-start justify-between gap-4 mb-4">
+          <div>
+            <p class="text-[.65rem] font-bold uppercase tracking-widest text-chicago-red">Arrêt Jefferson Park</p>
+            <h3 class="text-2xl font-serif font-bold text-chicago-dark mt-1">Jefferson Park &amp; Portage Park</h3>
+          </div>
+          <span class="shrink-0 rounded-full bg-violet-50 text-violet-800 px-3 py-1 text-[.65rem] font-bold uppercase">Le plus résidentiel</span>
+        </div>
+        <p class="text-sm text-slate-600 mb-4">À privilégier si vous voulez voir une facette plus ordinaire et polonaise de Chicago. Il y a moins de monuments, mais davantage de vie locale et de restaurants de quartier.</p>
+        <ul class="text-sm text-slate-700 space-y-2 mb-5">
+          <li><i class="fa-solid fa-utensils w-5 text-chicago-blue"></i>Smakosz ou Smak-Tak pour une cuisine polonaise</li>
+          <li><i class="fa-solid fa-masks-theater w-5 text-chicago-blue"></i>Copernicus Center et ses événements culturels</li>
+          <li><i class="fa-solid fa-tree w-5 text-chicago-blue"></i>Portage Park et ses espaces verts</li>
+          <li><i class="fa-solid fa-circle-info w-5 text-chicago-blue"></i>À choisir si l'ambiance compte plus que les visites</li>
+        </ul>
+        <a class="inline-flex items-center gap-2 text-sm font-bold text-chicago-blue hover:underline" href="https://www.google.com/maps/search/?api=1&amp;query=Jefferson+Park+Chicago" target="_blank" rel="noopener"><i class="fa-solid fa-map-location-dot"></i>Ouvrir le point de départ</a>
+      </article>
+    </div>
+
+    <div class="bg-chicago-dark text-white rounded-2xl p-6 md:p-8 mb-10">
+      <div class="flex items-start gap-3 mb-5">
+        <i class="fa-solid fa-route text-chicago-blue text-xl mt-1"></i>
+        <div>
+          <p class="text-[.65rem] font-bold uppercase tracking-widest text-chicago-blue mb-1">Parcours conseillé</p>
+          <h3 class="text-2xl font-serif font-bold">Une demi-journée sans se disperser</h3>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-4 text-sm">
+        <div class="rounded-xl bg-white/10 p-4"><strong class="text-chicago-blue block mb-1">1 · Logan Square</strong><span class="text-slate-200">Centennial Monument, Logan Boulevard et Palmer Square.</span></div>
+        <div class="rounded-xl bg-white/10 p-4"><strong class="text-chicago-blue block mb-1">2 · Avondale, option</strong><span class="text-slate-200">Continuer jusqu'à Belmont pour une bière, un bowling ou un concert.</span></div>
+        <div class="rounded-xl bg-white/10 p-4"><strong class="text-chicago-blue block mb-1">3 · Retour</strong><span class="text-slate-200">Reprendre la ligne bleue vers Rosemont, puis rejoindre le Loews.</span></div>
+      </div>
+      <p class="text-xs text-slate-300 mt-5"><i class="fa-solid fa-lightbulb mr-1.5 text-chicago-blue"></i>Alternative plus courte&nbsp;: descendre à Damen, marcher sur Milwaukee Avenue et faire seulement une portion de The 606.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-6">
+      <div class="bg-white rounded-2xl border border-slate-200 p-6">
+        <h3 class="font-bold text-chicago-dark text-lg mb-3"><i class="fa-solid fa-train-subway mr-2 text-chicago-red"></i>Repères de transport</h3>
+        <p class="text-sm text-slate-600 mb-4">La ligne bleue relie O'Hare et le centre-ville en desservant notamment Rosemont, Jefferson Park, Belmont, Logan Square et Damen. Depuis le Loews, rejoignez d'abord la station Rosemont avec le moyen recommandé par l'hôtel, puis choisissez un seul secteur pour éviter de perdre du temps dans les transports.</p>
+        <a class="inline-flex items-center gap-2 text-sm font-bold text-chicago-blue hover:underline" href="https://www.transitchicago.com/blueline/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i>Voir la ligne bleue sur le site CTA</a>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-6">
+        <h3 class="font-bold text-chicago-dark text-lg mb-3"><i class="fa-solid fa-building-columns mr-2 text-chicago-red"></i>Rosemont, solution de proximité</h3>
+        <p class="text-sm text-slate-600 mb-4">Rosemont est pratique pour une soirée près du Loews, avec Parkway Bank Park, restaurants, spectacles et Fashion Outlets. En revanche, c'est une zone de loisirs et de conventions, pas le meilleur endroit pour ressentir une vie de quartier chicagoane.</p>
+        <a class="inline-flex items-center gap-2 text-sm font-bold text-chicago-blue hover:underline" href="https://rosemont.com/thepark/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i>Voir Parkway Bank Park</a>
+      </div>
+    </div>
+
+    <div class="mt-8 rounded-xl bg-white/70 border border-slate-200 p-4 text-xs text-slate-500">
+      <i class="fa-solid fa-rotate mr-2 text-chicago-blue"></i><strong>À vérifier le jour J&nbsp;:</strong> horaires des restaurants, concerts et éventuels événements. Les liens officiels et les itinéraires ci-dessus sont conservés pour faciliter la vérification depuis le téléphone.
+    </div>
+  </div>
+</section>
+
+<section id="transports" data-tab="lieux" data-sec="Se d&eacute;placer" data-num="11" class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mb-8">
       <p class="text-[.7rem] font-bold uppercase tracking-[.2em] text-chicago-red mb-3">10 &middot; Se d&eacute;placer</p>
@@ -1821,7 +1952,7 @@ tailwind.config = {
 </section>
 
 <!-- ============ 11. OU MANGER ============ -->
-<section id="manger" data-tab="manger" data-sec="Où manger" data-num="11" class="py-24 bg-chicago-sand">
+<section id="manger" data-tab="manger" data-sec="Où manger" data-num="12" class="py-24 bg-chicago-sand">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mb-8">
       <p class="text-[.7rem] font-bold uppercase tracking-[.2em] text-chicago-red mb-3">11 &middot; O&ugrave; manger</p>
@@ -1871,7 +2002,7 @@ tailwind.config = {
 </section>
 
 <!-- ============ 12. OU GOUTER ============ -->
-<section id="gouter" data-tab="manger" data-sec="Où goûter" data-num="12" class="py-24 bg-white">
+<section id="gouter" data-tab="manger" data-sec="Où goûter" data-num="13" class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mb-8">
       <p class="text-[.7rem] font-bold uppercase tracking-[.2em] text-chicago-red mb-3">12 &middot; O&ugrave; go&ucirc;ter</p>
@@ -1927,7 +2058,7 @@ tailwind.config = {
 </section>
 
 <!-- ============ 13. PATISSERIES ============ -->
-<section id="patisseries" data-tab="manger" data-sec="P&acirc;tisseries" data-num="13" class="py-24 section-pattern">
+<section id="patisseries" data-tab="manger" data-sec="P&acirc;tisseries" data-num="14" class="py-24 section-pattern">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mb-8">
       <p class="text-[.7rem] font-bold uppercase tracking-[.2em] text-chicago-red mb-3">13 &middot; P&acirc;tisseries</p>
@@ -1983,7 +2114,7 @@ tailwind.config = {
 
 <div class="sep h-20 md:h-28" style="background:#f8fafc"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,60 C280,10 560,95 820,55 C1060,18 1240,70 1440,40 L1440,100 L0,100 Z" fill="#002B49" opacity=".35"></path><path d="M0,75 C260,35 520,110 780,72 C1040,35 1230,88 1440,62 L1440,100 L0,100 Z" fill="#002B49"></path></svg></div>
 <!-- ============ 14. METEO ============ -->
-<section id="meteo" data-tab="infos" data-sec="Météo" data-num="14" class="py-24 bg-chicago-dark text-white">
+<section id="meteo" data-tab="infos" data-sec="Météo" data-num="15" class="py-24 bg-chicago-dark text-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-4">
       <h2 class="text-sm font-bold text-chicago-blue uppercase tracking-widest mb-3">Du 4 au 13 septembre</h2>
@@ -2103,7 +2234,7 @@ tailwind.config = {
 
 
 <!-- ============ 15. PRATIQUE ============ -->
-<section id="pratique" data-tab="infos" data-sec="Pratique" data-num="15" class="section-pattern py-24">
+<section id="pratique" data-tab="infos" data-sec="Pratique" data-num="16" class="section-pattern py-24">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
       <h2 class="text-sm font-bold text-chicago-red uppercase tracking-widest mb-3">À ne pas oublier</h2>
@@ -2169,7 +2300,7 @@ tailwind.config = {
 
 <div class="sep h-12 md:h-20" style="background:#f8fafc"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,0 L1440,100 L0,100 Z" fill="#002B49"></path></svg></div>
 <!-- ============ 16. BON VOYAGE ============ -->
-<footer id="fin" data-tab="infos" data-sec="Bon voyage" data-num="16" class="bg-chicago-dark text-slate-400 py-12 text-center">
+<footer id="fin" data-tab="infos" data-sec="Bon voyage" data-num="17" class="bg-chicago-dark text-slate-400 py-12 text-center">
   <i class="fa-solid fa-wind text-chicago-blue text-3xl mb-4"></i>
   <p class="font-serif text-xl text-white mb-2">Chicago, septembre 2026</p>
   <p class="text-sm">Bruno &amp; Névine · Christophe &amp; Laure — bon voyage !</p>
@@ -2823,6 +2954,7 @@ tailwind.config = {
       <p class="am-fam"><i class="fa-solid fa-map-location-dot"></i>Sur place<span class="line"></span></p>
       <div class="am-grid">
         <button type="button" class="am-tile" data-goto="lieux"><i class="fa-solid fa-map-location-dot"></i><span>Localisation</span></button>
+        <button type="button" class="am-tile" data-goto="quartiers"><i class="fa-solid fa-route"></i><span>Quartiers</span></button>
         <button type="button" class="am-tile" data-goto="transports"><i class="fa-solid fa-train-subway"></i><span>Se d&eacute;placer</span></button>
         <button type="button" class="am-tile" data-goto="shopping"><i class="fa-solid fa-bag-shopping"></i><span>Shopping</span></button>
       </div>
@@ -3707,7 +3839,7 @@ tailwind.config = {
 <!-- ============ MODE APPLICATION : onglets, ecran du jour, lieux, PWA ============ -->
 <script>
 (function(){
-  var V = '2026-08-31b';
+  var V = '2026-09-11a';
   var T = window.TRIP || {};
   var DAYS = T.DAYS || [], EV = T.EV || [], CATS = T.CATS || [];
   var esc = T.esc || function(x){ return String(x); };
